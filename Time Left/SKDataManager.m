@@ -148,7 +148,7 @@ NSString *const kDeletedKey = @"deleted";
     NSURL *iCloud = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier: nil];
     
     if (iCloud) {
-        [options setObject:@"6P9PN587KS~com~khanov~When" forKey:NSPersistentStoreUbiquitousContentNameKey];
+        [options setObject:@"iCloud.com.eaststudios.dayspronew" forKey:NSPersistentStoreUbiquitousContentNameKey];
     }
     
     NSURL *documentsDirectory = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory

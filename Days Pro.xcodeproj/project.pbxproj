@@ -36,6 +36,7 @@
 		A6DDBC9E18913656003B2D37 /* SKEventCellProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DDBC9D18913656003B2D37 /* SKEventCellProgressView.m */; };
 		A6DEF6311899263900070415 /* SKCustomCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DEF6301899263900070415 /* SKCustomCollectionViewFlowLayout.m */; };
 		A6DEF634189BE11000070415 /* SKPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DEF633189BE11000070415 /* SKPushManager.m */; };
+		D6723DDD1DBE3D5800D925A4 /* daysPRO-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6723DDC1DBE3D5800D925A4 /* daysPRO-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,14 +64,13 @@
 		A65DE88A189E369E009F7AFE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A65DE88C189E36AC009F7AFE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		A65DE88E189E41FA009F7AFE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		A669355A179D31E200E5A40F /* When.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = When.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A669355A179D31E200E5A40F /* Days Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Days Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A669355D179D31E200E5A40F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A669355F179D31E200E5A40F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6693561179D31E200E5A40F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A6693565179D31E200E5A40F /* When-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "When-Info.plist"; sourceTree = "<group>"; };
 		A6693567179D31E200E5A40F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6693569179D31E200E5A40F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A669356B179D31E200E5A40F /* When-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "When-Prefix.pch"; sourceTree = "<group>"; };
+		A669356B179D31E200E5A40F /* Days Pro-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Days Pro-Prefix.pch"; sourceTree = "<group>"; };
 		A669356C179D31E200E5A40F /* SKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKAppDelegate.h; sourceTree = "<group>"; };
 		A669356D179D31E200E5A40F /* SKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKAppDelegate.m; sourceTree = "<group>"; };
 		A6693576179D31E200E5A40F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
@@ -90,6 +90,7 @@
 		A6DEF6301899263900070415 /* SKCustomCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCustomCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		A6DEF632189BE11000070415 /* SKPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPushManager.h; sourceTree = "<group>"; };
 		A6DEF633189BE11000070415 /* SKPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPushManager.m; sourceTree = "<group>"; };
+		D6723DDC1DBE3D5800D925A4 /* daysPRO-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "daysPRO-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +139,7 @@
 		A669355B179D31E200E5A40F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A669355A179D31E200E5A40F /* When.app */,
+				A669355A179D31E200E5A40F /* Days Pro.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -187,10 +188,10 @@
 		A6693564179D31E200E5A40F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A6693565179D31E200E5A40F /* When-Info.plist */,
+				D6723DDC1DBE3D5800D925A4 /* daysPRO-Info.plist */,
 				A6693566179D31E200E5A40F /* InfoPlist.strings */,
 				A6693569179D31E200E5A40F /* main.m */,
-				A669356B179D31E200E5A40F /* When-Prefix.pch */,
+				A669356B179D31E200E5A40F /* Days Pro-Prefix.pch */,
 				A6B4C85018DF48B900586587 /* notification-sound.caf */,
 			);
 			name = "Supporting Files";
@@ -246,9 +247,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A6693559179D31E200E5A40F /* When */ = {
+		A6693559179D31E200E5A40F /* Days Pro */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A6693580179D31E200E5A40F /* Build configuration list for PBXNativeTarget "When" */;
+			buildConfigurationList = A6693580179D31E200E5A40F /* Build configuration list for PBXNativeTarget "Days Pro" */;
 			buildPhases = (
 				A6693556179D31E200E5A40F /* Sources */,
 				A6693557179D31E200E5A40F /* Frameworks */,
@@ -259,9 +260,9 @@
 			);
 			dependencies = (
 			);
-			name = When;
+			name = "Days Pro";
 			productName = "Time Left";
-			productReference = A669355A179D31E200E5A40F /* When.app */;
+			productReference = A669355A179D31E200E5A40F /* Days Pro.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -275,8 +276,12 @@
 				ORGANIZATIONNAME = "Salavat Khanov";
 				TargetAttributes = {
 					A6693559179D31E200E5A40F = {
-						DevelopmentTeam = 6P9PN587KS;
+						DevelopmentTeam = 74N5MDHHBK;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};
@@ -284,7 +289,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A6693555179D31E200E5A40F /* Build configuration list for PBXProject "When" */;
+			buildConfigurationList = A6693555179D31E200E5A40F /* Build configuration list for PBXProject "Days Pro" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -296,7 +301,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A6693559179D31E200E5A40F /* When */,
+				A6693559179D31E200E5A40F /* Days Pro */,
 			);
 		};
 /* End PBXProject section */
@@ -311,6 +316,7 @@
 				A62A0834189504380031AE7F /* Media.xcassets in Resources */,
 				A6693577179D31E200E5A40F /* MainStoryboard_iPhone.storyboard in Resources */,
 				A669357A179D31E200E5A40F /* MainStoryboard_iPad.storyboard in Resources */,
+				D6723DDD1DBE3D5800D925A4 /* daysPRO-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,22 +455,24 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Time Left/When.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Salavat Khanov (REFNZC5FDV)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Salavat Khanov (REFNZC5FDV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 74N5MDHHBK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/Users/khanov/Developer/Time-Left/Time Left\"",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Time Left/When-Prefix.pch";
-				INFOPLIST_FILE = "Time Left/When-Info.plist";
+				GCC_PREFIX_HEADER = "Time Left/Days Pro-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Time Left/daysPRO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/khanov/Developer/Time-Left",
 				);
-				PRODUCT_NAME = When;
-				PROVISIONING_PROFILE = "9E2FBF9B-D4AD-47E1-B552-175ED0B4AF64";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eaststudios.dayspronew;
+				PRODUCT_NAME = "Days Pro";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -477,22 +485,24 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = "Time Left/When.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Salavat Khanov (6P9PN587KS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Salavat Khanov (6P9PN587KS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 74N5MDHHBK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/Users/khanov/Developer/Time-Left/Time Left\"",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Time Left/When-Prefix.pch";
-				INFOPLIST_FILE = "Time Left/When-Info.plist";
+				GCC_PREFIX_HEADER = "Time Left/Days Pro-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Time Left/daysPRO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/khanov/Developer/Time-Left",
 				);
-				PRODUCT_NAME = When;
-				PROVISIONING_PROFILE = "E3092739-4603-4596-B51A-3B3DD20E4EC4";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eaststudios.dayspronew;
+				PRODUCT_NAME = "Days Pro";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -501,7 +511,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A6693555179D31E200E5A40F /* Build configuration list for PBXProject "When" */ = {
+		A6693555179D31E200E5A40F /* Build configuration list for PBXProject "Days Pro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A669357E179D31E200E5A40F /* Debug */,
@@ -510,7 +520,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A6693580179D31E200E5A40F /* Build configuration list for PBXNativeTarget "When" */ = {
+		A6693580179D31E200E5A40F /* Build configuration list for PBXNativeTarget "Days Pro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A6693581179D31E200E5A40F /* Debug */,
