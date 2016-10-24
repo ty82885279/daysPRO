@@ -405,6 +405,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                              handler:nil];
     [alertController addAction:takePicture];
     [alertController addAction:cameraRoll];
+    //Only show the remove button if there's an image
     if (bgImageView.image) {
         [alertController addAction:removeImage];
     }

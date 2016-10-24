@@ -49,7 +49,7 @@
     self.cachedCellAttributes = [[NSMutableDictionary alloc] initWithDictionary:self.currentCellAttributes copyItems:YES];
     self.cachedSupplementaryAttributesByKind = [NSMutableDictionary dictionary];
     [self.currentSupplementaryAttributesByKind enumerateKeysAndObjectsUsingBlock:^(NSString *kind, NSMutableDictionary * attribByPath, BOOL *stop) {
-        NSMutableDictionary * cachedAttribByPath = [[NSMutableDictionary alloc] initWithDictionary:attribByPath copyItems:YES];
+        NSMutableDictionary *cachedAttribByPath = [[NSMutableDictionary alloc] initWithDictionary:attribByPath copyItems:YES];
         [self.cachedSupplementaryAttributesByKind setObject:cachedAttribByPath forKey:kind];
     }];
 }
