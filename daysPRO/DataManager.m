@@ -243,6 +243,14 @@ NSString *const kDeletedKey = @"deleted";
 }
 
 - (void)deleteEvent:(Event *)event {
+    //remove the image
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:event.name];
+    NSError *error;
+    [fileManager removeItemAtPath:filePath error:&error];
+    
     [self.managedObjectContext deleteObject:event];
 }
 
@@ -273,16 +281,7 @@ NSString *const kDeletedKey = @"deleted";
     [self createEventWithName:@"New Year"
                     startDate:firstDayOfTheYear
                       endDate:nextYear
-                      details:[NSString stringWithFormat:@"Time Left Until 1st Jan, %ld", (long)[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:nextYear] year]]];
-    
-    
-    //
-    // Installed the app
-    [self createEventWithName:@"Install This App"
-                    startDate:firstDayOfTheYear
-                      endDate:[NSDate date]
-                      details:@""];
-    
+                      details:nil];
     [self saveContext];
     
 }

@@ -375,7 +375,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                                }];
     
     UIAlertAction *cameraRoll = [UIAlertAction
-                               actionWithTitle:@"Select from Camera Roll"
+                               actionWithTitle:@"Select from the Camera Roll"
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction *action)
                                {

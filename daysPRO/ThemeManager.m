@@ -30,7 +30,7 @@
 }
 
 - (UIColor *)getTintColor {
-    return [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0];
+    return [UIColor colorWithRed:241.0/255.0 green:176.0/255.0 blue:51.0/255.0 alpha:1.0];
 }
 
 - (UIColor *)getTextColor {
