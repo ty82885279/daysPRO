@@ -8,11 +8,13 @@
 
 #import "Event+Helper.h"
 
+static NSString *kWeeksLeft = @"WEEKS LEFT";
 static NSString *kDaysLeft = @"DAYS LEFT";
 static NSString *kHoursLeft = @"HRS LEFT";
 static NSString *kMinutesLeft = @"MINS LEFT";
 static NSString *kSecondsLeft = @"SECS LEFT";
 
+static NSString *kWeeksToStart = @"WEEKS TO START";
 static NSString *kDaysToStart = @"DAYS TO START";
 static NSString *kHoursToStart = @"HRS TO START";
 static NSString *kMinutesToStart = @"MINS TO START";
@@ -27,14 +29,17 @@ static NSString *kDone = @"DONE";
         NSTimeInterval intervalSinceStart = [self.endDate timeIntervalSinceDate:self.startDate];
         NSTimeInterval intervalSinceNow = [[NSDate date] timeIntervalSinceDate:self.startDate];
         return intervalSinceNow / intervalSinceStart;
+    } else {
+        return 0;
     }
-    
-    NSLog(@"Error: start date or end date is invalid");
-    return 0;
 }
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"name '%@', startDate '%@', endDate '%@', desc '%@', created '%@'", self.name, self.startDate, self.endDate, self.details, self.createdDate];
+}
+
+- (NSInteger)weeksLeftToDate:(NSDate *)date {
+    return lroundf([self daysLeftToDate:date] / 7.0);
 }
 
 - (NSInteger)daysLeftToDate:(NSDate *)date {
@@ -59,7 +64,11 @@ static NSString *kDone = @"DONE";
     
     if ([self.startDate compare:[NSDate date]] == NSOrderedDescending) {
         // Start date is in the future
-        if ([self daysLeftToDate:self.startDate] > 2) {
+        if ([self weeksLeftToDate:self.startDate] > 2) {
+            progress = [@([self weeksLeftToDate:self.startDate]) stringValue];
+            metaText = kWeeksToStart;
+        }
+        else if ([self daysLeftToDate:self.startDate] > 2) {
             progress = [@([self daysLeftToDate:self.startDate]) stringValue];
             metaText = kDaysToStart;
         }
@@ -81,7 +90,11 @@ static NSString *kDone = @"DONE";
         }
     } else {
         // Start date is in the past
-        if ([self daysLeftToDate:self.endDate] > 2) {
+        if ([self weeksLeftToDate:self.endDate] > 2) {
+            progress = [@([self weeksLeftToDate:self.endDate]) stringValue];
+            metaText = kDaysLeft;
+        }
+        else if ([self daysLeftToDate:self.endDate] > 2) {
             progress = [@([self daysLeftToDate:self.endDate]) stringValue];
             metaText = kDaysLeft;
         }
