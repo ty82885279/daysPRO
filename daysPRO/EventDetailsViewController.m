@@ -417,7 +417,13 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                                  handler:^(UIAlertAction *action)
                                  {
                                      picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                                     [self presentViewController:picker animated:YES completion:nil];
+                                     [self presentViewController:picker animated:YES completion:^{
+                                         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+                                         picker.topViewController.title = @"Add Image";
+                                         picker.navigationBar.translucent = NO;
+                                         picker.navigationBar.barStyle = UIBarStyleDefault;
+                                         [picker setNavigationBarHidden:NO animated:NO];
+                                     }];
                                  }];
     
     UIAlertAction *removeImage = [UIAlertAction
