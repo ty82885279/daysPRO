@@ -36,6 +36,7 @@
 		D6723E231DBE409900D925A4 /* EventsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E081DBE409900D925A4 /* EventsCollectionViewController.m */; };
 		D6723E241DBE409900D925A4 /* ProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E0A1DBE409900D925A4 /* ProgressIndicator.m */; };
 		D6723E251DBE409900D925A4 /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E0C1DBE409900D925A4 /* PushManager.m */; };
+		D6723E2D1DBE434D00D925A4 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E2C1DBE434D00D925A4 /* ThemeManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,8 @@
 		D6723E0B1DBE409900D925A4 /* PushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushManager.h; sourceTree = "<group>"; };
 		D6723E0C1DBE409900D925A4 /* PushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushManager.m; sourceTree = "<group>"; };
 		D6723E0D1DBE409900D925A4 /* daysPRO.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = daysPRO.entitlements; sourceTree = "<group>"; };
+		D6723E2B1DBE434D00D925A4 /* ThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeManager.h; sourceTree = "<group>"; };
+		D6723E2C1DBE434D00D925A4 /* ThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +209,8 @@
 			children = (
 				D6723DFA1DBE409900D925A4 /* DataManager.h */,
 				D6723DFB1DBE409900D925A4 /* DataManager.m */,
+				D6723E2B1DBE434D00D925A4 /* ThemeManager.h */,
+				D6723E2C1DBE434D00D925A4 /* ThemeManager.m */,
 				D6723DFC1DBE409900D925A4 /* Event+Helper.h */,
 				D6723DFD1DBE409900D925A4 /* Event+Helper.m */,
 				D6723DFE1DBE409900D925A4 /* Event.h */,
@@ -303,6 +308,7 @@
 			files = (
 				D6723E201DBE409900D925A4 /* EventCellProgressView.m in Sources */,
 				D6723E1D1DBE409900D925A4 /* Event+Helper.m in Sources */,
+				D6723E2D1DBE434D00D925A4 /* ThemeManager.m in Sources */,
 				D6723E1B1DBE409900D925A4 /* CustomCollectionViewFlowLayout.m in Sources */,
 				D6723E1A1DBE409900D925A4 /* AppDelegate.m in Sources */,
 				D6723E161DBE409900D925A4 /* main.m in Sources */,

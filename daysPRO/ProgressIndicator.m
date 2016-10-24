@@ -38,12 +38,13 @@ static NSString *kColorAnimationKey = @"strokeColor";
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     [self setupColors];
 }
 
 - (void)setupColors {
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSDictionary *colors = [delegate currentTheme];
+    ThemeManager *themeManager = [[ThemeManager alloc] init];
+    NSDictionary *colors = [themeManager getTheme];
     
     self.backgroundColor = [colors objectForKey:@"background"];
     self.innerCircleBackgroundColor = [colors objectForKey:@"innerCircleBackground"];

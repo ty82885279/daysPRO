@@ -123,7 +123,7 @@
 //  - Result of an animated bounds change repositioning cells
 - (UICollectionViewLayoutAttributes*)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
     UICollectionViewLayoutAttributes *attributes = [super initialLayoutAttributesForAppearingItemAtIndexPath:itemIndexPath];
-
+    
     if ([self.insertedIndexPaths containsObject:itemIndexPath]) {
         // If this is a newly inserted item, make it grow into place from its nominal index path
         attributes = [[self.currentCellAttributes objectForKey:itemIndexPath] copy];
@@ -145,20 +145,20 @@
 //  - Result of an animated bounds change repositioning cells
 - (UICollectionViewLayoutAttributes*)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
     UICollectionViewLayoutAttributes *attributes = [super finalLayoutAttributesForDisappearingItemAtIndexPath:itemIndexPath];
-        
+    
     if ([self.removedIndexPaths containsObject:itemIndexPath] || [self.removedSectionIndices containsObject:@(itemIndexPath.section)]) {
         
         attributes = [[self.cachedCellAttributes objectForKey:itemIndexPath] copy];
         // Make it fall off the screen with a slight rotation
-//        CATransform3D transform = CATransform3DMakeTranslation(0, self.collectionView.bounds.size.height, 0);
-//        transform = CATransform3DRotate(transform, M_PI*0.2, 0, 0, 1);
-//        attributes.transform3D = transform;
-//        attributes.alpha = 0.0f;
+        //        CATransform3D transform = CATransform3DMakeTranslation(0, self.collectionView.bounds.size.height, 0);
+        //        transform = CATransform3DRotate(transform, M_PI*0.2, 0, 0, 1);
+        //        attributes.transform3D = transform;
+        //        attributes.alpha = 0.0f;
         // Scale down
         attributes.transform3D = CATransform3DMakeScale(0.1, 0.1, 1.0);
         
     }
-
+    
     return attributes;
 }
 

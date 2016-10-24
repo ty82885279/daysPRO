@@ -14,6 +14,4 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) PushManager *pushManager;
 
-- (NSDictionary *)currentTheme;
-
 @end

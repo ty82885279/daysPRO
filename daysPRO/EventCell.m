@@ -23,14 +23,15 @@
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     self.deleteButton.hidden = YES;
     self.quiveringAnimation = nil;
     [self setupColors];
 }
 
 - (void)setupColors {
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSDictionary *colors = [delegate currentTheme];
+    ThemeManager *themeManager = [[ThemeManager alloc] init];
+    NSDictionary *colors = [themeManager getTheme];
     self.backgroundColor = [colors objectForKey:@"background"];
     self.name.textColor = [colors objectForKey:@"tint"];
 }
@@ -38,7 +39,7 @@
 - (void)startQuivering {
     if (!self.quiveringAnimation) {
         self.deleteButton.hidden = NO;
-    
+        
         CABasicAnimation *quiverAnim = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
         CGFloat startAngle = (-2) * M_PI/180.0;
         CGFloat stopAngle = -startAngle;

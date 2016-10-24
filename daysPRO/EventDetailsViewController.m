@@ -32,7 +32,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
+        
     }
     return self;
 }
@@ -50,8 +50,8 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 }
 
 - (void)setupColors {
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSDictionary *colors = [delegate currentTheme];
+    ThemeManager *themeManager = [[ThemeManager alloc] init];
+    NSDictionary *colors = [themeManager getTheme];
     self.view.backgroundColor = [colors objectForKey:@"background"];
     // Transparent nav bar
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
@@ -273,10 +273,10 @@ static NSString *kEventDetailsScreenName = @"Event Details";
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             UIPopoverController *popover = [(UIStoryboardPopoverSegue *)segue popoverController];
-            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-            NSDictionary *colors = [delegate currentTheme];
+            ThemeManager *themeManager = [[ThemeManager alloc] init];
+            NSDictionary *colors = [themeManager getTheme];
             popover.backgroundColor = [colors objectForKey:@"background"];
-
+            
             editEventViewController.popover = popover;
         }
     }
@@ -303,7 +303,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     
     UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[shareString, finalImage] applicationActivities:nil];
     avc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll, UIActivityTypeAirDrop];
-	[self presentViewController:avc animated:YES completion:NULL];
+    [self presentViewController:avc animated:YES completion:NULL];
 }
 
 #pragma mark — Screenshot

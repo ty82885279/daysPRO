@@ -33,12 +33,13 @@ static CGFloat kSymbolFontSize = 45.0;
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     [self setupColors];
 }
 
 - (void)setupColors {
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSDictionary *colors = [delegate currentTheme];
+    ThemeManager *themeManager = [[ThemeManager alloc] init];
+    NSDictionary *colors = [themeManager getTheme];
     self.backgroundColor = [colors objectForKey:@"background"];
     self.circleBackgroundColor = [colors objectForKey:@"innerCircleBackground"];
     self.circleProgressColor = [colors objectForKey:@"innerCircleProgress"];
@@ -54,9 +55,9 @@ static CGFloat kSymbolFontSize = 45.0;
     UIBezierPath *backgroundBezierPath = [UIBezierPath bezierPath];
     [backgroundBezierPath addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2)
                                     radius:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kCircleRadiusiPhone : kCircleRadiusiPad
-                      startAngle:startAngle
-                        endAngle:endAngle
-                       clockwise:YES];
+                                startAngle:startAngle
+                                  endAngle:endAngle
+                                 clockwise:YES];
     backgroundBezierPath.lineWidth = kCircleLineWidth;
     self.percentCircle < 100 ? [self.circleBackgroundColor setStroke] : [self.circleProgressColor setStroke];
     [backgroundBezierPath stroke];

@@ -42,7 +42,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
-
+        
     }
     return self;
 }
@@ -68,8 +68,8 @@ static NSString *const kEditEventScreenName = @"Edit Event";
 }
 
 - (void)setupColors {
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSDictionary *colors = [delegate currentTheme];
+    ThemeManager *themeManager = [[ThemeManager alloc] init];
+    NSDictionary *colors = [themeManager getTheme];
     // Table
     self.tableView.backgroundColor = [colors objectForKey:@"background"];
     self.tableView.tintColor = [colors objectForKey:@"tint"];
@@ -82,16 +82,16 @@ static NSString *const kEditEventScreenName = @"Edit Event";
     self.navigationController.navigationBar.barTintColor = [colors objectForKey:@"background"];
     // Light status bar
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-
+    
     // Text fields
     self.nameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:kNameTextFieldPlaceholder
                                                                                attributes:@{NSForegroundColorAttributeName : [colors objectForKey:@"background"]}];
     
     self.descriptionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:kDescriptionTextFieldTextFieldPlaceholder
-                                                                               attributes:@{NSForegroundColorAttributeName : [colors objectForKey:@"background"]}];
+                                                                                      attributes:@{NSForegroundColorAttributeName : [colors objectForKey:@"background"]}];
     self.nameTextField.textColor = [colors objectForKey:@"tint"];
     self.descriptionTextField.textColor = [colors objectForKey:@"tint"];
-
+    
 }
 
 - (void)setupLabels {
@@ -265,17 +265,17 @@ static NSString *const kEditEventScreenName = @"Edit Event";
         
         if (self.isEventEditMode) {
             Event *updatedEvent = [[DataManager sharedManager] updateEvent:_event
-                                                                      withName:_nameTextField.text
-                                                                     startDate:_startsDatePicker.date
-                                                                       endDate:_endsDatePicker.date
-                                                                       details:_descriptionTextField.text];
+                                                                  withName:_nameTextField.text
+                                                                 startDate:_startsDatePicker.date
+                                                                   endDate:_endsDatePicker.date
+                                                                   details:_descriptionTextField.text];
             [[DataManager sharedManager] saveContext];
             NSLog(@"Saved updated event: %@", updatedEvent);
         } else {
             Event *newEvent = [[DataManager sharedManager] createEventWithName:_nameTextField.text
-                                                                         startDate:_startsDatePicker.date
-                                                                           endDate:_endsDatePicker.date
-                                                                           details:_descriptionTextField.text];
+                                                                     startDate:_startsDatePicker.date
+                                                                       endDate:_endsDatePicker.date
+                                                                       details:_descriptionTextField.text];
             
             [[DataManager sharedManager] saveContext];
             NSLog(@"Saved new event: %@", newEvent);

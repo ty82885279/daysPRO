@@ -46,7 +46,7 @@ static NSString *kEventsScreenName = @"Events Grid";
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
+        
     }
     return self;
 }
@@ -82,7 +82,7 @@ static NSString *kEventsScreenName = @"Events Grid";
     // Set navigation bar font
     UIFont *backButtonFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:17.0f];
     [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName : backButtonFont} forState:UIControlStateNormal];
-
+    
     // Long press gesture recognizer
     UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesture:)];
     longPressGestureRecognizer.minimumPressDuration = 0.5; //seconds
@@ -98,8 +98,8 @@ static NSString *kEventsScreenName = @"Events Grid";
 }
 
 - (void)setupColors {
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    NSDictionary *colors = [delegate currentTheme];
+    ThemeManager *themeManager = [[ThemeManager alloc] init];
+    NSDictionary *colors = [themeManager getTheme];
     self.view.backgroundColor = [colors objectForKey:@"background"];
     self.collectionView.backgroundColor = [colors objectForKey:@"background"];
     // Transparent nav bar
@@ -341,7 +341,7 @@ static NSString *kEventsScreenName = @"Events Grid";
     return YES;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Pass the selected event to the details view controller.
     if ([segue.identifier isEqualToString:@"showEventDetailsView"]) {
         NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
@@ -349,8 +349,8 @@ static NSString *kEventsScreenName = @"Events Grid";
         eventDetailsViewController.event = [self.fetchedEventsArray objectAtIndex:indexPath.row];
     } else if ([segue.identifier isEqualToString:@"showAddEventView"] && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         UIPopoverController *popover = [(UIStoryboardPopoverSegue *)segue popoverController];
-        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-        NSDictionary *colors = [delegate currentTheme];
+        ThemeManager *themeManager = [[ThemeManager alloc] init];
+        NSDictionary *colors = [themeManager getTheme];
         popover.backgroundColor = [colors objectForKey:@"background"];
         AddEventTableViewController *addEventController = (AddEventTableViewController *)((UINavigationController *)segue.destinationViewController).topViewController;
         addEventController.popover = popover;
