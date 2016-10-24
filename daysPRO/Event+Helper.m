@@ -65,8 +65,13 @@ static NSString *kDone = @"DONE";
     if ([self.startDate compare:[NSDate date]] == NSOrderedDescending) {
         // Start date is in the future
         if ([self weeksLeftToDate:self.startDate] > 2) {
+            if ([[NSUserDefaults standardUserDefaults] boolForKey:@"weeks"]) {
             progress = [@([self weeksLeftToDate:self.startDate]) stringValue];
             metaText = kWeeksToStart;
+            } else {
+                progress = [@([self daysLeftToDate:self.startDate]) stringValue];
+                metaText = kDaysToStart;
+            }
         }
         else if ([self daysLeftToDate:self.startDate] > 2) {
             progress = [@([self daysLeftToDate:self.startDate]) stringValue];
@@ -91,8 +96,13 @@ static NSString *kDone = @"DONE";
     } else {
         // Start date is in the past
         if ([self weeksLeftToDate:self.endDate] > 2) {
+            if ([[NSUserDefaults standardUserDefaults] boolForKey:@"weeks"]) {
             progress = [@([self weeksLeftToDate:self.endDate]) stringValue];
             metaText = kWeeksToStart;
+            } else {
+                progress = [@([self daysLeftToDate:self.endDate]) stringValue];
+                metaText = kDaysLeft;
+            }
         }
         else if ([self daysLeftToDate:self.endDate] > 2) {
             progress = [@([self daysLeftToDate:self.endDate]) stringValue];

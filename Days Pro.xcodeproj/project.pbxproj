@@ -36,6 +36,7 @@
 		D6723E241DBE409900D925A4 /* ProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E0A1DBE409900D925A4 /* ProgressIndicator.m */; };
 		D6723E251DBE409900D925A4 /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E0C1DBE409900D925A4 /* PushManager.m */; };
 		D6723E2D1DBE434D00D925A4 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E2C1DBE434D00D925A4 /* ThemeManager.m */; };
+		D6B5B7B41DBE95D300729A15 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6B5B7B31DBE95D300729A15 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		D6723E0D1DBE409900D925A4 /* daysPRO.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = daysPRO.entitlements; sourceTree = "<group>"; };
 		D6723E2B1DBE434D00D925A4 /* ThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeManager.h; sourceTree = "<group>"; };
 		D6723E2C1DBE434D00D925A4 /* ThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeManager.m; sourceTree = "<group>"; };
+		D6B5B7B31DBE95D300729A15 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		EF75AF4028A82E762B7FDEE4 /* Pods-Days Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Days Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Days Pro/Pods-Days Pro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -171,6 +173,7 @@
 				D6723DF31DBE409900D925A4 /* notification-sound.caf */,
 				D6723DF21DBE409900D925A4 /* Media.xcassets */,
 				D6723DE81DBE409900D925A4 /* Days Pro-Prefix.pch */,
+				D6B5B7B31DBE95D300729A15 /* Settings.bundle */,
 				D6723DE91DBE409900D925A4 /* daysPRO-Info.plist */,
 				D6723DEA1DBE409900D925A4 /* InfoPlist.strings */,
 				D6723DF11DBE409900D925A4 /* main.m */,
@@ -310,6 +313,7 @@
 				D6723E181DBE409900D925A4 /* notification-sound.caf in Resources */,
 				D6723E121DBE409900D925A4 /* InfoPlist.strings in Resources */,
 				D6723E131DBE409900D925A4 /* Main-iPad.storyboard in Resources */,
+				D6B5B7B41DBE95D300729A15 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
