@@ -1,7 +1,12 @@
 PODS:
+  - Answers (1.3.0):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.8)
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
+  - Answers
+  - Fabric
   - SVProgressHUD (from `https://github.com/oliverkulpakko/SVProgressHUD.git`, branch `haptics`)
 
 EXTERNAL SOURCES:
@@ -15,8 +20,10 @@ CHECKOUT OPTIONS:
     :git: https://github.com/oliverkulpakko/SVProgressHUD.git
 
 SPEC CHECKSUMS:
+  Answers: 7d7e842f4d7fa9a57c897fa9b77f29ce2a073f23
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: 084d09910917b015a7b96b292aab6d98b9ce8eca
+PODFILE CHECKSUM: be96007a5ae303c928e070e658807be1230deac2
 
 COCOAPODS: 1.0.1

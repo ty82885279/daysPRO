@@ -265,6 +265,9 @@ static NSString *const kEditEventScreenName = @"Edit Event";
                                                                    details:_descriptionTextField.text];
             [[DataManager sharedManager] saveContext];
             NSLog(@"Saved updated event: %@", updatedEvent);
+            
+            [Answers logCustomEventWithName:@"Edit event" customAttributes:@{@"Name":_nameTextField.text}];
+            
             [SVProgressHUD showSuccessWithStatus:nil];
         } else {
             Event *newEvent = [[DataManager sharedManager] createEventWithName:_nameTextField.text
@@ -274,6 +277,8 @@ static NSString *const kEditEventScreenName = @"Edit Event";
             
             [[DataManager sharedManager] saveContext];
             NSLog(@"Saved new event: %@", newEvent);
+            [Answers logCustomEventWithName:@"Add event" customAttributes:@{@"Name":_nameTextField.text}];
+
             [SVProgressHUD showSuccessWithStatus:nil];
         }
         

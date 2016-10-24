@@ -23,6 +23,8 @@
     [SVProgressHUD setHapticsEnabled:true];
     [SVProgressHUD setMinimumDismissTimeInterval:1];
     
+    [Fabric with:@[[Answers class]]];
+    
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     }

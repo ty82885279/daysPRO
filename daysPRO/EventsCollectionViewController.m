@@ -282,6 +282,7 @@ static NSString *kEventsScreenName = @"Events Grid";
         NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
         EventDetailsViewController *eventDetailsViewController = segue.destinationViewController;
         eventDetailsViewController.event = [self.fetchedEventsArray objectAtIndex:indexPath.row];
+        [Answers logCustomEventWithName:@"Open event" customAttributes:@{@"Name":eventDetailsViewController.event.name}];
     } else if ([segue.identifier isEqualToString:@"showAddEventView"] && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         UIPopoverController *popover = [(UIStoryboardPopoverSegue *)segue popoverController];
         ThemeManager *themeManager = [[ThemeManager alloc] init];

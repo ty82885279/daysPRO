@@ -63,7 +63,6 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 }
 
 - (void)setupLabels {
-    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
@@ -375,7 +374,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                                }];
     
     UIAlertAction *cameraRoll = [UIAlertAction
-                               actionWithTitle:@"Select from the Camera Roll"
+                               actionWithTitle:@"Camera Roll"
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction *action)
                                {
@@ -398,6 +397,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (IBAction)shareEvent:(id)sender {
+    [Answers logCustomEventWithName:@"Share event" customAttributes:@{@"Name":self.event.name}];
     [self shareButtonPressed];
 }
 - (IBAction)editEvent:(id)sender {

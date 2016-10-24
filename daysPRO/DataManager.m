@@ -239,6 +239,7 @@ NSString *const kDeletedKey = @"deleted";
 }
 
 - (void)deleteEvent:(Event *)event {
+    [Answers logCustomEventWithName:@"Delete event" customAttributes:@{@"Name":event.name}];
     //remove the image
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];

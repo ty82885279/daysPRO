@@ -3,8 +3,10 @@
 
 target 'Days Pro' do
   # Uncomment this line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
+  use_frameworks!
 
   # Pods for Days Pro
+  pod 'Fabric'
+  pod 'Answers'
   pod 'SVProgressHUD', :git => 'https://github.com/oliverkulpakko/SVProgressHUD.git', :branch => 'haptics'
 end

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7D2E63604CDFBC0BB4E26C31 /* libPods-Days Pro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F694E46F90B7C88BA4ED5982 /* libPods-Days Pro.a */; };
 		A62A080F1892A2A90031AE7F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62A080E1892A2A90031AE7F /* CoreData.framework */; };
 		A65DE88B189E369E009F7AFE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65DE88A189E369E009F7AFE /* SystemConfiguration.framework */; };
 		A65DE88F189E41FA009F7AFE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65DE88E189E41FA009F7AFE /* AdSupport.framework */; };
@@ -15,6 +14,7 @@
 		A6693560179D31E200E5A40F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A669355F179D31E200E5A40F /* Foundation.framework */; };
 		A6693562179D31E200E5A40F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6693561179D31E200E5A40F /* CoreGraphics.framework */; };
 		A6A3E8A8188F931700A3E4FB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A3E8A7188F931700A3E4FB /* QuartzCore.framework */; };
+		AF2FE2148929C9C7AF912EB4 /* Pods_Days_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7716506E8CB7504A3A5C63F6 /* Pods_Days_Pro.framework */; };
 		D6723E0F1DBE409900D925A4 /* AppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D6723DE51DBE409900D925A4 /* AppModel.xcdatamodeld */; };
 		D6723E121DBE409900D925A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6723DEA1DBE409900D925A4 /* InfoPlist.strings */; };
 		D6723E131DBE409900D925A4 /* Main-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6723DEC1DBE409900D925A4 /* Main-iPad.storyboard */; };
@@ -40,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		2409E8D516E4620574EA2CAE /* Pods-Days Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Days Pro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Days Pro/Pods-Days Pro.debug.xcconfig"; sourceTree = "<group>"; };
+		7716506E8CB7504A3A5C63F6 /* Pods_Days_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Days_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A62A080E1892A2A90031AE7F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A65DE88A189E369E009F7AFE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A65DE88E189E41FA009F7AFE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -86,7 +87,6 @@
 		D6723E2B1DBE434D00D925A4 /* ThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeManager.h; sourceTree = "<group>"; };
 		D6723E2C1DBE434D00D925A4 /* ThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeManager.m; sourceTree = "<group>"; };
 		EF75AF4028A82E762B7FDEE4 /* Pods-Days Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Days Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Days Pro/Pods-Days Pro.release.xcconfig"; sourceTree = "<group>"; };
-		F694E46F90B7C88BA4ED5982 /* libPods-Days Pro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Days Pro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 				A669355E179D31E200E5A40F /* UIKit.framework in Frameworks */,
 				A6693560179D31E200E5A40F /* Foundation.framework in Frameworks */,
 				A6693562179D31E200E5A40F /* CoreGraphics.framework in Frameworks */,
-				7D2E63604CDFBC0BB4E26C31 /* libPods-Days Pro.a in Frameworks */,
+				AF2FE2148929C9C7AF912EB4 /* Pods_Days_Pro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +136,7 @@
 				A669355D179D31E200E5A40F /* UIKit.framework */,
 				A669355F179D31E200E5A40F /* Foundation.framework */,
 				A6693561179D31E200E5A40F /* CoreGraphics.framework */,
-				F694E46F90B7C88BA4ED5982 /* libPods-Days Pro.a */,
+				7716506E8CB7504A3A5C63F6 /* Pods_Days_Pro.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -247,6 +247,7 @@
 				A6693558179D31E200E5A40F /* Resources */,
 				8DE4288F59C66A4BB48A144B /* [CP] Embed Pods Frameworks */,
 				938F5256F9AFAE0AC3A8F6EE /* [CP] Copy Pods Resources */,
+				D69CC46F1DBE6672006136E7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -344,6 +345,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Days Pro/Pods-Days Pro-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D69CC46F1DBE6672006136E7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Fabric/run eb8a9267c0caf11531cdb338d4d2d86a33853242 883da9f7964e41443643642034f5993998643bb7a58fa0d7cc49e188a3d56dff";
 		};
 		E70F08F2BA70FE7F36BA723A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

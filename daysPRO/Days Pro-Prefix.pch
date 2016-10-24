@@ -14,4 +14,6 @@
     #import <CoreData/CoreData.h>
     #import "ThemeManager.h"
     #import <SVProgressHUD/SVProgressHUD.h>
+    #import <Fabric/Fabric.h>
+    #import <Answers/Answers.h>
 #endif
