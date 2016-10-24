@@ -163,33 +163,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 }
 
 - (void)setupNavigationButtons {
-    CGSize barButtonSize = CGSizeMake(35.0f, 35.0f);
-    UIView *rightButtonsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, barButtonSize.width * 3 + 15, barButtonSize.height)];
-    
-    // Edit button
-    UIButton *editButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    editButton.backgroundColor = [UIColor clearColor];
-    editButton.frame = CGRectMake(barButtonSize.width + 10, 0, barButtonSize.width, barButtonSize.height);
-    [editButton setImage:[UIImage imageNamed:@"settings-icon"] forState:UIControlStateNormal];
-    editButton.tintColor = [UIColor whiteColor];
-    editButton.autoresizesSubviews = YES;
-    editButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
-    [editButton addTarget:self action:@selector(editButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    [rightButtonsView addSubview:editButton];
-    
-    // Share button
-    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    shareButton.backgroundColor = [UIColor clearColor];
-    shareButton.frame = CGRectMake(editButton.frame.origin.x + barButtonSize.width + 5, 0, barButtonSize.width, barButtonSize.height);
-    [shareButton setImage:[UIImage imageNamed:@"share-icon"] forState:UIControlStateNormal];
-    shareButton.tintColor = [UIColor whiteColor];
-    shareButton.autoresizesSubviews = YES;
-    shareButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin;
-    [shareButton addTarget:self action:@selector(shareButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    [rightButtonsView addSubview:shareButton];
-    
-    _rightBarButton.customView = rightButtonsView;
-    self.navigationItem.rightBarButtonItem = _rightBarButton;
+    CGSize barButtonSize = CGSizeMake(40.0f, 40.0f);
     
     // Back button
     UIImage *backButtonImage = [UIImage imageNamed:@"back-icon"];
@@ -356,6 +330,17 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     CGImageRelease(imageRef);
     
     return croppedImage;
+}
+- (IBAction)deleteEvent:(id)sender {
+    [[DataManager sharedManager] deleteEvent:self.event];
+    [[DataManager sharedManager] saveContext];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+- (IBAction)shareEvent:(id)sender {
+    [self shareButtonPressed];
+}
+- (IBAction)editEvent:(id)sender {
+    [self editButtonPressed];
 }
 
 
