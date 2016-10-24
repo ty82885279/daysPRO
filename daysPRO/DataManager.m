@@ -243,7 +243,7 @@ NSString *const kDeletedKey = @"deleted";
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
-    NSString *filePath = [documentsPath stringByAppendingPathComponent:event.name];
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:event.uuid];
     NSError *error;
     [fileManager removeItemAtPath:filePath error:&error];
     

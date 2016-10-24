@@ -181,7 +181,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                          NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString* path = [documentsDirectory stringByAppendingPathComponent:self.event.name];
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:self.event.uuid];
     UIImage* image = [UIImage imageWithContentsOfFile:path];
     return image;
 }
@@ -425,7 +425,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                              NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
-        NSString* path = [documentsDirectory stringByAppendingPathComponent:self.event.name];
+        NSString* path = [documentsDirectory stringByAppendingPathComponent:self.event.uuid];
         NSData* data = UIImagePNGRepresentation(image);
         [data writeToFile:path atomically:YES];
     }
