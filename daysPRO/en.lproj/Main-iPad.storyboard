@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -111,8 +112,8 @@
         <scene sceneID="igU-xF-oY6">
             <objects>
                 <tableViewController id="NVY-q6-Sqb" customClass="AddEventTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="GBq-yV-Irw">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="GBq-yV-Irw">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="0.12549019610000001" green="0.12549019610000001" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -351,8 +352,32 @@
                             <outletCollection property="gestureRecognizers" destination="X4l-Sm-zBJ" appends="YES" id="8dG-OH-xFN"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="dMm-Tb-LZy"/>
+                    <navigationItem key="navigationItem" id="dMm-Tb-LZy">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="trash" id="tPN-ma-zPp">
+                                <connections>
+                                    <action selector="deleteEvent:" destination="UKg-H2-7Ro" id="Wzu-1S-lB3"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="action" id="OB3-OV-QQy">
+                                <connections>
+                                    <action selector="shareEvent:" destination="UKg-H2-7Ro" id="pbd-NC-MlU"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="edit" id="xz9-mO-no6">
+                                <connections>
+                                    <action selector="editEvent:" destination="UKg-H2-7Ro" id="uG8-Lu-lbB"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="camera" id="y57-JK-ptS">
+                                <connections>
+                                    <action selector="selectImageToEvent:" destination="UKg-H2-7Ro" id="fxv-8B-rNz"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
+                        <outlet property="cameraButton" destination="y57-JK-ptS" id="1c2-lB-iuZ"/>
                         <outlet property="descriptionLabel" destination="tzq-jK-0W3" id="Sdu-qh-fl1"/>
                         <outlet property="nameLabel" destination="LGw-Mh-2QF" id="6bU-U6-NEP"/>
                         <outlet property="progressView" destination="QA4-pL-ggf" id="9YS-Ye-raq"/>
@@ -423,6 +448,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zTT-vk-bp7"/>
+        <segue reference="RJN-zc-Ski"/>
     </inferredMetricsTieBreakers>
 </document>

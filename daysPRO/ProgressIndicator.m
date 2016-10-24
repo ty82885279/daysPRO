@@ -46,7 +46,7 @@ static NSString *kColorAnimationKey = @"strokeColor";
     ThemeManager *themeManager = [[ThemeManager alloc] init];
     NSDictionary *colors = [themeManager getTheme];
     
-    self.backgroundColor = [colors objectForKey:@"background"];
+    self.backgroundColor = [UIColor clearColor];
     self.innerCircleBackgroundColor = [colors objectForKey:@"innerCircleBackground"];
     self.innerCircleProgressColor = [colors objectForKey:@"innerCircleProgress"];
     self.outerCircleBackgroundColor = [colors objectForKey:@"outerCircleBackground"];

@@ -11,7 +11,7 @@
 #import "Event.h"
 #import "Event+Helper.h"
 
-@interface EventDetailsViewController : UIViewController
+@interface EventDetailsViewController : UIViewController <UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) Event *event;
 

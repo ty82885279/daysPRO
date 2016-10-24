@@ -44,7 +44,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="zco-C8-snh" secondAttribute="trailing" constant="20" id="3gs-Ss-J2G"/>
                                     <constraint firstAttribute="bottom" secondItem="zco-C8-snh" secondAttribute="bottom" constant="104" id="4Be-9O-Rlz"/>
@@ -110,10 +110,16 @@
                                     <action selector="editEvent:" destination="2" id="ZuH-bc-Vbs"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem systemItem="camera" id="9eR-ge-Qjl">
+                                <connections>
+                                    <action selector="selectImageToEvent:" destination="2" id="pBr-o9-8XH"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="cameraButton" destination="9eR-ge-Qjl" id="v5A-CV-FLr"/>
                         <outlet property="descriptionLabel" destination="DIu-rn-aMV" id="POB-LM-L57"/>
                         <outlet property="nameLabel" destination="FBd-in-lbD" id="3Yk-e0-isH"/>
                         <outlet property="progressView" destination="NtW-n1-HOL" id="8Nj-BA-1mh"/>
@@ -391,7 +397,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDi-KZ-sgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2865" y="281"/>
+            <point key="canvasLocation" x="2864.5" y="280.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VBb-uC-EEj">

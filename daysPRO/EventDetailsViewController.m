@@ -21,6 +21,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 @property (strong, nonatomic) NSTimer *timer;
 @property (assign, nonatomic) NSInteger tapCounter;
 @property (assign, nonatomic, getter = isShouldBeHidingStatusBar) BOOL shouldBeHidingStatusBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 
 - (IBAction)tapGesture:(UITapGestureRecognizer *)sender;
 
@@ -62,6 +63,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 }
 
 - (void)setupLabels {
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
@@ -160,8 +162,27 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     [UIView animateWithDuration:0.6 animations:^{
         self.descriptionLabel.alpha =  0.65;
     }];
+    [self addBackgroundImage];
 }
-
+- (void)addBackgroundImage {
+    UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
+    bgImageView.image = [self loadImage];
+    [self.view insertSubview:bgImageView atIndex:0];
+    
+    UIVisualEffectView *visualEffectView;
+    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+    
+    visualEffectView.frame = self.view.bounds;
+    [self.view insertSubview:visualEffectView atIndex:1];
+}
+- (UIImage *)loadImage {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:self.event.name];
+    UIImage* image = [UIImage imageWithContentsOfFile:path];
+    return image;
+}
 - (void)setupNavigationButtons {
     CGSize barButtonSize = CGSizeMake(40.0f, 40.0f);
     
@@ -331,6 +352,43 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     
     return croppedImage;
 }
+- (IBAction)selectImageToEvent:(id)sender {
+    UIImagePickerController *picker;
+    
+    picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Add Image"
+                                          message:nil
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *takePicture = [UIAlertAction
+                               actionWithTitle:@"Take a Picture"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                   [self presentViewController:picker animated:YES completion:nil];
+                               }];
+    
+    UIAlertAction *cameraRoll = [UIAlertAction
+                               actionWithTitle:@"Select from Camera Roll"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                                   [self presentViewController:picker animated:YES completion:nil];
+                               }];
+    
+    UIAlertAction *cancel = [UIAlertAction
+                             actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleCancel
+                             handler:nil];
+    [alertController addAction:takePicture];
+    [alertController addAction:cameraRoll];
+    [alertController addAction:cancel];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 - (IBAction)deleteEvent:(id)sender {
     [[DataManager sharedManager] deleteEvent:self.event];
     [[DataManager sharedManager] saveContext];
@@ -341,6 +399,33 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 }
 - (IBAction)editEvent:(id)sender {
     [self editButtonPressed];
+}
+
+
+#pragma mark - ImagePickerController Delegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
+    // Dismiss the image selection, hide the picker and
+    
+    //show the image view with the picked image
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    [self saveImage:image];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)saveImage: (UIImage*)image {
+    if (image != nil) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString* path = [documentsDirectory stringByAppendingPathComponent:self.event.name];
+        NSData* data = UIImagePNGRepresentation(image);
+        [data writeToFile:path atomically:YES];
+    }
 }
 
 
