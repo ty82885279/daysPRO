@@ -8,7 +8,6 @@
 
 #import "SKAppDelegate.h"
 #import "SKDataManager.h"
-#import <Crashlytics/Crashlytics.h>
 
 @interface SKAppDelegate() <UIAlertViewDelegate>
 @end
@@ -17,56 +16,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self setupCrashlytics];
-    [self setupGoogleAnalytics];
     [self setupAppearance];
     [self setupPushNotificationsManager];
     [self setupDefaultEventsIfNeeded];
     
     return YES;
-}
-
-- (void)setupCrashlytics
-{
-//    [[Crashlytics sharedInstance] setDebugMode:YES];
-    [Crashlytics startWithAPIKey:@"082c35275c8e0190668e584b9baaeb1b1c9bb403"];
-}
-
-- (void)setupGoogleAnalytics
-{
-    [GAI sharedInstance].trackUncaughtExceptions = YES;
-    [[GAI sharedInstance].logger setLogLevel:kGAILogLevelWarning];
-    [GAI sharedInstance].dispatchInterval = 20;
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-47720523-1"];
-//    
-    NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
-    [tracker set:kGAIAppVersion value:version];
-    [tracker set:kGAISampleRate value:@"50.0"];
-    
-    /**
-    // Opt out?
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasAskedToOptOutOnce"]) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasAskedToOptOutOnce"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        // This is the first launch ever. Ask if the user wants the app to be tracked.
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Analytics" message:@"With your permission usage information will be collected to improve the application." delegate:self cancelButtonTitle:@"Opt Out" otherButtonTitles:@"Opt In", nil];
-        [av show];
-    }
-     */
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    switch (buttonIndex) {
-        case 0:
-            [[GAI sharedInstance] setOptOut:YES];
-            break;
-        case 1:
-            [[GAI sharedInstance] setOptOut:NO];
-            break;
-            
-        default:
-            break;
-    }
 }
 
 - (void)setupAppearance

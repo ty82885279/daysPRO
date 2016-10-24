@@ -12,7 +12,6 @@
 #import "SKCustomCollectionViewFlowLayout.h"
 #import "SKAddEventTableViewController.h"
 #import "SKAppDelegate.h"
-#import "GAIDictionaryBuilder.h"
 
 static NSInteger kMarginTopBottomiPhone = 12;
 static NSInteger kMarginTopBottomiPad = 30;
@@ -168,9 +167,6 @@ static NSString *kEventsScreenName = @"Events Grid";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker set:kGAIScreenName value:kEventsScreenName];
-    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -414,15 +410,6 @@ static NSString *kEventsScreenName = @"Events Grid";
             self.editing = YES;
             [self stopTimer];
             [self updateView];
-            
-            // GA
-            id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-            [tracker set:kGAIScreenName value:kEventsScreenName];
-            [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"UX"
-                                                                  action:@"touch"
-                                                                   label:@"Start Editing"
-                                                                   value:nil] build]];
-            [tracker set:kGAIScreenName value:nil];
         }
         else {
             [self doneEditing];
@@ -469,15 +456,6 @@ static NSString *kEventsScreenName = @"Events Grid";
     [[SKDataManager sharedManager] saveContext];
     self.fetchedEventsArray = [NSMutableArray arrayWithArray:[[SKDataManager sharedManager] getAllEvents]];
     [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
-    
-    // GA
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker set:kGAIScreenName value:kEventsScreenName];
-    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"UX"
-                                                          action:@"touch"
-                                                           label:@"Delete"
-                                                           value:nil] build]];
-    [tracker set:kGAIScreenName value:nil];
 }
 
 - (void)doneEditing
@@ -490,15 +468,6 @@ static NSString *kEventsScreenName = @"Events Grid";
         self.editing = NO;
         [self startTimer];
         [self updateView];
-        
-        // GA
-        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-        [tracker set:kGAIScreenName value:kEventsScreenName];
-        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"UX"
-                                                              action:@"touch"
-                                                               label:@"Done Editing"
-                                                               value:nil] build]];
-        [tracker set:kGAIScreenName value:nil];
     }
 }
 

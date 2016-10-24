@@ -15,9 +15,7 @@
 		A636CB54179D60D300526D7A /* SKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = A636CB53179D60D300526D7A /* SKEvent.m */; };
 		A64EEE61188D953E00EB237B /* SKEventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A64EEE60188D953E00EB237B /* SKEventDetailsViewController.m */; };
 		A64EEE64188D9EFD00EB237B /* SKProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A64EEE63188D9EFD00EB237B /* SKProgressIndicator.m */; };
-		A65DE889189E365B009F7AFE /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A65DE888189E365B009F7AFE /* libGoogleAnalyticsServices.a */; };
 		A65DE88B189E369E009F7AFE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65DE88A189E369E009F7AFE /* SystemConfiguration.framework */; };
-		A65DE88D189E36AC009F7AFE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A65DE88C189E36AC009F7AFE /* libz.dylib */; };
 		A65DE88F189E41FA009F7AFE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65DE88E189E41FA009F7AFE /* AdSupport.framework */; };
 		A669355E179D31E200E5A40F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A669355D179D31E200E5A40F /* UIKit.framework */; };
 		A6693560179D31E200E5A40F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A669355F179D31E200E5A40F /* Foundation.framework */; };
@@ -31,7 +29,6 @@
 		A6A3E8AB1891255C00A3E4FB /* SKEventsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A3E8AA1891255C00A3E4FB /* SKEventsCollectionViewController.m */; };
 		A6A3E8B01891301500A3E4FB /* SKEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A3E8AF1891301500A3E4FB /* SKEventCell.m */; };
 		A6B4C85118DF48B900586587 /* notification-sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = A6B4C85018DF48B900586587 /* notification-sound.caf */; };
-		A6B4C85518E09E4F00586587 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B4C85418E09E4F00586587 /* Crashlytics.framework */; };
 		A6B8E09D188D1F7F007E857F /* SKAddEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B8E09A188D1F7F007E857F /* SKAddEventTableViewController.m */; };
 		A6DDBC9E18913656003B2D37 /* SKEventCellProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DDBC9D18913656003B2D37 /* SKEventCellProgressView.m */; };
 		A6DEF6311899263900070415 /* SKCustomCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DEF6301899263900070415 /* SKCustomCollectionViewFlowLayout.m */; };
@@ -54,15 +51,7 @@
 		A64EEE60188D953E00EB237B /* SKEventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEventDetailsViewController.m; sourceTree = "<group>"; };
 		A64EEE62188D9EFD00EB237B /* SKProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProgressIndicator.h; sourceTree = "<group>"; };
 		A64EEE63188D9EFD00EB237B /* SKProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProgressIndicator.m; sourceTree = "<group>"; };
-		A65DE881189E354F009F7AFE /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		A65DE882189E354F009F7AFE /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		A65DE883189E354F009F7AFE /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
-		A65DE884189E354F009F7AFE /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
-		A65DE885189E354F009F7AFE /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		A65DE886189E354F009F7AFE /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		A65DE888189E365B009F7AFE /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		A65DE88A189E369E009F7AFE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		A65DE88C189E36AC009F7AFE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		A65DE88E189E41FA009F7AFE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		A669355A179D31E200E5A40F /* Days Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Days Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A669355D179D31E200E5A40F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -81,7 +70,6 @@
 		A6A3E8AE1891301500A3E4FB /* SKEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEventCell.h; sourceTree = "<group>"; };
 		A6A3E8AF1891301500A3E4FB /* SKEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEventCell.m; sourceTree = "<group>"; };
 		A6B4C85018DF48B900586587 /* notification-sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "notification-sound.caf"; sourceTree = "<group>"; };
-		A6B4C85418E09E4F00586587 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		A6B8E099188D1F7F007E857F /* SKAddEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAddEventTableViewController.h; sourceTree = "<group>"; };
 		A6B8E09A188D1F7F007E857F /* SKAddEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAddEventTableViewController.m; sourceTree = "<group>"; };
 		A6DDBC9C18913656003B2D37 /* SKEventCellProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEventCellProgressView.h; sourceTree = "<group>"; };
@@ -98,14 +86,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6B4C85518E09E4F00586587 /* Crashlytics.framework in Frameworks */,
 				A65DE88F189E41FA009F7AFE /* AdSupport.framework in Frameworks */,
-				A65DE88D189E36AC009F7AFE /* libz.dylib in Frameworks */,
 				A65DE88B189E369E009F7AFE /* SystemConfiguration.framework in Frameworks */,
 				A62A080F1892A2A90031AE7F /* CoreData.framework in Frameworks */,
 				A6A3E8A8188F931700A3E4FB /* QuartzCore.framework in Frameworks */,
 				A669355E179D31E200E5A40F /* UIKit.framework in Frameworks */,
-				A65DE889189E365B009F7AFE /* libGoogleAnalyticsServices.a in Frameworks */,
 				A6693560179D31E200E5A40F /* Foundation.framework in Frameworks */,
 				A6693562179D31E200E5A40F /* CoreGraphics.framework in Frameworks */,
 			);
@@ -114,19 +99,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A65DE887189E355C009F7AFE /* Google Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				A65DE881189E354F009F7AFE /* GAI.h */,
-				A65DE882189E354F009F7AFE /* GAIDictionaryBuilder.h */,
-				A65DE883189E354F009F7AFE /* GAIFields.h */,
-				A65DE884189E354F009F7AFE /* GAILogger.h */,
-				A65DE885189E354F009F7AFE /* GAITrackedViewController.h */,
-				A65DE886189E354F009F7AFE /* GAITracker.h */,
-			);
-			name = "Google Analytics";
-			sourceTree = "<group>";
-		};
 		A6693551179D31E200E5A40F = {
 			isa = PBXGroup;
 			children = (
@@ -147,11 +119,8 @@
 		A669355C179D31E200E5A40F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A6B4C85418E09E4F00586587 /* Crashlytics.framework */,
 				A65DE88E189E41FA009F7AFE /* AdSupport.framework */,
-				A65DE88C189E36AC009F7AFE /* libz.dylib */,
 				A65DE88A189E369E009F7AFE /* SystemConfiguration.framework */,
-				A65DE888189E365B009F7AFE /* libGoogleAnalyticsServices.a */,
 				A62A080E1892A2A90031AE7F /* CoreData.framework */,
 				A6A3E8A7188F931700A3E4FB /* QuartzCore.framework */,
 				A669355D179D31E200E5A40F /* UIKit.framework */,
@@ -176,7 +145,6 @@
 				A6A3E8AC1891256800A3E4FB /* Add Event */,
 				A6A3E8A5188EC02100A3E4FB /* Event Details */,
 				A6A3E8A6188EC41300A3E4FB /* Model */,
-				A65DE887189E355C009F7AFE /* Google Analytics */,
 				A6693575179D31E200E5A40F /* MainStoryboard_iPhone.storyboard */,
 				A6693578179D31E200E5A40F /* MainStoryboard_iPad.storyboard */,
 				A6693564179D31E200E5A40F /* Supporting Files */,
@@ -254,7 +222,6 @@
 				A6693556179D31E200E5A40F /* Sources */,
 				A6693557179D31E200E5A40F /* Frameworks */,
 				A6693558179D31E200E5A40F /* Resources */,
-				A663AE0C189BEBA900CF3AFD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -321,22 +288,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		A663AE0C189BEBA900CF3AFD /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 082c35275c8e0190668e584b9baaeb1b1c9bb403";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A6693556179D31E200E5A40F /* Sources */ = {

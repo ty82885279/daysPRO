@@ -8,7 +8,6 @@
 
 #import "SKEventDetailsViewController.h"
 #import "SKAppDelegate.h"
-#import "GAIDictionaryBuilder.h"
 #import "SKAddEventTableViewController.h"
 
 static NSString *kEventDetailsScreenName = @"Event Details";
@@ -248,10 +247,6 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     if (!self.timer) {
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateProgressView) userInfo:nil repeats:YES];
     }
-    
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker set:kGAIScreenName value:kEventDetailsScreenName];
-    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -281,15 +276,6 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 - (void)editButtonPressed
 {
     [self performSegueWithIdentifier:@"showEditEventView" sender:self];
-    
-    // GA
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker set:kGAIScreenName value:kEventDetailsScreenName];
-    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"UX"
-                                                          action:@"touch"
-                                                           label:@"Edit"
-                                                           value:nil] build]];
-    [tracker set:kGAIScreenName value:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -333,15 +319,6 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[shareString, finalImage] applicationActivities:nil];
     avc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll, UIActivityTypeAirDrop];
 	[self presentViewController:avc animated:YES completion:NULL];
-    
-    // GA
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker set:kGAIScreenName value:kEventDetailsScreenName];
-    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"UX"
-                                                          action:@"touch"
-                                                           label:@"Share"
-                                                           value:nil] build]];
-    [tracker set:kGAIScreenName value:nil];
 }
 
 #pragma mark — Screenshot
