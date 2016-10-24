@@ -16,5 +16,4 @@
     #import <SVProgressHUD/SVProgressHUD.h>
     #import <Fabric/Fabric.h>
     #import <Answers/Answers.h>
-    #import <Crashlytics/Crashlytics.h>
 #endif
