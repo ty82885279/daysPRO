@@ -23,8 +23,8 @@
 		A6693568179D31E200E5A40F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6693566179D31E200E5A40F /* InfoPlist.strings */; };
 		A669356A179D31E200E5A40F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6693569179D31E200E5A40F /* main.m */; };
 		A669356E179D31E200E5A40F /* SKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A669356D179D31E200E5A40F /* SKAppDelegate.m */; };
-		A6693577179D31E200E5A40F /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6693575179D31E200E5A40F /* MainStoryboard_iPhone.storyboard */; };
-		A669357A179D31E200E5A40F /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6693578179D31E200E5A40F /* MainStoryboard_iPad.storyboard */; };
+		A6693577179D31E200E5A40F /* Main-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6693575179D31E200E5A40F /* Main-iPhone.storyboard */; };
+		A669357A179D31E200E5A40F /* Main-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6693578179D31E200E5A40F /* Main-iPad.storyboard */; };
 		A6A3E8A8188F931700A3E4FB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A3E8A7188F931700A3E4FB /* QuartzCore.framework */; };
 		A6A3E8AB1891255C00A3E4FB /* SKEventsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A3E8AA1891255C00A3E4FB /* SKEventsCollectionViewController.m */; };
 		A6A3E8B01891301500A3E4FB /* SKEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A3E8AF1891301500A3E4FB /* SKEventCell.m */; };
@@ -62,8 +62,8 @@
 		A669356B179D31E200E5A40F /* Days Pro-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Days Pro-Prefix.pch"; sourceTree = "<group>"; };
 		A669356C179D31E200E5A40F /* SKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKAppDelegate.h; sourceTree = "<group>"; };
 		A669356D179D31E200E5A40F /* SKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKAppDelegate.m; sourceTree = "<group>"; };
-		A6693576179D31E200E5A40F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		A6693579179D31E200E5A40F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		A6693576179D31E200E5A40F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/Main-iPhone.storyboard"; sourceTree = "<group>"; };
+		A6693579179D31E200E5A40F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/Main-iPad.storyboard"; sourceTree = "<group>"; };
 		A6A3E8A7188F931700A3E4FB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A6A3E8A91891255C00A3E4FB /* SKEventsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEventsCollectionViewController.h; sourceTree = "<group>"; };
 		A6A3E8AA1891255C00A3E4FB /* SKEventsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEventsCollectionViewController.m; sourceTree = "<group>"; };
@@ -146,8 +146,8 @@
 				A6A3E8AC1891256800A3E4FB /* Add Event */,
 				A6A3E8A5188EC02100A3E4FB /* Event Details */,
 				A6A3E8A6188EC41300A3E4FB /* Model */,
-				A6693575179D31E200E5A40F /* MainStoryboard_iPhone.storyboard */,
-				A6693578179D31E200E5A40F /* MainStoryboard_iPad.storyboard */,
+				A6693575179D31E200E5A40F /* Main-iPhone.storyboard */,
+				A6693578179D31E200E5A40F /* Main-iPad.storyboard */,
 				D6723DE11DBE3FCA00D925A4 /* Launch Screen.storyboard */,
 				A6693564179D31E200E5A40F /* Supporting Files */,
 			);
@@ -284,8 +284,8 @@
 				A6693568179D31E200E5A40F /* InfoPlist.strings in Resources */,
 				A6B4C85118DF48B900586587 /* notification-sound.caf in Resources */,
 				A62A0834189504380031AE7F /* Media.xcassets in Resources */,
-				A6693577179D31E200E5A40F /* MainStoryboard_iPhone.storyboard in Resources */,
-				A669357A179D31E200E5A40F /* MainStoryboard_iPad.storyboard in Resources */,
+				A6693577179D31E200E5A40F /* Main-iPhone.storyboard in Resources */,
+				A669357A179D31E200E5A40F /* Main-iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,20 +324,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		A6693575179D31E200E5A40F /* MainStoryboard_iPhone.storyboard */ = {
+		A6693575179D31E200E5A40F /* Main-iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A6693576179D31E200E5A40F /* en */,
 			);
-			name = MainStoryboard_iPhone.storyboard;
+			name = "Main-iPhone.storyboard";
 			sourceTree = "<group>";
 		};
-		A6693578179D31E200E5A40F /* MainStoryboard_iPad.storyboard */ = {
+		A6693578179D31E200E5A40F /* Main-iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A6693579179D31E200E5A40F /* en */,
 			);
-			name = MainStoryboard_iPad.storyboard;
+			name = "Main-iPad.storyboard";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
