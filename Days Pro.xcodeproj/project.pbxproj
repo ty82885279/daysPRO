@@ -436,7 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = daysPRO/daysPRO.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Salavat Khanov (REFNZC5FDV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 74N5MDHHBK;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -448,10 +448,7 @@
 				GCC_PREFIX_HEADER = "daysPRO/Days Pro-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/daysPRO/daysPRO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/khanov/Developer/Time-Left",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eaststudios.dayspronew;
 				PRODUCT_NAME = "Days Pro";
 				PROVISIONING_PROFILE = "";
@@ -465,7 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = daysPRO/daysPRO.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Salavat Khanov (6P9PN587KS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 74N5MDHHBK;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -477,10 +474,7 @@
 				GCC_PREFIX_HEADER = "daysPRO/Days Pro-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/daysPRO/daysPRO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/khanov/Developer/Time-Left",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eaststudios.dayspronew;
 				PRODUCT_NAME = "Days Pro";
 				PROVISIONING_PROFILE = "";

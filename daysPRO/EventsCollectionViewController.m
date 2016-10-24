@@ -21,8 +21,6 @@ static NSInteger kMarginLeftRightiPad = 10;
 static CGFloat kCollectionViewContentOffsetiPhone = -64.0f;
 static CGFloat kCollectionViewContentOffsetiPad = 0.0f;
 
-static CGFloat kAddButtonHiddenOffset = 40.f;
-
 static NSInteger kCellWeightHeightiPhone = 145;
 static NSInteger kCellWeightHeightiPad = 242;
 static NSString *kEventsScreenName = @"Events Grid";
@@ -32,7 +30,6 @@ static NSString *kEventsScreenName = @"Events Grid";
 @property (strong, nonatomic) NSTimer *timer;
 @property (nonatomic,strong) NSMutableArray *fetchedEventsArray;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addBarButtonItem;
-@property (strong, nonatomic) IBOutlet UIButton *addButton;
 @property (assign, nonatomic) BOOL shouldBeHidingStatusBar;
 @property (assign, nonatomic) BOOL shouldBeHidingAddButton;
 @property (strong, nonatomic) UIDynamicAnimator *animator;
@@ -190,38 +187,6 @@ static NSString *kEventsScreenName = @"Events Grid";
 }
 
 
-#pragma mark - UIScrollView Delegate
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self stopTimer];
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if (self.isEditing == NO) {
-        [self startTimer];
-    }
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat statusBarHeight = 20.0f;
-    CGFloat scrollOffset = scrollView.contentOffset.y;
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        scrollOffset -= kCollectionViewContentOffsetiPhone;
-    } else {
-        scrollOffset -= kCollectionViewContentOffsetiPad;
-    }
-    
-    if ((scrollOffset / 2) >= statusBarHeight) {
-        [self hideStatusBar];
-        [self hideAddButton];
-    } else {
-        [self showStatusBar];
-        [self showAddButton];
-    }
-}
-
-
 #pragma mark - Status Bar Appearance
 
 - (BOOL)prefersStatusBarHidden {
@@ -249,33 +214,6 @@ static NSString *kEventsScreenName = @"Events Grid";
         }];
     }
 }
-
-
-#pragma mark - Add Button Appearance
-
-- (void)hideAddButton {
-    if (self.shouldBeHidingAddButton == NO) {
-        self.shouldBeHidingAddButton = YES;
-        [UIView animateWithDuration:0.1 animations:^{
-            self.addButton.center = CGPointMake(self.addButton.center.x + kAddButtonHiddenOffset, self.addButton.center.y);
-        } completion:^(BOOL finished) {
-            self.addButton.hidden = YES;
-        }];
-    }
-}
-
-- (void)showAddButton {
-    if (self.shouldBeHidingAddButton) {
-        self.shouldBeHidingAddButton = NO;
-        self.addButton.center = CGPointMake(self.addButton.center.x + kAddButtonHiddenOffset, self.addButton.center.y);
-        self.addButton.hidden = NO;
-        
-        [UIView animateWithDuration:0.1 animations:^{
-            self.addButton.center = CGPointMake(self.addButton.center.x - kAddButtonHiddenOffset, self.addButton.center.y);
-        }];
-    }
-}
-
 
 #pragma mark - UICollectionView Datasource
 
@@ -433,6 +371,9 @@ static NSString *kEventsScreenName = @"Events Grid";
         [self startTimer];
         [self updateView];
     }
+}
+- (IBAction)add:(id)sender {
+    [self showAddEventView];
 }
 
 @end

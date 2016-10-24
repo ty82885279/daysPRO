@@ -192,23 +192,14 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="bXW-m9-cJb">
-                        <barButtonItem key="rightBarButtonItem" id="2yK-Sg-Rxr">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="myn-Nu-7ge">
-                                <rect key="frame" x="335" y="10" width="24" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="add-icon">
-                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="7kO-RI-vHG" kind="modal" identifier="showAddEventView" id="Ii9-WV-RHd"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2yK-Sg-Rxr">
+                            <connections>
+                                <segue destination="7kO-RI-vHG" kind="modal" identifier="showAddEventView" id="V9j-Qu-WEb"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addBarButtonItem" destination="2yK-Sg-Rxr" id="WGa-vb-Iky"/>
-                        <outlet property="addButton" destination="myn-Nu-7ge" id="D0M-AB-av8"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrd-SI-Ipu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -431,7 +422,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add-icon" width="24" height="24"/>
         <image name="delete-icon" width="24" height="24"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -440,6 +430,6 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ii9-WV-RHd"/>
+        <segue reference="V9j-Qu-WEb"/>
     </inferredMetricsTieBreakers>
 </document>
