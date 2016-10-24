@@ -39,8 +39,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
 
 @implementation SKAddEventTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
 
@@ -50,8 +49,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
 
 #pragma mark - Load and setup view
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self setupLabels];
     [self signUpForKeyboardNotifications];
@@ -59,20 +57,17 @@ static NSString *const kEditEventScreenName = @"Edit Event";
     self.navigationItem.rightBarButtonItem.enabled = self.isEventEditMode;
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.nameTextField becomeFirstResponder];
     [self setupDatePickers];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void)setupColors
-{
+- (void)setupColors {
     SKAppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSDictionary *colors = [delegate currentTheme];
     // Table
@@ -99,8 +94,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
 
 }
 
-- (void)setupLabels
-{
+- (void)setupLabels {
     _dateFormatter = [[NSDateFormatter alloc] init];
     [_dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [_dateFormatter setTimeStyle:NSDateFormatterShortStyle];
@@ -127,8 +121,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
     _endsDateLabel.textColor = [self.tableView tintColor];
 }
 
-- (void)setupDatePickers
-{
+- (void)setupDatePickers {
     // Load Start Date picker
     self.startsDatePicker = [[UIDatePicker alloc] init];
     _startsDatePicker.hidden = YES;
@@ -161,8 +154,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
 
 # pragma mark - TableView Setup
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat height = self.tableView.rowHeight;
     // Set height = 0 for hidden date pickers
     if (indexPath.section == kDatePickerSection && indexPath.row == kStartDatePickerIndex) {
@@ -173,8 +165,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
     return height;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if ((indexPath.row != kNameCellIndex) || (indexPath.section != kTextFieldSection) || (indexPath.row != kDescriptionCellIndex)) {
@@ -199,8 +190,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
 
 #pragma mark - Show/Hide date pickers
 
-- (void)showCellForDatePicker:(UIDatePicker *)datePicker
-{
+- (void)showCellForDatePicker:(UIDatePicker *)datePicker {
     datePicker.hidden = NO;
     datePicker.alpha = 0.0f;
     
@@ -213,8 +203,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
 }
 
 
-- (void)hideCellForDatePicker:(UIDatePicker *)datePicker
-{
+- (void)hideCellForDatePicker:(UIDatePicker *)datePicker {
     datePicker.hidden = YES;
     
     [self.tableView beginUpdates];
@@ -229,8 +218,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
                      }];
 }
 
-- (IBAction)pickerDateChanged:(UIDatePicker *)sender
-{
+- (IBAction)pickerDateChanged:(UIDatePicker *)sender {
     if (sender.tag == 0) {
         // Start Date Picker Changed
         _startsDateLabel.text = [_dateFormatter stringFromDate:sender.date];
@@ -252,8 +240,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
 
 #pragma mark - Show / Hide Save button
 
-- (IBAction)nameTextFieldEditingChaged:(UITextField *)sender
-{
+- (IBAction)nameTextFieldEditingChaged:(UITextField *)sender {
     self.navigationItem.rightBarButtonItem.enabled = (sender.text.length == 0) ? NO : YES;
 }
 
@@ -261,13 +248,11 @@ static NSString *const kEditEventScreenName = @"Edit Event";
 
 #pragma mark - Cancel / Save
 
-- (IBAction)cancelButton:(id)sender
-{
+- (IBAction)cancelButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)saveButton:(id)sender
-{
+- (IBAction)saveButton:(id)sender {
     if (self.nameTextField.text.length == 0) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:kErrorEmptyNameTitle
                                                             message:kErrorEmptyNameMessage
@@ -300,14 +285,12 @@ static NSString *const kEditEventScreenName = @"Edit Event";
     }
 }
 
-- (void)keyboardWillShow
-{
+- (void)keyboardWillShow {
     !self.startsDatePicker.isHidden ? [self hideCellForDatePicker:self.startsDatePicker] : nil;
     !self.endsDatePicker.isHidden ? [self hideCellForDatePicker:self.endsDatePicker] : nil;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField isEqual:self.nameTextField]) {
         // Swith to description text field from name text field
         [self.nameTextField resignFirstResponder];
@@ -322,8 +305,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
     return YES;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

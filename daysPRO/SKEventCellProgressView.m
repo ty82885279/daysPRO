@@ -24,8 +24,7 @@ static CGFloat kSymbolFontSize = 45.0;
 
 @implementation SKEventCellProgressView
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         
@@ -33,13 +32,11 @@ static CGFloat kSymbolFontSize = 45.0;
     return self;
 }
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     [self setupColors];
 }
 
-- (void)setupColors
-{
+- (void)setupColors {
     SKAppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSDictionary *colors = [delegate currentTheme];
     self.backgroundColor = [colors objectForKey:@"background"];
@@ -49,8 +46,7 @@ static CGFloat kSymbolFontSize = 45.0;
     self.metaLabel.textColor = [colors objectForKey:@"colorText"];
 }
 
-- (void)drawRect:(CGRect)rect
-{
+- (void)drawRect:(CGRect)rect {
     CGFloat startAngle = M_PI * 1.5;
     CGFloat endAngle = startAngle + (M_PI * 2.0);
     
@@ -79,19 +75,16 @@ static CGFloat kSymbolFontSize = 45.0;
     }
 }
 
-- (void)useSmallerFont
-{
+- (void)useSmallerFont {
     self.progressLabel.font = [UIFont fontWithName:kNumberInsideCircleFontName size:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kNumberInsideCircleFontSizeiPhone : kNumberInsideCircleFontSizeiPad];
     self.metaLabel.font = [UIFont fontWithName:kMetaTextFontName size:kMetaTextFontSizeSmall];
 }
 
-- (void)useFontForSymbol
-{
+- (void)useFontForSymbol {
     self.progressLabel.font = [UIFont fontWithName:kSymbolFontName size:kSymbolFontSize];
 }
 
-- (void)useDefaultFont
-{
+- (void)useDefaultFont {
     self.progressLabel.font = [UIFont fontWithName:kNumberInsideCircleFontName size:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kNumberInsideCircleFontSizeiPhone : kNumberInsideCircleFontSizeiPad];
     self.metaLabel.font = [UIFont fontWithName:kMetaTextFontName size:kMetaTextFontSizeDefault];
 }

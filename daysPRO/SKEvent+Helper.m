@@ -22,8 +22,7 @@ static NSString *kDone = @"DONE";
 
 @implementation SKEvent (Helper)
 
-- (CGFloat)progress
-{
+- (CGFloat)progress {
     if (self.startDate && self.endDate) {
         NSTimeInterval intervalSinceStart = [self.endDate timeIntervalSinceDate:self.startDate];
         NSTimeInterval intervalSinceNow = [[NSDate date] timeIntervalSinceDate:self.startDate];
@@ -34,33 +33,27 @@ static NSString *kDone = @"DONE";
     return 0;
 }
 
-- (NSString *)description
-{
+- (NSString *)description {
     return [NSString stringWithFormat:@"name '%@', startDate '%@', endDate '%@', desc '%@', created '%@'", self.name, self.startDate, self.endDate, self.details, self.createdDate];
 }
 
-- (NSInteger)daysLeftToDate:(NSDate *)date
-{
+- (NSInteger)daysLeftToDate:(NSDate *)date {
     return lroundf([self hoursLeftToDate:date] / 24.0);
 }
 
-- (NSInteger)hoursLeftToDate:(NSDate *)date
-{
+- (NSInteger)hoursLeftToDate:(NSDate *)date {
     return lroundf([self minutesLeftToDate:date] / 60.0);
 }
 
-- (NSInteger)minutesLeftToDate:(NSDate *)date
-{
+- (NSInteger)minutesLeftToDate:(NSDate *)date {
     return lroundf([self secondsLeftToDate:date] / 60.0);
 }
 
-- (NSInteger)secondsLeftToDate:(NSDate *)date
-{
+- (NSInteger)secondsLeftToDate:(NSDate *)date {
     return lroundf([date timeIntervalSinceDate:[NSDate date]]);
 }
 
-- (NSDictionary *)bestNumberAndText
-{
+- (NSDictionary *)bestNumberAndText {
     NSString *progress;
     NSString *metaText;
     

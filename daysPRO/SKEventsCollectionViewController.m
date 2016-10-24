@@ -43,8 +43,7 @@ static NSString *kEventsScreenName = @"Events Grid";
 
 @implementation SKEventsCollectionViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 
@@ -54,8 +53,7 @@ static NSString *kEventsScreenName = @"Events Grid";
 
 #pragma mark - Configure View
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self setupColors];
     [self registerForNotifications];
@@ -99,8 +97,7 @@ static NSString *kEventsScreenName = @"Events Grid";
     [self.collectionView addGestureRecognizer:tapGestureRecognizer];
 }
 
-- (void)setupColors
-{
+- (void)setupColors {
     SKAppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSDictionary *colors = [delegate currentTheme];
     self.view.backgroundColor = [colors objectForKey:@"background"];
@@ -116,8 +113,7 @@ static NSString *kEventsScreenName = @"Events Grid";
 
 #pragma mark Notifications
 
-- (void)registerForNotifications
-{
+- (void)registerForNotifications {
     // Model Changed Notification: event added
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(eventAdded:)
@@ -131,8 +127,7 @@ static NSString *kEventsScreenName = @"Events Grid";
                                                object:nil];
 }
 
-- (void)eventAdded:(NSNotification *)addedNotification
-{
+- (void)eventAdded:(NSNotification *)addedNotification {
     if ([[addedNotification.userInfo allKeys][0] isEqual:@"added"]) {
         SKEvent *eventToAdd = [addedNotification.userInfo objectForKey:@"added"];
         self.fetchedEventsArray = [NSMutableArray arrayWithArray:[[SKDataManager sharedManager] getAllEvents]];
@@ -141,16 +136,14 @@ static NSString *kEventsScreenName = @"Events Grid";
     }
 }
 
-- (void)applicationWillResign
-{
+- (void)applicationWillResign {
     [self doneEditing];
 }
 
 
 #pragma mark Update View
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self doneEditing]; // if needed
     [self updateView];
@@ -164,61 +157,52 @@ static NSString *kEventsScreenName = @"Events Grid";
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
+- (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self stopTimer];
 }
 
-- (void)startTimer
-{
+- (void)startTimer {
     if ([self.fetchedEventsArray count] && self.timer == nil) {
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateView) userInfo:nil repeats:YES];
     }
 }
 
-- (void)stopTimer
-{
+- (void)stopTimer {
     if (self.timer) {
         [self.timer invalidate];
         self.timer = nil;
     }
 }
 
-- (void)updateView
-{
+- (void)updateView {
     NSLog(@"----------- update view");
     self.fetchedEventsArray = [NSMutableArray arrayWithArray:[[SKDataManager sharedManager] getAllEvents]];
     [self.collectionView reloadData];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 
 #pragma mark - UIScrollView Delegate
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [self stopTimer];
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (self.isEditing == NO) {
         [self startTimer];
     }
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat statusBarHeight = 20.0f;
     CGFloat scrollOffset = scrollView.contentOffset.y;
     
@@ -240,18 +224,15 @@ static NSString *kEventsScreenName = @"Events Grid";
 
 #pragma mark - Status Bar Appearance
 
-- (BOOL)prefersStatusBarHidden
-{
+- (BOOL)prefersStatusBarHidden {
     return self.shouldBeHidingStatusBar;
 }
 
-- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation
-{
+- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
     return UIStatusBarAnimationSlide;
 }
 
-- (void)hideStatusBar
-{
+- (void)hideStatusBar {
     if (self.shouldBeHidingStatusBar == NO) {
         self.shouldBeHidingStatusBar = YES;
         [UIView animateWithDuration:0.1 animations:^{
@@ -260,8 +241,7 @@ static NSString *kEventsScreenName = @"Events Grid";
     }
 }
 
-- (void)showStatusBar
-{
+- (void)showStatusBar {
     if (self.shouldBeHidingStatusBar) {
         self.shouldBeHidingStatusBar = NO;
         [UIView animateWithDuration:0.1 animations:^{
@@ -273,8 +253,7 @@ static NSString *kEventsScreenName = @"Events Grid";
 
 #pragma mark - Add Button Appearance
 
-- (void)hideAddButton
-{
+- (void)hideAddButton {
     if (self.shouldBeHidingAddButton == NO) {
         self.shouldBeHidingAddButton = YES;
         [UIView animateWithDuration:0.1 animations:^{
@@ -285,8 +264,7 @@ static NSString *kEventsScreenName = @"Events Grid";
     }
 }
 
-- (void)showAddButton
-{
+- (void)showAddButton {
     if (self.shouldBeHidingAddButton) {
         self.shouldBeHidingAddButton = NO;
         self.addButton.center = CGPointMake(self.addButton.center.x + kAddButtonHiddenOffset, self.addButton.center.y);
@@ -301,18 +279,15 @@ static NSString *kEventsScreenName = @"Events Grid";
 
 #pragma mark - UICollectionView Datasource
 
-- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     return [self.fetchedEventsArray count];
 }
 
-- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView
-{
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
     return 1;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SKEventCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"EventCell" forIndexPath:indexPath];
     
     SKEvent *event = self.fetchedEventsArray[indexPath.row];
@@ -338,8 +313,7 @@ static NSString *kEventsScreenName = @"Events Grid";
 
 #pragma mark – UICollectionViewDelegateFlowLayout
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         return CGSizeMake(kCellWeightHeightiPhone, kCellWeightHeightiPhone);
     } else {
@@ -348,8 +322,7 @@ static NSString *kEventsScreenName = @"Events Grid";
     
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         return UIEdgeInsetsMake(kMarginTopBottomiPhone, kMarginLeftRightiPhone, kMarginTopBottomiPhone, kMarginLeftRightiPhone);
     } else {
@@ -360,8 +333,7 @@ static NSString *kEventsScreenName = @"Events Grid";
 
 #pragma mark - Navigation
 
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
-{
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if ([identifier isEqualToString:@"showEventDetailsView"] && self.editing) {
         return NO;
     }
@@ -369,8 +341,7 @@ static NSString *kEventsScreenName = @"Events Grid";
     return YES;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {    
     // Pass the selected event to the details view controller.
     if ([segue.identifier isEqualToString:@"showEventDetailsView"]) {
         NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
@@ -386,16 +357,14 @@ static NSString *kEventsScreenName = @"Events Grid";
     }
 }
 
-- (void)showAddEventView
-{
+- (void)showAddEventView {
     [self performSegueWithIdentifier:@"showAddEventView" sender:nil];
 }
 
 
 #pragma mark - Edit mode
 
-- (void)longPressGesture:(UIGestureRecognizer *)recognizer
-{
+- (void)longPressGesture:(UIGestureRecognizer *)recognizer {
     if ([recognizer state] == UIGestureRecognizerStateBegan) {
         
         UICollectionViewCell *cellAtTapPoint = [self collectionViewCellForTapAtPoint:[recognizer locationInView:self.collectionView]];
@@ -417,8 +386,7 @@ static NSString *kEventsScreenName = @"Events Grid";
     }
 }
 
-- (void)tapGesture:(UITapGestureRecognizer *)recognizer
-{
+- (void)tapGesture:(UITapGestureRecognizer *)recognizer {
     if ([recognizer state] == UIGestureRecognizerStateEnded) {
         
         UICollectionViewCell *cellAtTapPoint = [self collectionViewCellForTapAtPoint:[recognizer locationInView:self.collectionView]];
@@ -430,8 +398,7 @@ static NSString *kEventsScreenName = @"Events Grid";
     }
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     if ([gestureRecognizer class] == [UITapGestureRecognizer class] && ![self collectionViewCellForTapAtPoint:[touch locationInView:self.collectionView]]) {
         return YES;
     }
@@ -443,14 +410,12 @@ static NSString *kEventsScreenName = @"Events Grid";
     return NO;
 }
 
-- (UICollectionViewCell *)collectionViewCellForTapAtPoint:(CGPoint)tapPoint
-{
+- (UICollectionViewCell *)collectionViewCellForTapAtPoint:(CGPoint)tapPoint {
     NSIndexPath *indexPathForTapPoint = [self.collectionView indexPathForItemAtPoint:tapPoint];
     return [self.collectionView cellForItemAtIndexPath:indexPathForTapPoint];
 }
 
-- (IBAction)deleteButton:(UIButton *)sender
-{
+- (IBAction)deleteButton:(UIButton *)sender {
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:(SKEventCell *)sender.superview.superview];
     [[SKDataManager sharedManager] deleteEvent:self.fetchedEventsArray[indexPath.row]];
     [[SKDataManager sharedManager] saveContext];
@@ -458,8 +423,7 @@ static NSString *kEventsScreenName = @"Events Grid";
     [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
 }
 
-- (void)doneEditing
-{
+- (void)doneEditing {
     if (self.isEditing) {
         NSLog(@"Done editing");
         // Replace Add button to Done

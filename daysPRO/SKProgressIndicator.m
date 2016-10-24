@@ -29,8 +29,7 @@ static NSString *kColorAnimationKey = @"strokeColor";
 
 @implementation SKProgressIndicator
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         
@@ -38,13 +37,11 @@ static NSString *kColorAnimationKey = @"strokeColor";
     return self;
 }
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     [self setupColors];
 }
 
-- (void)setupColors
-{
+- (void)setupColors {
     SKAppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSDictionary *colors = [delegate currentTheme];
     
@@ -56,8 +53,7 @@ static NSString *kColorAnimationKey = @"strokeColor";
     self.textInsideCircleColor = [colors objectForKey:@"tint"];
 }
 
-- (void)drawRect:(CGRect)rect
-{
+- (void)drawRect:(CGRect)rect {
     // Draw circles
     [self drawInnerCircleBackgroundIn:rect];
     [self drawInnerCircleProgress:self.percentInnerCircle inRect:rect];
@@ -67,8 +63,7 @@ static NSString *kColorAnimationKey = @"strokeColor";
 
 #pragma mark - Draw Circles
 
-- (void)drawInnerCircleBackgroundIn:(CGRect)rect
-{
+- (void)drawInnerCircleBackgroundIn:(CGRect)rect {
     UIBezierPath *bezierPath = [UIBezierPath bezierPath];
     [bezierPath addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2)
                           radius:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kInnerCircleRadiusiPhone : kInnerCircleRadiusiPad
@@ -81,8 +76,7 @@ static NSString *kColorAnimationKey = @"strokeColor";
     [bezierPath stroke];
 }
 
-- (void)drawInnerCircleProgress:(CGFloat)percent inRect:(CGRect)rect
-{
+- (void)drawInnerCircleProgress:(CGFloat)percent inRect:(CGRect)rect {
     CGFloat startAngle = M_PI * 1.5;
     CGFloat endAngle = startAngle + (M_PI * 2);
     
@@ -102,8 +96,7 @@ static NSString *kColorAnimationKey = @"strokeColor";
     [bezierPath stroke];
 }
 
-- (void)drawOuterCircleBackgroundIn:(CGRect)rect
-{
+- (void)drawOuterCircleBackgroundIn:(CGRect)rect {
     UIBezierPath *bezierPath = [UIBezierPath bezierPath];
     [bezierPath addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2)
                           radius:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kOuterCircleRadiusiPhone : kOuterCircleRadiusiPad
@@ -115,8 +108,7 @@ static NSString *kColorAnimationKey = @"strokeColor";
     [bezierPath stroke];
 }
 
-- (void)drawOuterCircleProgress:(CGFloat)percent inRect:(CGRect)rect
-{
+- (void)drawOuterCircleProgress:(CGFloat)percent inRect:(CGRect)rect {
     if (percent >= 100) {
         [self doneOuterCircleAnimation];
     } else {
@@ -124,8 +116,7 @@ static NSString *kColorAnimationKey = @"strokeColor";
     }
 }
 
-- (void)progressOuterCircleAnimation
-{
+- (void)progressOuterCircleAnimation {
     // If the shape layer doesn't exist, create it
     if (self.outerCirclePathLayer == nil) {
         
@@ -179,8 +170,7 @@ static NSString *kColorAnimationKey = @"strokeColor";
     }
 }
 
-- (void)doneOuterCircleAnimation
-{
+- (void)doneOuterCircleAnimation {
     if (self.outerCirclePathLayer == nil) {
         CGFloat startAngle = M_PI * 1.5;
         CGFloat endAngle = startAngle + (M_PI * 2);

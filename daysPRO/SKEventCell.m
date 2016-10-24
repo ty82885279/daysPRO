@@ -15,31 +15,27 @@
 
 @implementation SKEventCell
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
     }
     return self;
 }
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     self.deleteButton.hidden = YES;
     self.quiveringAnimation = nil;
     [self setupColors];
 }
 
-- (void)setupColors
-{
+- (void)setupColors {
     SKAppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSDictionary *colors = [delegate currentTheme];
     self.backgroundColor = [colors objectForKey:@"background"];
     self.name.textColor = [colors objectForKey:@"tint"];
 }
 
-- (void)startQuivering
-{
+- (void)startQuivering {
     if (!self.quiveringAnimation) {
         self.deleteButton.hidden = NO;
     
@@ -59,8 +55,7 @@
     [self.layer addAnimation:self.quiveringAnimation forKey:@"quivering"];
 }
 
-- (void)stopQuivering
-{
+- (void)stopQuivering {
     if (self.quiveringAnimation) {
         self.quiveringAnimation = nil;
         self.deleteButton.hidden = YES;

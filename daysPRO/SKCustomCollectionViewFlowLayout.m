@@ -31,8 +31,7 @@
 
 @implementation SKCustomCollectionViewFlowLayout
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
         self.currentCellAttributes = [NSMutableDictionary dictionary];
@@ -43,8 +42,7 @@
 
 #pragma mark - Subclass
 
-- (void)prepareLayout
-{
+- (void)prepareLayout {
     [super prepareLayout];
     
     // Deep-copy attributes in current cache
@@ -56,8 +54,7 @@
     }];
 }
 
-- (NSArray*)layoutAttributesForElementsInRect:(CGRect)rect
-{
+- (NSArray*)layoutAttributesForElementsInRect:(CGRect)rect {
     NSArray * attributes = [super layoutAttributesForElementsInRect:rect];
     
     // Always cache all visible attributes so we can use them later when computing final/initial animated attributes
@@ -84,8 +81,7 @@
     return attributes;
 }
 
-- (void)prepareForCollectionViewUpdates:(NSArray *)updateItems
-{
+- (void)prepareForCollectionViewUpdates:(NSArray *)updateItems {
     [super prepareForCollectionViewUpdates:updateItems];
     
     // Keep track of updates to items and sections so we can use this information to create nifty animations
@@ -125,8 +121,7 @@
 //  - Inserted explicitly or via a section insert
 //  - Moved as a result of an insert at a lower index path
 //  - Result of an animated bounds change repositioning cells
-- (UICollectionViewLayoutAttributes*)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
-{
+- (UICollectionViewLayoutAttributes*)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
     UICollectionViewLayoutAttributes *attributes = [super initialLayoutAttributesForAppearingItemAtIndexPath:itemIndexPath];
 
     if ([self.insertedIndexPaths containsObject:itemIndexPath]) {
@@ -148,8 +143,7 @@
 //  - Removed explicitly or via a section removal
 //  - Moved as a result of a removal at a lower index path
 //  - Result of an animated bounds change repositioning cells
-- (UICollectionViewLayoutAttributes*)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
-{
+- (UICollectionViewLayoutAttributes*)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath {
     UICollectionViewLayoutAttributes *attributes = [super finalLayoutAttributesForDisappearingItemAtIndexPath:itemIndexPath];
         
     if ([self.removedIndexPaths containsObject:itemIndexPath] || [self.removedSectionIndices containsObject:@(itemIndexPath.section)]) {
@@ -168,8 +162,7 @@
     return attributes;
 }
 
-- (void)finalizeCollectionViewUpdates
-{
+- (void)finalizeCollectionViewUpdates {
     [super finalizeCollectionViewUpdates];
     
     self.insertedIndexPaths     = nil;
@@ -181,8 +174,7 @@
 
 #pragma mark - Helpers
 
-- (NSIndexPath*)previousIndexPathForIndexPath:(NSIndexPath *)indexPath accountForItems:(BOOL)checkItems
-{
+- (NSIndexPath*)previousIndexPathForIndexPath:(NSIndexPath *)indexPath accountForItems:(BOOL)checkItems {
     __block NSInteger section = indexPath.section;
     __block NSInteger item = indexPath.item;
     

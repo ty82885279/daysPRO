@@ -35,8 +35,7 @@ NSString *const kDeletedKey = @"deleted";
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 
-+ (SKDataManager*)sharedManager
-{
++ (SKDataManager*)sharedManager {
 	static dispatch_once_t once;
 	static SKDataManager *sharedManager;
     
@@ -55,8 +54,7 @@ NSString *const kDeletedKey = @"deleted";
  Returns the managed object context for the application.
  If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
  */
-- (NSManagedObjectContext *)managedObjectContext
-{
+- (NSManagedObjectContext *)managedObjectContext {
     if (_managedObjectContext) {
         return _managedObjectContext;
     }
@@ -90,8 +88,7 @@ NSString *const kDeletedKey = @"deleted";
  Returns the managed object model for the application.
  If the model doesn't already exist, it is created from the application's model.
  */
-- (NSManagedObjectModel *)managedObjectModel
-{
+- (NSManagedObjectModel *)managedObjectModel {
     if (_managedObjectModel) {
         return _managedObjectModel;
     }
@@ -107,8 +104,7 @@ NSString *const kDeletedKey = @"deleted";
  Returns the persistent store coordinator for the application.
  If the coordinator doesn't already exist, it is created and the application's store added to it.
  */
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-{
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
     if (_persistentStoreCoordinator) {
         return _persistentStoreCoordinator;
     }
@@ -139,8 +135,7 @@ NSString *const kDeletedKey = @"deleted";
 #pragma mark -
 #pragma mark Adding persistent stores
 
-- (void)addPersistentStoreToCoordinator
-{
+- (void)addPersistentStoreToCoordinator {
     NSMutableDictionary *options = [NSMutableDictionary dictionary];
     [options setObject:@YES forKey:NSMigratePersistentStoresAutomaticallyOption];
     [options setObject:@YES forKey:NSInferMappingModelAutomaticallyOption];
@@ -178,8 +173,7 @@ NSString *const kDeletedKey = @"deleted";
 #pragma mark -
 #pragma mark Save Context
 
-- (void)saveTheContext:(NSManagedObjectContext *)theContext
-{
+- (void)saveTheContext:(NSManagedObjectContext *)theContext {
     if ([self.persistentStoreCoordinator.persistentStores count] != 0) {
 
         NSError *error = nil;
@@ -198,16 +192,14 @@ NSString *const kDeletedKey = @"deleted";
     }
 }
 
-- (void)saveContext
-{
+- (void)saveContext {
     [self saveTheContext:self.managedObjectContext];
 }
 
 #pragma mark -
 #pragma mark Events
 
-- (NSArray *)getAllEvents
-{
+- (NSArray *)getAllEvents {
     // initializing NSFetchRequest
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
@@ -231,8 +223,7 @@ NSString *const kDeletedKey = @"deleted";
     return [fetchedEvents sortedArrayUsingDescriptors:@[sortDescriptor]];;
 }
 
-- (SKEvent *)createEventWithName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details
-{
+- (SKEvent *)createEventWithName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details {
     SKEvent *newEvent = (SKEvent *)[NSEntityDescription insertNewObjectForEntityForName:kEventEntityName inManagedObjectContext:self.managedObjectContext];
     newEvent.name = name;
     newEvent.details = details;
@@ -243,8 +234,7 @@ NSString *const kDeletedKey = @"deleted";
     return newEvent;
 }
 
-- (SKEvent *)updateEvent:(SKEvent *)event withName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details
-{
+- (SKEvent *)updateEvent:(SKEvent *)event withName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details {
     event.name = name;
     event.startDate = startDate;
     event.endDate = endDate;
@@ -252,13 +242,11 @@ NSString *const kDeletedKey = @"deleted";
     return event;
 }
 
-- (void)deleteEvent:(SKEvent *)event
-{
+- (void)deleteEvent:(SKEvent *)event {
     [self.managedObjectContext deleteObject:event];
 }
 
-- (void)createDefaultEvents
-{
+- (void)createDefaultEvents {
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     
@@ -299,8 +287,7 @@ NSString *const kDeletedKey = @"deleted";
     
 }
 
-- (void)deleteAllEvents
-{
+- (void)deleteAllEvents {
     NSFetchRequest *allEvents = [[NSFetchRequest alloc] init];
     [allEvents setEntity:[NSEntityDescription entityForName:kEventEntityName inManagedObjectContext:self.managedObjectContext]];
     [allEvents setIncludesPropertyValues:NO]; //only fetch the managedObjectID
@@ -316,8 +303,7 @@ NSString *const kDeletedKey = @"deleted";
 #pragma mark -
 #pragma mark iCloud notifications
 
-- (void)persistentStoreDidImportUbiquitiousContentChanges:(NSNotification *)changeNotification
-{
+- (void)persistentStoreDidImportUbiquitiousContentChanges:(NSNotification *)changeNotification {
     NSLog(@"Merging changes from iCloud");
     
     NSManagedObjectContext *moc = [self managedObjectContext];
@@ -327,8 +313,7 @@ NSString *const kDeletedKey = @"deleted";
     }];
 }
 
-- (void)storesWillChange:(NSNotification *)n
-{
+- (void)storesWillChange:(NSNotification *)n {
     NSManagedObjectContext *moc = [self managedObjectContext];
     [moc performBlockAndWait:^{
         NSError *error = nil;
@@ -343,8 +328,7 @@ NSString *const kDeletedKey = @"deleted";
 }
 
 
-- (void)storesDidChange:(NSNotification *)n
-{
+- (void)storesDidChange:(NSNotification *)n {
     NSLog(@"storesDidChange");
 }
 
@@ -352,8 +336,7 @@ NSString *const kDeletedKey = @"deleted";
 #pragma mark -
 #pragma mark Model notifications
 
-- (void)objectContextDidSave:(NSNotification *)notification
-{
+- (void)objectContextDidSave:(NSNotification *)notification {
     // Event inserted
     if ([notification.userInfo objectForKey:NSInsertedObjectsKey]) {
         for (id object in [notification.userInfo objectForKey:NSInsertedObjectsKey]) {
@@ -381,8 +364,7 @@ NSString *const kDeletedKey = @"deleted";
     
 }
 
-- (void)objectContextDidSaveFromiCloud:(NSNotification *)notification
-{
+- (void)objectContextDidSaveFromiCloud:(NSNotification *)notification {
     // Event inserted
     NSDictionary *insertedObjectIDs = [[notification userInfo] objectForKey:NSInsertedObjectsKey];
     if (insertedObjectIDs) {

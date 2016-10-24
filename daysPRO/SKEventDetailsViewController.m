@@ -29,8 +29,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 
 @implementation SKEventDetailsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 
@@ -40,8 +39,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 
 #pragma mark - Setup View
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     [self setupColors];
@@ -51,8 +49,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     self.tapCounter = 0;
 }
 
-- (void)setupColors
-{
+- (void)setupColors {
     SKAppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSDictionary *colors = [delegate currentTheme];
     self.view.backgroundColor = [colors objectForKey:@"background"];
@@ -64,8 +61,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     self.descriptionLabel.textColor = [colors objectForKey:@"colorText"];
 }
 
-- (void)setupLabels
-{
+- (void)setupLabels {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
@@ -166,8 +162,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     }];
 }
 
-- (void)setupNavigationButtons
-{
+- (void)setupNavigationButtons {
     CGSize barButtonSize = CGSizeMake(35.0f, 35.0f);
     UIView *rightButtonsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, barButtonSize.width * 3 + 15, barButtonSize.height)];
     
@@ -215,8 +210,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     self.navigationController.navigationBar.backIndicatorTransitionMaskImage = backButtonImage;
 }
 
-- (void)setupProgressLabels
-{
+- (void)setupProgressLabels {
     // Set percent for progress indicator
     self.progressView.percentInnerCircle = [self.event progress] * 100;
     
@@ -226,22 +220,19 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     self.progressView.metaLabel.text = [options valueForKey:@"text"];
 }
 
-- (void)updateProgressView
-{
+- (void)updateProgressView {
     // Redraw
     [self setupProgressLabels];
     [self.progressView setNeedsDisplay];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setupLabels];
     [self updateProgressView];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     if (!self.timer) {
@@ -249,8 +240,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     }
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
+- (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     
     if (self.timer) {
@@ -259,13 +249,11 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)tapGesture:(UITapGestureRecognizer *)sender
-{
+- (IBAction)tapGesture:(UITapGestureRecognizer *)sender {
     self.tapCounter++;
     [self setupLabels];
 }
@@ -273,13 +261,11 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 
 #pragma mark - Editing
 
-- (void)editButtonPressed
-{
+- (void)editButtonPressed {
     [self performSegueWithIdentifier:@"showEditEventView" sender:self];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showEditEventView"]) {
         SKAddEventTableViewController *editEventViewController = (SKAddEventTableViewController *)((UINavigationController *)segue.destinationViewController).topViewController;
         editEventViewController.eventEditMode = YES;
@@ -299,8 +285,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 
 #pragma mark - Sharing
 
-- (void)shareButtonPressed
-{
+- (void)shareButtonPressed {
     // prepare string
     NSString *shareString;
     if (self.event.details.length == 0) {
@@ -323,8 +308,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 
 #pragma mark — Screenshot
 
-- (UIImage *)screenshot
-{
+- (UIImage *)screenshot {
     CGSize imageSize = CGSizeZero;
     
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
@@ -365,8 +349,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     return image;
 }
 
-- (UIImage *)cropImage:(UIImage *)image byOffset:(CGFloat) verticalOffset
-{
+- (UIImage *)cropImage:(UIImage *)image byOffset:(CGFloat) verticalOffset {
     CGRect cropRect = CGRectMake(0, verticalOffset, image.size.width * 2.0, image.size.height * 2.0 - verticalOffset);
     CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
     UIImage *croppedImage = [UIImage imageWithCGImage:imageRef scale:image.scale orientation:image.imageOrientation];
