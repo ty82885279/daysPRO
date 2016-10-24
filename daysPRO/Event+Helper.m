@@ -8,13 +8,13 @@
 
 #import "Event+Helper.h"
 
-static NSString *kWeeksLeft = @"WEEKS LEFT";
+static NSString *kWeeksLeft = @"WKS LEFT";
 static NSString *kDaysLeft = @"DAYS LEFT";
 static NSString *kHoursLeft = @"HRS LEFT";
 static NSString *kMinutesLeft = @"MINS LEFT";
 static NSString *kSecondsLeft = @"SECS LEFT";
 
-static NSString *kWeeksToStart = @"WEEKS TO START";
+static NSString *kWeeksToStart = @"WKS TO START";
 static NSString *kDaysToStart = @"DAYS TO START";
 static NSString *kHoursToStart = @"HRS TO START";
 static NSString *kMinutesToStart = @"MINS TO START";
