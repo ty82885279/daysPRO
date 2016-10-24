@@ -15,7 +15,6 @@
 		A6693562179D31E200E5A40F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6693561179D31E200E5A40F /* CoreGraphics.framework */; };
 		A6A3E8A8188F931700A3E4FB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A3E8A7188F931700A3E4FB /* QuartzCore.framework */; };
 		D6723E0F1DBE409900D925A4 /* AppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D6723DE51DBE409900D925A4 /* AppModel.xcdatamodeld */; };
-		D6723E111DBE409900D925A4 /* daysPRO-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6723DE91DBE409900D925A4 /* daysPRO-Info.plist */; };
 		D6723E121DBE409900D925A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6723DEA1DBE409900D925A4 /* InfoPlist.strings */; };
 		D6723E131DBE409900D925A4 /* Main-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6723DEC1DBE409900D925A4 /* Main-iPad.storyboard */; };
 		D6723E141DBE409900D925A4 /* Main-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6723DEE1DBE409900D925A4 /* Main-iPhone.storyboard */; };
@@ -290,7 +289,6 @@
 				D6723E171DBE409900D925A4 /* Media.xcassets in Resources */,
 				D6723E181DBE409900D925A4 /* notification-sound.caf in Resources */,
 				D6723E121DBE409900D925A4 /* InfoPlist.strings in Resources */,
-				D6723E111DBE409900D925A4 /* daysPRO-Info.plist in Resources */,
 				D6723E131DBE409900D925A4 /* Main-iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

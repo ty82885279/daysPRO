@@ -19,7 +19,6 @@ static NSInteger kMarginLeftRightiPhone = 10;
 static NSInteger kMarginLeftRightiPad = 10;
 
 static CGFloat kCollectionViewContentOffsetiPhone = -64.0f;
-static CGFloat kCollectionViewContentOffsetiPad = 0.0f;
 
 static NSInteger kCellWeightHeightiPhone = 145;
 static NSInteger kCellWeightHeightiPad = 242;
@@ -177,7 +176,6 @@ static NSString *kEventsScreenName = @"Events Grid";
 }
 
 - (void)updateView {
-    NSLog(@"----------- update view");
     self.fetchedEventsArray = [NSMutableArray arrayWithArray:[[DataManager sharedManager] getAllEvents]];
     [self.collectionView reloadData];
 }

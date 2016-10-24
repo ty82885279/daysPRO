@@ -22,6 +22,10 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<string>UIStatusBarStyleDefault</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Days Pro needs to use camera to add pictures to events.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Days Pro needs to use photo library to add pictures to events.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>

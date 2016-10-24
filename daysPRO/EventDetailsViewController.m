@@ -408,10 +408,6 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 #pragma mark - ImagePickerController Delegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
-    // Dismiss the image selection, hide the picker and
-    
-    //show the image view with the picked image
-    
     [picker dismissViewControllerAnimated:YES completion:nil];
     [self saveImage:image];
 }
@@ -420,7 +416,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)saveImage: (UIImage*)image {
+- (void)saveImage: (UIImage *)image {
     if (image != nil) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                              NSUserDomainMask, YES);

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11523"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -158,27 +159,26 @@
                                     <rect key="frame" x="0.0" y="0.0" width="145" height="145"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfQ-S7-rSb" userLabel="Event Name">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfQ-S7-rSb" userLabel="Event Name">
                                             <rect key="frame" x="9" y="120" width="127" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="jh8-OF-Hea"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fVT-H1-iuK" userLabel="Progress View" customClass="EventCellProgressView">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVT-H1-iuK" userLabel="Progress View" customClass="EventCellProgressView">
                                             <rect key="frame" x="17" y="6" width="111" height="111"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="✓" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXR-uD-2Xa" userLabel="Progress Label">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXR-uD-2Xa" userLabel="Progress Label">
                                                     <rect key="frame" x="0.0" y="31" width="111" height="33"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="35"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIME LEFT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxX-Zb-cip" userLabel="Meta Label">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME LEFT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxX-Zb-cip" userLabel="Meta Label">
                                                     <rect key="frame" x="0.0" y="60" width="111" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="12"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -186,14 +186,26 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <gestureRecognizers/>
+                                            <constraints>
+                                                <constraint firstItem="PXR-uD-2Xa" firstAttribute="trailing" secondItem="cxX-Zb-cip" secondAttribute="trailing" id="25X-ru-QWq"/>
+                                                <constraint firstItem="PXR-uD-2Xa" firstAttribute="leading" secondItem="fVT-H1-iuK" secondAttribute="leading" id="MJv-mz-zNM"/>
+                                                <constraint firstItem="PXR-uD-2Xa" firstAttribute="leading" secondItem="cxX-Zb-cip" secondAttribute="leading" id="ZTt-mC-sYk"/>
+                                                <constraint firstAttribute="bottom" secondItem="PXR-uD-2Xa" secondAttribute="bottom" constant="47" id="nFa-2j-6hh"/>
+                                                <constraint firstAttribute="trailing" secondItem="PXR-uD-2Xa" secondAttribute="trailing" id="rXd-ng-Vuf"/>
+                                                <constraint firstItem="PXR-uD-2Xa" firstAttribute="top" secondItem="fVT-H1-iuK" secondAttribute="top" constant="31" id="tue-kg-UZa"/>
+                                                <constraint firstAttribute="bottom" secondItem="cxX-Zb-cip" secondAttribute="bottom" constant="30" id="uZR-78-9i9"/>
+                                                <constraint firstItem="cxX-Zb-cip" firstAttribute="top" secondItem="fVT-H1-iuK" secondAttribute="top" constant="60" id="xRT-OS-H1c"/>
+                                            </constraints>
                                             <connections>
                                                 <outlet property="metaLabel" destination="cxX-Zb-cip" id="Cip-lW-CDC"/>
                                                 <outlet property="progressLabel" destination="PXR-uD-2Xa" id="ev5-ls-c70"/>
                                             </connections>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMe-xq-T7r" userLabel="Delete Button">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMe-xq-T7r" userLabel="Delete Button">
                                             <rect key="frame" x="6" y="0.0" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="KRA-5q-YWg"/>
+                                            </constraints>
                                             <state key="normal" image="delete-icon"/>
                                             <connections>
                                                 <action selector="deleteButton:" destination="cjh-Jl-h0H" eventType="touchUpInside" id="rUo-6u-7B3"/>
@@ -203,6 +215,18 @@
                                 </view>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="fVT-H1-iuK" firstAttribute="top" secondItem="aRY-3T-9ec" secondAttribute="topMargin" constant="-2" id="8jy-vT-Yya"/>
+                                    <constraint firstItem="zfQ-S7-rSb" firstAttribute="top" secondItem="fVT-H1-iuK" secondAttribute="bottom" constant="3" id="AFk-0Y-JfS"/>
+                                    <constraint firstItem="zfQ-S7-rSb" firstAttribute="leading" secondItem="aRY-3T-9ec" secondAttribute="leadingMargin" constant="1" id="N7h-Ge-D8P"/>
+                                    <constraint firstItem="fVT-H1-iuK" firstAttribute="leading" secondItem="aRY-3T-9ec" secondAttribute="leadingMargin" constant="9" id="R7N-OC-Of0"/>
+                                    <constraint firstItem="fVT-H1-iuK" firstAttribute="centerX" secondItem="aRY-3T-9ec" secondAttribute="centerX" id="Rxf-eY-D8Z"/>
+                                    <constraint firstItem="IMe-xq-T7r" firstAttribute="leading" secondItem="aRY-3T-9ec" secondAttribute="leadingMargin" constant="-2" id="jDG-Sc-h0w"/>
+                                    <constraint firstItem="zfQ-S7-rSb" firstAttribute="top" secondItem="IMe-xq-T7r" secondAttribute="bottom" constant="90" id="ktN-Qp-kCp"/>
+                                    <constraint firstItem="IMe-xq-T7r" firstAttribute="top" secondItem="aRY-3T-9ec" secondAttribute="top" id="m2R-64-ICc"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="zfQ-S7-rSb" secondAttribute="bottom" constant="-4" id="uVy-Oo-12F"/>
+                                    <constraint firstItem="fVT-H1-iuK" firstAttribute="centerX" secondItem="zfQ-S7-rSb" secondAttribute="centerX" id="wDi-f0-4L5"/>
+                                </constraints>
                                 <size key="customSize" width="145" height="145"/>
                                 <connections>
                                     <outlet property="deleteButton" destination="IMe-xq-T7r" id="KqV-RU-6lo"/>
@@ -454,6 +478,6 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fRn-hN-UwH"/>
+        <segue reference="V9j-Qu-WEb"/>
     </inferredMetricsTieBreakers>
 </document>
