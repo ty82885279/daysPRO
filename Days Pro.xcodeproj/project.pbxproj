@@ -8,78 +8,81 @@
 
 /* Begin PBXBuildFile section */
 		A62A080F1892A2A90031AE7F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62A080E1892A2A90031AE7F /* CoreData.framework */; };
-		A62A08121892A30D0031AE7F /* AppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A62A08101892A30D0031AE7F /* AppModel.xcdatamodeld */; };
-		A62A08181893E2860031AE7F /* SKDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A62A08171893E2860031AE7F /* SKDataManager.m */; };
-		A62A081E1893F3A10031AE7F /* SKEvent+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = A62A081D1893F3A10031AE7F /* SKEvent+Helper.m */; };
-		A62A0834189504380031AE7F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A62A0833189504380031AE7F /* Media.xcassets */; };
-		A636CB54179D60D300526D7A /* SKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = A636CB53179D60D300526D7A /* SKEvent.m */; };
-		A64EEE61188D953E00EB237B /* SKEventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A64EEE60188D953E00EB237B /* SKEventDetailsViewController.m */; };
-		A64EEE64188D9EFD00EB237B /* SKProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = A64EEE63188D9EFD00EB237B /* SKProgressIndicator.m */; };
 		A65DE88B189E369E009F7AFE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65DE88A189E369E009F7AFE /* SystemConfiguration.framework */; };
 		A65DE88F189E41FA009F7AFE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65DE88E189E41FA009F7AFE /* AdSupport.framework */; };
 		A669355E179D31E200E5A40F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A669355D179D31E200E5A40F /* UIKit.framework */; };
 		A6693560179D31E200E5A40F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A669355F179D31E200E5A40F /* Foundation.framework */; };
 		A6693562179D31E200E5A40F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6693561179D31E200E5A40F /* CoreGraphics.framework */; };
-		A6693568179D31E200E5A40F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6693566179D31E200E5A40F /* InfoPlist.strings */; };
-		A669356A179D31E200E5A40F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6693569179D31E200E5A40F /* main.m */; };
-		A669356E179D31E200E5A40F /* SKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A669356D179D31E200E5A40F /* SKAppDelegate.m */; };
-		A6693577179D31E200E5A40F /* Main-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6693575179D31E200E5A40F /* Main-iPhone.storyboard */; };
-		A669357A179D31E200E5A40F /* Main-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6693578179D31E200E5A40F /* Main-iPad.storyboard */; };
 		A6A3E8A8188F931700A3E4FB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A3E8A7188F931700A3E4FB /* QuartzCore.framework */; };
-		A6A3E8AB1891255C00A3E4FB /* SKEventsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A3E8AA1891255C00A3E4FB /* SKEventsCollectionViewController.m */; };
-		A6A3E8B01891301500A3E4FB /* SKEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A3E8AF1891301500A3E4FB /* SKEventCell.m */; };
-		A6B4C85118DF48B900586587 /* notification-sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = A6B4C85018DF48B900586587 /* notification-sound.caf */; };
-		A6B8E09D188D1F7F007E857F /* SKAddEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B8E09A188D1F7F007E857F /* SKAddEventTableViewController.m */; };
-		A6DDBC9E18913656003B2D37 /* SKEventCellProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DDBC9D18913656003B2D37 /* SKEventCellProgressView.m */; };
-		A6DEF6311899263900070415 /* SKCustomCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DEF6301899263900070415 /* SKCustomCollectionViewFlowLayout.m */; };
-		A6DEF634189BE11000070415 /* SKPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DEF633189BE11000070415 /* SKPushManager.m */; };
-		D6723DE21DBE3FCA00D925A4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6723DE11DBE3FCA00D925A4 /* Launch Screen.storyboard */; };
+		D6723E0E1DBE409900D925A4 /* add-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6723DE41DBE409900D925A4 /* add-icon@2x.png */; };
+		D6723E0F1DBE409900D925A4 /* AppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D6723DE51DBE409900D925A4 /* AppModel.xcdatamodeld */; };
+		D6723E111DBE409900D925A4 /* daysPRO-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6723DE91DBE409900D925A4 /* daysPRO-Info.plist */; };
+		D6723E121DBE409900D925A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6723DEA1DBE409900D925A4 /* InfoPlist.strings */; };
+		D6723E131DBE409900D925A4 /* Main-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6723DEC1DBE409900D925A4 /* Main-iPad.storyboard */; };
+		D6723E141DBE409900D925A4 /* Main-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6723DEE1DBE409900D925A4 /* Main-iPhone.storyboard */; };
+		D6723E151DBE409900D925A4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6723DF01DBE409900D925A4 /* Launch Screen.storyboard */; };
+		D6723E161DBE409900D925A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723DF11DBE409900D925A4 /* main.m */; };
+		D6723E171DBE409900D925A4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6723DF21DBE409900D925A4 /* Media.xcassets */; };
+		D6723E181DBE409900D925A4 /* notification-sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = D6723DF31DBE409900D925A4 /* notification-sound.caf */; };
+		D6723E191DBE409900D925A4 /* SKAddEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723DF51DBE409900D925A4 /* SKAddEventTableViewController.m */; };
+		D6723E1A1DBE409900D925A4 /* SKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723DF71DBE409900D925A4 /* SKAppDelegate.m */; };
+		D6723E1B1DBE409900D925A4 /* SKCustomCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723DF91DBE409900D925A4 /* SKCustomCollectionViewFlowLayout.m */; };
+		D6723E1C1DBE409900D925A4 /* SKDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723DFB1DBE409900D925A4 /* SKDataManager.m */; };
+		D6723E1D1DBE409900D925A4 /* SKEvent+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723DFD1DBE409900D925A4 /* SKEvent+Helper.m */; };
+		D6723E1E1DBE409900D925A4 /* SKEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723DFF1DBE409900D925A4 /* SKEvent.m */; };
+		D6723E1F1DBE409900D925A4 /* SKEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E011DBE409900D925A4 /* SKEventCell.m */; };
+		D6723E201DBE409900D925A4 /* SKEventCellProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E031DBE409900D925A4 /* SKEventCellProgressView.m */; };
+		D6723E221DBE409900D925A4 /* SKEventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E061DBE409900D925A4 /* SKEventDetailsViewController.m */; };
+		D6723E231DBE409900D925A4 /* SKEventsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E081DBE409900D925A4 /* SKEventsCollectionViewController.m */; };
+		D6723E241DBE409900D925A4 /* SKProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E0A1DBE409900D925A4 /* SKProgressIndicator.m */; };
+		D6723E251DBE409900D925A4 /* SKPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E0C1DBE409900D925A4 /* SKPushManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A62A080E1892A2A90031AE7F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		A62A08111892A30D0031AE7F /* AppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppModel.xcdatamodel; sourceTree = "<group>"; };
-		A62A08161893E2860031AE7F /* SKDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDataManager.h; sourceTree = "<group>"; };
-		A62A08171893E2860031AE7F /* SKDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDataManager.m; sourceTree = "<group>"; };
-		A62A081C1893F3A10031AE7F /* SKEvent+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKEvent+Helper.h"; sourceTree = "<group>"; };
-		A62A081D1893F3A10031AE7F /* SKEvent+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKEvent+Helper.m"; sourceTree = "<group>"; };
-		A62A081F18940BC60031AE7F /* When.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = When.entitlements; sourceTree = "<group>"; };
-		A62A0833189504380031AE7F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = ../Media.xcassets; sourceTree = "<group>"; };
-		A636CB52179D60D300526D7A /* SKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEvent.h; sourceTree = "<group>"; };
-		A636CB53179D60D300526D7A /* SKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEvent.m; sourceTree = "<group>"; };
-		A64EEE5F188D953E00EB237B /* SKEventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEventDetailsViewController.h; sourceTree = "<group>"; };
-		A64EEE60188D953E00EB237B /* SKEventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEventDetailsViewController.m; sourceTree = "<group>"; };
-		A64EEE62188D9EFD00EB237B /* SKProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProgressIndicator.h; sourceTree = "<group>"; };
-		A64EEE63188D9EFD00EB237B /* SKProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProgressIndicator.m; sourceTree = "<group>"; };
 		A65DE88A189E369E009F7AFE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A65DE88E189E41FA009F7AFE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		A669355A179D31E200E5A40F /* Days Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Days Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A669355D179D31E200E5A40F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A669355F179D31E200E5A40F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6693561179D31E200E5A40F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A6693567179D31E200E5A40F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A6693569179D31E200E5A40F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A669356B179D31E200E5A40F /* Days Pro-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Days Pro-Prefix.pch"; sourceTree = "<group>"; };
-		A669356C179D31E200E5A40F /* SKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKAppDelegate.h; sourceTree = "<group>"; };
-		A669356D179D31E200E5A40F /* SKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKAppDelegate.m; sourceTree = "<group>"; };
-		A6693576179D31E200E5A40F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/Main-iPhone.storyboard"; sourceTree = "<group>"; };
-		A6693579179D31E200E5A40F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/Main-iPad.storyboard"; sourceTree = "<group>"; };
 		A6A3E8A7188F931700A3E4FB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		A6A3E8A91891255C00A3E4FB /* SKEventsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEventsCollectionViewController.h; sourceTree = "<group>"; };
-		A6A3E8AA1891255C00A3E4FB /* SKEventsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEventsCollectionViewController.m; sourceTree = "<group>"; };
-		A6A3E8AE1891301500A3E4FB /* SKEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEventCell.h; sourceTree = "<group>"; };
-		A6A3E8AF1891301500A3E4FB /* SKEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEventCell.m; sourceTree = "<group>"; };
-		A6B4C85018DF48B900586587 /* notification-sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "notification-sound.caf"; sourceTree = "<group>"; };
-		A6B8E099188D1F7F007E857F /* SKAddEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAddEventTableViewController.h; sourceTree = "<group>"; };
-		A6B8E09A188D1F7F007E857F /* SKAddEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAddEventTableViewController.m; sourceTree = "<group>"; };
-		A6DDBC9C18913656003B2D37 /* SKEventCellProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEventCellProgressView.h; sourceTree = "<group>"; };
-		A6DDBC9D18913656003B2D37 /* SKEventCellProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEventCellProgressView.m; sourceTree = "<group>"; };
-		A6DEF62F1899263900070415 /* SKCustomCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCustomCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		A6DEF6301899263900070415 /* SKCustomCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCustomCollectionViewFlowLayout.m; sourceTree = "<group>"; };
-		A6DEF632189BE11000070415 /* SKPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPushManager.h; sourceTree = "<group>"; };
-		A6DEF633189BE11000070415 /* SKPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPushManager.m; sourceTree = "<group>"; };
-		D6723DDC1DBE3D5800D925A4 /* daysPRO-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "daysPRO-Info.plist"; sourceTree = "<group>"; };
-		D6723DE11DBE3FCA00D925A4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D6723DE41DBE409900D925A4 /* add-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-icon@2x.png"; sourceTree = "<group>"; };
+		D6723DE61DBE409900D925A4 /* AppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppModel.xcdatamodel; sourceTree = "<group>"; };
+		D6723DE81DBE409900D925A4 /* Days Pro-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Days Pro-Prefix.pch"; sourceTree = "<group>"; };
+		D6723DE91DBE409900D925A4 /* daysPRO-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "daysPRO-Info.plist"; sourceTree = "<group>"; };
+		D6723DEB1DBE409900D925A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D6723DED1DBE409900D925A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/Main-iPad.storyboard"; sourceTree = "<group>"; };
+		D6723DEF1DBE409900D925A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/Main-iPhone.storyboard"; sourceTree = "<group>"; };
+		D6723DF01DBE409900D925A4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D6723DF11DBE409900D925A4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D6723DF21DBE409900D925A4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		D6723DF31DBE409900D925A4 /* notification-sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "notification-sound.caf"; sourceTree = "<group>"; };
+		D6723DF41DBE409900D925A4 /* SKAddEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAddEventTableViewController.h; sourceTree = "<group>"; };
+		D6723DF51DBE409900D925A4 /* SKAddEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAddEventTableViewController.m; sourceTree = "<group>"; };
+		D6723DF61DBE409900D925A4 /* SKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAppDelegate.h; sourceTree = "<group>"; };
+		D6723DF71DBE409900D925A4 /* SKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAppDelegate.m; sourceTree = "<group>"; };
+		D6723DF81DBE409900D925A4 /* SKCustomCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKCustomCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		D6723DF91DBE409900D925A4 /* SKCustomCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKCustomCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		D6723DFA1DBE409900D925A4 /* SKDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKDataManager.h; sourceTree = "<group>"; };
+		D6723DFB1DBE409900D925A4 /* SKDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKDataManager.m; sourceTree = "<group>"; };
+		D6723DFC1DBE409900D925A4 /* SKEvent+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKEvent+Helper.h"; sourceTree = "<group>"; };
+		D6723DFD1DBE409900D925A4 /* SKEvent+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKEvent+Helper.m"; sourceTree = "<group>"; };
+		D6723DFE1DBE409900D925A4 /* SKEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEvent.h; sourceTree = "<group>"; };
+		D6723DFF1DBE409900D925A4 /* SKEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEvent.m; sourceTree = "<group>"; };
+		D6723E001DBE409900D925A4 /* SKEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEventCell.h; sourceTree = "<group>"; };
+		D6723E011DBE409900D925A4 /* SKEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEventCell.m; sourceTree = "<group>"; };
+		D6723E021DBE409900D925A4 /* SKEventCellProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEventCellProgressView.h; sourceTree = "<group>"; };
+		D6723E031DBE409900D925A4 /* SKEventCellProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEventCellProgressView.m; sourceTree = "<group>"; };
+		D6723E051DBE409900D925A4 /* SKEventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEventDetailsViewController.h; sourceTree = "<group>"; };
+		D6723E061DBE409900D925A4 /* SKEventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEventDetailsViewController.m; sourceTree = "<group>"; };
+		D6723E071DBE409900D925A4 /* SKEventsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKEventsCollectionViewController.h; sourceTree = "<group>"; };
+		D6723E081DBE409900D925A4 /* SKEventsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKEventsCollectionViewController.m; sourceTree = "<group>"; };
+		D6723E091DBE409900D925A4 /* SKProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKProgressIndicator.h; sourceTree = "<group>"; };
+		D6723E0A1DBE409900D925A4 /* SKProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKProgressIndicator.m; sourceTree = "<group>"; };
+		D6723E0B1DBE409900D925A4 /* SKPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPushManager.h; sourceTree = "<group>"; };
+		D6723E0C1DBE409900D925A4 /* SKPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPushManager.m; sourceTree = "<group>"; };
+		D6723E0D1DBE409900D925A4 /* daysPRO.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = daysPRO.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +106,7 @@
 		A6693551179D31E200E5A40F = {
 			isa = PBXGroup;
 			children = (
-				A6693563179D31E200E5A40F /* When */,
+				D6723DE31DBE409900D925A4 /* daysPRO */,
 				A669355C179D31E200E5A40F /* Frameworks */,
 				A669355B179D31E200E5A40F /* Products */,
 			);
@@ -131,87 +134,87 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A6693563179D31E200E5A40F /* When */ = {
+		D6723DE31DBE409900D925A4 /* daysPRO */ = {
 			isa = PBXGroup;
 			children = (
-				A62A0833189504380031AE7F /* Media.xcassets */,
-				A62A081F18940BC60031AE7F /* When.entitlements */,
-				A669356C179D31E200E5A40F /* SKAppDelegate.h */,
-				A669356D179D31E200E5A40F /* SKAppDelegate.m */,
-				A62A08161893E2860031AE7F /* SKDataManager.h */,
-				A62A08171893E2860031AE7F /* SKDataManager.m */,
-				A6DEF632189BE11000070415 /* SKPushManager.h */,
-				A6DEF633189BE11000070415 /* SKPushManager.m */,
-				A6A3E8AD1891257C00A3E4FB /* Event Grid */,
-				A6A3E8AC1891256800A3E4FB /* Add Event */,
-				A6A3E8A5188EC02100A3E4FB /* Event Details */,
-				A6A3E8A6188EC41300A3E4FB /* Model */,
-				A6693575179D31E200E5A40F /* Main-iPhone.storyboard */,
-				A6693578179D31E200E5A40F /* Main-iPad.storyboard */,
-				D6723DE11DBE3FCA00D925A4 /* Launch Screen.storyboard */,
-				A6693564179D31E200E5A40F /* Supporting Files */,
+				D6723E271DBE40D000D925A4 /* Supporting Files */,
+				D6723DF61DBE409900D925A4 /* SKAppDelegate.h */,
+				D6723DF71DBE409900D925A4 /* SKAppDelegate.m */,
+				D6723E261DBE40C300D925A4 /* Storyboards */,
+				D6723E281DBE40F000D925A4 /* View Controllers */,
+				D6723E291DBE410200D925A4 /* Views */,
+				D6723E2A1DBE410D00D925A4 /* Event */,
 			);
-			name = When;
-			path = "Time Left";
+			path = daysPRO;
 			sourceTree = "<group>";
 		};
-		A6693564179D31E200E5A40F /* Supporting Files */ = {
+		D6723E261DBE40C300D925A4 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				D6723DDC1DBE3D5800D925A4 /* daysPRO-Info.plist */,
-				A6693566179D31E200E5A40F /* InfoPlist.strings */,
-				A6693569179D31E200E5A40F /* main.m */,
-				A669356B179D31E200E5A40F /* Days Pro-Prefix.pch */,
-				A6B4C85018DF48B900586587 /* notification-sound.caf */,
+				D6723DEC1DBE409900D925A4 /* Main-iPad.storyboard */,
+				D6723DEE1DBE409900D925A4 /* Main-iPhone.storyboard */,
+				D6723DF01DBE409900D925A4 /* Launch Screen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		D6723E271DBE40D000D925A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D6723DF31DBE409900D925A4 /* notification-sound.caf */,
+				D6723DE41DBE409900D925A4 /* add-icon@2x.png */,
+				D6723DF21DBE409900D925A4 /* Media.xcassets */,
+				D6723DE51DBE409900D925A4 /* AppModel.xcdatamodeld */,
+				D6723DE81DBE409900D925A4 /* Days Pro-Prefix.pch */,
+				D6723DE91DBE409900D925A4 /* daysPRO-Info.plist */,
+				D6723DEA1DBE409900D925A4 /* InfoPlist.strings */,
+				D6723DF11DBE409900D925A4 /* main.m */,
+				D6723E0D1DBE409900D925A4 /* daysPRO.entitlements */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A6A3E8A5188EC02100A3E4FB /* Event Details */ = {
+		D6723E281DBE40F000D925A4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A64EEE62188D9EFD00EB237B /* SKProgressIndicator.h */,
-				A64EEE63188D9EFD00EB237B /* SKProgressIndicator.m */,
-				A64EEE5F188D953E00EB237B /* SKEventDetailsViewController.h */,
-				A64EEE60188D953E00EB237B /* SKEventDetailsViewController.m */,
+				D6723DF41DBE409900D925A4 /* SKAddEventTableViewController.h */,
+				D6723DF51DBE409900D925A4 /* SKAddEventTableViewController.m */,
+				D6723E051DBE409900D925A4 /* SKEventDetailsViewController.h */,
+				D6723E061DBE409900D925A4 /* SKEventDetailsViewController.m */,
+				D6723E071DBE409900D925A4 /* SKEventsCollectionViewController.h */,
+				D6723E081DBE409900D925A4 /* SKEventsCollectionViewController.m */,
 			);
-			name = "Event Details";
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		A6A3E8A6188EC41300A3E4FB /* Model */ = {
+		D6723E291DBE410200D925A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A62A08101892A30D0031AE7F /* AppModel.xcdatamodeld */,
-				A636CB52179D60D300526D7A /* SKEvent.h */,
-				A636CB53179D60D300526D7A /* SKEvent.m */,
-				A62A081C1893F3A10031AE7F /* SKEvent+Helper.h */,
-				A62A081D1893F3A10031AE7F /* SKEvent+Helper.m */,
+				D6723DF81DBE409900D925A4 /* SKCustomCollectionViewFlowLayout.h */,
+				D6723DF91DBE409900D925A4 /* SKCustomCollectionViewFlowLayout.m */,
+				D6723E001DBE409900D925A4 /* SKEventCell.h */,
+				D6723E011DBE409900D925A4 /* SKEventCell.m */,
+				D6723E021DBE409900D925A4 /* SKEventCellProgressView.h */,
+				D6723E031DBE409900D925A4 /* SKEventCellProgressView.m */,
+				D6723E091DBE409900D925A4 /* SKProgressIndicator.h */,
+				D6723E0A1DBE409900D925A4 /* SKProgressIndicator.m */,
 			);
-			name = Model;
+			name = Views;
 			sourceTree = "<group>";
 		};
-		A6A3E8AC1891256800A3E4FB /* Add Event */ = {
+		D6723E2A1DBE410D00D925A4 /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				A6B8E099188D1F7F007E857F /* SKAddEventTableViewController.h */,
-				A6B8E09A188D1F7F007E857F /* SKAddEventTableViewController.m */,
+				D6723DFA1DBE409900D925A4 /* SKDataManager.h */,
+				D6723DFB1DBE409900D925A4 /* SKDataManager.m */,
+				D6723DFC1DBE409900D925A4 /* SKEvent+Helper.h */,
+				D6723DFD1DBE409900D925A4 /* SKEvent+Helper.m */,
+				D6723DFE1DBE409900D925A4 /* SKEvent.h */,
+				D6723DFF1DBE409900D925A4 /* SKEvent.m */,
+				D6723E0B1DBE409900D925A4 /* SKPushManager.h */,
+				D6723E0C1DBE409900D925A4 /* SKPushManager.m */,
 			);
-			name = "Add Event";
-			sourceTree = "<group>";
-		};
-		A6A3E8AD1891257C00A3E4FB /* Event Grid */ = {
-			isa = PBXGroup;
-			children = (
-				A6DEF62F1899263900070415 /* SKCustomCollectionViewFlowLayout.h */,
-				A6DEF6301899263900070415 /* SKCustomCollectionViewFlowLayout.m */,
-				A6A3E8AE1891301500A3E4FB /* SKEventCell.h */,
-				A6A3E8AF1891301500A3E4FB /* SKEventCell.m */,
-				A6DDBC9C18913656003B2D37 /* SKEventCellProgressView.h */,
-				A6DDBC9D18913656003B2D37 /* SKEventCellProgressView.m */,
-				A6A3E8A91891255C00A3E4FB /* SKEventsCollectionViewController.h */,
-				A6A3E8AA1891255C00A3E4FB /* SKEventsCollectionViewController.m */,
-			);
-			name = "Event Grid";
+			name = Event;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,12 +283,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6723DE21DBE3FCA00D925A4 /* Launch Screen.storyboard in Resources */,
-				A6693568179D31E200E5A40F /* InfoPlist.strings in Resources */,
-				A6B4C85118DF48B900586587 /* notification-sound.caf in Resources */,
-				A62A0834189504380031AE7F /* Media.xcassets in Resources */,
-				A6693577179D31E200E5A40F /* Main-iPhone.storyboard in Resources */,
-				A669357A179D31E200E5A40F /* Main-iPad.storyboard in Resources */,
+				D6723E151DBE409900D925A4 /* Launch Screen.storyboard in Resources */,
+				D6723E141DBE409900D925A4 /* Main-iPhone.storyboard in Resources */,
+				D6723E171DBE409900D925A4 /* Media.xcassets in Resources */,
+				D6723E181DBE409900D925A4 /* notification-sound.caf in Resources */,
+				D6723E0E1DBE409900D925A4 /* add-icon@2x.png in Resources */,
+				D6723E121DBE409900D925A4 /* InfoPlist.strings in Resources */,
+				D6723E111DBE409900D925A4 /* daysPRO-Info.plist in Resources */,
+				D6723E131DBE409900D925A4 /* Main-iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,48 +301,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A669356A179D31E200E5A40F /* main.m in Sources */,
-				A669356E179D31E200E5A40F /* SKAppDelegate.m in Sources */,
-				A62A08121892A30D0031AE7F /* AppModel.xcdatamodeld in Sources */,
-				A62A08181893E2860031AE7F /* SKDataManager.m in Sources */,
-				A6DDBC9E18913656003B2D37 /* SKEventCellProgressView.m in Sources */,
-				A6DEF6311899263900070415 /* SKCustomCollectionViewFlowLayout.m in Sources */,
-				A6B8E09D188D1F7F007E857F /* SKAddEventTableViewController.m in Sources */,
-				A62A081E1893F3A10031AE7F /* SKEvent+Helper.m in Sources */,
-				A6A3E8AB1891255C00A3E4FB /* SKEventsCollectionViewController.m in Sources */,
-				A64EEE61188D953E00EB237B /* SKEventDetailsViewController.m in Sources */,
-				A64EEE64188D9EFD00EB237B /* SKProgressIndicator.m in Sources */,
-				A6A3E8B01891301500A3E4FB /* SKEventCell.m in Sources */,
-				A636CB54179D60D300526D7A /* SKEvent.m in Sources */,
-				A6DEF634189BE11000070415 /* SKPushManager.m in Sources */,
+				D6723E201DBE409900D925A4 /* SKEventCellProgressView.m in Sources */,
+				D6723E1D1DBE409900D925A4 /* SKEvent+Helper.m in Sources */,
+				D6723E1B1DBE409900D925A4 /* SKCustomCollectionViewFlowLayout.m in Sources */,
+				D6723E1A1DBE409900D925A4 /* SKAppDelegate.m in Sources */,
+				D6723E161DBE409900D925A4 /* main.m in Sources */,
+				D6723E251DBE409900D925A4 /* SKPushManager.m in Sources */,
+				D6723E1E1DBE409900D925A4 /* SKEvent.m in Sources */,
+				D6723E1F1DBE409900D925A4 /* SKEventCell.m in Sources */,
+				D6723E241DBE409900D925A4 /* SKProgressIndicator.m in Sources */,
+				D6723E221DBE409900D925A4 /* SKEventDetailsViewController.m in Sources */,
+				D6723E1C1DBE409900D925A4 /* SKDataManager.m in Sources */,
+				D6723E0F1DBE409900D925A4 /* AppModel.xcdatamodeld in Sources */,
+				D6723E191DBE409900D925A4 /* SKAddEventTableViewController.m in Sources */,
+				D6723E231DBE409900D925A4 /* SKEventsCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A6693566179D31E200E5A40F /* InfoPlist.strings */ = {
+		D6723DEA1DBE409900D925A4 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A6693567179D31E200E5A40F /* en */,
+				D6723DEB1DBE409900D925A4 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		A6693575179D31E200E5A40F /* Main-iPhone.storyboard */ = {
+		D6723DEC1DBE409900D925A4 /* Main-iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A6693576179D31E200E5A40F /* en */,
-			);
-			name = "Main-iPhone.storyboard";
-			sourceTree = "<group>";
-		};
-		A6693578179D31E200E5A40F /* Main-iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A6693579179D31E200E5A40F /* en */,
+				D6723DED1DBE409900D925A4 /* en */,
 			);
 			name = "Main-iPad.storyboard";
+			sourceTree = "<group>";
+		};
+		D6723DEE1DBE409900D925A4 /* Main-iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6723DEF1DBE409900D925A4 /* en */,
+			);
+			name = "Main-iPhone.storyboard";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -424,18 +429,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Time Left/When.entitlements";
+				CODE_SIGN_ENTITLEMENTS = daysPRO/daysPRO.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Salavat Khanov (REFNZC5FDV)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 74N5MDHHBK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"/Users/khanov/Developer/Time-Left/Time Left\"",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/daysPRO",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Time Left/Days Pro-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Time Left/daysPRO-Info.plist";
+				GCC_PREFIX_HEADER = "daysPRO/Days Pro-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/daysPRO/daysPRO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -453,18 +458,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Time Left/When.entitlements";
+				CODE_SIGN_ENTITLEMENTS = daysPRO/daysPRO.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Salavat Khanov (6P9PN587KS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 74N5MDHHBK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"/Users/khanov/Developer/Time-Left/Time Left\"",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/daysPRO",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Time Left/Days Pro-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/Time Left/daysPRO-Info.plist";
+				GCC_PREFIX_HEADER = "daysPRO/Days Pro-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/daysPRO/daysPRO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -502,12 +507,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A62A08101892A30D0031AE7F /* AppModel.xcdatamodeld */ = {
+		D6723DE51DBE409900D925A4 /* AppModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A62A08111892A30D0031AE7F /* AppModel.xcdatamodel */,
+				D6723DE61DBE409900D925A4 /* AppModel.xcdatamodel */,
 			);
-			currentVersion = A62A08111892A30D0031AE7F /* AppModel.xcdatamodel */;
+			currentVersion = D6723DE61DBE409900D925A4 /* AppModel.xcdatamodel */;
 			path = AppModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
