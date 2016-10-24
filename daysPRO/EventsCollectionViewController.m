@@ -77,7 +77,7 @@ static NSString *kEventsScreenName = @"Events Grid";
     [self.collectionView addMotionEffect:group];
     
     // Set navigation bar font
-    UIFont *backButtonFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:17.0f];
+    UIFont *backButtonFont = [UIFont systemFontOfSize:17.0f];
     [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName : backButtonFont} forState:UIControlStateNormal];
     
     // Long press gesture recognizer
