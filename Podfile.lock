@@ -1,0 +1,22 @@
+PODS:
+  - SVProgressHUD (2.0.3)
+
+DEPENDENCIES:
+  - SVProgressHUD (from `https://github.com/oliverkulpakko/SVProgressHUD.git`, branch `haptics`)
+
+EXTERNAL SOURCES:
+  SVProgressHUD:
+    :branch: haptics
+    :git: https://github.com/oliverkulpakko/SVProgressHUD.git
+
+CHECKOUT OPTIONS:
+  SVProgressHUD:
+    :commit: 1451e0b15cf3de1af9c0a128fc94edffcabcc20a
+    :git: https://github.com/oliverkulpakko/SVProgressHUD.git
+
+SPEC CHECKSUMS:
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+
+PODFILE CHECKSUM: 084d09910917b015a7b96b292aab6d98b9ce8eca
+
+COCOAPODS: 1.0.1

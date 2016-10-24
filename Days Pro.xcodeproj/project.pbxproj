@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D2E63604CDFBC0BB4E26C31 /* libPods-Days Pro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F694E46F90B7C88BA4ED5982 /* libPods-Days Pro.a */; };
 		A62A080F1892A2A90031AE7F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62A080E1892A2A90031AE7F /* CoreData.framework */; };
 		A65DE88B189E369E009F7AFE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65DE88A189E369E009F7AFE /* SystemConfiguration.framework */; };
 		A65DE88F189E41FA009F7AFE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A65DE88E189E41FA009F7AFE /* AdSupport.framework */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2409E8D516E4620574EA2CAE /* Pods-Days Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Days Pro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Days Pro/Pods-Days Pro.debug.xcconfig"; sourceTree = "<group>"; };
 		A62A080E1892A2A90031AE7F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A65DE88A189E369E009F7AFE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A65DE88E189E41FA009F7AFE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -83,6 +85,8 @@
 		D6723E0D1DBE409900D925A4 /* daysPRO.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = daysPRO.entitlements; sourceTree = "<group>"; };
 		D6723E2B1DBE434D00D925A4 /* ThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeManager.h; sourceTree = "<group>"; };
 		D6723E2C1DBE434D00D925A4 /* ThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeManager.m; sourceTree = "<group>"; };
+		EF75AF4028A82E762B7FDEE4 /* Pods-Days Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Days Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Days Pro/Pods-Days Pro.release.xcconfig"; sourceTree = "<group>"; };
+		F694E46F90B7C88BA4ED5982 /* libPods-Days Pro.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Days Pro.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 				A669355E179D31E200E5A40F /* UIKit.framework in Frameworks */,
 				A6693560179D31E200E5A40F /* Foundation.framework in Frameworks */,
 				A6693562179D31E200E5A40F /* CoreGraphics.framework in Frameworks */,
+				7D2E63604CDFBC0BB4E26C31 /* libPods-Days Pro.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +114,7 @@
 				D6723DE31DBE409900D925A4 /* daysPRO */,
 				A669355C179D31E200E5A40F /* Frameworks */,
 				A669355B179D31E200E5A40F /* Products */,
+				FC9739E34A2A16698AA896E7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +136,7 @@
 				A669355D179D31E200E5A40F /* UIKit.framework */,
 				A669355F179D31E200E5A40F /* Foundation.framework */,
 				A6693561179D31E200E5A40F /* CoreGraphics.framework */,
+				F694E46F90B7C88BA4ED5982 /* libPods-Days Pro.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -218,6 +225,15 @@
 			name = Event;
 			sourceTree = "<group>";
 		};
+		FC9739E34A2A16698AA896E7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2409E8D516E4620574EA2CAE /* Pods-Days Pro.debug.xcconfig */,
+				EF75AF4028A82E762B7FDEE4 /* Pods-Days Pro.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -225,9 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6693580179D31E200E5A40F /* Build configuration list for PBXNativeTarget "Days Pro" */;
 			buildPhases = (
+				E70F08F2BA70FE7F36BA723A /* [CP] Check Pods Manifest.lock */,
 				A6693556179D31E200E5A40F /* Sources */,
 				A6693557179D31E200E5A40F /* Frameworks */,
 				A6693558179D31E200E5A40F /* Resources */,
+				8DE4288F59C66A4BB48A144B /* [CP] Embed Pods Frameworks */,
+				938F5256F9AFAE0AC3A8F6EE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -294,6 +313,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8DE4288F59C66A4BB48A144B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Days Pro/Pods-Days Pro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		938F5256F9AFAE0AC3A8F6EE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Days Pro/Pods-Days Pro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E70F08F2BA70FE7F36BA723A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A6693556179D31E200E5A40F /* Sources */ = {
@@ -427,6 +494,7 @@
 		};
 		A6693581179D31E200E5A40F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2409E8D516E4620574EA2CAE /* Pods-Days Pro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = daysPRO/daysPRO.entitlements;
@@ -453,6 +521,7 @@
 		};
 		A6693582179D31E200E5A40F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF75AF4028A82E762B7FDEE4 /* Pods-Days Pro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = daysPRO/daysPRO.entitlements;
