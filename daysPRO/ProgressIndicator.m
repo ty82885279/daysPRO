@@ -1,13 +1,13 @@
 //
-//  SKProgressIndicator.m
+//  ProgressIndicator.m
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/21/14.
 //  Copyright (c) 2014 Salavat Khanov. All rights reserved.
 //
 
-#import "SKProgressIndicator.h"
-#import "SKAppDelegate.h"
+#import "ProgressIndicator.h"
+#import "AppDelegate.h"
 
 static NSInteger kInnerCircleRadiusiPhone = 117;
 static NSInteger kInnerCircleRadiusiPad = 167;
@@ -22,12 +22,12 @@ static CGFloat kOuterCircleLineWidthiPad = 2.5;
 static NSString *kRotationAnimationKey = @"strokeEnd";
 static NSString *kColorAnimationKey = @"strokeColor";
 
-@interface SKProgressIndicator ()
+@interface ProgressIndicator ()
 @property (nonatomic, weak) CAShapeLayer *outerCirclePathLayer;
 @property (nonatomic, weak) CAGradientLayer *outerCircleGradientLayer;
 @end
 
-@implementation SKProgressIndicator
+@implementation ProgressIndicator
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -42,7 +42,7 @@ static NSString *kColorAnimationKey = @"strokeColor";
 }
 
 - (void)setupColors {
-    SKAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSDictionary *colors = [delegate currentTheme];
     
     self.backgroundColor = [colors objectForKey:@"background"];

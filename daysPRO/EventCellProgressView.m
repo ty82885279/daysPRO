@@ -1,13 +1,13 @@
 //
-//  SKEventCellProgressView.m
+//  EventCellProgressView.m
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/23/14.
 //  Copyright (c) 2014 Salavat Khanov. All rights reserved.
 //
 
-#import "SKEventCellProgressView.h"
-#import "SKAppDelegate.h"
+#import "EventCellProgressView.h"
+#import "AppDelegate.h"
 
 static NSInteger kCircleRadiusiPhone = 54;
 static NSInteger kCircleRadiusiPad = 80;
@@ -22,7 +22,7 @@ static CGFloat kMetaTextFontSizeSmall = 11.0;
 static NSString *kSymbolFontName = @"AppleSDGothicNeo-Regular";
 static CGFloat kSymbolFontSize = 45.0;
 
-@implementation SKEventCellProgressView
+@implementation EventCellProgressView
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -37,7 +37,7 @@ static CGFloat kSymbolFontSize = 45.0;
 }
 
 - (void)setupColors {
-    SKAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSDictionary *colors = [delegate currentTheme];
     self.backgroundColor = [colors objectForKey:@"background"];
     self.circleBackgroundColor = [colors objectForKey:@"innerCircleBackground"];

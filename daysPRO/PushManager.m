@@ -1,19 +1,19 @@
 //
-//  SKPushManager.m
+//  PushManager.m
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/31/14.
 //  Copyright (c) 2014 Salavat Khanov. All rights reserved.
 //
 
-#import "SKPushManager.h"
-#import "SKDataManager.h"
+#import "PushManager.h"
+#import "DataManager.h"
 
-@interface SKPushManager ()
+@interface PushManager ()
 @property (strong, nonatomic) NSMutableArray *notifications;
 @end
 
-@implementation SKPushManager
+@implementation PushManager
 
 // Lazy init
 - (NSMutableArray *)notifications {
@@ -46,7 +46,7 @@
 - (void)eventAdded:(NSNotification *)addedNotification {
     if ([[addedNotification.userInfo allKeys][0] isEqual:kAddedKey]) {
         
-        SKEvent *addedEvent = [addedNotification.userInfo objectForKey:kAddedKey];
+        Event *addedEvent = [addedNotification.userInfo objectForKey:kAddedKey];
         UILocalNotification *localNotification = [self createNotificationForEvent:addedEvent];
         if (localNotification) {
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
@@ -59,7 +59,7 @@
 
 - (void)eventUpdated:(NSNotification *)updatedNotification {
     if ([[updatedNotification.userInfo allKeys][0] isEqual:kUpdatedKey]) {
-        SKEvent *updatedEvent = [updatedNotification.userInfo objectForKey:kUpdatedKey];
+        Event *updatedEvent = [updatedNotification.userInfo objectForKey:kUpdatedKey];
         
         // Find old notification to cancel
         [self.notifications enumerateObjectsUsingBlock:^(UILocalNotification *notification, NSUInteger idx, BOOL *stop) {
@@ -84,7 +84,7 @@
 
 - (void)eventDeleted:(NSNotification *)deletedNotification {
     if ([[deletedNotification.userInfo allKeys][0] isEqual:kDeletedKey]) {
-        SKEvent *deletedEvent = [deletedNotification.userInfo objectForKey:kDeletedKey];
+        Event *deletedEvent = [deletedNotification.userInfo objectForKey:kDeletedKey];
         // Find notification to cancel
         [self.notifications enumerateObjectsUsingBlock:^(UILocalNotification *notification, NSUInteger idx, BOOL *stop) {
             if ([deletedEvent.uuid isEqualToString:notification.userInfo[@"eventUUID"]]) {
@@ -98,7 +98,7 @@
     }
 }
 
-- (UILocalNotification *)createNotificationForEvent:(SKEvent *)event {
+- (UILocalNotification *)createNotificationForEvent:(Event *)event {
     // Create notification only for event that are going to end in the future
     if ([event.endDate compare:[NSDate date]] == NSOrderedDescending) {
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];

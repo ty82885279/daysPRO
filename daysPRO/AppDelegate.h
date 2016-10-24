@@ -1,5 +1,5 @@
 //
-//  SKAppDelegate.h
+//  AppDelegate.h
 //  Time Left
 //
 //  Created by Salavat Khanov on 7/22/13.
@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SKPushManager.h"
+#import "PushManager.h"
 
-@interface SKAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) SKPushManager *pushManager;
+@property (strong, nonatomic) PushManager *pushManager;
 
 - (NSDictionary *)currentTheme;
 

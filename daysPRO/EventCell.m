@@ -1,19 +1,19 @@
 //
-//  SKEventCell.m
+//  EventCell.m
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/23/14.
 //  Copyright (c) 2014 Salavat Khanov. All rights reserved.
 //
 
-#import "SKEventCell.h"
-#import "SKAppDelegate.h"
+#import "EventCell.h"
+#import "AppDelegate.h"
 
-@interface SKEventCell ()
+@interface EventCell ()
 @property (strong, nonatomic) CAAnimation *quiveringAnimation;
 @end
 
-@implementation SKEventCell
+@implementation EventCell
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -29,7 +29,7 @@
 }
 
 - (void)setupColors {
-    SKAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSDictionary *colors = [delegate currentTheme];
     self.backgroundColor = [colors objectForKey:@"background"];
     self.name.textColor = [colors objectForKey:@"tint"];

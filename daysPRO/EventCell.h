@@ -1,5 +1,5 @@
 //
-//  SKEventCell.h
+//  EventCell.h
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/23/14.
@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SKEventCellProgressView.h"
+#import "EventCellProgressView.h"
 
-@interface SKEventCell : UICollectionViewCell
+@interface EventCell : UICollectionViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *name;
-@property (strong, nonatomic) IBOutlet SKEventCellProgressView *progressView;
+@property (strong, nonatomic) IBOutlet EventCellProgressView *progressView;
 @property (strong, nonatomic) IBOutlet UIButton *deleteButton;
 
 - (void)startQuivering;

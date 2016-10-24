@@ -1,5 +1,5 @@
 //
-//  SKAddEventTableViewController.h
+//  AddEventTableViewController.h
 //  Time Left
 //
 //  Created by Salavat Khanov on 12/25/13.
@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SKDataManager.h"
+#import "DataManager.h"
 
-@interface SKAddEventTableViewController : UITableViewController <UITextFieldDelegate>
+@interface AddEventTableViewController : UITableViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
@@ -20,7 +20,7 @@
 @property (strong, nonatomic) UIDatePicker *endsDatePicker;
 
 @property (strong, nonatomic) UIPopoverController *popover;
-@property (strong, nonatomic) SKEvent *event;
+@property (strong, nonatomic) Event *event;
 @property (assign, nonatomic, getter = isEventEditMode) BOOL eventEditMode;
 
 - (IBAction)cancelButton:(id)sender;

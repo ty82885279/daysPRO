@@ -1,18 +1,18 @@
 //
-//  SKAppDelegate.m
+//  AppDelegate.m
 //  Time Left
 //
 //  Created by Salavat Khanov on 7/22/13.
 //  Copyright (c) 2013 Salavat Khanov. All rights reserved.
 //
 
-#import "SKAppDelegate.h"
-#import "SKDataManager.h"
+#import "AppDelegate.h"
+#import "DataManager.h"
 
-@interface SKAppDelegate() <UIAlertViewDelegate>
+@interface AppDelegate() <UIAlertViewDelegate>
 @end
 
-@implementation SKAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setupAppearance];
@@ -33,7 +33,7 @@
 }
 
 - (void)setupPushNotificationsManager {
-    self.pushManager = [[SKPushManager alloc] init];
+    self.pushManager = [[PushManager alloc] init];
     [self.pushManager registerForModelUpdateNotifications];
 }
 
@@ -44,8 +44,8 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         // This is the first launch ever. Create some events
         NSLog(@"First launch. Create default events.");
-        [[SKDataManager sharedManager] createDefaultEvents];
-        [[SKDataManager sharedManager] saveContext];
+        [[DataManager sharedManager] createDefaultEvents];
+        [[DataManager sharedManager] saveContext];
     }
 }
 

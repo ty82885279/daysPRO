@@ -1,13 +1,13 @@
 //
-//  SKAddEventTableViewController.m
+//  AddEventTableViewController.m
 //  Time Left
 //
 //  Created by Salavat Khanov on 12/25/13.
 //  Copyright (c) 2013 Salavat Khanov. All rights reserved.
 //
 
-#import "SKAddEventTableViewController.h"
-#import "SKAppDelegate.h"
+#import "AddEventTableViewController.h"
+#import "AppDelegate.h"
 
 static NSInteger const kTextFieldSection = 0;
 static NSInteger const kNameCellIndex = 0;
@@ -30,14 +30,14 @@ static NSString *const kAddEventScreenName = @"Add Event";
 static NSString *const kEditEventScreenName = @"Edit Event";
 
 
-@interface SKAddEventTableViewController ()
+@interface AddEventTableViewController ()
 
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) UIColor *cellBackgroundColor;
 
 @end
 
-@implementation SKAddEventTableViewController
+@implementation AddEventTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -68,7 +68,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
 }
 
 - (void)setupColors {
-    SKAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSDictionary *colors = [delegate currentTheme];
     // Table
     self.tableView.backgroundColor = [colors objectForKey:@"background"];
@@ -264,20 +264,20 @@ static NSString *const kEditEventScreenName = @"Edit Event";
     else {
         
         if (self.isEventEditMode) {
-            SKEvent *updatedEvent = [[SKDataManager sharedManager] updateEvent:_event
+            Event *updatedEvent = [[DataManager sharedManager] updateEvent:_event
                                                                       withName:_nameTextField.text
                                                                      startDate:_startsDatePicker.date
                                                                        endDate:_endsDatePicker.date
                                                                        details:_descriptionTextField.text];
-            [[SKDataManager sharedManager] saveContext];
+            [[DataManager sharedManager] saveContext];
             NSLog(@"Saved updated event: %@", updatedEvent);
         } else {
-            SKEvent *newEvent = [[SKDataManager sharedManager] createEventWithName:_nameTextField.text
+            Event *newEvent = [[DataManager sharedManager] createEventWithName:_nameTextField.text
                                                                          startDate:_startsDatePicker.date
                                                                            endDate:_endsDatePicker.date
                                                                            details:_descriptionTextField.text];
             
-            [[SKDataManager sharedManager] saveContext];
+            [[DataManager sharedManager] saveContext];
             NSLog(@"Saved new event: %@", newEvent);
         }
         

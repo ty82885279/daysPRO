@@ -1,5 +1,5 @@
 //
-//  SKCustomCollectionViewFlowLayout.h
+//  CustomCollectionViewFlowLayout.h
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/29/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SKCustomCollectionViewFlowLayout : UICollectionViewFlowLayout
+@interface CustomCollectionViewFlowLayout : UICollectionViewFlowLayout
 
 @end

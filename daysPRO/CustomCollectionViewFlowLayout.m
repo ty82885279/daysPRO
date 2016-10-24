@@ -1,15 +1,15 @@
 //
-//  SKCustomCollectionViewFlowLayout.m
+//  CustomCollectionViewFlowLayout.m
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/29/14.
 //  Copyright (c) 2014 Salavat Khanov. All rights reserved.
 //
 
-#import "SKCustomCollectionViewFlowLayout.h"
+#import "CustomCollectionViewFlowLayout.h"
 #import <objc/runtime.h>
 
-@interface SKCustomCollectionViewFlowLayout ()
+@interface CustomCollectionViewFlowLayout ()
 
 // Containers for keeping track of changing items
 @property (nonatomic, strong) NSMutableArray *insertedIndexPaths;
@@ -29,7 +29,7 @@
 @end
 
 
-@implementation SKCustomCollectionViewFlowLayout
+@implementation CustomCollectionViewFlowLayout
 
 - (id)init {
     self = [super init];

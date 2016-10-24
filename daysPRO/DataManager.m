@@ -1,12 +1,12 @@
 //
-//  SKDataManager.m
+//  DataManager.m
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/25/14.
 //  Copyright (c) 2014 Salavat Khanov. All rights reserved.
 //
 
-#import "SKDataManager.h"
+#import "DataManager.h"
 
 static NSString *kModelName = @"AppModel";
 static NSString *kSQLName = @"TimeLeft.sqlite";
@@ -21,26 +21,26 @@ NSString *const kUpdatedKey = @"updated";
 NSString *const kDeletedKey = @"deleted";
 
 
-@interface SKDataManager ()
+@interface DataManager ()
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @end
 
 
-@implementation SKDataManager
+@implementation DataManager
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 
-+ (SKDataManager*)sharedManager {
++ (DataManager*)sharedManager {
 	static dispatch_once_t once;
-	static SKDataManager *sharedManager;
+	static DataManager *sharedManager;
     
     dispatch_once(&once, ^{
-        sharedManager = [[SKDataManager alloc] init];
+        sharedManager = [[DataManager alloc] init];
     });
     
     return sharedManager;
@@ -215,7 +215,7 @@ NSString *const kDeletedKey = @"deleted";
     // Sort events in descending order
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:nil
                                                                 ascending:YES
-                                                               comparator:^NSComparisonResult(SKEvent *obj1, SKEvent *obj2) {
+                                                               comparator:^NSComparisonResult(Event *obj1, Event *obj2) {
                                                                    return [obj1.createdDate compare:obj2.createdDate];
                                                                }];
     
@@ -223,8 +223,8 @@ NSString *const kDeletedKey = @"deleted";
     return [fetchedEvents sortedArrayUsingDescriptors:@[sortDescriptor]];;
 }
 
-- (SKEvent *)createEventWithName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details {
-    SKEvent *newEvent = (SKEvent *)[NSEntityDescription insertNewObjectForEntityForName:kEventEntityName inManagedObjectContext:self.managedObjectContext];
+- (Event *)createEventWithName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details {
+    Event *newEvent = (Event *)[NSEntityDescription insertNewObjectForEntityForName:kEventEntityName inManagedObjectContext:self.managedObjectContext];
     newEvent.name = name;
     newEvent.details = details;
     newEvent.startDate = startDate;
@@ -234,7 +234,7 @@ NSString *const kDeletedKey = @"deleted";
     return newEvent;
 }
 
-- (SKEvent *)updateEvent:(SKEvent *)event withName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details {
+- (Event *)updateEvent:(Event *)event withName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details {
     event.name = name;
     event.startDate = startDate;
     event.endDate = endDate;
@@ -242,7 +242,7 @@ NSString *const kDeletedKey = @"deleted";
     return event;
 }
 
-- (void)deleteEvent:(SKEvent *)event {
+- (void)deleteEvent:(Event *)event {
     [self.managedObjectContext deleteObject:event];
 }
 

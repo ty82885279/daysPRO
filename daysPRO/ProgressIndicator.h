@@ -1,5 +1,5 @@
 //
-//  SKProgressIndicator.h
+//  ProgressIndicator.h
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/21/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SKProgressIndicator : UIView
+@interface ProgressIndicator : UIView
 
 @property (assign, nonatomic) CGFloat percentInnerCircle;
 @property (assign, nonatomic) CGFloat percentOuterCircle;

@@ -1,5 +1,5 @@
 //
-//  SKEventCellProgressView.h
+//  EventCellProgressView.h
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/23/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SKEventCellProgressView : UIView
+@interface EventCellProgressView : UIView
 
 @property (assign, nonatomic) CGFloat percentCircle;
 

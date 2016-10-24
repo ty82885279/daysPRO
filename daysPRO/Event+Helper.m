@@ -1,12 +1,12 @@
 //
-//  SKEvent+Helper.m
+//  Event+Helper.m
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/25/14.
 //  Copyright (c) 2014 Salavat Khanov. All rights reserved.
 //
 
-#import "SKEvent+Helper.h"
+#import "Event+Helper.h"
 
 static NSString *kDaysLeft = @"DAYS LEFT";
 static NSString *kHoursLeft = @"HRS LEFT";
@@ -20,7 +20,7 @@ static NSString *kSecondsToStart = @"SECS TO START";
 
 static NSString *kDone = @"DONE";
 
-@implementation SKEvent (Helper)
+@implementation Event (Helper)
 
 - (CGFloat)progress {
     if (self.startDate && self.endDate) {

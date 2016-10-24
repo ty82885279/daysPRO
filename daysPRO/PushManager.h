@@ -1,5 +1,5 @@
 //
-//  SKPushManager.h
+//  PushManager.h
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/31/14.
@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SKEvent.h"
-#import "SKEvent+Helper.h"
+#import "Event.h"
+#import "Event+Helper.h"
 
-@interface SKPushManager : NSObject
+@interface PushManager : NSObject
 
 - (void)registerForModelUpdateNotifications;
 

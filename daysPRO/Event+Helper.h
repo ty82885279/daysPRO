@@ -1,14 +1,14 @@
 //
-//  SKEvent+Helper.h
+//  Event+Helper.h
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/25/14.
 //  Copyright (c) 2014 Salavat Khanov. All rights reserved.
 //
 
-#import "SKEvent.h"
+#import "Event.h"
 
-@protocol SKEventMethods <NSObject>
+@protocol EventMethods <NSObject>
 
 @required
 - (CGFloat)progress;
@@ -20,7 +20,7 @@
 @end
 
 
-@interface SKEvent (Helper) <SKEventMethods>
+@interface Event (Helper) <EventMethods>
 
 - (CGFloat)progress;
 - (NSString *)description;

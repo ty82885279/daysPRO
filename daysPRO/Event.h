@@ -1,5 +1,5 @@
 //
-//  SKEvent.h
+//  Event.h
 //  Time Left
 //
 //  Created by Salavat Khanov on 7/22/13.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@interface SKEvent : NSManagedObject
+@interface Event : NSManagedObject
 
 @property (nonatomic, retain) NSString * uuid;
 @property (nonatomic, retain) NSString * name;

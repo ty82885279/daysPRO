@@ -1,17 +1,17 @@
 //
-//  SKEventsCollectionViewController.m
+//  EventsCollectionViewController.m
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/23/14.
 //  Copyright (c) 2014 Salavat Khanov. All rights reserved.
 //
 
-#import "SKEventsCollectionViewController.h"
-#import "SKEventCell.h"
-#import "SKEventDetailsViewController.h"
-#import "SKCustomCollectionViewFlowLayout.h"
-#import "SKAddEventTableViewController.h"
-#import "SKAppDelegate.h"
+#import "EventsCollectionViewController.h"
+#import "EventCell.h"
+#import "EventDetailsViewController.h"
+#import "CustomCollectionViewFlowLayout.h"
+#import "AddEventTableViewController.h"
+#import "AppDelegate.h"
 
 static NSInteger kMarginTopBottomiPhone = 12;
 static NSInteger kMarginTopBottomiPad = 30;
@@ -27,7 +27,7 @@ static NSInteger kCellWeightHeightiPhone = 145;
 static NSInteger kCellWeightHeightiPad = 242;
 static NSString *kEventsScreenName = @"Events Grid";
 
-@interface SKEventsCollectionViewController ()
+@interface EventsCollectionViewController ()
 
 @property (strong, nonatomic) NSTimer *timer;
 @property (nonatomic,strong) NSMutableArray *fetchedEventsArray;
@@ -41,7 +41,7 @@ static NSString *kEventsScreenName = @"Events Grid";
 
 @end
 
-@implementation SKEventsCollectionViewController
+@implementation EventsCollectionViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -59,7 +59,7 @@ static NSString *kEventsScreenName = @"Events Grid";
     [self registerForNotifications];
     
     // Allocate and configure the layout
-    SKCustomCollectionViewFlowLayout *layout = [[SKCustomCollectionViewFlowLayout alloc] init];
+    CustomCollectionViewFlowLayout *layout = [[CustomCollectionViewFlowLayout alloc] init];
     layout.minimumInteritemSpacing = 10.f;
     layout.minimumLineSpacing = 10.f;
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
@@ -98,7 +98,7 @@ static NSString *kEventsScreenName = @"Events Grid";
 }
 
 - (void)setupColors {
-    SKAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSDictionary *colors = [delegate currentTheme];
     self.view.backgroundColor = [colors objectForKey:@"background"];
     self.collectionView.backgroundColor = [colors objectForKey:@"background"];
@@ -129,8 +129,8 @@ static NSString *kEventsScreenName = @"Events Grid";
 
 - (void)eventAdded:(NSNotification *)addedNotification {
     if ([[addedNotification.userInfo allKeys][0] isEqual:@"added"]) {
-        SKEvent *eventToAdd = [addedNotification.userInfo objectForKey:@"added"];
-        self.fetchedEventsArray = [NSMutableArray arrayWithArray:[[SKDataManager sharedManager] getAllEvents]];
+        Event *eventToAdd = [addedNotification.userInfo objectForKey:@"added"];
+        self.fetchedEventsArray = [NSMutableArray arrayWithArray:[[DataManager sharedManager] getAllEvents]];
         NSInteger index = [self.fetchedEventsArray indexOfObject:eventToAdd];
         [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:index inSection:0]]];
     }
@@ -181,7 +181,7 @@ static NSString *kEventsScreenName = @"Events Grid";
 
 - (void)updateView {
     NSLog(@"----------- update view");
-    self.fetchedEventsArray = [NSMutableArray arrayWithArray:[[SKDataManager sharedManager] getAllEvents]];
+    self.fetchedEventsArray = [NSMutableArray arrayWithArray:[[DataManager sharedManager] getAllEvents]];
     [self.collectionView reloadData];
 }
 
@@ -288,9 +288,9 @@ static NSString *kEventsScreenName = @"Events Grid";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    SKEventCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"EventCell" forIndexPath:indexPath];
+    EventCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"EventCell" forIndexPath:indexPath];
     
-    SKEvent *event = self.fetchedEventsArray[indexPath.row];
+    Event *event = self.fetchedEventsArray[indexPath.row];
     cell.name.text = event.name;
     cell.progressView.percentCircle = [event progress] * 100;
     
@@ -345,14 +345,14 @@ static NSString *kEventsScreenName = @"Events Grid";
     // Pass the selected event to the details view controller.
     if ([segue.identifier isEqualToString:@"showEventDetailsView"]) {
         NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
-        SKEventDetailsViewController *eventDetailsViewController = segue.destinationViewController;
+        EventDetailsViewController *eventDetailsViewController = segue.destinationViewController;
         eventDetailsViewController.event = [self.fetchedEventsArray objectAtIndex:indexPath.row];
     } else if ([segue.identifier isEqualToString:@"showAddEventView"] && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         UIPopoverController *popover = [(UIStoryboardPopoverSegue *)segue popoverController];
-        SKAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
         NSDictionary *colors = [delegate currentTheme];
         popover.backgroundColor = [colors objectForKey:@"background"];
-        SKAddEventTableViewController *addEventController = (SKAddEventTableViewController *)((UINavigationController *)segue.destinationViewController).topViewController;
+        AddEventTableViewController *addEventController = (AddEventTableViewController *)((UINavigationController *)segue.destinationViewController).topViewController;
         addEventController.popover = popover;
     }
 }
@@ -416,10 +416,10 @@ static NSString *kEventsScreenName = @"Events Grid";
 }
 
 - (IBAction)deleteButton:(UIButton *)sender {
-    NSIndexPath *indexPath = [self.collectionView indexPathForCell:(SKEventCell *)sender.superview.superview];
-    [[SKDataManager sharedManager] deleteEvent:self.fetchedEventsArray[indexPath.row]];
-    [[SKDataManager sharedManager] saveContext];
-    self.fetchedEventsArray = [NSMutableArray arrayWithArray:[[SKDataManager sharedManager] getAllEvents]];
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:(EventCell *)sender.superview.superview];
+    [[DataManager sharedManager] deleteEvent:self.fetchedEventsArray[indexPath.row]];
+    [[DataManager sharedManager] saveContext];
+    self.fetchedEventsArray = [NSMutableArray arrayWithArray:[[DataManager sharedManager] getAllEvents]];
     [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
 }
 

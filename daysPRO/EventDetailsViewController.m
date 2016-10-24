@@ -1,23 +1,23 @@
 //
-//  SKEventDetailsViewController.m
+//  EventDetailsViewController.m
 //  Time Left
 //
 //  Created by Salavat Khanov on 1/20/14.
 //  Copyright (c) 2014 Salavat Khanov. All rights reserved.
 //
 
-#import "SKEventDetailsViewController.h"
-#import "SKAppDelegate.h"
-#import "SKAddEventTableViewController.h"
+#import "EventDetailsViewController.h"
+#import "AppDelegate.h"
+#import "AddEventTableViewController.h"
 
 static NSString *kEventDetailsScreenName = @"Event Details";
 
-@interface SKEventDetailsViewController () <UIGestureRecognizerDelegate>
+@interface EventDetailsViewController () <UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *rightBarButton;
-@property (weak, nonatomic) IBOutlet SKProgressIndicator *progressView;
+@property (weak, nonatomic) IBOutlet ProgressIndicator *progressView;
 @property (strong, nonatomic) NSTimer *timer;
 @property (assign, nonatomic) NSInteger tapCounter;
 @property (assign, nonatomic, getter = isShouldBeHidingStatusBar) BOOL shouldBeHidingStatusBar;
@@ -27,7 +27,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 
 @end
 
-@implementation SKEventDetailsViewController
+@implementation EventDetailsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -50,7 +50,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 }
 
 - (void)setupColors {
-    SKAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     NSDictionary *colors = [delegate currentTheme];
     self.view.backgroundColor = [colors objectForKey:@"background"];
     // Transparent nav bar
@@ -267,13 +267,13 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showEditEventView"]) {
-        SKAddEventTableViewController *editEventViewController = (SKAddEventTableViewController *)((UINavigationController *)segue.destinationViewController).topViewController;
+        AddEventTableViewController *editEventViewController = (AddEventTableViewController *)((UINavigationController *)segue.destinationViewController).topViewController;
         editEventViewController.eventEditMode = YES;
         editEventViewController.event = _event;
         
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
             UIPopoverController *popover = [(UIStoryboardPopoverSegue *)segue popoverController];
-            SKAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
             NSDictionary *colors = [delegate currentTheme];
             popover.backgroundColor = [colors objectForKey:@"background"];
 
