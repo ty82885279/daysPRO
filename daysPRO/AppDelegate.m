@@ -18,6 +18,10 @@
     [self setupAppearance];
     [self setupPushNotificationsManager];
     [self setupDefaultEventsIfNeeded];
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    [SVProgressHUD setRingRadius:1];
+    [SVProgressHUD setHapticsEnabled:true];
+    [SVProgressHUD setMinimumDismissTimeInterval:1];
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];

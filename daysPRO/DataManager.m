@@ -299,12 +299,13 @@ NSString *const kDeletedKey = @"deleted";
 #pragma mark iCloud notifications
 
 - (void)persistentStoreDidImportUbiquitiousContentChanges:(NSNotification *)changeNotification {
-    NSLog(@"Merging changes from iCloud");
-    
+    [SVProgressHUD showWithStatus:@"Syncing..."];
+
     NSManagedObjectContext *moc = [self managedObjectContext];
     [moc performBlock:^{
         [moc mergeChangesFromContextDidSaveNotification:changeNotification];
         [self objectContextDidSaveFromiCloud:changeNotification];
+        [SVProgressHUD showSuccessWithStatus:nil];
     }];
 }
 

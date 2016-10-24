@@ -310,7 +310,6 @@ static NSString *kEventsScreenName = @"Events Grid";
             UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneEditing)];
             [self.navigationItem setRightBarButtonItem:done];
             // Start Editing mode
-            NSLog(@"Start editing");
             self.editing = YES;
             [self stopTimer];
             [self updateView];
@@ -360,7 +359,6 @@ static NSString *kEventsScreenName = @"Events Grid";
 
 - (void)doneEditing {
     if (self.isEditing) {
-        NSLog(@"Done editing");
         // Replace Add button to Done
         [self.navigationItem setRightBarButtonItem:self.addBarButtonItem];
         // Stop Edit mode

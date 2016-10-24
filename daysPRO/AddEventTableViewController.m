@@ -253,12 +253,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
 
 - (IBAction)saveButton:(id)sender {
     if (self.nameTextField.text.length == 0) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:kErrorEmptyNameTitle
-                                                            message:kErrorEmptyNameMessage
-                                                           delegate:nil
-                                                  cancelButtonTitle:kErrorEmptyNameCancel
-                                                  otherButtonTitles:nil];
-        [alertView show];
+        [SVProgressHUD showErrorWithStatus:@"No name"];
     }
     else {
         
@@ -270,6 +265,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
                                                                    details:_descriptionTextField.text];
             [[DataManager sharedManager] saveContext];
             NSLog(@"Saved updated event: %@", updatedEvent);
+            [SVProgressHUD showSuccessWithStatus:nil];
         } else {
             Event *newEvent = [[DataManager sharedManager] createEventWithName:_nameTextField.text
                                                                      startDate:_startsDatePicker.date
@@ -278,9 +274,11 @@ static NSString *const kEditEventScreenName = @"Edit Event";
             
             [[DataManager sharedManager] saveContext];
             NSLog(@"Saved new event: %@", newEvent);
+            [SVProgressHUD showSuccessWithStatus:nil];
         }
         
         (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? [self dismissViewControllerAnimated:YES completion:nil] : [self.popover dismissPopoverAnimated:YES];
+        [SVProgressHUD showSuccessWithStatus:nil];
     }
 }
 

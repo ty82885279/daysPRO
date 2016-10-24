@@ -51,7 +51,6 @@
         if (localNotification) {
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
             [self.notifications addObject:localNotification];
-            NSLog(@"Scheduled notification for %@ at %@ (now = %@)", addedEvent.name, localNotification.fireDate, [NSDate date]);
         }
     
     }
@@ -67,8 +66,6 @@
                 [[UIApplication sharedApplication] cancelLocalNotification:notification];
                 [self.notifications removeObject:notification];
                 *stop = YES;
-                
-                NSLog(@"Cancelled notification for %@ at %@ (now = %@)", updatedEvent.name, notification.fireDate, [NSDate date]);
             }
         }];
         
@@ -77,7 +74,6 @@
         if (newNotification) {
             [[UIApplication sharedApplication] scheduleLocalNotification:newNotification];
             [self.notifications addObject:newNotification];
-            NSLog(@"Updated notification for %@ at %@ (now = %@)", updatedEvent.name, newNotification.fireDate, [NSDate date]);
         }
     }
 }
@@ -91,8 +87,6 @@
                 [[UIApplication sharedApplication] cancelLocalNotification:notification];
                 [self.notifications removeObject:notification];
                 *stop = YES;
-                
-                NSLog(@"Cancelled notification for %@ at %@ (now = %@)", deletedEvent.name, notification.fireDate, [NSDate date]);
             }
         }];
     }

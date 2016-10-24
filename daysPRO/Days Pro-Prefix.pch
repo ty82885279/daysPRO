@@ -13,4 +13,5 @@
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
     #import "ThemeManager.h"
+    #import <SVProgressHUD/SVProgressHUD.h>
 #endif
