@@ -412,14 +412,14 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                                   }];
     
     UIAlertAction *cameraRoll = [UIAlertAction
-                                 actionWithTitle:@"Camera Roll"
+                                 actionWithTitle:@"Select Image"
                                  style:UIAlertActionStyleDefault
                                  handler:^(UIAlertAction *action)
                                  {
                                      picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
                                      [self presentViewController:picker animated:YES completion:^{
                                          [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
-                                         picker.topViewController.title = @"Add Image";
+                                         picker.topViewController.title = @"Select Image";
                                          picker.navigationBar.translucent = NO;
                                          picker.navigationBar.barStyle = UIBarStyleDefault;
                                          [picker setNavigationBarHidden:NO animated:NO];
