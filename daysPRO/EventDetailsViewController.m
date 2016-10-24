@@ -167,6 +167,8 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 - (void)addBackgroundImage {
     UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
     bgImageView.image = [self loadImage];
+    bgImageView.contentMode = UIViewContentModeScaleAspectFill;
+    bgImageView.clipsToBounds = true;
     [self.view insertSubview:bgImageView atIndex:0];
     
     UIVisualEffectView *visualEffectView;
@@ -357,6 +359,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     
     picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
+    picker.allowsEditing = true;
     UIAlertController *alertController = [UIAlertController
                                           alertControllerWithTitle:@"Add Image"
                                           message:nil
