@@ -213,14 +213,10 @@ NSString *const kDeletedKey = @"deleted";
     NSArray *fetchedEvents = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     // Sort events in descending order
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:nil
-                                                                ascending:YES
-                                                               comparator:^NSComparisonResult(Event *obj1, Event *obj2) {
-                                                                   return [obj1.createdDate compare:obj2.createdDate];
-                                                               }];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:YES];
     
     // Return Sorted Fetched Events
-    return [fetchedEvents sortedArrayUsingDescriptors:@[sortDescriptor]];;
+    return [fetchedEvents sortedArrayUsingDescriptors:@[sortDescriptor]];
 }
 
 - (Event *)createEventWithName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details {
