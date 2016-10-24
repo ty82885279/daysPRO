@@ -195,7 +195,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     backButton.backgroundColor = [UIColor clearColor];
     backButton.frame = CGRectMake(-2, 0, barButtonSize.width, barButtonSize.height);
     [backButton setImage:backButtonImage forState:UIControlStateNormal];
-    backButton.tintColor = [UIColor whiteColor];
+    backButton.tintColor = [UIColor colorWithRed:241.0/255.0 green:176.0/255.0 blue:51.0/255.0 alpha:1.0];
     backButton.autoresizesSubviews = YES;
     backButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin;
     [backButton addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
