@@ -12,7 +12,9 @@
 
 static NSString *kEventDetailsScreenName = @"Event Details";
 
-@interface EventDetailsViewController () <UIGestureRecognizerDelegate>
+@interface EventDetailsViewController () <UIGestureRecognizerDelegate> {
+    UIImageView *bgImageView;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
@@ -164,7 +166,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     [self addBackgroundImage];
 }
 - (void)addBackgroundImage {
-    UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
+    bgImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
     bgImageView.image = [self loadImage];
     bgImageView.contentMode = UIViewContentModeScaleAspectFill;
     bgImageView.clipsToBounds = true;
@@ -365,22 +367,37 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                                           preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *takePicture = [UIAlertAction
-                               actionWithTitle:@"Take a Picture"
-                               style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction *action)
-                               {
-                                   picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-                                   [self presentViewController:picker animated:YES completion:nil];
-                               }];
+                                  actionWithTitle:@"Take a Picture"
+                                  style:UIAlertActionStyleDefault
+                                  handler:^(UIAlertAction *action)
+                                  {
+                                      picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                      [self presentViewController:picker animated:YES completion:nil];
+                                  }];
     
     UIAlertAction *cameraRoll = [UIAlertAction
-                               actionWithTitle:@"Camera Roll"
-                               style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction *action)
-                               {
-                                   picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                                   [self presentViewController:picker animated:YES completion:nil];
-                               }];
+                                 actionWithTitle:@"Camera Roll"
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction *action)
+                                 {
+                                     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                                     [self presentViewController:picker animated:YES completion:nil];
+                                 }];
+    
+    UIAlertAction *removeImage = [UIAlertAction
+                                  actionWithTitle:@"Remove Image"
+                                  style:UIAlertActionStyleDefault
+                                  handler:^(UIAlertAction *action)
+                                  {
+                                      //remove the image
+                                      NSFileManager *fileManager = [NSFileManager defaultManager];
+                                      NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+                                      
+                                      NSString *filePath = [documentsPath stringByAppendingPathComponent:self.event.uuid];
+                                      NSError *error;
+                                      [fileManager removeItemAtPath:filePath error:&error];
+                                      bgImageView.image = nil;
+                                  }];
     
     UIAlertAction *cancel = [UIAlertAction
                              actionWithTitle:@"Cancel"
@@ -388,6 +405,9 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                              handler:nil];
     [alertController addAction:takePicture];
     [alertController addAction:cameraRoll];
+    if (bgImageView.image) {
+        [alertController addAction:removeImage];
+    }
     [alertController addAction:cancel];
     [self presentViewController:alertController animated:YES completion:nil];
 }
@@ -424,6 +444,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
         NSString* path = [documentsDirectory stringByAppendingPathComponent:self.event.uuid];
         NSData* data = UIImagePNGRepresentation(image);
         [data writeToFile:path atomically:YES];
+        [self viewDidLoad]; [self viewWillAppear:YES];
     }
 }
 
