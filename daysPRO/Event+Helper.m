@@ -92,7 +92,7 @@ static NSString *kDone = @"DONE";
         // Start date is in the past
         if ([self weeksLeftToDate:self.endDate] > 2) {
             progress = [@([self weeksLeftToDate:self.endDate]) stringValue];
-            metaText = kDaysLeft;
+            metaText = kWeeksToStart;
         }
         else if ([self daysLeftToDate:self.endDate] > 2) {
             progress = [@([self daysLeftToDate:self.endDate]) stringValue];
