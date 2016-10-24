@@ -52,6 +52,41 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     self.tapCounter = 0;
 }
 
+- (void)askToDeleteEvent {
+    NSLocale *locale = [NSLocale currentLocale];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSString *dateFormat = [NSDateFormatter dateFormatFromTemplate:@"MMM d" options:0 locale:locale];
+    [formatter setDateFormat:dateFormat];
+    [formatter setLocale:locale];
+    
+    NSString *dateString = [formatter stringFromDate:self.event.endDate];
+    
+    if (self.event.endDate < [NSDate date]) {
+        UIAlertController *alertController = [UIAlertController
+                                              alertControllerWithTitle:[NSString stringWithFormat:@"Delete %@?", self.event.name]
+                                              message:[NSString stringWithFormat:@"%@ ended on %@.", self.event.name, dateString]
+                                              preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *delete = [UIAlertAction
+                                       actionWithTitle:@"Delete"
+                                       style:UIAlertActionStyleDestructive
+                                       handler:^(UIAlertAction *action)
+                                       {
+                                           [[DataManager sharedManager] deleteEvent:self.event];
+                                           [[DataManager sharedManager] saveContext];
+                                           [self.navigationController popToRootViewControllerAnimated:YES];
+                                       }];
+        
+        UIAlertAction *cancel = [UIAlertAction
+                                   actionWithTitle:@"Cancel"
+                                   style:UIAlertActionStyleCancel
+                                   handler:nil];
+        
+        [alertController addAction:delete];
+        [alertController addAction:cancel];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
 - (void)setupColors {
     ThemeManager *themeManager = [[ThemeManager alloc] init];
     NSDictionary *colors = [themeManager getTheme];
@@ -65,6 +100,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 }
 
 - (void)setupLabels {
+    [self askToDeleteEvent];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
