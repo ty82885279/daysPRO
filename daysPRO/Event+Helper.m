@@ -8,6 +8,12 @@
 
 #import "Event+Helper.h"
 
+static NSString *kWeeksSince = @"WKS SINCE";
+static NSString *kDaysSince = @"DAYS SINCE";
+static NSString *kHoursSince = @"HRS SINCE";
+static NSString *kMinutesSince = @"MINS SINCE";
+static NSString *kSecondsSince = @"SECS SINCE";
+
 static NSString *kWeeksLeft = @"WKS LEFT";
 static NSString *kDaysLeft = @"DAYS LEFT";
 static NSString *kHoursLeft = @"HRS LEFT";
@@ -85,7 +91,7 @@ static NSString *kDone = @"DONE";
             progress = [@([self minutesLeftToDate:self.startDate]) stringValue];
             metaText = kMinutesToStart;
         }
-        else if ([self secondsLeftToDate:self.startDate] >= 0) {
+        else if ([self secondsLeftToDate:self.startDate] > 0) {
             progress = [@([self secondsLeftToDate:self.startDate]) stringValue];
             metaText = kSecondsToStart;
         }
@@ -98,7 +104,7 @@ static NSString *kDone = @"DONE";
         if ([self weeksLeftToDate:self.endDate] > 2) {
             if ([[NSUserDefaults standardUserDefaults] boolForKey:@"weeks"]) {
             progress = [@([self weeksLeftToDate:self.endDate]) stringValue];
-            metaText = kWeeksToStart;
+            metaText = kWeeksLeft;
             } else {
                 progress = [@([self daysLeftToDate:self.endDate]) stringValue];
                 metaText = kDaysLeft;
@@ -116,9 +122,22 @@ static NSString *kDone = @"DONE";
             progress = [@([self minutesLeftToDate:self.endDate]) stringValue];
             metaText = kMinutesLeft;
         }
-        else if ([self secondsLeftToDate:self.endDate] >= 0) {
+        else if ([self secondsLeftToDate:self.endDate] > 0) {
             progress = [@([self secondsLeftToDate:self.endDate]) stringValue];
             metaText = kSecondsLeft;
+        }
+        //Days Since
+        else if ([self minutesLeftToDate:self.endDate] < 2) {
+            progress = [@([self minutesLeftToDate:self.endDate]) stringValue];
+            metaText = kMinutesSince;
+        }
+        else if ([self hoursLeftToDate:self.endDate] < 2) {
+            progress = [@([self hoursLeftToDate:self.endDate]) stringValue];
+            metaText = kHoursSince;
+        }
+        else if ([self daysLeftToDate:self.endDate] < 2) {
+            progress = [@([self daysLeftToDate:self.endDate]) stringValue];
+            metaText = kDaysLeft;
         }
         else {
             progress = @"✓";

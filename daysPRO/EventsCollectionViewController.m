@@ -233,7 +233,9 @@ static NSString *kEventsScreenName = @"Events Grid";
     self.isEditing ? [cell startQuivering] : [cell stopQuivering];
     
     NSDictionary *options = [event bestNumberAndText];
-    cell.progressView.progressLabel.text = [options valueForKey:@"number"];
+    //Remove -
+    NSString *number = [options valueForKey:@"number"];
+    cell.progressView.progressLabel.text = [number stringByReplacingOccurrencesOfString:@"-" withString:@""];
     cell.progressView.metaLabel.text = [options valueForKey:@"text"];
     
     // for events that have finished, use special font to display symbol

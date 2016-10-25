@@ -251,7 +251,9 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     
     // Set the best number and word to display
     NSDictionary *options = [self.event bestNumberAndText];
-    self.progressView.progressLabel.text = [options valueForKey:@"number"];
+    //Remove -
+    NSString *number = [options valueForKey:@"number"];
+    self.progressView.progressLabel.text = [number stringByReplacingOccurrencesOfString:@"-" withString:@""];
     self.progressView.metaLabel.text = [options valueForKey:@"text"];
 }
 
