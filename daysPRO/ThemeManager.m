@@ -16,8 +16,6 @@
     colors = @{@"background"            : [self getBackgroundColor],
                @"tint"                  : [self getTintColor],
                @"colorText"             : [self getTextColor],
-               @"outerCircleProgress"   : [self getOuterCircleProgressColor],
-               @"outerCircleBackground" : [self getOuterCircleBackgroundColor],
                @"innerCircleProgress"   : [self getInnerCircleProgressColor],
                @"innerCircleBackground" : [self getInnerCircleBackgroundColor],
                @"cellBackground"        : [self getCellBackgroundColor]};
@@ -35,14 +33,6 @@
 
 - (UIColor *)getTextColor {
     return [self getColorForColor:@"textColor"];
-}
-
-- (UIColor *)getOuterCircleProgressColor {
-    return [self getColorForColor:@"outerCircleProgressColor"];
-}
-
-- (UIColor *)getOuterCircleBackgroundColor {
-    return [self getColorForColor:@"outerCircleBackgroundColor"];
 }
 
 - (UIColor *)getInnerCircleProgressColor {
