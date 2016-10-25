@@ -95,8 +95,6 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
-    self.nameLabel.textColor = [colors objectForKey:@"colorText"];
-    self.descriptionLabel.textColor = [colors objectForKey:@"colorText"];
 }
 
 - (void)setupLabels {
@@ -210,7 +208,6 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     
     UIVisualEffectView *visualEffectView;
     visualEffectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
-    
     visualEffectView.frame = self.view.bounds;
     [self.view insertSubview:visualEffectView atIndex:1];
 }

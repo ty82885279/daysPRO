@@ -11,5 +11,7 @@
 @interface ThemeManager : NSObject
 
 - (NSDictionary *)getTheme;
+- (UIColor *)getTintColor;
+- (void)setTheme;
 
 @end

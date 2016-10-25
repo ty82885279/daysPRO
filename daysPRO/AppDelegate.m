@@ -33,7 +33,8 @@
 }
 
 - (void)setupAppearance {
-    self.window.tintColor = [UIColor colorWithRed:241.0/255.0 green:176.0/255.0 blue:51.0/255.0 alpha:1.0];
+    [[[ThemeManager alloc] init] setTheme];
+    self.window.tintColor = [[[ThemeManager alloc] init] getTintColor];
     
     // Remove the 1pt underline under the navbar
     [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init]

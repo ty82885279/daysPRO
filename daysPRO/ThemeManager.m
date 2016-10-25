@@ -26,35 +26,57 @@
 }
 
 - (UIColor *)getBackgroundColor {
-    return [UIColor colorWithRed:32.0/255.0 green:32.0/255.0 blue:32.0/255.0 alpha:1.0];
+    return [self getColorForColor:@"backgroundColor"];
 }
 
 - (UIColor *)getTintColor {
-    return [UIColor colorWithRed:241.0/255.0 green:176.0/255.0 blue:51.0/255.0 alpha:1.0];
+    return [self getColorForColor:@"tintColor"];
 }
 
 - (UIColor *)getTextColor {
-    return [UIColor colorWithRed:254.0/255.0 green:185.0/255.0 blue:52.0/255.0 alpha:1.0];
+    return [self getColorForColor:@"textColor"];
 }
 
 - (UIColor *)getOuterCircleProgressColor {
-    return [UIColor colorWithRed:241.0/255.0 green:176.0/255.0 blue:51.0/255.0 alpha:1.0];
+    return [self getColorForColor:@"outerCircleProgressColor"];
 }
 
 - (UIColor *)getOuterCircleBackgroundColor {
-    return [UIColor colorWithRed:241.0/255.0 green:176.0/255.0 blue:51.0/255.0 alpha:1.0];
+    return [self getColorForColor:@"outerCircleBackgroundColor"];
 }
 
 - (UIColor *)getInnerCircleProgressColor {
-    return [UIColor colorWithRed:234.0/255.0 green:129.0/255.0 blue:37.0/255.0 alpha:1.0];
+    return [self getColorForColor:@"innerCircleProgressColor"];
 }
 
 - (UIColor *)getInnerCircleBackgroundColor {
-    return [UIColor colorWithRed:82.0/255.0 green:82.0/255.0 blue:82.0/255.0 alpha:1.0];
+    return [self getColorForColor:@"innerCircleBackgroundColor"];
 }
 
 - (UIColor *)getCellBackgroundColor {
-    return [UIColor colorWithRed:92.0/255.0 green:92.0/255.0 blue:92.0/255.0 alpha:1.0];
+    return [self getColorForColor:@"cellBackgroundColor"];
+}
+
+- (UIColor *)getColorForColor:(NSString *)colorName {
+    unsigned rgbValue = 0;
+    NSString *savedColor = [[NSUserDefaults standardUserDefaults] stringForKey:colorName];
+    NSScanner *scanner = [NSScanner scannerWithString:savedColor];
+    [scanner setScanLocation:0];
+    [scanner scanHexInt:&rgbValue];
+    return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
+}
+
+- (void)setTheme {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setObject:@"202020" forKey:@"backgroundColor"];
+    [defaults setObject:@"F1B033" forKey:@"tintColor"];
+    [defaults setObject:@"FEB934" forKey:@"textColor"];
+    [defaults setObject:@"F1B033" forKey:@"outerCircleProgressColor"];
+    [defaults setObject:@"F1B033" forKey:@"outerCircleBackgroundColor"];
+    [defaults setObject:@"EA8125" forKey:@"innerCircleProgressColor"];
+    [defaults setObject:@"525252" forKey:@"innerCircleBackgroundColor"];
+    [defaults setObject:@"5C5C5C" forKey:@"cellBackgroundColor"];
 }
 
 @end
