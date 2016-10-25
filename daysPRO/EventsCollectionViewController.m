@@ -54,6 +54,9 @@ static NSString *kEventsScreenName = @"Events Grid";
     [self setupColors];
     [self registerForNotifications];
     
+    self.collectionView.emptyDataSetSource = self;
+    self.collectionView.emptyDataSetDelegate = self;
+    
     // Allocate and configure the layout
     CustomCollectionViewFlowLayout *layout = [[CustomCollectionViewFlowLayout alloc] init];
     layout.minimumInteritemSpacing = 10.f;
@@ -372,6 +375,35 @@ static NSString *kEventsScreenName = @"Events Grid";
 }
 - (IBAction)add:(id)sender {
     [self showAddEventView];
+}
+
+#pragma mark - Empty
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return [UIImage imageNamed:@"placeholder"];
+}
+
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
+    NSString *text = @"No Events";
+    
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f],
+                                 NSForegroundColorAttributeName: [UIColor lightTextColor]};
+    
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f],
+                                 NSForegroundColorAttributeName: [UIColor orangeColor]};
+    
+    return [[NSAttributedString alloc] initWithString:@"New Event" attributes:attributes];
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button {
+    [self showAddEventView];
+}
+
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
+    return kCollectionViewContentOffsetiPhone;
 }
 
 @end

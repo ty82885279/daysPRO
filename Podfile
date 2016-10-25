@@ -8,5 +8,6 @@ target 'Days Pro' do
   # Pods for Days Pro
   pod 'Fabric'
   pod 'Answers'
+  pod 'DZNEmptyDataSet'
   pod 'SVProgressHUD', :git => 'https://github.com/oliverkulpakko/SVProgressHUD.git', :branch => 'haptics'
 end

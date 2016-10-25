@@ -1,11 +1,13 @@
 PODS:
   - Answers (1.3.0):
     - Fabric (~> 1.6.3)
+  - DZNEmptyDataSet (1.8.1)
   - Fabric (1.6.8)
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
   - Answers
+  - DZNEmptyDataSet
   - Fabric
   - SVProgressHUD (from `https://github.com/oliverkulpakko/SVProgressHUD.git`, branch `haptics`)
 
@@ -21,9 +23,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Answers: 7d7e842f4d7fa9a57c897fa9b77f29ce2a073f23
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: be96007a5ae303c928e070e658807be1230deac2
+PODFILE CHECKSUM: f9098d09659ef7636fcd7937d3cf43a4ee35201a
 
 COCOAPODS: 1.0.1
