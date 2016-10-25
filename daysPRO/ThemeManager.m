@@ -62,8 +62,6 @@
     [defaults setObject:@"202020" forKey:@"backgroundColor"];
     [defaults setObject:@"F1B033" forKey:@"tintColor"];
     [defaults setObject:@"FEB934" forKey:@"textColor"];
-    [defaults setObject:@"F1B033" forKey:@"outerCircleProgressColor"];
-    [defaults setObject:@"F1B033" forKey:@"outerCircleBackgroundColor"];
     [defaults setObject:@"EA8125" forKey:@"innerCircleProgressColor"];
     [defaults setObject:@"525252" forKey:@"innerCircleBackgroundColor"];
     [defaults setObject:@"5C5C5C" forKey:@"cellBackgroundColor"];
