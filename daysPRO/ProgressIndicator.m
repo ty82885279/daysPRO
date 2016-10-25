@@ -43,6 +43,8 @@ static NSString *kColorAnimationKey = @"strokeColor";
     self.innerCircleBackgroundColor = [colors objectForKey:@"innerCircleBackground"];
     self.innerCircleProgressColor = [colors objectForKey:@"innerCircleProgress"];
     self.textInsideCircleColor = [colors objectForKey:@"tint"];
+    self.progressLabel.textColor = self.textInsideCircleColor;
+    self.metaLabel.textColor = self.textInsideCircleColor;
 }
 
 - (void)drawRect:(CGRect)rect {

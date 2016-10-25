@@ -220,16 +220,20 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     return image;
 }
 - (void)setupNavigationButtons {
+    ThemeManager *themeManager = [[ThemeManager alloc] init];
+    NSDictionary *colors = [themeManager getTheme];
+    
     CGSize barButtonSize = CGSizeMake(40.0f, 40.0f);
     
     // Back button
     UIImage *backButtonImage = [UIImage imageNamed:@"back-icon"];
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
+
     backButton.backgroundColor = [UIColor clearColor];
     backButton.frame = CGRectMake(-2, 0, barButtonSize.width, barButtonSize.height);
     [backButton setImage:backButtonImage forState:UIControlStateNormal];
-    backButton.tintColor = [UIColor colorWithRed:241.0/255.0 green:176.0/255.0 blue:51.0/255.0 alpha:1.0];
+    backButton.tintColor = [colors objectForKey:@"tintColor"];
     backButton.autoresizesSubviews = YES;
     backButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin;
     [backButton addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
