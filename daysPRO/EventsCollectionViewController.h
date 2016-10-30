@@ -11,6 +11,7 @@
 #import "Event+Helper.h"
 #import "DataManager.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 @interface EventsCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, UIGestureRecognizerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
