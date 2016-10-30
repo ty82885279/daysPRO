@@ -12,4 +12,5 @@ target 'Days Pro' do
   pod 'SVProgressHUD', :git => 'https://github.com/oliverkulpakko/SVProgressHUD.git', :branch => 'haptics'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
+  pod 'Firebase/RemoteConfig'
 end
