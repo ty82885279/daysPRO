@@ -416,7 +416,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                                           preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *takePicture = [UIAlertAction
-                                  actionWithTitle:@"Take a Picture"
+                                  actionWithTitle:@"Camera"
                                   style:UIAlertActionStyleDefault
                                   handler:^(UIAlertAction *action)
                                   {
@@ -425,7 +425,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                                   }];
     
     UIAlertAction *cameraRoll = [UIAlertAction
-                                 actionWithTitle:@"Select Image"
+                                 actionWithTitle:@"Import from Camera Roll"
                                  style:UIAlertActionStyleDefault
                                  handler:^(UIAlertAction *action)
                                  {
