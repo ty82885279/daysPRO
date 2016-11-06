@@ -106,8 +106,8 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     [defaults setObject:@"202020" forKey:@"backgroundColor"];
-    [defaults setObject:@"E74C3C" forKey:@"tintColor"];
-    [defaults setObject:@"E74C3C" forKey:@"textColor"];
+    [defaults setObject:@"FFFFFF" forKey:@"tintColor"];
+    [defaults setObject:@"FFFFFF" forKey:@"textColor"];
     [defaults setObject:@"E74C3C" forKey:@"innerCircleProgressColor"];
     [defaults setObject:@"525252" forKey:@"innerCircleBackgroundColor"];
     [defaults setObject:@"34495E" forKey:@"cellBackgroundColor"];

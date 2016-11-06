@@ -273,7 +273,8 @@ static NSString *const kEditEventScreenName = @"Edit Event";
             Event *newEvent = [[DataManager sharedManager] createEventWithName:_nameTextField.text
                                                                      startDate:_startsDatePicker.date
                                                                        endDate:_endsDatePicker.date
-                                                                       details:_descriptionTextField.text];
+                                                                       details:_descriptionTextField.text
+                                                                         image:nil];
             
             [[DataManager sharedManager] saveContext];
             NSLog(@"Saved new event: %@", newEvent);

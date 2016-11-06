@@ -30,7 +30,7 @@ extern NSString *const kDeletedKey;
 
 // Events
 - (NSArray *)getAllEvents;
-- (Event *)createEventWithName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details;
+- (Event *)createEventWithName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details image:(UIImage *)image;
 - (Event *)updateEvent:(Event *)event withName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details;
 - (void)deleteEvent:(Event *)event;
 

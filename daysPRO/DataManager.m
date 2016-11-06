@@ -219,7 +219,7 @@ NSString *const kDeletedKey = @"deleted";
     return [fetchedEvents sortedArrayUsingDescriptors:@[sortDescriptor]];
 }
 
-- (Event *)createEventWithName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details {
+- (Event *)createEventWithName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details image:(UIImage *)image {
     Event *newEvent = (Event *)[NSEntityDescription insertNewObjectForEntityForName:kEventEntityName inManagedObjectContext:self.managedObjectContext];
     newEvent.name = name;
     newEvent.details = details;
@@ -227,9 +227,22 @@ NSString *const kDeletedKey = @"deleted";
     newEvent.endDate = endDate;
     newEvent.createdDate = [NSDate date];
     newEvent.uuid = [[NSUUID UUID] UUIDString];
+    if (image) {
+        [self saveImage:image event:newEvent];
+    }
     return newEvent;
 }
 
+- (void)saveImage:(UIImage *)image event:(Event *)event {
+    if (image != nil) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *path = [documentsDirectory stringByAppendingPathComponent:event.uuid];
+        NSData *data = UIImagePNGRepresentation(image);
+        [data writeToFile:path atomically:YES];
+    }
+}
 - (Event *)updateEvent:(Event *)event withName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details {
     event.name = name;
     event.startDate = startDate;
@@ -277,7 +290,8 @@ NSString *const kDeletedKey = @"deleted";
     [self createEventWithName:@"Christmas Day"
                     startDate:lastYearsDay
                       endDate:thisYearsDay
-                      details:nil];
+                      details:nil
+                        image:[UIImage imageNamed:@"christmas.jpg"]];
     
     //CHRISTMAS EVE
     NSDateComponents *thisYearEveComponents = [[NSDateComponents alloc] init];
@@ -302,7 +316,8 @@ NSString *const kDeletedKey = @"deleted";
     [self createEventWithName:@"Christmas Eve"
                     startDate:lastYearsEve
                       endDate:thisYearsEve
-                      details:nil];
+                      details:nil
+                        image:[UIImage imageNamed:@"christmas.jpg"]];
     [self saveContext];
     
 }
@@ -334,7 +349,8 @@ NSString *const kDeletedKey = @"deleted";
     [self createEventWithName:@"New Year"
                     startDate:firstDayOfTheYear
                       endDate:nextYear
-                      details:nil];
+                      details:nil
+                        image:nil];
     [self saveContext];
     
 }
