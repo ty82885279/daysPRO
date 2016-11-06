@@ -15,5 +15,6 @@
 - (UIColor *)getTextColor;
 - (void)setTheme;
 - (BOOL)isDecember;
+- (int)getCurrentYear;
 
 @end

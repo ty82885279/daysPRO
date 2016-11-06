@@ -251,6 +251,62 @@ NSString *const kDeletedKey = @"deleted";
     [self.managedObjectContext deleteObject:event];
 }
 
+- (void)addChristmasEvents {
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    //CHRISTMAS DAY
+    NSDateComponents *thisYearDayComponents = [[NSDateComponents alloc] init];
+    NSDateComponents *lastYearDayComponents = [[NSDateComponents alloc] init];
+    
+    [thisYearDayComponents setYear:[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year]];
+    [thisYearDayComponents setMonth:12];
+    [thisYearDayComponents setDay:25];
+    [thisYearDayComponents setHour:9];
+    [thisYearDayComponents setMinute:0];
+    [thisYearDayComponents setSecond:0];
+    NSDate *thisYearsDay = [gregorianCalendar dateFromComponents:thisYearDayComponents];
+    
+    [lastYearDayComponents setYear:[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year] - 1 ];
+    [lastYearDayComponents setMonth:12];
+    [lastYearDayComponents setDay:25];
+    [lastYearDayComponents setHour:9];
+    [lastYearDayComponents setMinute:0];
+    [lastYearDayComponents setSecond:0];
+    NSDate *lastYearsDay = [gregorianCalendar dateFromComponents:lastYearDayComponents];
+    
+    [self createEventWithName:@"Christmas Day"
+                    startDate:lastYearsDay
+                      endDate:thisYearsDay
+                      details:nil];
+    
+    //CHRISTMAS EVE
+    NSDateComponents *thisYearEveComponents = [[NSDateComponents alloc] init];
+    NSDateComponents *lastYearEveComponents = [[NSDateComponents alloc] init];
+    
+    [thisYearEveComponents setYear:[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year]];
+    [thisYearEveComponents setMonth:12];
+    [thisYearEveComponents setDay:24];
+    [thisYearEveComponents setHour:9];
+    [thisYearEveComponents setMinute:0];
+    [thisYearEveComponents setSecond:0];
+    NSDate *thisYearsEve = [gregorianCalendar dateFromComponents:thisYearEveComponents];
+    
+    [lastYearEveComponents setYear:[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year] - 1 ];
+    [lastYearEveComponents setMonth:12];
+    [lastYearEveComponents setDay:24];
+    [lastYearEveComponents setHour:9];
+    [lastYearEveComponents setMinute:0];
+    [lastYearEveComponents setSecond:0];
+    NSDate *lastYearsEve = [gregorianCalendar dateFromComponents:lastYearEveComponents];
+    
+    [self createEventWithName:@"Christmas Eve"
+                    startDate:lastYearsEve
+                      endDate:thisYearsEve
+                      details:nil];
+    [self saveContext];
+    
+}
+
 - (void)createDefaultEvents {
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *comps = [[NSDateComponents alloc] init];

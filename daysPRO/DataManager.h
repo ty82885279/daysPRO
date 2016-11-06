@@ -24,6 +24,7 @@ extern NSString *const kDeletedKey;
 - (void)saveContext;
 
 // Bulk Add/Delete
+- (void)addChristmasEvents;
 - (void)createDefaultEvents;
 - (void)deleteAllEvents;
 

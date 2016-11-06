@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DataManager.h"
+#import "ThemeManager.h"
 
 @interface AppDelegate() <UIAlertViewDelegate>
 @end
@@ -57,6 +58,19 @@
         NSLog(@"First launch. Create default events.");
         [[DataManager sharedManager] createDefaultEvents];
         [[DataManager sharedManager] saveContext];
+    }
+    //Create christmas events if it's december
+    if ([[[ThemeManager alloc] init] isDecember]) {
+        int currentYear = [[[ThemeManager alloc] init] getCurrentYear];
+        NSString *preferenceName = [NSString stringWithFormat:@"addedChristmasEvents%i", currentYear];
+        
+        if (![[NSUserDefaults standardUserDefaults] boolForKey:preferenceName]) {
+            [[NSUserDefaults standardUserDefaults] setBool:true forKey:preferenceName];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            [[DataManager sharedManager] addChristmasEvents];
+            [[DataManager sharedManager] saveContext];
+        }
     }
 }
 
