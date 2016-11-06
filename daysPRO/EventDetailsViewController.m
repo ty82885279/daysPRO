@@ -24,6 +24,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 @property (assign, nonatomic) NSInteger tapCounter;
 @property (assign, nonatomic, getter = isShouldBeHidingStatusBar) BOOL shouldBeHidingStatusBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
 
 - (IBAction)tapGesture:(UITapGestureRecognizer *)sender;
 
@@ -61,7 +62,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     
     NSString *dateString = [formatter stringFromDate:self.event.endDate];
     
-    if (self.event.endDate < [NSDate date]) {
+    if (self.event.progress > 100) {
         UIAlertController *alertController = [UIAlertController
                                               alertControllerWithTitle:[NSString stringWithFormat:@"Delete %@?", self.event.name]
                                               message:[NSString stringWithFormat:@"%@ ended on %@.", self.event.name, dateString]
@@ -339,8 +340,10 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     UIImage *finalImage = [self cropImage:[self screenshot] byOffset:verticalOffset];
     
     UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[shareString, finalImage] applicationActivities:nil];
+    avc.popoverPresentationController.barButtonItem = _actionButton;
     avc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll, UIActivityTypeAirDrop];
     [self presentViewController:avc animated:YES completion:NULL];
+    
 }
 
 #pragma mark — Screenshot
