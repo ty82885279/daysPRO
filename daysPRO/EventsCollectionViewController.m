@@ -471,6 +471,9 @@ int shakeCount;
 
 #pragma mark - Empty
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    if ([[[ThemeManager alloc] init] isDecember]) {
+        return [UIImage imageNamed:@"placeholder-December"];
+    }
     return [UIImage imageNamed:@"placeholder"];
 }
 
@@ -485,7 +488,7 @@ int shakeCount;
 
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f],
-                                 NSForegroundColorAttributeName: [UIColor orangeColor]};
+                                 NSForegroundColorAttributeName: [[[ThemeManager alloc] init] getTextColor]};
     
     return [[NSAttributedString alloc] initWithString:@"New Event" attributes:attributes];
 }
