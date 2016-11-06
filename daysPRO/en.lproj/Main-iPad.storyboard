@@ -393,7 +393,7 @@
                 </tapGestureRecognizer>
                 <barButtonItem title="Item" id="SVh-XY-7Kv">
                     <connections>
-                        <segue destination="yUQ-3F-6K5" kind="popover" identifier="showEditEventView" popoverAnchorBarButtonItem="SVh-XY-7Kv" id="RJN-zc-Ski">
+                        <segue destination="yUQ-3F-6K5" kind="popover" identifier="showEditEventView" popoverAnchorBarButtonItem="xz9-mO-no6" id="RJN-zc-Ski">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
