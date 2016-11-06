@@ -105,9 +105,9 @@
     [defaults setObject:@"202020" forKey:@"backgroundColor"];
     [defaults setObject:@"E74C3C" forKey:@"tintColor"];
     [defaults setObject:@"E74C3C" forKey:@"textColor"];
-    [defaults setObject:@"C0392B" forKey:@"innerCircleProgressColor"];
-    [defaults setObject:@"EC644B" forKey:@"innerCircleBackgroundColor"];
-    [defaults setObject:@"7f8c8d" forKey:@"cellBackgroundColor"];
+    [defaults setObject:@"E74C3C" forKey:@"innerCircleProgressColor"];
+    [defaults setObject:@"525252" forKey:@"innerCircleBackgroundColor"];
+    [defaults setObject:@"34495E" forKey:@"cellBackgroundColor"];
 }
 
 @end
