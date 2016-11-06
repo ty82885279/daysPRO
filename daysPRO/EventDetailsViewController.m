@@ -341,7 +341,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     
     UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:@[shareString, finalImage] applicationActivities:nil];
     avc.popoverPresentationController.barButtonItem = _actionButton;
-    avc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll, UIActivityTypeAirDrop];
+    avc.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard];
     [self presentViewController:avc animated:YES completion:NULL];
     
 }
