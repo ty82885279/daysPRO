@@ -9,6 +9,7 @@
 #import "EventDetailsViewController.h"
 #import "AppDelegate.h"
 #import "AddEventTableViewController.h"
+#import <SnowFallingFramework/SnowFalling.h>
 
 static NSString *kEventDetailsScreenName = @"Event Details";
 
@@ -51,6 +52,12 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     [self setupNavigationButtons];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateProgressView) userInfo:nil repeats:YES];
     self.tapCounter = 0;
+    
+    if ([[[ThemeManager alloc] init] isDecember]) {
+    SnowFalling *snowFalling = [[SnowFalling alloc] initWithView:self.view];
+    snowFalling.numbersOfFlake = 20;
+    snowFalling.hidden = NO;
+    }
 }
 
 - (void)askToDeleteEvent {

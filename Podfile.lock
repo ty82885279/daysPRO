@@ -35,6 +35,7 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.0)
   - GoogleToolboxForMac/NSData+zlib (2.1.0):
     - GoogleToolboxForMac/Defines (= 2.1.0)
+  - SnowFallingFramework (1.4.3)
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
@@ -44,6 +45,7 @@ DEPENDENCIES:
   - Firebase/AdMob
   - Firebase/Core
   - Firebase/RemoteConfig
+  - SnowFallingFramework
   - SVProgressHUD (from `https://github.com/oliverkulpakko/SVProgressHUD.git`, branch `haptics`)
 
 EXTERNAL SOURCES:
@@ -69,8 +71,9 @@ SPEC CHECKSUMS:
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
+  SnowFallingFramework: e312283aec10a3a27135ba6811d832e4da0dc964
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: d49752ce408a5624e260eff4e8702a72889bd2b6
+PODFILE CHECKSUM: a396a52bff99150cebc275f640cd8bf614d0e060
 
 COCOAPODS: 1.1.1

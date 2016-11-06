@@ -13,4 +13,5 @@ target 'Days Pro' do
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
   pod 'Firebase/RemoteConfig'
+  pod 'SnowFallingFramework'
 end

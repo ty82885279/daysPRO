@@ -13,5 +13,6 @@
 - (NSDictionary *)getTheme;
 - (UIColor *)getTintColor;
 - (void)setTheme;
+- (BOOL)isDecember;
 
 @end

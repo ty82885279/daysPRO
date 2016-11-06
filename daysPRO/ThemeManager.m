@@ -66,12 +66,15 @@
     [defaults setObject:@"525252" forKey:@"innerCircleBackgroundColor"];
     [defaults setObject:@"5C5C5C" forKey:@"cellBackgroundColor"];
     
-    if ([self isDate:[NSDate date] inRangeFirstDate:[self firstDayOfDec] lastDate:[self lastDayOfDec]]) {
+    if ([self isDecember]) {
         [self enableDecemberTheme];
     }
 }
 
 #pragma mark Christmas
+- (BOOL)isDecember {
+    return [self isDate:[NSDate date] inRangeFirstDate:[self firstDayOfDec] lastDate:[self lastDayOfDec]];
+}
 - (BOOL)isDate:(NSDate *)date inRangeFirstDate:(NSDate *)firstDate lastDate:(NSDate *)lastDate {
     return [date compare:firstDate] == NSOrderedDescending &&
     [date compare:lastDate]  == NSOrderedAscending;
