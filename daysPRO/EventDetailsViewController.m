@@ -15,6 +15,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 
 @interface EventDetailsViewController () <UIGestureRecognizerDelegate> {
     UIImageView *bgImageView;
+    UIVisualEffectView *bgImageBlurView;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -214,10 +215,9 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     bgImageView.clipsToBounds = true;
     [self.view insertSubview:bgImageView atIndex:0];
     
-    UIVisualEffectView *visualEffectView;
-    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
-    visualEffectView.frame = self.view.bounds;
-    [self.view insertSubview:visualEffectView atIndex:1];
+    bgImageBlurView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+    bgImageBlurView.frame = self.view.bounds;
+    [self.view insertSubview:bgImageBlurView atIndex:1];
 }
 - (UIImage *)loadImage {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
@@ -304,6 +304,15 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 }
 
 
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        bgImageView.frame = self.view.bounds;
+        bgImageBlurView.frame = self.view.bounds;
+    } completion:nil];
+}
+
 #pragma mark - Editing
 
 - (void)editButtonPressed {
@@ -326,7 +335,6 @@ static NSString *kEventDetailsScreenName = @"Event Details";
         }
     }
 }
-
 
 #pragma mark - Sharing
 
