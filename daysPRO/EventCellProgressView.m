@@ -15,8 +15,6 @@ static NSInteger kCircleLineWidth = 3;
 
 static CGFloat kNumberInsideCircleFontSizeiPhone = 35.0;
 static CGFloat kNumberInsideCircleFontSizeiPad = 50.0;
-static CGFloat kMetaTextFontSizeDefault = 12.0;
-static CGFloat kMetaTextFontSizeSmall = 11.0;
 static NSString *kSymbolFontName = @"AppleSDGothicNeo-Regular";
 static CGFloat kSymbolFontSize = 45.0;
 
@@ -76,7 +74,10 @@ static CGFloat kSymbolFontSize = 45.0;
 
 - (void)useSmallerFont {
     self.progressLabel.font = [UIFont systemFontOfSize:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kNumberInsideCircleFontSizeiPhone : kNumberInsideCircleFontSizeiPad];
-    self.metaLabel.font = [UIFont systemFontOfSize:kMetaTextFontSizeSmall];
+    
+    self.metaLabel.numberOfLines = 1;
+    self.metaLabel.minimumScaleFactor = 8./self.metaLabel.font.pointSize;
+    self.metaLabel.adjustsFontSizeToFitWidth = YES;
 }
 
 - (void)useFontForSymbol {
@@ -85,7 +86,10 @@ static CGFloat kSymbolFontSize = 45.0;
 
 - (void)useDefaultFont {
     self.progressLabel.font = [UIFont systemFontOfSize:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kNumberInsideCircleFontSizeiPhone : kNumberInsideCircleFontSizeiPad];
-    self.metaLabel.font = [UIFont systemFontOfSize:kMetaTextFontSizeDefault];
+
+    self.metaLabel.numberOfLines = 1;
+    self.metaLabel.minimumScaleFactor = 8./self.metaLabel.font.pointSize;
+    self.metaLabel.adjustsFontSizeToFitWidth = YES;
 }
 
 @end
