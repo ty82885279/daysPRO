@@ -38,6 +38,7 @@
 		D6723E251DBE409900D925A4 /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E0C1DBE409900D925A4 /* PushManager.m */; };
 		D6723E2D1DBE434D00D925A4 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E2C1DBE434D00D925A4 /* ThemeManager.m */; };
 		D6B5B7B41DBE95D300729A15 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6B5B7B31DBE95D300729A15 /* Settings.bundle */; };
+		D6E4B9EF1DD0D7A500442536 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6E4B9ED1DD0D7A500442536 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,11 @@
 		D6723E2B1DBE434D00D925A4 /* ThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeManager.h; sourceTree = "<group>"; };
 		D6723E2C1DBE434D00D925A4 /* ThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeManager.m; sourceTree = "<group>"; };
 		D6B5B7B31DBE95D300729A15 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		D6E4B9EE1DD0D7A500442536 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D6E4B9F01DD0D7B500442536 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D6E4B9F11DD0D7B600442536 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D6E4B9F21DD0D7B600442536 /* fi */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fi; path = "fi.lproj/Main-iPad.storyboard"; sourceTree = "<group>"; };
+		D6E4B9F31DD0D7B600442536 /* fi */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fi; path = "fi.lproj/Main-iPhone.storyboard"; sourceTree = "<group>"; };
 		EF75AF4028A82E762B7FDEE4 /* Pods-Days Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Days Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Days Pro/Pods-Days Pro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +157,7 @@
 				D6723E271DBE40D000D925A4 /* Supporting Files */,
 				D6723DF61DBE409900D925A4 /* AppDelegate.h */,
 				D6723DF71DBE409900D925A4 /* AppDelegate.m */,
+				D6E4B9ED1DD0D7A500442536 /* Localizable.strings */,
 				D6723E261DBE40C300D925A4 /* Storyboards */,
 				D6723E281DBE40F000D925A4 /* View Controllers */,
 				D6723E291DBE410200D925A4 /* Views */,
@@ -294,6 +301,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				fi,
 			);
 			mainGroup = A6693551179D31E200E5A40F;
 			productRefGroup = A669355B179D31E200E5A40F /* Products */;
@@ -314,6 +322,7 @@
 				D6723E141DBE409900D925A4 /* Main-iPhone.storyboard in Resources */,
 				D66B91A61DCF23CF00EABCD3 /* christmas.jpg in Resources */,
 				D6723E171DBE409900D925A4 /* Media.xcassets in Resources */,
+				D6E4B9EF1DD0D7A500442536 /* Localizable.strings in Resources */,
 				D6723E181DBE409900D925A4 /* notification-sound.caf in Resources */,
 				D6723E121DBE409900D925A4 /* InfoPlist.strings in Resources */,
 				D6723E131DBE409900D925A4 /* Main-iPad.storyboard in Resources */,
@@ -414,6 +423,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D6723DEB1DBE409900D925A4 /* en */,
+				D6E4B9F01DD0D7B500442536 /* fi */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -422,6 +432,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D6723DED1DBE409900D925A4 /* en */,
+				D6E4B9F21DD0D7B600442536 /* fi */,
 			);
 			name = "Main-iPad.storyboard";
 			sourceTree = "<group>";
@@ -430,8 +441,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				D6723DEF1DBE409900D925A4 /* en */,
+				D6E4B9F31DD0D7B600442536 /* fi */,
 			);
 			name = "Main-iPhone.storyboard";
+			sourceTree = "<group>";
+		};
+		D6E4B9ED1DD0D7A500442536 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6E4B9EE1DD0D7A500442536 /* en */,
+				D6E4B9F11DD0D7B600442536 /* fi */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -441,6 +462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -483,6 +505,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;

@@ -22,7 +22,6 @@ static CGFloat kCollectionViewContentOffsetiPhone = -64.0f;
 
 static NSInteger kCellWeightHeightiPhone = 145;
 static NSInteger kCellWeightHeightiPad = 242;
-static NSString *kEventsScreenName = @"Events Grid";
 
 @interface EventsCollectionViewController ()
 
@@ -205,18 +204,18 @@ int shakeCount;
             shakeCount++;
         } else {
             UIAlertController *alertController = [UIAlertController
-                                                  alertControllerWithTitle:@"Disable Ads"
-                                                  message:nil
+                                                  alertControllerWithTitle:NSLocalizedString(@"Disable Ads", nil)
+                                                  message:NSLocalizedString(@"Do you want to disable ads? You can't enable them later.", nil)
                                                   preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction *disableAds = [UIAlertAction
-                                       actionWithTitle:@"Disable Ads"
+                                       actionWithTitle:NSLocalizedString(@"Disable Ads", nil)
                                        style:UIAlertActionStyleDefault
                                        handler:^(UIAlertAction *action)
                                        {
                                            [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"disableAds"];
                                            [[NSUserDefaults standardUserDefaults] synchronize];
-                                           [SVProgressHUD showSuccessWithStatus:@"Closing in 3 seconds..."];
+                                           [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Closing in 3 seconds...", nil)];
                                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                                                exit(0);
                                            });
@@ -478,7 +477,7 @@ int shakeCount;
 }
 
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
-    NSString *text = @"No Events";
+    NSString *text = NSLocalizedString(@"No Events", nil);
     
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f],
                                  NSForegroundColorAttributeName: [UIColor lightTextColor]};
@@ -490,7 +489,7 @@ int shakeCount;
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f],
                                  NSForegroundColorAttributeName: [[[ThemeManager alloc] init] getTextColor]};
     
-    return [[NSAttributedString alloc] initWithString:@"New Event" attributes:attributes];
+    return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"New Event", nil) attributes:attributes];
 }
 
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button {

@@ -63,9 +63,6 @@
     if ([[[ThemeManager alloc] init] isDecember]) {
         int currentYear = [[[ThemeManager alloc] init] getCurrentYear];
         NSString *preferenceName = [NSString stringWithFormat:@"addedChristmasEvents%i", currentYear];
-#ifdef DEBUG
-        [[NSUserDefaults standardUserDefaults] setBool:false forKey:preferenceName];
-#endif
         if (![[NSUserDefaults standardUserDefaults] boolForKey:preferenceName]) {
             [[NSUserDefaults standardUserDefaults] setBool:true forKey:preferenceName];
             [[NSUserDefaults standardUserDefaults] synchronize];

@@ -287,7 +287,7 @@ NSString *const kDeletedKey = @"deleted";
     [lastYearDayComponents setSecond:0];
     NSDate *lastYearsDay = [gregorianCalendar dateFromComponents:lastYearDayComponents];
     
-    [self createEventWithName:@"Christmas Day"
+    [self createEventWithName:NSLocalizedString(@"Christmas Day", nil)
                     startDate:lastYearsDay
                       endDate:thisYearsDay
                       details:nil
@@ -313,7 +313,7 @@ NSString *const kDeletedKey = @"deleted";
     [lastYearEveComponents setSecond:0];
     NSDate *lastYearsEve = [gregorianCalendar dateFromComponents:lastYearEveComponents];
     
-    [self createEventWithName:@"Christmas Eve"
+    [self createEventWithName:NSLocalizedString(@"Christmas Eve", nil)
                     startDate:lastYearsEve
                       endDate:thisYearsEve
                       details:nil
@@ -346,7 +346,7 @@ NSString *const kDeletedKey = @"deleted";
 
     firstDayOfTheYear = [NSDate dateWithTimeInterval:[[NSTimeZone localTimeZone] secondsFromGMT] sinceDate:firstDayOfTheYear]; // time zone offset
     
-    [self createEventWithName:@"New Year"
+    [self createEventWithName:NSLocalizedString(@"New Year", nil)
                     startDate:firstDayOfTheYear
                       endDate:nextYear
                       details:nil
@@ -372,7 +372,7 @@ NSString *const kDeletedKey = @"deleted";
 #pragma mark iCloud notifications
 
 - (void)persistentStoreDidImportUbiquitiousContentChanges:(NSNotification *)changeNotification {
-    [SVProgressHUD showWithStatus:@"Syncing..."];
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Syncing...", nil)];
 
     NSManagedObjectContext *moc = [self managedObjectContext];
     [moc performBlock:^{

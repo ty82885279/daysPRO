@@ -18,18 +18,6 @@ static NSInteger const kStartDatePickerIndex = 1;
 static NSInteger const kEndDatePickerIndex = 3;
 static NSInteger const kDatePickerCellHeight = 216;
 
-static NSString *const kNameTextFieldPlaceholder = @"Name";
-static NSString *const kDescriptionTextFieldTextFieldPlaceholder = @"Description (optional)";
-static NSString *const kEndsDateDefaultString = @"Choose...";
-
-static NSString *const kErrorEmptyNameTitle = @"Empty Name";
-static NSString *const kErrorEmptyNameMessage = @"Please give a name to the event.";
-static NSString *const kErrorEmptyNameCancel = @"OK";
-
-static NSString *const kAddEventScreenName = @"Add Event";
-static NSString *const kEditEventScreenName = @"Edit Event";
-
-
 @interface AddEventTableViewController ()
 
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -83,10 +71,10 @@ static NSString *const kEditEventScreenName = @"Edit Event";
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     // Text fields
-    self.nameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:kNameTextFieldPlaceholder
+    self.nameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Name"
                                                                                attributes:@{NSForegroundColorAttributeName : [colors objectForKey:@"background"]}];
     
-    self.descriptionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:kDescriptionTextFieldTextFieldPlaceholder
+    self.descriptionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Description (optional)"
                                                                                       attributes:@{NSForegroundColorAttributeName : [colors objectForKey:@"background"]}];
     self.nameTextField.textColor = [colors objectForKey:@"tint"];
     self.descriptionTextField.textColor = [colors objectForKey:@"tint"];
@@ -100,7 +88,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
     
     if (self.isEventEditMode) {
         
-        self.navigationItem.title = @"Edit Event";
+        self.navigationItem.title = NSLocalizedString(@"Edit Event", nil);
         _nameTextField.text = _event.name;
         if (_event.details.length != 0) {
             _descriptionTextField.text = _event.details;
@@ -113,7 +101,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
         
         NSDate *now = [NSDate date];
         _startsDateLabel.text = [self.dateFormatter stringFromDate:now];
-        _endsDateLabel.text = kEndsDateDefaultString;
+        _endsDateLabel.text = NSLocalizedString(@"Choose...", nil);
     }
     
     _startsDateLabel.textColor = [self.tableView tintColor];
@@ -253,7 +241,7 @@ static NSString *const kEditEventScreenName = @"Edit Event";
 
 - (IBAction)saveButton:(id)sender {
     if (self.nameTextField.text.length == 0) {
-        [SVProgressHUD showErrorWithStatus:@"No name"];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Name", nil)];
     }
     else {
         

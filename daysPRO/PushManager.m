@@ -93,13 +93,14 @@
 }
 
 - (UILocalNotification *)createNotificationForEvent:(Event *)event {
+    NSString *notificationTitle = NSLocalizedString(@"is happening now", nil);
     // Create notification only for event that are going to end in the future
     if ([event.endDate compare:[NSDate date]] == NSOrderedDescending) {
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
         localNotification.fireDate = event.endDate;
-        localNotification.alertBody = [NSString stringWithFormat:@"%@ is happening now.", event.name];
+        localNotification.alertBody = [NSString stringWithFormat:@"%@ %@.", event.name, notificationTitle];
         localNotification.timeZone = [NSTimeZone systemTimeZone];
-        localNotification.alertAction = NSLocalizedString(@"check", @"On lock screen under notification — 'slide to ...' ");
+        localNotification.alertAction = NSLocalizedString(@"check", nil);
         localNotification.soundName = @"notification-sound.caf";
         localNotification.userInfo = @{@"eventUUID" : event.uuid};
         return localNotification;

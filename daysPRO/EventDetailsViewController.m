@@ -11,8 +11,6 @@
 #import "AddEventTableViewController.h"
 #import <SnowFallingFramework/SnowFalling.h>
 
-static NSString *kEventDetailsScreenName = @"Event Details";
-
 @interface EventDetailsViewController () <UIGestureRecognizerDelegate> {
     UIImageView *bgImageView;
     UIVisualEffectView *bgImageBlurView;
@@ -71,13 +69,15 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     NSString *dateString = [formatter stringFromDate:self.event.endDate];
     
     if (self.event.progress > 100) {
+        NSString *deleteTitleLocalized = NSLocalizedString(@"Delete", nil);
+        NSString *deleteMessageLocalized = NSLocalizedString(@"ended on", nil);
         UIAlertController *alertController = [UIAlertController
-                                              alertControllerWithTitle:[NSString stringWithFormat:@"Delete %@?", self.event.name]
-                                              message:[NSString stringWithFormat:@"%@ ended on %@.", self.event.name, dateString]
+                                              alertControllerWithTitle:[NSString stringWithFormat:@"%@ %@?", deleteTitleLocalized, self.event.name]
+                                              message:[NSString stringWithFormat:@"%@ %@ %@.", self.event.name, deleteMessageLocalized, dateString]
                                               preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *delete = [UIAlertAction
-                                       actionWithTitle:@"Delete"
+                                       actionWithTitle:NSLocalizedString(@"Delete", nil)
                                        style:UIAlertActionStyleDestructive
                                        handler:^(UIAlertAction *action)
                                        {
@@ -87,7 +87,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                                        }];
         
         UIAlertAction *cancel = [UIAlertAction
-                                   actionWithTitle:@"Cancel"
+                                   actionWithTitle:NSLocalizedString(@"Cancel", nil)
                                    style:UIAlertActionStyleCancel
                                    handler:nil];
         
@@ -107,6 +107,10 @@ static NSString *kEventDetailsScreenName = @"Event Details";
 }
 
 - (void)setupLabels {
+    NSString *startsOn = NSLocalizedString(@"Starts on", nil);
+    NSString *endsOn = NSLocalizedString(@"Ends on", nil);
+    NSString *startedOn = NSLocalizedString(@"Started on", nil);
+    NSString *endedOn = NSLocalizedString(@"Ended on", nil);
     [self askToDeleteEvent];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
@@ -135,7 +139,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
          */
         switch (self.tapCounter % 3) {
             case 0:
-                self.descriptionLabel.text = [NSString stringWithFormat:@"Starts on %@", [dateFormatter stringFromDate:self.event.startDate]];
+                self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", startsOn, [dateFormatter stringFromDate:self.event.startDate]];
                 break;
             case 1:
                 if (self.event.details.length) {
@@ -145,7 +149,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                     self.tapCounter++;
                 }
             default:
-                self.descriptionLabel.text = [NSString stringWithFormat:@"Ends on %@", [dateFormatter stringFromDate:self.event.endDate]];
+                self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", endsOn, [dateFormatter stringFromDate:self.event.endDate]];
                 break;
         }
         
@@ -162,15 +166,15 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                     self.descriptionLabel.text = self.event.details;
                     break;
                 } else {
-                    self.descriptionLabel.text = [NSString stringWithFormat:@"Ends on %@", [dateFormatter stringFromDate:self.event.endDate]];
+                    self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", endsOn, [dateFormatter stringFromDate:self.event.endDate]];
                     break;
                 }
             default:
                 if (self.event.details.length) {
-                    self.descriptionLabel.text = [NSString stringWithFormat:@"Ends on %@", [dateFormatter stringFromDate:self.event.endDate]];
+                    self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", endsOn, [dateFormatter stringFromDate:self.event.endDate]];
                     break;
                 } else {
-                    self.descriptionLabel.text = [NSString stringWithFormat:@"Started on %@", [dateFormatter stringFromDate:self.event.startDate]];
+                    self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", startedOn, [dateFormatter stringFromDate:self.event.startDate]];
                     break;
                 }
         }
@@ -188,15 +192,15 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                     self.descriptionLabel.text = self.event.details;
                     break;
                 } else {
-                    self.descriptionLabel.text = [NSString stringWithFormat:@"Ended on %@", [dateFormatter stringFromDate:self.event.endDate]];
+                    self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", endedOn, [dateFormatter stringFromDate:self.event.endDate]];
                     break;
                 }
             default:
                 if (self.event.details.length) {
-                    self.descriptionLabel.text = [NSString stringWithFormat:@"Ended on %@", [dateFormatter stringFromDate:self.event.endDate]];
+                    self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", endedOn, [dateFormatter stringFromDate:self.event.endDate]];
                     break;
                 } else {
-                    self.descriptionLabel.text = [NSString stringWithFormat:@"Started on %@", [dateFormatter stringFromDate:self.event.startDate]];
+                    self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", startedOn, [dateFormatter stringFromDate:self.event.startDate]];
                     break;
                 }
         }
@@ -424,12 +428,12 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     picker.delegate = self;
     picker.allowsEditing = true;
     UIAlertController *alertController = [UIAlertController
-                                          alertControllerWithTitle:@"Add Image"
+                                          alertControllerWithTitle:NSLocalizedString(@"Add Image", nil)
                                           message:nil
                                           preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *takePicture = [UIAlertAction
-                                  actionWithTitle:@"Camera"
+                                  actionWithTitle:NSLocalizedString(@"Take a Picture", nil)
                                   style:UIAlertActionStyleDefault
                                   handler:^(UIAlertAction *action)
                                   {
@@ -438,14 +442,14 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                                   }];
     
     UIAlertAction *cameraRoll = [UIAlertAction
-                                 actionWithTitle:@"Import from Camera Roll"
+                                 actionWithTitle:NSLocalizedString(@"Select a Picture", nil)
                                  style:UIAlertActionStyleDefault
                                  handler:^(UIAlertAction *action)
                                  {
                                      picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
                                      [self presentViewController:picker animated:YES completion:^{
                                          [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
-                                         picker.topViewController.title = @"Select Image";
+                                         picker.topViewController.title = NSLocalizedString(@"Select a Picture", nil);
                                          picker.navigationBar.translucent = NO;
                                          picker.navigationBar.barStyle = UIBarStyleDefault;
                                          [picker setNavigationBarHidden:NO animated:NO];
@@ -453,7 +457,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                                  }];
     
     UIAlertAction *removeImage = [UIAlertAction
-                                  actionWithTitle:@"Remove Image"
+                                  actionWithTitle:NSLocalizedString(@"Remove Image", nil)
                                   style:UIAlertActionStyleDefault
                                   handler:^(UIAlertAction *action)
                                   {
@@ -468,7 +472,7 @@ static NSString *kEventDetailsScreenName = @"Event Details";
                                   }];
     
     UIAlertAction *cancel = [UIAlertAction
-                             actionWithTitle:@"Cancel"
+                             actionWithTitle:NSLocalizedString(@"Cancel", nil)
                              style:UIAlertActionStyleCancel
                              handler:nil];
     [alertController addAction:takePicture];
