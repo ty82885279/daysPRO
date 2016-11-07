@@ -218,6 +218,11 @@ static NSString *kEventDetailsScreenName = @"Event Details";
     bgImageBlurView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
     bgImageBlurView.frame = self.view.bounds;
     [self.view insertSubview:bgImageBlurView atIndex:1];
+    
+    //Make progressView more transparent
+    [UIView animateWithDuration:1.0 animations:^{
+        self.progressView.alpha =  0.65;
+    }];
 }
 - (UIImage *)loadImage {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
