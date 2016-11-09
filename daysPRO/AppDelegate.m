@@ -50,6 +50,9 @@
 }
 
 - (void)setupDefaultEventsIfNeeded {
+    //Disable Ads
+    [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"disableAds"];
+    //[[DataManager sharedManager] addEventsFromServer];
     // Create Default events if needed
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];

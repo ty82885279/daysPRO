@@ -264,6 +264,48 @@ NSString *const kDeletedKey = @"deleted";
     [self.managedObjectContext deleteObject:event];
 }
 
+- (void)addEventsFromServer {
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading...", nil)];
+    NSURL *url = [NSURL URLWithString:@"https://eaststudios.fi/api/days/defaultEvents.json"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (!connectionError) {
+            NSError *error;
+            NSArray *json = [NSJSONSerialization JSONObjectWithData:data
+                                                            options:kNilOptions
+                                                              error:&error];
+            
+            for (Event *record in json) {
+                
+                NSString *uniqueServerEventID = [record valueForKey:@"useID"];
+                NSString *name = [record valueForKey:@"name"];
+                NSString *details = [record valueForKey:@"description"];
+                NSString *startDateString = [record valueForKey:@"startDate"];
+                NSString *endDateString = [record valueForKey:@"endDate"];
+                
+                NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:[startDateString intValue]];
+                NSDate *endDate = [NSDate dateWithTimeIntervalSince1970:[endDateString intValue]];
+                
+                NSDate *localStartDate = [NSDate dateWithTimeInterval:[[NSTimeZone systemTimeZone] secondsFromGMT] sinceDate:startDate];
+                NSDate *localEndDate = [NSDate dateWithTimeInterval:[[NSTimeZone systemTimeZone] secondsFromGMT] sinceDate:endDate];
+                
+                if (![[NSUserDefaults standardUserDefaults] valueForKey:uniqueServerEventID]) {
+                [self createEventWithName:name
+                                startDate:localStartDate
+                                  endDate:localEndDate
+                                  details:details
+                                    image:nil];
+                [self saveContext];
+                    [[NSUserDefaults standardUserDefaults] setBool:true forKey:uniqueServerEventID];
+                }
+            }
+            [SVProgressHUD dismiss];
+        } else {
+            [SVProgressHUD showErrorWithStatus:connectionError.localizedDescription];
+        }
+    }];
+}
+
 - (void)addChristmasEvents {
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
