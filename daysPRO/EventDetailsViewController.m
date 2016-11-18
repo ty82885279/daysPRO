@@ -485,7 +485,7 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (IBAction)shareEvent:(id)sender {
-    [Answers logCustomEventWithName:@"Share event" customAttributes:@{@"Name":self.event.name}];
+    [Answers logShareWithMethod:@"Share Button" contentName:self.event.name contentType:@"event" contentId:self.event.uuid customAttributes:nil];
     [self shareButtonPressed];
 }
 - (IBAction)editEvent:(id)sender {
@@ -504,7 +504,7 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)saveImage: (UIImage *)image {
+- (void)saveImage:(UIImage *)image {
     if (image != nil) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                              NSUserDomainMask, YES);
@@ -512,7 +512,7 @@
         NSString* path = [documentsDirectory stringByAppendingPathComponent:self.event.uuid];
         NSData* data = UIImagePNGRepresentation(image);
         [data writeToFile:path atomically:YES];
-        [self viewDidLoad]; [self viewWillAppear:YES];
+        [self addBackgroundImage];
     }
 }
 
