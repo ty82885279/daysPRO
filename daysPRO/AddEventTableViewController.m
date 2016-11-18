@@ -246,26 +246,18 @@ static NSInteger const kDatePickerCellHeight = 216;
     else {
         
         if (self.isEventEditMode) {
-            Event *updatedEvent = [[DataManager sharedManager] updateEvent:_event
-                                                                  withName:_nameTextField.text
-                                                                 startDate:_startsDatePicker.date
-                                                                   endDate:_endsDatePicker.date
-                                                                   details:_descriptionTextField.text];
+            [[DataManager sharedManager] updateEvent:_event withName:_nameTextField.text
+                                           startDate:_startsDatePicker.date endDate:_endsDatePicker.date details:_descriptionTextField.text];
             [[DataManager sharedManager] saveContext];
-            NSLog(@"Saved updated event: %@", updatedEvent);
             
             [Answers logCustomEventWithName:@"Edit event" customAttributes:@{@"Name":_nameTextField.text}];
             
             [SVProgressHUD showSuccessWithStatus:nil];
         } else {
-            Event *newEvent = [[DataManager sharedManager] createEventWithName:_nameTextField.text
-                                                                     startDate:_startsDatePicker.date
-                                                                       endDate:_endsDatePicker.date
-                                                                       details:_descriptionTextField.text
-                                                                         image:nil];
+            [[DataManager sharedManager] createEventWithName:_nameTextField.text
+                                                   startDate:_startsDatePicker.date endDate:_endsDatePicker.date details:_descriptionTextField.text image:nil];
             
             [[DataManager sharedManager] saveContext];
-            NSLog(@"Saved new event: %@", newEvent);
             [Answers logCustomEventWithName:@"Add event" customAttributes:@{@"Name":_nameTextField.text}];
 
             [SVProgressHUD showSuccessWithStatus:nil];

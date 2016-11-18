@@ -58,7 +58,6 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         // This is the first launch ever. Create some events
-        NSLog(@"First launch. Create default events.");
         [[DataManager sharedManager] createDefaultEvents];
         [[DataManager sharedManager] saveContext];
     }

@@ -77,7 +77,7 @@ NSString *const kDeletedKey = @"deleted";
         
         _managedObjectContext = moc;
     } else {
-        NSLog(@"Error while creating coordinator");
+        [SVProgressHUD showErrorWithStatus:@"Error while creating coordinator"];
     }
     
     return _managedObjectContext;
@@ -165,7 +165,7 @@ NSString *const kDeletedKey = @"deleted";
                                                     options:options
                                                       error:&error];
     if (error) {
-        NSLog(@"Error adding persistent store coordinator: %@", [error localizedDescription]);
+        [SVProgressHUD showErrorWithStatus:error.localizedDescription];
     }
 }
 
@@ -182,11 +182,10 @@ NSString *const kDeletedKey = @"deleted";
             NSArray *detailedErrors = [[error userInfo] objectForKey:NSDetailedErrorsKey];
             if (detailedErrors != nil && [detailedErrors count] > 0) {
                 for (NSError *detailedError in detailedErrors) {
-                    NSLog(@"  DetailedError: %@", [detailedError userInfo]);
+                    [SVProgressHUD showErrorWithStatus:[detailedError userInfo].description];
                 }
-            }
-            else {
-                NSLog(@"  %@", [error userInfo]);
+            } else {
+                [SVProgressHUD showErrorWithStatus:error.userInfo.description];
             }
         }
     }
@@ -434,13 +433,10 @@ NSString *const kDeletedKey = @"deleted";
         
         [moc reset];
     }];
-    
-    NSLog(@"storesWillChange");
 }
 
 
 - (void)storesDidChange:(NSNotification *)n {
-    NSLog(@"storesDidChange");
 }
 
 
