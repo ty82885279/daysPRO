@@ -71,15 +71,19 @@ static NSString *kColorAnimationKey = @"strokeColor";
 }
 
 - (void)drawInnerCircleProgress:(CGFloat)percent inRect:(CGRect)rect {
-    UIImpactFeedbackGenerator *taptic = [[UIImpactFeedbackGenerator alloc] init];
-
+    [NSTimer scheduledTimerWithTimeInterval: 0.90
+                                                  target: self
+                                                selector:@selector(prepareTapticEngine)
+                                                userInfo: nil repeats:true];
+    UISelectionFeedbackGenerator *taptic = [[UISelectionFeedbackGenerator alloc] init];
+    
     CGFloat startAngle = M_PI * 1.5;
     CGFloat endAngle = startAngle + (M_PI * 2);
     
     if (percent > 100) {
         percent = 100;
     } else {
-        [taptic impactOccurred];
+        [taptic selectionChanged];
     }
     
     UIBezierPath *bezierPath = [UIBezierPath bezierPath];
@@ -93,5 +97,8 @@ static NSString *kColorAnimationKey = @"strokeColor";
     [self.innerCircleProgressColor setStroke];
     [bezierPath stroke];
 }
-
+- (void)prepareTapticEngine {
+    UISelectionFeedbackGenerator *taptic = [[UISelectionFeedbackGenerator alloc] init];
+    [taptic prepare];
+}
 @end
