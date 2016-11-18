@@ -73,6 +73,9 @@
 
 #pragma mark Christmas
 - (BOOL)isDecember {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"disableSeasonThemes"]) {
+        return false;
+    }
     return [self isDate:[NSDate date] inRangeFirstDate:[self firstDayOfDec] lastDate:[self lastDayOfDec]];
 }
 - (BOOL)isDate:(NSDate *)date inRangeFirstDate:(NSDate *)firstDate lastDate:(NSDate *)lastDate {
