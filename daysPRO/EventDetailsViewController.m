@@ -343,15 +343,17 @@
 #pragma mark - Sharing
 
 - (void)shareButtonPressed {
+    NSString *shareAttribution = @"via Days Pro http://daysapp.pro";
+    
     // prepare string
     NSString *shareString;
     if (self.event.details.length == 0) {
-        shareString = [NSString stringWithFormat: @"%@ (%@)", self.nameLabel.text, self.descriptionLabel.text];
+        shareString = [NSString stringWithFormat: @"%@ (%@) - %@", self.nameLabel.text, self.descriptionLabel.text, shareAttribution];
     } else {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
         [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-        shareString = [NSString stringWithFormat: @"%@ (%@): %@", self.nameLabel.text, [dateFormatter stringFromDate:self.event.endDate], self.descriptionLabel.text];
+        shareString = [NSString stringWithFormat: @"%@ (%@): %@ - %@", self.nameLabel.text, [dateFormatter stringFromDate:self.event.endDate], self.descriptionLabel.text, shareAttribution];
     }
     
     // prepare image
@@ -480,9 +482,38 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 - (IBAction)deleteEvent:(id)sender {
-    [[DataManager sharedManager] deleteEvent:self.event];
-    [[DataManager sharedManager] saveContext];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    UIAlertAction *cancel = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Cancel", nil)
+                                   style:UIAlertActionStyleCancel
+                                   handler:nil];
+    
+    UIAlertAction *delete = [UIAlertAction
+                                  actionWithTitle:NSLocalizedString(@"Delete", nil)
+                                  style:UIAlertActionStyleDestructive
+                                  handler:^(UIAlertAction *action)
+                                  {
+                                      [[DataManager sharedManager] deleteEvent:self.event];
+                                      [[DataManager sharedManager] saveContext];
+                                      [self.navigationController popToRootViewControllerAnimated:YES];
+                                  }];
+    
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
+        UIAlertController *alertControllerPad = [UIAlertController
+                                                 alertControllerWithTitle:NSLocalizedString(@"Delete Event", nil)
+                                                 message:nil
+                                                 preferredStyle:UIAlertControllerStyleAlert];
+        [alertControllerPad addAction:delete];
+        [alertControllerPad addAction:cancel];
+        [self presentViewController:alertControllerPad animated:YES completion:nil];
+    } else {
+        UIAlertController *alertController = [UIAlertController
+                                              alertControllerWithTitle:NSLocalizedString(@"Delete Event", nil)
+                                              message:nil
+                                              preferredStyle:UIAlertControllerStyleActionSheet];
+        [alertController addAction:delete];
+        [alertController addAction:cancel];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 }
 - (IBAction)shareEvent:(id)sender {
     [Answers logShareWithMethod:@"Share Button" contentName:self.event.name contentType:@"event" contentId:self.event.uuid customAttributes:nil];
