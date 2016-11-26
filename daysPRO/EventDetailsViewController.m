@@ -227,8 +227,8 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                          NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString* path = [documentsDirectory stringByAppendingPathComponent:self.event.uuid];
-    UIImage* image = [UIImage imageWithContentsOfFile:path];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:self.event.uuid];
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
     return image;
 }
 - (void)setupNavigationButtons {
@@ -474,10 +474,12 @@
                              handler:nil];
     [alertController addAction:takePicture];
     [alertController addAction:cameraRoll];
+    
     //Only show the remove button if there's an image
     if (bgImageView.image) {
         [alertController addAction:removeImage];
     }
+    
     [alertController addAction:cancel];
     [self presentViewController:alertController animated:YES completion:nil];
 }

@@ -95,7 +95,6 @@ static NSInteger const kDatePickerCellHeight = 216;
         
         _startsDateLabel.text = [_dateFormatter stringFromDate:_event.startDate];
         _endsDateLabel.text = [_dateFormatter stringFromDate:_event.endDate];
-        
     } else {
         self.navigationItem.title = NSLocalizedString(@"New Event", nil);
         NSDate *now = [NSDate date];
@@ -134,7 +133,6 @@ static NSInteger const kDatePickerCellHeight = 216;
 }
 
 - (void)signUpForKeyboardNotifications {
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow) name:UIKeyboardWillShowNotification object:nil];
 }
 
@@ -199,7 +197,7 @@ static NSInteger const kDatePickerCellHeight = 216;
                      animations:^{
                          datePicker.alpha = 0.0f;
                      }
-                     completion:^(BOOL finished){
+                     completion:^(BOOL finished) {
                          datePicker.hidden = YES;
                      }];
 }
@@ -230,8 +228,6 @@ static NSInteger const kDatePickerCellHeight = 216;
     self.navigationItem.rightBarButtonItem.enabled = (sender.text.length == 0) ? NO : YES;
 }
 
-
-
 #pragma mark - Cancel / Save
 
 - (IBAction)cancelButton:(id)sender {
@@ -241,8 +237,7 @@ static NSInteger const kDatePickerCellHeight = 216;
 - (IBAction)saveButton:(id)sender {
     if (self.nameTextField.text.length == 0) {
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Name", nil)];
-    }
-    else {
+    } else {
         
         if (self.isEventEditMode) {
             [[DataManager sharedManager] updateEvent:_event withName:_nameTextField.text
@@ -277,8 +272,7 @@ static NSInteger const kDatePickerCellHeight = 216;
         // Swith to description text field from name text field
         [self.nameTextField resignFirstResponder];
         [self.descriptionTextField becomeFirstResponder];
-    }
-    else {
+    } else {
         [self.descriptionTextField resignFirstResponder];
         // Show the firts date picker and hide the second one
         [self showCellForDatePicker:self.startsDatePicker];

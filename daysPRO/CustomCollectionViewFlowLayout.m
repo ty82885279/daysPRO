@@ -99,8 +99,7 @@
             
             if (updateItem.indexPathAfterUpdate.item == NSNotFound) {
                 [self.insertedSectionIndices addObject:@(updateItem.indexPathAfterUpdate.section)];
-            }
-            else {
+            } else {
                 [self.insertedIndexPaths addObject:updateItem.indexPathAfterUpdate];
             }
         }
@@ -108,8 +107,7 @@
             if (updateItem.indexPathBeforeUpdate.item == NSNotFound) {
                 [self.removedSectionIndices addObject:@(updateItem.indexPathBeforeUpdate.section)];
                 
-            }
-            else {
+            } else {
                 [self.removedIndexPaths addObject:updateItem.indexPathBeforeUpdate];
             }
         }
@@ -128,8 +126,7 @@
         // If this is a newly inserted item, make it grow into place from its nominal index path
         attributes = [[self.currentCellAttributes objectForKey:itemIndexPath] copy];
         attributes.transform3D = CATransform3DMakeScale(0.1, 0.1, 1.0);
-    }
-    else if ([self.insertedSectionIndices containsObject:@(itemIndexPath.section)]) {
+    } else if ([self.insertedSectionIndices containsObject:@(itemIndexPath.section)]) {
         // if it's part of a new section, fly it in from the left
         attributes = [[self.currentCellAttributes objectForKey:itemIndexPath] copy];
         attributes.transform3D = CATransform3DMakeTranslation(-self.collectionView.bounds.size.width, 0, 0);
@@ -179,14 +176,12 @@
     __block NSInteger item = indexPath.item;
     
     [self.removedSectionIndices enumerateObjectsUsingBlock:^(NSNumber *rmSectionIdx, NSUInteger idx, BOOL *stop) {
-        if ([rmSectionIdx integerValue] <= section)
-        {
+        if ([rmSectionIdx integerValue] <= section) {
             section++;
         }
     }];
     
-    if (checkItems)
-    {
+    if (checkItems) {
         [self.removedIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath *rmIndexPath, NSUInteger idx, BOOL *stop) {
             if ([rmIndexPath section] == section && [rmIndexPath item] <= item)
             {
@@ -196,17 +191,14 @@
     }
     
     [self.insertedSectionIndices enumerateObjectsUsingBlock:^(NSNumber *insSectionIdx, NSUInteger idx, BOOL *stop) {
-        if ([insSectionIdx integerValue] < [indexPath section])
-        {
+        if ([insSectionIdx integerValue] < [indexPath section]) {
             section--;
         }
     }];
     
-    if (checkItems)
-    {
+    if (checkItems) {
         [self.insertedIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath *insIndexPath, NSUInteger idx, BOOL *stop) {
-            if ([insIndexPath section] == [indexPath section] && [insIndexPath item] < [indexPath item])
-            {
+            if ([insIndexPath section] == [indexPath section] && [insIndexPath item] < [indexPath item]) {
                 item--;
             }
         }];
