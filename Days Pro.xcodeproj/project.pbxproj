@@ -52,13 +52,17 @@
 		A669355F179D31E200E5A40F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6693561179D31E200E5A40F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A6A3E8A7188F931700A3E4FB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D65B1A261DE9887200542EAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPad.storyboard"; sourceTree = "<group>"; };
+		D65B1A271DE9887200542EAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPhone.storyboard"; sourceTree = "<group>"; };
+		D65B1A281DE9887C00542EAE /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = "fi.lproj/Main-iPhone.strings"; sourceTree = "<group>"; };
+		D65B1A2A1DE9887F00542EAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Main-iPhone.strings"; sourceTree = "<group>"; };
+		D65B1A2B1DE9888800542EAE /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = "fi.lproj/Main-iPad.strings"; sourceTree = "<group>"; };
+		D65B1A2D1DE9888A00542EAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Main-iPad.strings"; sourceTree = "<group>"; };
 		D66B91A51DCF23CF00EABCD3 /* christmas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = christmas.jpg; sourceTree = "<group>"; };
 		D6723DE61DBE409900D925A4 /* AppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppModel.xcdatamodel; sourceTree = "<group>"; };
 		D6723DE81DBE409900D925A4 /* Days Pro-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Days Pro-Prefix.pch"; sourceTree = "<group>"; };
 		D6723DE91DBE409900D925A4 /* daysPRO-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "daysPRO-Info.plist"; sourceTree = "<group>"; };
 		D6723DEB1DBE409900D925A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D6723DED1DBE409900D925A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/Main-iPad.storyboard"; sourceTree = "<group>"; };
-		D6723DEF1DBE409900D925A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = "en.lproj/Main-iPhone.storyboard"; sourceTree = "<group>"; };
 		D6723DF01DBE409900D925A4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D6723DF11DBE409900D925A4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6723DF21DBE409900D925A4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
@@ -94,8 +98,6 @@
 		D6E4B9EE1DD0D7A500442536 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D6E4B9F01DD0D7B500442536 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D6E4B9F11DD0D7B600442536 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		D6E4B9F21DD0D7B600442536 /* fi */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fi; path = "fi.lproj/Main-iPad.storyboard"; sourceTree = "<group>"; };
-		D6E4B9F31DD0D7B600442536 /* fi */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fi; path = "fi.lproj/Main-iPhone.storyboard"; sourceTree = "<group>"; };
 		EF75AF4028A82E762B7FDEE4 /* Pods-Days Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Days Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Days Pro/Pods-Days Pro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -302,6 +304,7 @@
 			knownRegions = (
 				en,
 				fi,
+				Base,
 			);
 			mainGroup = A6693551179D31E200E5A40F;
 			productRefGroup = A669355B179D31E200E5A40F /* Products */;
@@ -431,8 +434,9 @@
 		D6723DEC1DBE409900D925A4 /* Main-iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D6723DED1DBE409900D925A4 /* en */,
-				D6E4B9F21DD0D7B600442536 /* fi */,
+				D65B1A261DE9887200542EAE /* Base */,
+				D65B1A2B1DE9888800542EAE /* fi */,
+				D65B1A2D1DE9888A00542EAE /* en */,
 			);
 			name = "Main-iPad.storyboard";
 			sourceTree = "<group>";
@@ -440,8 +444,9 @@
 		D6723DEE1DBE409900D925A4 /* Main-iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D6723DEF1DBE409900D925A4 /* en */,
-				D6E4B9F31DD0D7B600442536 /* fi */,
+				D65B1A271DE9887200542EAE /* Base */,
+				D65B1A281DE9887C00542EAE /* fi */,
+				D65B1A2A1DE9887F00542EAE /* en */,
 			);
 			name = "Main-iPhone.storyboard";
 			sourceTree = "<group>";

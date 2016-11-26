@@ -71,10 +71,10 @@ static NSInteger const kDatePickerCellHeight = 216;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     // Text fields
-    self.nameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Name"
+    self.nameTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Name", nil)
                                                                                attributes:@{NSForegroundColorAttributeName : [colors objectForKey:@"background"]}];
     
-    self.descriptionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Description (optional)"
+    self.descriptionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Description (optional)", nil)
                                                                                       attributes:@{NSForegroundColorAttributeName : [colors objectForKey:@"background"]}];
     self.nameTextField.textColor = [colors objectForKey:@"tint"];
     self.descriptionTextField.textColor = [colors objectForKey:@"tint"];
@@ -87,7 +87,6 @@ static NSInteger const kDatePickerCellHeight = 216;
     [_dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     
     if (self.isEventEditMode) {
-        
         self.navigationItem.title = NSLocalizedString(@"Edit Event", nil);
         _nameTextField.text = _event.name;
         if (_event.details.length != 0) {
@@ -98,7 +97,7 @@ static NSInteger const kDatePickerCellHeight = 216;
         _endsDateLabel.text = [_dateFormatter stringFromDate:_event.endDate];
         
     } else {
-        
+        self.navigationItem.title = NSLocalizedString(@"New Event", nil);
         NSDate *now = [NSDate date];
         _startsDateLabel.text = [self.dateFormatter stringFromDate:now];
         _endsDateLabel.text = NSLocalizedString(@"Choose...", nil);

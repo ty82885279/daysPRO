@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "From"; ObjectID = "0eX-9o-9Jr"; */
+"0eX-9o-9Jr.text" = "From";
+
+/* Class = "UILabel"; text = "Start Date"; ObjectID = "2y3-eJ-WG3"; */
+"2y3-eJ-WG3.text" = "Start Date";
+
+/* Class = "UILabel"; text = "To"; ObjectID = "5MU-mm-qEx"; */
+"5MU-mm-qEx.text" = "To";
+
+/* Class = "UINavigationItem"; title = "New Event"; ObjectID = "6vv-Dj-0a4"; */
+"6vv-Dj-0a4.title" = "New Event";
+
+/* Class = "UITextField"; placeholder = "Description (optional)"; ObjectID = "Bjc-Mk-oVV"; */
+"Bjc-Mk-oVV.placeholder" = "Description (optional)";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "IZv-za-iFQ"; */
+"IZv-za-iFQ.text" = "Name";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "LGw-Mh-2QF"; */
+"LGw-Mh-2QF.text" = "Name";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "LHu-5S-6lm"; */
+"LHu-5S-6lm.placeholder" = "Name";
+
+/* Class = "UILabel"; text = "33"; ObjectID = "SKr-sh-ENd"; */
+"SKr-sh-ENd.text" = "33";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "SVh-XY-7Kv"; */
+"SVh-XY-7Kv.title" = "Item";
+
+/* Class = "UILabel"; text = "TIME LEFT"; ObjectID = "Tgf-sn-AvS"; */
+"Tgf-sn-AvS.text" = "TIME LEFT";
+
+/* Class = "UILabel"; text = "End Date"; ObjectID = "kik-fC-OsQ"; */
+"kik-fC-OsQ.text" = "End Date";
+
+/* Class = "UILabel"; text = "TIME LEFT"; ObjectID = "rv8-hZ-WeB"; */
+"rv8-hZ-WeB.text" = "TIME LEFT";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "tzq-jK-0W3"; */
+"tzq-jK-0W3.text" = "Label";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "xR8-1X-UnS"; */
+"xR8-1X-UnS.text" = "0";
