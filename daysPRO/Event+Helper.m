@@ -52,26 +52,22 @@
         // Start date is in the future
         if ([self weeksLeftToDate:self.startDate] > 2) {
             if ([[NSUserDefaults standardUserDefaults] boolForKey:@"weeks"]) {
-            progress = [@([self weeksLeftToDate:self.startDate]) stringValue];
-            metaText = NSLocalizedString(@"WEEKS UNTIL", nil);
+                progress = [@([self weeksLeftToDate:self.startDate]) stringValue];
+                metaText = NSLocalizedString(@"WEEKS UNTIL", nil);
             } else {
                 progress = [@([self daysLeftToDate:self.startDate]) stringValue];
                 metaText = NSLocalizedString(@"DAYS UNTIL", nil);
             }
-        }
-        else if ([self daysLeftToDate:self.startDate] > 2) {
+        } else if ([self daysLeftToDate:self.startDate] > 2) {
             progress = [@([self daysLeftToDate:self.startDate]) stringValue];
             metaText = NSLocalizedString(@"DAYS UNTIL", nil);
-        }
-        else if ([self hoursLeftToDate:self.startDate] > 2) {
+        } else if ([self hoursLeftToDate:self.startDate] > 2) {
             progress = [@([self hoursLeftToDate:self.startDate]) stringValue];
             metaText = NSLocalizedString(@"HOURS UNTIL", nil);
-        }
-        else if ([self minutesLeftToDate:self.startDate] > 2) {
+        } else if ([self minutesLeftToDate:self.startDate] > 2) {
             progress = [@([self minutesLeftToDate:self.startDate]) stringValue];
             metaText = NSLocalizedString(@"MINS UNTIL", nil);
-        }
-        else if ([self secondsLeftToDate:self.startDate] > 0) {
+        } else if ([self secondsLeftToDate:self.startDate] > 0) {
             progress = [@([self secondsLeftToDate:self.startDate]) stringValue];
             metaText = NSLocalizedString(@"SECS UNTIL", nil);
         }
@@ -83,26 +79,22 @@
         // Start date is in the past
         if ([self weeksLeftToDate:self.endDate] > 2) {
             if ([[NSUserDefaults standardUserDefaults] boolForKey:@"weeks"]) {
-            progress = [@([self weeksLeftToDate:self.endDate]) stringValue];
-            metaText = NSLocalizedString(@"WKS LEFT", nil);
+                progress = [@([self weeksLeftToDate:self.endDate]) stringValue];
+                metaText = NSLocalizedString(@"WKS LEFT", nil);
             } else {
                 progress = [@([self daysLeftToDate:self.endDate]) stringValue];
                 metaText = NSLocalizedString(@"DAYS LEFT", nil);
             }
-        }
-        else if ([self daysLeftToDate:self.endDate] > 2) {
+        } else if ([self daysLeftToDate:self.endDate] > 2) {
             progress = [@([self daysLeftToDate:self.endDate]) stringValue];
             metaText = NSLocalizedString(@"DAYS LEFT", nil);
-        }
-        else if ([self hoursLeftToDate:self.endDate] > 2) {
+        } else if ([self hoursLeftToDate:self.endDate] > 2) {
             progress = [@([self hoursLeftToDate:self.endDate]) stringValue];
             metaText = NSLocalizedString(@"HOURS LEFT", nil);
-        }
-        else if ([self minutesLeftToDate:self.endDate] > 2) {
+        } else if ([self minutesLeftToDate:self.endDate] > 2) {
             progress = [@([self minutesLeftToDate:self.endDate]) stringValue];
             metaText = NSLocalizedString(@"MINS LEFT", nil);
-        }
-        else if ([self secondsLeftToDate:self.endDate] > 0) {
+        } else if ([self secondsLeftToDate:self.endDate] > 0) {
             progress = [@([self secondsLeftToDate:self.endDate]) stringValue];
             metaText = NSLocalizedString(@"SECS LEFT", nil);
         }
