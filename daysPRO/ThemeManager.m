@@ -59,10 +59,10 @@
 - (void)setTheme {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    [defaults setObject:@"202020" forKey:@"backgroundColor"];//
+    [defaults setObject:@"202020" forKey:@"backgroundColor"];
     
-    [defaults setObject:@"C59849" forKey:@"tintColor"];//
-    [defaults setObject:@"C59849" forKey:@"textColor"];//
+    [defaults setObject:@"C59849" forKey:@"tintColor"];
+    [defaults setObject:@"C59849" forKey:@"textColor"];
     
     [defaults setObject:@"C73E1D" forKey:@"innerCircleProgressColor"];
     [defaults setObject:@"522A27" forKey:@"innerCircleBackgroundColor"];
@@ -113,8 +113,8 @@
     [defaults setObject:@"202020" forKey:@"backgroundColor"];
     [defaults setObject:@"FFFFFF" forKey:@"tintColor"];
     [defaults setObject:@"FFFFFF" forKey:@"textColor"];
-    [defaults setObject:@"e74c3c" forKey:@"innerCircleProgressColor"];
-    [defaults setObject:@"c0392b" forKey:@"innerCircleBackgroundColor"];
+    [defaults setObject:@"E74C3C" forKey:@"innerCircleProgressColor"];
+    [defaults setObject:@"525252" forKey:@"innerCircleBackgroundColor"];
     [defaults setObject:@"34495E" forKey:@"cellBackgroundColor"];
 }
 
