@@ -3,7 +3,7 @@
 //  Days Pro
 //
 //  Created by Oliver Kulpakko on 2016-10-24.
-//  Copyright © 2016 Salavat Khanov. All rights reserved.
+//  Copyright © 2016 Oliver Kulpakko. All rights reserved.
 //
 
 #import "ThemeManager.h"
