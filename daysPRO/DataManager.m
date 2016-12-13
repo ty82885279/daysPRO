@@ -34,8 +34,7 @@ NSString *const kDeletedKey = @"deleted";
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-
-+ (DataManager*)sharedManager {
++ (DataManager *)sharedManager {
 	static dispatch_once_t once;
 	static DataManager *sharedManager;
     
@@ -45,11 +44,7 @@ NSString *const kDeletedKey = @"deleted";
     
     return sharedManager;
 }
-
-
-#pragma mark -
-#pragma mark Core Data stack
-
+#pragma mark - Core Data stack
 /**
  Returns the managed object context for the application.
  If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
@@ -82,8 +77,6 @@ NSString *const kDeletedKey = @"deleted";
     
     return _managedObjectContext;
 }
-
-
 /**
  Returns the managed object model for the application.
  If the model doesn't already exist, it is created from the application's model.
@@ -98,8 +91,6 @@ NSString *const kDeletedKey = @"deleted";
     
     return _managedObjectModel;
 }
-
-
 /**
  Returns the persistent store coordinator for the application.
  If the coordinator doesn't already exist, it is created and the application's store added to it.
@@ -131,10 +122,7 @@ NSString *const kDeletedKey = @"deleted";
 	
     return _persistentStoreCoordinator;
 }
-
-#pragma mark -
-#pragma mark Adding persistent stores
-
+#pragma mark - Adding persistent stores
 - (void)addPersistentStoreToCoordinator {
     NSMutableDictionary *options = [NSMutableDictionary dictionary];
     [options setObject:@YES forKey:NSMigratePersistentStoresAutomaticallyOption];
@@ -168,11 +156,7 @@ NSString *const kDeletedKey = @"deleted";
         [SVProgressHUD showErrorWithStatus:error.localizedDescription];
     }
 }
-
-
-#pragma mark -
-#pragma mark Save Context
-
+#pragma mark - Save Context
 - (void)saveTheContext:(NSManagedObjectContext *)theContext {
     if ([self.persistentStoreCoordinator.persistentStores count] != 0) {
 
@@ -190,14 +174,10 @@ NSString *const kDeletedKey = @"deleted";
         }
     }
 }
-
 - (void)saveContext {
     [self saveTheContext:self.managedObjectContext];
 }
-
-#pragma mark -
-#pragma mark Events
-
+#pragma mark - Events
 - (NSArray *)getAllEvents {
     // initializing NSFetchRequest
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -217,7 +197,6 @@ NSString *const kDeletedKey = @"deleted";
     // Return Sorted Fetched Events
     return [fetchedEvents sortedArrayUsingDescriptors:@[sortDescriptor]];
 }
-
 - (Event *)createEventWithName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details image:(UIImage *)image {
     Event *newEvent = (Event *)[NSEntityDescription insertNewObjectForEntityForName:kEventEntityName inManagedObjectContext:self.managedObjectContext];
     newEvent.name = name;
@@ -231,7 +210,6 @@ NSString *const kDeletedKey = @"deleted";
     }
     return newEvent;
 }
-
 - (void)saveImage:(UIImage *)image event:(Event *)event {
     if (image != nil) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
@@ -249,7 +227,6 @@ NSString *const kDeletedKey = @"deleted";
     event.details = details;
     return event;
 }
-
 - (void)deleteEvent:(Event *)event {
     [Answers logCustomEventWithName:@"Delete event" customAttributes:@{@"Name":event.name}];
     //remove the image
@@ -262,7 +239,6 @@ NSString *const kDeletedKey = @"deleted";
     
     [self.managedObjectContext deleteObject:event];
 }
-
 - (void)addEventsFromServer {
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading...", nil)];
     NSURL *url = [NSURL URLWithString:@"https://eaststudios.fi/api/days/defaultEvents.json"];
@@ -304,7 +280,6 @@ NSString *const kDeletedKey = @"deleted";
         }
     }];
 }
-
 - (void)addChristmasEvents {
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     
@@ -362,7 +337,6 @@ NSString *const kDeletedKey = @"deleted";
     [self saveContext];
     
 }
-
 - (void)createDefaultEvents {
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
@@ -395,7 +369,6 @@ NSString *const kDeletedKey = @"deleted";
     [self saveContext];
     
 }
-
 - (void)deleteAllEvents {
     NSFetchRequest *allEvents = [[NSFetchRequest alloc] init];
     [allEvents setEntity:[NSEntityDescription entityForName:kEventEntityName inManagedObjectContext:self.managedObjectContext]];
@@ -408,10 +381,7 @@ NSString *const kDeletedKey = @"deleted";
         [self.managedObjectContext deleteObject:event];
     }
 }
-
-#pragma mark -
-#pragma mark iCloud notifications
-
+#pragma mark - iCloud notifications
 - (void)persistentStoreDidImportUbiquitiousContentChanges:(NSNotification *)changeNotification {
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Syncing...", nil)];
 
@@ -422,7 +392,6 @@ NSString *const kDeletedKey = @"deleted";
         [SVProgressHUD showSuccessWithStatus:nil];
     }];
 }
-
 - (void)storesWillChange:(NSNotification *)n {
     NSManagedObjectContext *moc = [self managedObjectContext];
     [moc performBlockAndWait:^{
@@ -434,15 +403,9 @@ NSString *const kDeletedKey = @"deleted";
         [moc reset];
     }];
 }
-
-
 - (void)storesDidChange:(NSNotification *)n {
 }
-
-
-#pragma mark -
-#pragma mark Model notifications
-
+#pragma mark - Model notifications
 - (void)objectContextDidSave:(NSNotification *)notification {
     // Event inserted
     if ([notification.userInfo objectForKey:NSInsertedObjectsKey]) {
@@ -470,7 +433,6 @@ NSString *const kDeletedKey = @"deleted";
     }
     
 }
-
 - (void)objectContextDidSaveFromiCloud:(NSNotification *)notification {
     // Event inserted
     NSDictionary *insertedObjectIDs = [[notification userInfo] objectForKey:NSInsertedObjectsKey];

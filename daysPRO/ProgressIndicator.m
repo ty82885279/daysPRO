@@ -29,14 +29,12 @@ static NSString *kColorAnimationKey = @"strokeColor";
     }
     return self;
 }
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self setupColors];
     UIImpactFeedbackGenerator *taptic = [[UIImpactFeedbackGenerator alloc] init];
     [taptic prepare];
 }
-
 - (void)setupColors {
     ThemeManager *themeManager = [[ThemeManager alloc] init];
     NSDictionary *colors = [themeManager getTheme];
@@ -48,15 +46,12 @@ static NSString *kColorAnimationKey = @"strokeColor";
     self.progressLabel.textColor = self.textInsideCircleColor;
     self.metaLabel.textColor = self.textInsideCircleColor;
 }
-
 - (void)drawRect:(CGRect)rect {
     // Draw circles
     [self drawInnerCircleBackgroundIn:rect];
     [self drawInnerCircleProgress:self.percentInnerCircle inRect:rect];
 }
-
 #pragma mark - Draw Circles
-
 - (void)drawInnerCircleBackgroundIn:(CGRect)rect {
     _circlePath = [UIBezierPath bezierPath];
     [_circlePath addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2)
@@ -69,7 +64,6 @@ static NSString *kColorAnimationKey = @"strokeColor";
     [self.innerCircleBackgroundColor setStroke];
     [_circlePath stroke];
 }
-
 - (void)drawInnerCircleProgress:(CGFloat)percent inRect:(CGRect)rect {
     [NSTimer scheduledTimerWithTimeInterval: 0.90
                                                   target: self

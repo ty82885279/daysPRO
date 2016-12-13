@@ -23,9 +23,7 @@
     
     return _notifications;
 }
-
 #pragma mark Model Notifications
-
 - (void)registerForModelUpdateNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(eventAdded:)
@@ -42,7 +40,6 @@
                                                  name:kEventDeletedNotificationName
                                                object:nil];
 }
-
 - (void)eventAdded:(NSNotification *)addedNotification {
     if ([[addedNotification.userInfo allKeys][0] isEqual:kAddedKey]) {
         
@@ -55,7 +52,6 @@
     
     }
 }
-
 - (void)eventUpdated:(NSNotification *)updatedNotification {
     if ([[updatedNotification.userInfo allKeys][0] isEqual:kUpdatedKey]) {
         Event *updatedEvent = [updatedNotification.userInfo objectForKey:kUpdatedKey];
@@ -77,7 +73,6 @@
         }
     }
 }
-
 - (void)eventDeleted:(NSNotification *)deletedNotification {
     if ([[deletedNotification.userInfo allKeys][0] isEqual:kDeletedKey]) {
         Event *deletedEvent = [deletedNotification.userInfo objectForKey:kDeletedKey];
@@ -91,7 +86,6 @@
         }];
     }
 }
-
 - (UILocalNotification *)createNotificationForEvent:(Event *)event {
     NSString *notificationTitle = NSLocalizedString(@"is happening now", nil);
     // Create notification only for event that are going to end in the future

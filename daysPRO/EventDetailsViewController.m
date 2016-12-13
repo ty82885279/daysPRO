@@ -44,9 +44,7 @@
     }
     return self;
 }
-
 #pragma mark - Setup View
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
@@ -74,7 +72,6 @@
     _darkImageOverlay.alpha = 0.33;
     [self.view insertSubview:_darkImageOverlay aboveSubview:_bgImageView];
 }
-
 - (void)askToDeleteEvent {
     NSLocale *locale = [NSLocale currentLocale];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -119,7 +116,6 @@
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
 }
-
 - (void)setupLabels {
     NSString *startsOn = NSLocalizedString(@"Starts on", nil);
     NSString *endsOn = NSLocalizedString(@"Ends on", nil);
@@ -251,7 +247,6 @@
     self.navigationController.navigationBar.backIndicatorImage = backButtonImage;
     self.navigationController.navigationBar.backIndicatorTransitionMaskImage = backButtonImage;
 }
-
 - (void)setupProgressLabels {
     // Set percent for progress indicator
     self.progressView.percentInnerCircle = [self.event progress] * 100;
@@ -263,7 +258,6 @@
     self.progressView.progressLabel.text = [number stringByReplacingOccurrencesOfString:@"-" withString:@""];
     self.progressView.metaLabel.text = [options valueForKey:@"text"];
 }
-
 - (void)updateProgressView {
     // Redraw
     [self setupProgressLabels];
@@ -274,13 +268,11 @@
         _shownDeleteEventAlert = true;
     }
 }
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setupLabels];
     [self updateProgressView];
 }
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -288,7 +280,6 @@
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateProgressView) userInfo:nil repeats:YES];
     }
 }
-
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     
@@ -297,17 +288,13 @@
         self.timer = nil;
     }
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 - (IBAction)tapGesture:(UITapGestureRecognizer *)sender {
     self.tapCounter++;
     [self setupLabels];
 }
-
-
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     
@@ -315,13 +302,10 @@
         _bgImageView.frame = self.view.bounds;
     } completion:nil];
 }
-
 #pragma mark - Editing
-
 - (void)editButtonPressed {
     [self performSegueWithIdentifier:@"showEditEventView" sender:self];
 }
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showEditEventView"]) {
         AddEventTableViewController *editEventViewController = (AddEventTableViewController *)((UINavigationController *)segue.destinationViewController).topViewController;
@@ -338,9 +322,7 @@
         }
     }
 }
-
 #pragma mark - Sharing
-
 - (void)shareButtonPressed {
     NSString *shareAttribution = @"via Days Pro http://daysapp.pro";
     
@@ -365,9 +347,7 @@
     [self presentViewController:avc animated:YES completion:NULL];
     
 }
-
 #pragma mark — Screenshot
-
 - (UIImage *)screenshot {
     CGSize imageSize = CGSizeZero;
     
@@ -408,7 +388,6 @@
     
     return image;
 }
-
 - (UIImage *)cropImage:(UIImage *)image byOffset:(CGFloat) verticalOffset {
     CGRect cropRect = CGRectMake(0, verticalOffset, image.size.width * 2.0, image.size.height * 2.0 - verticalOffset);
     CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], cropRect);
@@ -523,19 +502,14 @@
 - (IBAction)editEvent:(id)sender {
     [self editButtonPressed];
 }
-
-
 #pragma mark - ImagePickerController Delegate
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
     [picker dismissViewControllerAnimated:YES completion:nil];
     [self saveImage:image];
 }
-
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
-
 - (void)saveImage:(UIImage *)image {
     if (image != nil) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,

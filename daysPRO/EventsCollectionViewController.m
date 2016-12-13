@@ -53,9 +53,7 @@ int shakeCount;
     }
     return self;
 }
-
 #pragma mark - Configure View
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupColors];
@@ -105,7 +103,6 @@ int shakeCount;
     ESTBlurredStatusBar *blurredStatusBar = [[ESTBlurredStatusBar alloc] initWithStyle:UIBlurEffectStyleDark];
     [self.view insertSubview:blurredStatusBar atIndex:10];
 }
-
 - (void)setupColors {
     ThemeManager *themeManager = [[ThemeManager alloc] init];
     NSDictionary *colors = [themeManager getTheme];
@@ -118,10 +115,7 @@ int shakeCount;
     // Light status bar
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
-
-
 #pragma mark Notifications
-
 - (void)registerForNotifications {
     // Model Changed Notification: event added
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -135,7 +129,6 @@ int shakeCount;
                                                  name:UIApplicationWillResignActiveNotification
                                                object:nil];
 }
-
 - (void)eventAdded:(NSNotification *)addedNotification {
     if ([[addedNotification.userInfo allKeys][0] isEqual:@"added"]) {
         Event *eventToAdd = [addedNotification.userInfo objectForKey:@"added"];
@@ -144,14 +137,10 @@ int shakeCount;
         [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:index inSection:0]]];
     }
 }
-
 - (void)applicationWillResign {
     [self doneEditing];
 }
-
-
 #pragma mark Update View
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self doneEditing]; // if needed
@@ -169,39 +158,31 @@ int shakeCount;
         [self createBanner:self];
     }
 }
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
-
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self stopTimer];
 }
-
 - (void)startTimer {
     if ([self.fetchedEventsArray count] && self.timer == nil) {
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateView) userInfo:nil repeats:YES];
     }
 }
-
 - (void)stopTimer {
     if (self.timer) {
         [self.timer invalidate];
         self.timer = nil;
     }
 }
-
 - (void)updateView {
     self.fetchedEventsArray = [NSMutableArray arrayWithArray:[[DataManager sharedManager] getAllEvents]];
     [self.collectionView reloadData];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
-
 #pragma mark - Ads
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if (event.subtype == UIEventSubtypeMotionShake) {
@@ -234,7 +215,6 @@ int shakeCount;
     if ( [super respondsToSelector:@selector(motionEnded:withEvent:)] )
         [super motionEnded:motion withEvent:event];
 }
-
 - (BOOL)canBecomeFirstResponder {
     return YES;
 }
@@ -274,7 +254,6 @@ int shakeCount;
     [senderView addSubview:containerView];
     [senderView insertSubview:bannerContainerView aboveSubview:self.collectionView];
 }
-
 - (void)adViewDidReceiveAd:(GADBannerView *)view {
     [UIView animateWithDuration:0.5 animations:^{
         
@@ -285,15 +264,12 @@ int shakeCount;
     }];
 }
 #pragma mark - Status Bar Appearance
-
 - (BOOL)prefersStatusBarHidden {
     return self.shouldBeHidingStatusBar;
 }
-
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
     return UIStatusBarAnimationSlide;
 }
-
 - (void)hideStatusBar {
     if (self.shouldBeHidingStatusBar == NO) {
         self.shouldBeHidingStatusBar = YES;
@@ -302,7 +278,6 @@ int shakeCount;
         }];
     }
 }
-
 - (void)showStatusBar {
     if (self.shouldBeHidingStatusBar) {
         self.shouldBeHidingStatusBar = NO;
@@ -311,17 +286,13 @@ int shakeCount;
         }];
     }
 }
-
 #pragma mark - UICollectionView Datasource
-
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     return [self.fetchedEventsArray count];
 }
-
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
     return 1;
 }
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     EventCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"EventCell" forIndexPath:indexPath];
     
@@ -346,9 +317,7 @@ int shakeCount;
     
     return cell;
 }
-
 #pragma mark – UICollectionViewDelegateFlowLayout
-
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         return CGSizeMake(kCellWeightHeightiPhone, kCellWeightHeightiPhone);
@@ -357,7 +326,6 @@ int shakeCount;
     }
     
 }
-
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         return UIEdgeInsetsMake(kMarginTopBottomiPhone, kMarginLeftRightiPhone, kMarginTopBottomiPhone, kMarginLeftRightiPhone);
@@ -365,10 +333,7 @@ int shakeCount;
         return UIEdgeInsetsMake(kMarginTopBottomiPad, kMarginLeftRightiPad, kMarginTopBottomiPad, kMarginLeftRightiPad);
     }
 }
-
-
 #pragma mark - Navigation
-
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if ([identifier isEqualToString:@"showEventDetailsView"] && self.editing) {
         return NO;
@@ -376,7 +341,6 @@ int shakeCount;
     
     return YES;
 }
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Pass the selected event to the details view controller.
     if ([segue.identifier isEqualToString:@"showEventDetailsView"]) {
@@ -393,14 +357,10 @@ int shakeCount;
         addEventController.popover = popover;
     }
 }
-
 - (void)showAddEventView {
     [self performSegueWithIdentifier:@"showAddEventView" sender:nil];
 }
-
-
 #pragma mark - Edit mode
-
 - (void)longPressGesture:(UIGestureRecognizer *)recognizer {
     if ([recognizer state] == UIGestureRecognizerStateBegan) {
         
@@ -421,7 +381,6 @@ int shakeCount;
         }
     }
 }
-
 - (void)tapGesture:(UITapGestureRecognizer *)recognizer {
     if ([recognizer state] == UIGestureRecognizerStateEnded) {
         
@@ -433,7 +392,6 @@ int shakeCount;
         }
     }
 }
-
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     if ([gestureRecognizer class] == [UITapGestureRecognizer class] && ![self collectionViewCellForTapAtPoint:[touch locationInView:self.collectionView]]) {
         return YES;
@@ -445,12 +403,10 @@ int shakeCount;
     
     return NO;
 }
-
 - (UICollectionViewCell *)collectionViewCellForTapAtPoint:(CGPoint)tapPoint {
     NSIndexPath *indexPathForTapPoint = [self.collectionView indexPathForItemAtPoint:tapPoint];
     return [self.collectionView cellForItemAtIndexPath:indexPathForTapPoint];
 }
-
 - (IBAction)deleteButton:(UIButton *)sender {
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:(EventCell *)sender.superview.superview];
     [[DataManager sharedManager] deleteEvent:self.fetchedEventsArray[indexPath.row]];
@@ -458,7 +414,6 @@ int shakeCount;
     self.fetchedEventsArray = [NSMutableArray arrayWithArray:[[DataManager sharedManager] getAllEvents]];
     [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
 }
-
 - (void)doneEditing {
     if (self.isEditing) {
         // Replace Add button to Done
@@ -472,7 +427,6 @@ int shakeCount;
 - (IBAction)add:(id)sender {
     [self showAddEventView];
 }
-
 #pragma mark - Empty
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
     if ([[[ThemeManager alloc] init] isDecember]) {
@@ -480,7 +434,6 @@ int shakeCount;
     }
     return [UIImage imageNamed:@"placeholder"];
 }
-
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     NSString *text = NSLocalizedString(@"No Events", nil);
     
@@ -489,18 +442,15 @@ int shakeCount;
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
-
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f],
                                  NSForegroundColorAttributeName: [[[ThemeManager alloc] init] getTextColor]};
     
     return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"New Event", nil) attributes:attributes];
 }
-
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button {
     [self showAddEventView];
 }
-
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
     return kCollectionViewContentOffsetiPhone;
 }

@@ -53,7 +53,6 @@
         [self.cachedSupplementaryAttributesByKind setObject:cachedAttribByPath forKey:kind];
     }];
 }
-
 - (NSArray*)layoutAttributesForElementsInRect:(CGRect)rect {
     NSArray * attributes = [super layoutAttributesForElementsInRect:rect];
     
@@ -80,7 +79,6 @@
     
     return attributes;
 }
-
 - (void)prepareForCollectionViewUpdates:(NSArray *)updateItems {
     [super prepareForCollectionViewUpdates:updateItems];
     
@@ -113,7 +111,6 @@
         }
     }];
 }
-
 // These layout attributes are applied to a cell that is "appearing" and will be eased into the nominal layout attributes for that cell
 // Cells "appear" in several cases:
 //  - Inserted explicitly or via a section insert
@@ -134,7 +131,6 @@
     
     return attributes;
 }
-
 // These layout attributes are applied to a cell that is "disappearing" and will be eased to from the nominal layout attribues prior to disappearing
 // Cells "disappear" in several cases:
 //  - Removed explicitly or via a section removal
@@ -158,7 +154,6 @@
     
     return attributes;
 }
-
 - (void)finalizeCollectionViewUpdates {
     [super finalizeCollectionViewUpdates];
     
@@ -168,9 +163,7 @@
     self.removedSectionIndices  = nil;
 }
 
-
 #pragma mark - Helpers
-
 - (NSIndexPath*)previousIndexPathForIndexPath:(NSIndexPath *)indexPath accountForItems:(BOOL)checkItems {
     __block NSInteger section = indexPath.section;
     __block NSInteger item = indexPath.item;

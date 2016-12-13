@@ -26,27 +26,21 @@
 - (UIColor *)getBackgroundColor {
     return [self getColorForColor:@"backgroundColor"];
 }
-
 - (UIColor *)getTintColor {
     return [self getColorForColor:@"tintColor"];
 }
-
 - (UIColor *)getTextColor {
     return [self getColorForColor:@"textColor"];
 }
-
 - (UIColor *)getInnerCircleProgressColor {
     return [self getColorForColor:@"innerCircleProgressColor"];
 }
-
 - (UIColor *)getInnerCircleBackgroundColor {
     return [self getColorForColor:@"innerCircleBackgroundColor"];
 }
-
 - (UIColor *)getCellBackgroundColor {
     return [self getColorForColor:@"cellBackgroundColor"];
 }
-
 - (UIColor *)getColorForColor:(NSString *)colorName {
     unsigned rgbValue = 0;
     NSString *savedColor = [[NSUserDefaults standardUserDefaults] stringForKey:colorName];
@@ -55,7 +49,6 @@
     [scanner scanHexInt:&rgbValue];
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
 }
-
 - (void)setTheme {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -74,7 +67,7 @@
     }
 }
 
-#pragma mark Christmas
+#pragma mark - Christmas
 - (BOOL)isDecember {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"disableSeasonThemes"]) {
         return false;

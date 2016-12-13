@@ -34,9 +34,7 @@ static NSInteger const kDatePickerCellHeight = 216;
     }
     return self;
 }
-
 #pragma mark - Load and setup view
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupLabels];
@@ -44,17 +42,11 @@ static NSInteger const kDatePickerCellHeight = 216;
     [self setupColors];
     self.navigationItem.rightBarButtonItem.enabled = self.isEventEditMode;
 }
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.nameTextField becomeFirstResponder];
     [self setupDatePickers];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 - (void)setupColors {
     ThemeManager *themeManager = [[ThemeManager alloc] init];
     NSDictionary *colors = [themeManager getTheme];
@@ -76,7 +68,6 @@ static NSInteger const kDatePickerCellHeight = 216;
                                                                                       attributes:@{NSForegroundColorAttributeName : [colors objectForKey:@"background"]}];
     
 }
-
 - (void)setupLabels {
     _dateFormatter = [[NSDateFormatter alloc] init];
     [_dateFormatter setDateStyle:NSDateFormatterMediumStyle];
@@ -98,7 +89,6 @@ static NSInteger const kDatePickerCellHeight = 216;
         _endsDateLabel.text = NSLocalizedString(@"Choose...", nil);
     }
 }
-
 - (void)setupDatePickers {
     // Load Start Date picker
     self.startsDatePicker = [[UIDatePicker alloc] init];
@@ -126,13 +116,10 @@ static NSInteger const kDatePickerCellHeight = 216;
     // Reload cells with pickers in the table view
     [self.tableView reloadRowsAtIndexPaths:@[startDatePickerIndexPath, endDatePickerIndexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
-
 - (void)signUpForKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow) name:UIKeyboardWillShowNotification object:nil];
 }
-
 # pragma mark - TableView Setup
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat height = self.tableView.rowHeight;
     // Set height = 0 for hidden date pickers
@@ -143,7 +130,6 @@ static NSInteger const kDatePickerCellHeight = 216;
     }
     return height;
 }
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
@@ -162,13 +148,10 @@ static NSInteger const kDatePickerCellHeight = 216;
         self.endsDatePicker.isHidden ? [self showCellForDatePicker:self.endsDatePicker] : [self hideCellForDatePicker:self.endsDatePicker];
     }
 }
-
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.contentView.backgroundColor = self.cellBackgroundColor;
 }
-
 #pragma mark - Show/Hide date pickers
-
 - (void)showCellForDatePicker:(UIDatePicker *)datePicker {
     datePicker.hidden = NO;
     datePicker.alpha = 0.0f;
@@ -180,8 +163,6 @@ static NSInteger const kDatePickerCellHeight = 216;
         datePicker.alpha = 1.0f;
     }];
 }
-
-
 - (void)hideCellForDatePicker:(UIDatePicker *)datePicker {
     datePicker.hidden = YES;
     
@@ -196,7 +177,6 @@ static NSInteger const kDatePickerCellHeight = 216;
                          datePicker.hidden = YES;
                      }];
 }
-
 - (IBAction)pickerDateChanged:(UIDatePicker *)sender {
     if (sender.tag == 0) {
         // Start Date Picker Changed
@@ -215,20 +195,14 @@ static NSInteger const kDatePickerCellHeight = 216;
     }
     _endsDateLabel.text = [_dateFormatter stringFromDate:_endsDatePicker.date];
 }
-
-
 #pragma mark - Show / Hide Save button
-
 - (IBAction)nameTextFieldEditingChaged:(UITextField *)sender {
     self.navigationItem.rightBarButtonItem.enabled = (sender.text.length == 0) ? NO : YES;
 }
-
 #pragma mark - Cancel / Save
-
 - (IBAction)cancelButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 - (IBAction)saveButton:(id)sender {
     if (self.nameTextField.text.length == 0) {
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Name", nil)];
@@ -256,12 +230,10 @@ static NSInteger const kDatePickerCellHeight = 216;
         [SVProgressHUD showSuccessWithStatus:nil];
     }
 }
-
 - (void)keyboardWillShow {
     !self.startsDatePicker.isHidden ? [self hideCellForDatePicker:self.startsDatePicker] : nil;
     !self.endsDatePicker.isHidden ? [self hideCellForDatePicker:self.endsDatePicker] : nil;
 }
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([textField isEqual:self.nameTextField]) {
         // Swith to description text field from name text field
@@ -275,7 +247,6 @@ static NSInteger const kDatePickerCellHeight = 216;
     }
     return YES;
 }
-
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
