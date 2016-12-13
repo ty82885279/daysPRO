@@ -10,7 +10,7 @@
 #import "DataManager.h"
 #import "ThemeManager.h"
 
-@interface AppDelegate() <UIAlertViewDelegate>
+@interface AppDelegate ()
 @end
 
 @implementation AppDelegate
@@ -50,20 +50,19 @@
     //Disable Ads
     [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"disableAds"];
     //[[DataManager sharedManager] addEventsFromServer];
-    // Create Default events if needed
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+    int currentYear = [[[ThemeManager alloc] init] getCurrentYear];
+    //add new year event
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"addedNewYearEventIn%i", currentYear]]) {
+        [[NSUserDefaults standardUserDefaults] setBool:true forKey:[NSString stringWithFormat:@"addedNewYearEventIn%i", currentYear]];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        // This is the first launch ever. Create some events
-        [[DataManager sharedManager] createDefaultEvents];
+        
+        [[DataManager sharedManager] addChristmasEvents];
         [[DataManager sharedManager] saveContext];
     }
     //Create christmas events if it's december
     if ([[[ThemeManager alloc] init] isDecember]) {
-        int currentYear = [[[ThemeManager alloc] init] getCurrentYear];
-        NSString *preferenceName = [NSString stringWithFormat:@"addedChristmasEvents%i", currentYear];
-        if (![[NSUserDefaults standardUserDefaults] boolForKey:preferenceName]) {
-            [[NSUserDefaults standardUserDefaults] setBool:true forKey:preferenceName];
+        if (![[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"addedChristmasEvents%i", currentYear]]) {
+            [[NSUserDefaults standardUserDefaults] setBool:true forKey:[NSString stringWithFormat:@"addedChristmasEvents%i", currentYear]];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             [[DataManager sharedManager] addChristmasEvents];

@@ -21,21 +21,18 @@
     }
     return self;
 }
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.deleteButton.hidden = YES;
     self.quiveringAnimation = nil;
     [self setupColors];
 }
-
 - (void)setupColors {
     ThemeManager *themeManager = [[ThemeManager alloc] init];
     NSDictionary *colors = [themeManager getTheme];
     self.backgroundColor = [colors objectForKey:@"background"];
     self.name.textColor = [colors objectForKey:@"tint"];
 }
-
 - (void)startQuivering {
     if (!self.quiveringAnimation) {
         self.deleteButton.hidden = NO;
@@ -55,7 +52,6 @@
     }
     [self.layer addAnimation:self.quiveringAnimation forKey:@"quivering"];
 }
-
 - (void)stopQuivering {
     if (self.quiveringAnimation) {
         self.quiveringAnimation = nil;

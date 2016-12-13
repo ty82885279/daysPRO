@@ -26,7 +26,7 @@ extern NSString *const kDeletedKey;
 // Bulk Add/Delete
 - (void)addEventsFromServer;
 - (void)addChristmasEvents;
-- (void)createDefaultEvents;
+- (void)addNewYearEvent;
 - (void)deleteAllEvents;
 
 // Events

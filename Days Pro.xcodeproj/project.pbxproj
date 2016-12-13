@@ -15,6 +15,7 @@
 		A6693562179D31E200E5A40F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6693561179D31E200E5A40F /* CoreGraphics.framework */; };
 		A6A3E8A8188F931700A3E4FB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A3E8A7188F931700A3E4FB /* QuartzCore.framework */; };
 		AF2FE2148929C9C7AF912EB4 /* Pods_Days_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7716506E8CB7504A3A5C63F6 /* Pods_Days_Pro.framework */; };
+		D668D76C1E00549C009C41A0 /* newYear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D668D76B1E00549C009C41A0 /* newYear.jpg */; };
 		D66B91A61DCF23CF00EABCD3 /* christmas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D66B91A51DCF23CF00EABCD3 /* christmas.jpg */; };
 		D6723E0F1DBE409900D925A4 /* AppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D6723DE51DBE409900D925A4 /* AppModel.xcdatamodeld */; };
 		D6723E121DBE409900D925A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6723DEA1DBE409900D925A4 /* InfoPlist.strings */; };
@@ -59,6 +60,7 @@
 		D65B1A2A1DE9887F00542EAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Main-iPhone.strings"; sourceTree = "<group>"; };
 		D65B1A2B1DE9888800542EAE /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = "fi.lproj/Main-iPad.strings"; sourceTree = "<group>"; };
 		D65B1A2D1DE9888A00542EAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Main-iPad.strings"; sourceTree = "<group>"; };
+		D668D76B1E00549C009C41A0 /* newYear.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = newYear.jpg; sourceTree = "<group>"; };
 		D66B91A51DCF23CF00EABCD3 /* christmas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = christmas.jpg; sourceTree = "<group>"; };
 		D6723DE61DBE409900D925A4 /* AppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppModel.xcdatamodel; sourceTree = "<group>"; };
 		D6723DE81DBE409900D925A4 /* Days Pro-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Days Pro-Prefix.pch"; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				D6723DF11DBE409900D925A4 /* main.m */,
 				D6723E0D1DBE409900D925A4 /* daysPRO.entitlements */,
 				D66B91A51DCF23CF00EABCD3 /* christmas.jpg */,
+				D668D76B1E00549C009C41A0 /* newYear.jpg */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				D6723E151DBE409900D925A4 /* Launch Screen.storyboard in Resources */,
 				D6723E141DBE409900D925A4 /* Main-iPhone.storyboard in Resources */,
 				D66B91A61DCF23CF00EABCD3 /* christmas.jpg in Resources */,
+				D668D76C1E00549C009C41A0 /* newYear.jpg in Resources */,
 				D6723E171DBE409900D925A4 /* Media.xcassets in Resources */,
 				D6E4B9EF1DD0D7A500442536 /* Localizable.strings in Resources */,
 				D6723E181DBE409900D925A4 /* notification-sound.caf in Resources */,

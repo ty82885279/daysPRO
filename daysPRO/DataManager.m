@@ -337,35 +337,33 @@ NSString *const kDeletedKey = @"deleted";
     [self saveContext];
     
 }
-- (void)createDefaultEvents {
+- (void)addNewYearEvent {
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
     
-    //
-    // New Year
-    [comps setYear:[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year] + 1]; // current year + 1 = next year
-    [comps setMonth:1];
-    [comps setDay:1];
-    [comps setHour:0];
-    [comps setMinute:0];
-    [comps setSecond:0];
-    NSDate *nextYear = [gregorianCalendar dateFromComponents:comps];
-    // Current year
-    [comps setYear:[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year]]; // current year
-    [comps setMonth:1];
-    [comps setDay:1];
-    [comps setHour:0];
-    [comps setMinute:0];
-    [comps setSecond:0];
-    NSDate *firstDayOfTheYear = [gregorianCalendar dateFromComponents:comps];
-
-    firstDayOfTheYear = [NSDate dateWithTimeInterval:[[NSTimeZone localTimeZone] secondsFromGMT] sinceDate:firstDayOfTheYear]; // time zone offset
+    NSDateComponents *nextYearsLastDayComponents = [[NSDateComponents alloc] init];
+    NSDateComponents *nextYearsFirstDayComponents = [[NSDateComponents alloc] init];
     
-    [self createEventWithName:NSLocalizedString(@"New Year", nil)
-                    startDate:firstDayOfTheYear
-                      endDate:nextYear
+    [nextYearsLastDayComponents setYear:[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year] + 2];
+    [nextYearsLastDayComponents setMonth:1];
+    [nextYearsLastDayComponents setDay:1];
+    [nextYearsLastDayComponents setHour:0];
+    [nextYearsLastDayComponents setMinute:0];
+    [nextYearsLastDayComponents setSecond:0];
+    NSDate *nextYearsLastDay = [gregorianCalendar dateFromComponents:nextYearsLastDayComponents];
+    
+    [nextYearsFirstDayComponents setYear:[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year] + 1];
+    [nextYearsFirstDayComponents setMonth:1];
+    [nextYearsFirstDayComponents setDay:1];
+    [nextYearsFirstDayComponents setHour:0];
+    [nextYearsFirstDayComponents setMinute:0];
+    [nextYearsFirstDayComponents setSecond:0];
+    NSDate *nextYearsFirstDay = [gregorianCalendar dateFromComponents:nextYearsFirstDayComponents];
+    
+    [self createEventWithName:[NSString stringWithFormat:@"%ld", [self getNextYear]]
+                    startDate:nextYearsFirstDay
+                      endDate:nextYearsLastDay
                       details:nil
-                        image:nil];
+                        image:[UIImage imageNamed:@"newYear.jpg"]];
     [self saveContext];
     
 }
@@ -380,6 +378,9 @@ NSString *const kDeletedKey = @"deleted";
     for (NSManagedObject * event in events) {
         [self.managedObjectContext deleteObject:event];
     }
+}
+- (long)getNextYear {
+    return [[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year] + 1;
 }
 #pragma mark - iCloud notifications
 - (void)persistentStoreDidImportUbiquitiousContentChanges:(NSNotification *)changeNotification {
