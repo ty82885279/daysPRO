@@ -39,6 +39,7 @@
 		D6723E2D1DBE434D00D925A4 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E2C1DBE434D00D925A4 /* ThemeManager.m */; };
 		D6B5B7B41DBE95D300729A15 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6B5B7B31DBE95D300729A15 /* Settings.bundle */; };
 		D6E4B9EF1DD0D7A500442536 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6E4B9ED1DD0D7A500442536 /* Localizable.strings */; };
+		D6E8B8C71E0036D900ADF6FF /* ESTBlurredStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E8B8C61E0036D900ADF6FF /* ESTBlurredStatusBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,8 @@
 		D6E4B9EE1DD0D7A500442536 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D6E4B9F01DD0D7B500442536 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D6E4B9F11DD0D7B600442536 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D6E8B8C51E0036D900ADF6FF /* ESTBlurredStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBlurredStatusBar.h; sourceTree = "<group>"; };
+		D6E8B8C61E0036D900ADF6FF /* ESTBlurredStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESTBlurredStatusBar.m; sourceTree = "<group>"; };
 		EF75AF4028A82E762B7FDEE4 /* Pods-Days Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Days Pro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Days Pro/Pods-Days Pro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -210,6 +213,8 @@
 		D6723E291DBE410200D925A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D6E8B8C51E0036D900ADF6FF /* ESTBlurredStatusBar.h */,
+				D6E8B8C61E0036D900ADF6FF /* ESTBlurredStatusBar.m */,
 				D6723DF81DBE409900D925A4 /* CustomCollectionViewFlowLayout.h */,
 				D6723DF91DBE409900D925A4 /* CustomCollectionViewFlowLayout.m */,
 				D6723E001DBE409900D925A4 /* EventCell.h */,
@@ -406,6 +411,7 @@
 				D6723E2D1DBE434D00D925A4 /* ThemeManager.m in Sources */,
 				D6723E1B1DBE409900D925A4 /* CustomCollectionViewFlowLayout.m in Sources */,
 				D6723E1A1DBE409900D925A4 /* AppDelegate.m in Sources */,
+				D6E8B8C71E0036D900ADF6FF /* ESTBlurredStatusBar.m in Sources */,
 				D6723E161DBE409900D925A4 /* main.m in Sources */,
 				D6723E251DBE409900D925A4 /* PushManager.m in Sources */,
 				D6723E1E1DBE409900D925A4 /* Event.m in Sources */,

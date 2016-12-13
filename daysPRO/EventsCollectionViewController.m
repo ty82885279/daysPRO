@@ -12,6 +12,7 @@
 #import "CustomCollectionViewFlowLayout.h"
 #import "AddEventTableViewController.h"
 #import "AppDelegate.h"
+#import "ESTBlurredStatusBar.h"
 
 static NSInteger kMarginTopBottomiPhone = 12;
 static NSInteger kMarginTopBottomiPad = 30;
@@ -99,6 +100,10 @@ int shakeCount;
     tapGestureRecognizer.delegate = self;
     tapGestureRecognizer.delaysTouchesBegan = YES;
     [self.collectionView addGestureRecognizer:tapGestureRecognizer];
+    
+    //Blurred status bar
+    ESTBlurredStatusBar *blurredStatusBar = [[ESTBlurredStatusBar alloc] initWithStyle:UIBlurEffectStyleDark];
+    [self.view insertSubview:blurredStatusBar atIndex:10];
 }
 
 - (void)setupColors {
