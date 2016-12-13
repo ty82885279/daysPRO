@@ -132,7 +132,7 @@
     self.nameLabel.text = self.event.name;
     self.nameLabel.alpha = 1.0;
     self.progressView.alpha = 1.0;
-    self.descriptionLabel.alpha = 0.0;
+    self.descriptionLabel.alpha = 1.0;
     
     if ([self.event progress] < 0) {
         /*
