@@ -10,6 +10,8 @@
 
 @interface ProgressIndicator : UIView
 
+@property UIBezierPath *circlePath;
+
 @property (assign, nonatomic) CGFloat percentInnerCircle;
 @property (strong, nonatomic) UIColor *innerCircleBackgroundColor;
 @property (strong, nonatomic) UIColor *innerCircleProgressColor;
@@ -17,5 +19,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *metaLabel;
+
+- (UIBezierPath *)getCircleBezierPath;
 
 @end

@@ -58,16 +58,16 @@ static NSString *kColorAnimationKey = @"strokeColor";
 #pragma mark - Draw Circles
 
 - (void)drawInnerCircleBackgroundIn:(CGRect)rect {
-    UIBezierPath *bezierPath = [UIBezierPath bezierPath];
-    [bezierPath addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2)
+    _circlePath = [UIBezierPath bezierPath];
+    [_circlePath addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2)
                           radius:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kInnerCircleRadiusiPhone : kInnerCircleRadiusiPad
                       startAngle:0
                         endAngle:M_PI * 2
                        clockwise:YES];
     
-    bezierPath.lineWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kInnnerCircleLineWidthiPhone : kInnnerCircleLineWidthiPad;
+    _circlePath.lineWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kInnnerCircleLineWidthiPhone : kInnnerCircleLineWidthiPad;
     [self.innerCircleBackgroundColor setStroke];
-    [bezierPath stroke];
+    [_circlePath stroke];
 }
 
 - (void)drawInnerCircleProgress:(CGFloat)percent inRect:(CGRect)rect {
@@ -100,5 +100,8 @@ static NSString *kColorAnimationKey = @"strokeColor";
 - (void)prepareTapticEngine {
     UISelectionFeedbackGenerator *taptic = [[UISelectionFeedbackGenerator alloc] init];
     [taptic prepare];
+}
+- (UIBezierPath *)getCircleBezierPath {
+    return _circlePath;
 }
 @end

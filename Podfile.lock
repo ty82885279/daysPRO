@@ -28,6 +28,7 @@ PODS:
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FXBlurView (1.6.4)
   - Google-Mobile-Ads-SDK (7.13.0)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
@@ -45,6 +46,7 @@ DEPENDENCIES:
   - Firebase/AdMob
   - Firebase/Core
   - Firebase/RemoteConfig
+  - FXBlurView
   - SnowFallingFramework
   - SVProgressHUD (from `https://github.com/oliverkulpakko/SVProgressHUD.git`, branch `haptics`)
 
@@ -67,6 +69,7 @@ SPEC CHECKSUMS:
   FirebaseCore: d0ed25f27b6f9158eccc439f1be6f92e81207e28
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FirebaseRemoteConfig: 383a9afe0a9291ada949e3f615257928a823b594
+  FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
   Google-Mobile-Ads-SDK: b0cac2909229e8f13fb30e03537cdefbd7be28fa
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
@@ -74,6 +77,6 @@ SPEC CHECKSUMS:
   SnowFallingFramework: e312283aec10a3a27135ba6811d832e4da0dc964
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: a396a52bff99150cebc275f640cd8bf614d0e060
+PODFILE CHECKSUM: 4869f4539575cc9dfde8d4ed5acdf352126f58e6
 
 COCOAPODS: 1.1.1

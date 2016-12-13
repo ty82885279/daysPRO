@@ -24,6 +24,9 @@
     return [NSString stringWithFormat:@"name '%@', startDate '%@', endDate '%@', desc '%@', created '%@'", self.name, self.startDate, self.endDate, self.details, self.createdDate];
 }
 
+- (BOOL)isOver {
+    return self.progress > 1;
+}
 - (NSInteger)weeksLeftToDate:(NSDate *)date {
     return lroundf([self daysLeftToDate:date] / 7.0);
 }

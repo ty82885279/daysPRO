@@ -10,12 +10,15 @@
 #import "AppDelegate.h"
 #import "AddEventTableViewController.h"
 #import <SnowFallingFramework/SnowFalling.h>
+#import <FXBlurView/FXBlurView.h>
+#import <QuartzCore/QuartzCore.h>
+#import "ESTBlurredStatusBar.h"
 
-@interface EventDetailsViewController () <UIGestureRecognizerDelegate> {
-    UIImageView *bgImageView;
-    UIVisualEffectView *bgImageBlurView;
-}
+@interface EventDetailsViewController () <UIGestureRecognizerDelegate>
 
+@property UIView *darkImageOverlay;
+@property BOOL shownDeleteEventAlert;
+@property UIImageView *bgImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *rightBarButton;
@@ -52,11 +55,23 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateProgressView) userInfo:nil repeats:YES];
     self.tapCounter = 0;
     
-    if ([[[ThemeManager alloc] init] isDecember]) {
-    SnowFalling *snowFalling = [[SnowFalling alloc] initWithView:self.view];
-    snowFalling.numbersOfFlake = 20;
-    snowFalling.hidden = NO;
-    }
+    _bgImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
+    
+    SnowFalling *snowFalling = [[SnowFalling alloc] initWithView:_bgImageView];
+    snowFalling.numbersOfFlake = 30;
+    snowFalling.hidden = [[[ThemeManager alloc] init] isDecember];
+    
+    //Blurred status bar
+    ESTBlurredStatusBar *blurredStatusBar = [[ESTBlurredStatusBar alloc] initWithStyle:UIBlurEffectStyleDark];
+    [self.view insertSubview:blurredStatusBar aboveSubview:_bgImageView];
+    
+    [self addBackgroundImage:[self loadImage]];
+    
+    //Add dark overlay so the bg image is always visible
+    _darkImageOverlay = [[UIView alloc] initWithFrame:self.view.frame];
+    _darkImageOverlay.backgroundColor = [UIColor blackColor];
+    _darkImageOverlay.alpha = 0.33;
+    [self.view insertSubview:_darkImageOverlay aboveSubview:_bgImageView];
 }
 
 - (void)askToDeleteEvent {
@@ -68,33 +83,31 @@
     
     NSString *dateString = [formatter stringFromDate:self.event.endDate];
     
-    if (self.event.progress > 100) {
-        NSString *deleteTitleLocalized = NSLocalizedString(@"Delete", nil);
-        NSString *deleteMessageLocalized = NSLocalizedString(@"ended on", nil);
-        UIAlertController *alertController = [UIAlertController
-                                              alertControllerWithTitle:[NSString stringWithFormat:@"%@ %@?", deleteTitleLocalized, self.event.name]
-                                              message:[NSString stringWithFormat:@"%@ %@ %@.", self.event.name, deleteMessageLocalized, dateString]
-                                              preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *delete = [UIAlertAction
-                                       actionWithTitle:NSLocalizedString(@"Delete", nil)
-                                       style:UIAlertActionStyleDestructive
-                                       handler:^(UIAlertAction *action)
-                                       {
-                                           [[DataManager sharedManager] deleteEvent:self.event];
-                                           [[DataManager sharedManager] saveContext];
-                                           [self.navigationController popToRootViewControllerAnimated:YES];
-                                       }];
-        
-        UIAlertAction *cancel = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"Cancel", nil)
-                                   style:UIAlertActionStyleCancel
-                                   handler:nil];
-        
-        [alertController addAction:delete];
-        [alertController addAction:cancel];
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
+    NSString *deleteTitleLocalized = NSLocalizedString(@"Delete", nil);
+    NSString *deleteMessageLocalized = NSLocalizedString(@"ended on", nil);
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:[NSString stringWithFormat:@"%@ %@?", deleteTitleLocalized, self.event.name]
+                                          message:[NSString stringWithFormat:@"%@ %@ %@.", self.event.name, deleteMessageLocalized, dateString]
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *delete = [UIAlertAction
+                             actionWithTitle:NSLocalizedString(@"Delete", nil)
+                             style:UIAlertActionStyleDestructive
+                             handler:^(UIAlertAction *action)
+                             {
+                                 [[DataManager sharedManager] deleteEvent:self.event];
+                                 [[DataManager sharedManager] saveContext];
+                                 [self.navigationController popToRootViewControllerAnimated:YES];
+                             }];
+    
+    UIAlertAction *cancel = [UIAlertAction
+                             actionWithTitle:NSLocalizedString(@"Cancel", nil)
+                             style:UIAlertActionStyleCancel
+                             handler:nil];
+    
+    [alertController addAction:delete];
+    [alertController addAction:cancel];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 - (void)setupColors {
     ThemeManager *themeManager = [[ThemeManager alloc] init];
@@ -111,23 +124,15 @@
     NSString *endsOn = NSLocalizedString(@"Ends on", nil);
     NSString *startedOn = NSLocalizedString(@"Started on", nil);
     NSString *endedOn = NSLocalizedString(@"Ended on", nil);
-    [self askToDeleteEvent];
+
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     
     self.nameLabel.text = self.event.name;
-    [UIView animateWithDuration:0.5 animations:^{
-        self.nameLabel.alpha = 1.0;
-    }];
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        self.progressView.alpha = 1.0;
-    }];
-    
-    [UIView animateWithDuration:0.6 animations:^{
-        self.descriptionLabel.alpha = 0.0;
-    }];
+    self.nameLabel.alpha = 1.0;
+    self.progressView.alpha = 1.0;
+    self.descriptionLabel.alpha = 0.0;
     
     if ([self.event progress] < 0) {
         /*
@@ -205,23 +210,12 @@
                 }
         }
     }
-    
-    // Animate fade-in
-    [UIView animateWithDuration:0.6 animations:^{
-        self.descriptionLabel.alpha =  0.65;
-    }];
-    [self addBackgroundImage];
 }
-- (void)addBackgroundImage {
-    bgImageView = [[UIImageView alloc]initWithFrame:self.view.frame];
-    bgImageView.image = [self loadImage];
-    bgImageView.contentMode = UIViewContentModeScaleAspectFill;
-    bgImageView.clipsToBounds = true;
-    [self.view insertSubview:bgImageView atIndex:0];
-    
-    bgImageBlurView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
-    bgImageBlurView.frame = self.view.bounds;
-    [self.view insertSubview:bgImageBlurView atIndex:1];
+- (void)addBackgroundImage:(UIImage *)image {
+    _bgImageView.image = [image blurredImageWithRadius:7.5 iterations:10 tintColor:[UIColor blackColor]];
+    _bgImageView.contentMode = UIViewContentModeScaleAspectFill;
+    _bgImageView.clipsToBounds = true;
+    [self.view insertSubview:_bgImageView atIndex:0];
 }
 - (UIImage *)loadImage {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
@@ -273,6 +267,11 @@
     // Redraw
     [self setupProgressLabels];
     [self.progressView setNeedsDisplay];
+    
+    if (self.event.isOver && !_shownDeleteEventAlert) {
+        [self askToDeleteEvent];
+        _shownDeleteEventAlert = true;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -312,8 +311,7 @@
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        bgImageView.frame = self.view.bounds;
-        bgImageBlurView.frame = self.view.bounds;
+        _bgImageView.frame = self.view.bounds;
     } completion:nil];
 }
 
@@ -465,7 +463,7 @@
                                       NSString *filePath = [documentsPath stringByAppendingPathComponent:self.event.uuid];
                                       NSError *error;
                                       [fileManager removeItemAtPath:filePath error:&error];
-                                      bgImageView.image = nil;
+                                      _bgImageView.image = nil;
                                   }];
     
     UIAlertAction *cancel = [UIAlertAction
@@ -476,7 +474,7 @@
     [alertController addAction:cameraRoll];
     
     //Only show the remove button if there's an image
-    if (bgImageView.image) {
+    if (_bgImageView.image) {
         [alertController addAction:removeImage];
     }
     
@@ -545,7 +543,7 @@
         NSString* path = [documentsDirectory stringByAppendingPathComponent:self.event.uuid];
         NSData* data = UIImagePNGRepresentation(image);
         [data writeToFile:path atomically:YES];
-        [self addBackgroundImage];
+        [self addBackgroundImage:image];
     }
 }
 

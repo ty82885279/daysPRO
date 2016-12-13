@@ -24,7 +24,7 @@
 
 - (CGFloat)progress;
 - (NSString *)description;
-
+- (BOOL)isOver;
 - (NSInteger)daysLeftToDate:(NSDate *)date;
 - (NSInteger)hoursLeftToDate:(NSDate *)date;
 - (NSInteger)minutesLeftToDate:(NSDate *)date;
