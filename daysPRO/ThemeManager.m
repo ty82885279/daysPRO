@@ -59,12 +59,15 @@
 - (void)setTheme {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    [defaults setObject:@"202020" forKey:@"backgroundColor"];
-    [defaults setObject:@"F1B033" forKey:@"tintColor"];
-    [defaults setObject:@"FEB934" forKey:@"textColor"];
-    [defaults setObject:@"EA8125" forKey:@"innerCircleProgressColor"];
-    [defaults setObject:@"525252" forKey:@"innerCircleBackgroundColor"];
-    [defaults setObject:@"5C5C5C" forKey:@"cellBackgroundColor"];
+    [defaults setObject:@"202020" forKey:@"backgroundColor"];//
+    
+    [defaults setObject:@"C59849" forKey:@"tintColor"];//
+    [defaults setObject:@"C59849" forKey:@"textColor"];//
+    
+    [defaults setObject:@"C73E1D" forKey:@"innerCircleProgressColor"];
+    [defaults setObject:@"522A27" forKey:@"innerCircleBackgroundColor"];
+    
+    [defaults setObject:@"522A27" forKey:@"cellBackgroundColor"];
     
     if ([self isDecember]) {
         [self enableDecemberTheme];
@@ -79,8 +82,7 @@
     return [self isDate:[NSDate date] inRangeFirstDate:[self firstDayOfDec] lastDate:[self lastDayOfDec]];
 }
 - (BOOL)isDate:(NSDate *)date inRangeFirstDate:(NSDate *)firstDate lastDate:(NSDate *)lastDate {
-    return [date compare:firstDate] == NSOrderedDescending &&
-    [date compare:lastDate]  == NSOrderedAscending;
+    return [date compare:firstDate] == NSOrderedDescending && [date compare:lastDate]  == NSOrderedAscending;
 }
 
 - (NSDate *)firstDayOfDec {
@@ -111,8 +113,8 @@
     [defaults setObject:@"202020" forKey:@"backgroundColor"];
     [defaults setObject:@"FFFFFF" forKey:@"tintColor"];
     [defaults setObject:@"FFFFFF" forKey:@"textColor"];
-    [defaults setObject:@"E74C3C" forKey:@"innerCircleProgressColor"];
-    [defaults setObject:@"525252" forKey:@"innerCircleBackgroundColor"];
+    [defaults setObject:@"e74c3c" forKey:@"innerCircleProgressColor"];
+    [defaults setObject:@"c0392b" forKey:@"innerCircleBackgroundColor"];
     [defaults setObject:@"34495E" forKey:@"cellBackgroundColor"];
 }
 

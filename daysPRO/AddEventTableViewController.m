@@ -62,8 +62,6 @@ static NSInteger const kDatePickerCellHeight = 216;
     self.tableView.backgroundColor = [colors objectForKey:@"background"];
     self.tableView.tintColor = [colors objectForKey:@"tint"];
     self.cellBackgroundColor = [colors objectForKey:@"cellBackground"];
-    self.startsDateLabel.textColor = [colors objectForKey:@"tint"];
-    self.endsDateLabel.textColor = [colors objectForKey:@"tint"];
     // Nav bar
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [colors objectForKey:@"colorText"]};
     self.navigationController.navigationBar.barTintColor = [colors objectForKey:@"background"];
@@ -76,8 +74,6 @@ static NSInteger const kDatePickerCellHeight = 216;
     
     self.descriptionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Description (optional)", nil)
                                                                                       attributes:@{NSForegroundColorAttributeName : [colors objectForKey:@"background"]}];
-    self.nameTextField.textColor = [colors objectForKey:@"tint"];
-    self.descriptionTextField.textColor = [colors objectForKey:@"tint"];
     
 }
 
@@ -101,9 +97,6 @@ static NSInteger const kDatePickerCellHeight = 216;
         _startsDateLabel.text = [self.dateFormatter stringFromDate:now];
         _endsDateLabel.text = NSLocalizedString(@"Choose...", nil);
     }
-    
-    _startsDateLabel.textColor = [self.tableView tintColor];
-    _endsDateLabel.textColor = [self.tableView tintColor];
 }
 
 - (void)setupDatePickers {
@@ -111,6 +104,7 @@ static NSInteger const kDatePickerCellHeight = 216;
     self.startsDatePicker = [[UIDatePicker alloc] init];
     _startsDatePicker.hidden = YES;
     _startsDatePicker.tag = 0;
+    _startsDatePicker.tintColor = [UIColor whiteColor];
     _startsDatePicker.date = (self.isEventEditMode) ? _event.startDate : [NSDate date];
     [_startsDatePicker addTarget:self action:@selector(pickerDateChanged:) forControlEvents:UIControlEventValueChanged];
     NSIndexPath *startDatePickerIndexPath = [NSIndexPath indexPathForRow:kStartDatePickerIndex inSection:kDatePickerSection];
@@ -121,6 +115,7 @@ static NSInteger const kDatePickerCellHeight = 216;
     self.endsDatePicker = [[UIDatePicker alloc] init];
     _endsDatePicker.hidden = YES;
     _endsDatePicker.tag = 1;
+    _endsDatePicker.tintColor = [UIColor whiteColor];
     [_endsDatePicker addTarget:self action:@selector(pickerDateChanged:) forControlEvents:UIControlEventValueChanged];
     _endsDatePicker.minimumDate = (self.isEventEditMode) ? [_event.startDate dateByAddingTimeInterval:60] : [_startsDatePicker.date dateByAddingTimeInterval:60]; // add +60sec
     _endsDatePicker.date = (self.isEventEditMode) ? _event.endDate : _endsDatePicker.minimumDate;

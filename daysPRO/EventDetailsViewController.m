@@ -16,6 +16,7 @@
 
 @interface EventDetailsViewController () <UIGestureRecognizerDelegate>
 
+@property int progressViewTapCounter;
 @property UIView *darkImageOverlay;
 @property BOOL shownDeleteEventAlert;
 @property UIImageView *bgImageView;
