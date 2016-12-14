@@ -115,6 +115,8 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
+    self.progressView.progressLabel.textColor = [UIColor whiteColor];
+    self.progressView.metaLabel.textColor = [UIColor whiteColor];
 }
 - (void)setupLabels {
     NSString *startsOn = NSLocalizedString(@"Starts on", nil);
