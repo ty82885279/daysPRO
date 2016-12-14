@@ -47,8 +47,6 @@
     [self.pushManager registerForModelUpdateNotifications];
 }
 - (void)setupDefaultEventsIfNeeded {
-    //Disable Ads
-    [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"disableAds"];
     //[[DataManager sharedManager] addEventsFromServer];
     int currentYear = [[[ThemeManager alloc] init] getCurrentYear];
     //add new year event
@@ -56,7 +54,7 @@
         [[NSUserDefaults standardUserDefaults] setBool:true forKey:[NSString stringWithFormat:@"addedNewYearEventIn%i", currentYear]];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
-        [[DataManager sharedManager] addChristmasEvents];
+        [[DataManager sharedManager] addNewYearEvent];
         [[DataManager sharedManager] saveContext];
     }
     //Create christmas events if it's december
