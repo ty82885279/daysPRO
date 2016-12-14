@@ -4,7 +4,6 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - Fabric (1.6.8)
   - FXBlurView (1.6.4)
-  - SnowFallingFramework (1.4.3)
   - SVProgressHUD (2.0.3)
 
 DEPENDENCIES:
@@ -12,7 +11,6 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - Fabric
   - FXBlurView
-  - SnowFallingFramework
   - SVProgressHUD (from `https://github.com/oliverkulpakko/SVProgressHUD.git`, branch `haptics`)
 
 EXTERNAL SOURCES:
@@ -30,9 +28,8 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
   FXBlurView: db786c2561cb49a09ae98407f52460096ab8a44f
-  SnowFallingFramework: e312283aec10a3a27135ba6811d832e4da0dc964
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
 
-PODFILE CHECKSUM: 5295cb96f21ee0211f6cdd85e50b589ba0d01a57
+PODFILE CHECKSUM: 423ca7c02cd497cfb949de3349d5946726817669
 
 COCOAPODS: 1.1.1

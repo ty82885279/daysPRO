@@ -57,15 +57,13 @@
         [[DataManager sharedManager] addNewYearEvent];
         [[DataManager sharedManager] saveContext];
     }
-    //Create christmas events if it's december
-    if ([[[ThemeManager alloc] init] isDecember]) {
-        if (![[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"addedChristmasEvents%i", currentYear]]) {
-            [[NSUserDefaults standardUserDefaults] setBool:true forKey:[NSString stringWithFormat:@"addedChristmasEvents%i", currentYear]];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            
-            [[DataManager sharedManager] addChristmasEvents];
-            [[DataManager sharedManager] saveContext];
-        }
+    //add christmas events
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"addedChristmasEvents%i", currentYear]]) {
+        [[NSUserDefaults standardUserDefaults] setBool:true forKey:[NSString stringWithFormat:@"addedChristmasEvents%i", currentYear]];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [[DataManager sharedManager] addChristmasEvents];
+        [[DataManager sharedManager] saveContext];
     }
 }
 - (void)applicationWillResignActive:(UIApplication *)application {

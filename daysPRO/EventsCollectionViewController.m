@@ -339,9 +339,6 @@ static NSInteger kCellWeightHeightiPad = 242;
 }
 #pragma mark - Empty
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    if ([[[ThemeManager alloc] init] isDecember]) {
-        return [UIImage imageNamed:@"placeholder-December"];
-    }
     return [UIImage imageNamed:@"placeholder"];
 }
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {

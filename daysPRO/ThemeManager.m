@@ -61,54 +61,12 @@
     [defaults setObject:@"522A27" forKey:@"innerCircleBackgroundColor"];
     
     [defaults setObject:@"522A27" forKey:@"cellBackgroundColor"];
-    
-    if ([self isDecember]) {
-        [self enableDecemberTheme];
-    }
-}
-
-#pragma mark - Christmas
-- (BOOL)isDecember {
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"disableSeasonThemes"]) {
-        return false;
-    }
-    return [self isDate:[NSDate date] inRangeFirstDate:[self firstDayOfDec] lastDate:[self lastDayOfDec]];
-}
-- (BOOL)isDate:(NSDate *)date inRangeFirstDate:(NSDate *)firstDate lastDate:(NSDate *)lastDate {
-    return [date compare:firstDate] == NSOrderedDescending && [date compare:lastDate]  == NSOrderedAscending;
-}
-
-- (NSDate *)firstDayOfDec {
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    [comps setDay:1];
-    [comps setMonth:12];
-    [comps setYear:[self getCurrentYear]];
-    return [[NSCalendar currentCalendar] dateFromComponents:comps];
-    
-}
-- (NSDate *)lastDayOfDec {
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    [comps setDay:31];
-    [comps setMonth:12];
-    [comps setYear:[self getCurrentYear]];
-    return [[NSCalendar currentCalendar] dateFromComponents:comps];
-    
 }
 - (int)getCurrentYear {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy"];
     NSString *yearString = [formatter stringFromDate:[NSDate date]];
     return yearString.intValue;
-}
-- (void)enableDecemberTheme {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    [defaults setObject:@"202020" forKey:@"backgroundColor"];
-    [defaults setObject:@"FFFFFF" forKey:@"tintColor"];
-    [defaults setObject:@"FFFFFF" forKey:@"textColor"];
-    [defaults setObject:@"E74C3C" forKey:@"innerCircleProgressColor"];
-    [defaults setObject:@"525252" forKey:@"innerCircleBackgroundColor"];
-    [defaults setObject:@"34495E" forKey:@"cellBackgroundColor"];
 }
 
 @end

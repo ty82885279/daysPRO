@@ -9,7 +9,6 @@
 #import "EventDetailsViewController.h"
 #import "AppDelegate.h"
 #import "AddEventTableViewController.h"
-#import <SnowFallingFramework/SnowFalling.h>
 #import <FXBlurView/FXBlurView.h>
 #import <QuartzCore/QuartzCore.h>
 #import "ESTBlurredStatusBar.h"
@@ -55,11 +54,7 @@
     self.tapCounter = 0;
     
     _bgImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
-    
-    SnowFalling *snowFalling = [[SnowFalling alloc] initWithView:_bgImageView];
-    snowFalling.numbersOfFlake = 30;
-    snowFalling.hidden = ![[[ThemeManager alloc] init] isDecember];
-    
+
     //Blurred status bar
     ESTBlurredStatusBar *blurredStatusBar = [[ESTBlurredStatusBar alloc] initWithStyle:UIBlurEffectStyleDark];
     [self.view insertSubview:blurredStatusBar aboveSubview:_bgImageView];
