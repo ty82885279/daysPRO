@@ -39,13 +39,6 @@ static NSInteger kCellWeightHeightiPad = 242;
 
 @implementation EventsCollectionViewController
 
-static GADBannerView *bannerView;
-static UIView *senderView;
-static UIView *containerView;
-static UIView *bannerContainerView;
-static float bannerHeight;
-int shakeCount;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -153,10 +146,6 @@ int shakeCount;
         offset.y = kCollectionViewContentOffsetiPhone;
         self.collectionView.contentOffset = offset;
     }
-    shakeCount = 0;
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"disableAds"]) {
-        [self createBanner:self];
-    }
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -182,86 +171,6 @@ int shakeCount;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-#pragma mark - Ads
-- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-    if (event.subtype == UIEventSubtypeMotionShake) {
-        if (shakeCount < 3) {
-            shakeCount++;
-        } else {
-            UIAlertController *alertController = [UIAlertController
-                                                  alertControllerWithTitle:NSLocalizedString(@"Disable Ads", nil)
-                                                  message:NSLocalizedString(@"Do you want to disable ads? You can't enable them later.", nil)
-                                                  preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction *disableAds = [UIAlertAction
-                                       actionWithTitle:NSLocalizedString(@"Disable Ads", nil)
-                                       style:UIAlertActionStyleDefault
-                                       handler:^(UIAlertAction *action)
-                                       {
-                                           [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"disableAds"];
-                                           [[NSUserDefaults standardUserDefaults] synchronize];
-                                           [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Closing in 3 seconds...", nil)];
-                                           dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                                               exit(0);
-                                           });
-                                       }];
-            
-            [alertController addAction:disableAds];
-            [self presentViewController:alertController animated:YES completion:nil];
-        }
-    }
-    
-    if ( [super respondsToSelector:@selector(motionEnded:withEvent:)] )
-        [super motionEnded:motion withEvent:event];
-}
-- (BOOL)canBecomeFirstResponder {
-    return YES;
-}
-- (void)createBanner:(UIViewController *)sender {
-     //http://stackoverflow.com/questions/21760071/add-gadbannerview-programmatically
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-        bannerHeight = 50;
-    } else {
-        bannerHeight = 90;
-    }
-    
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[@"46f9b28f18fe07b396aaf642aef67a21"];
-    
-    bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-    bannerView.adUnitID = @"ca-app-pub-2929799728547191/2681319469";
-    bannerView.rootViewController = (id)self;
-    bannerView.delegate = (id<GADBannerViewDelegate>)self;
-    
-    senderView = sender.view;
-    
-    bannerView.frame = CGRectMake(0, 0, senderView.frame.size.width, bannerHeight);
-    
-    [bannerView loadRequest:request];
-    
-    containerView = [[UIView alloc] initWithFrame:senderView.frame];
-    
-    bannerContainerView = [[UIView alloc] initWithFrame:CGRectMake(0, senderView.frame.size.height, senderView.frame.size.width, bannerHeight)];
-    
-    for (id object in sender.view.subviews) {
-        
-        [object removeFromSuperview];
-        [containerView addSubview:object];
-        
-    }
-    
-    [senderView addSubview:containerView];
-    [senderView insertSubview:bannerContainerView aboveSubview:self.collectionView];
-}
-- (void)adViewDidReceiveAd:(GADBannerView *)view {
-    [UIView animateWithDuration:0.5 animations:^{
-        
-        self.collectionView.frame = CGRectMake(0, 0, senderView.frame.size.width, senderView.frame.size.height - bannerHeight);
-        bannerContainerView.frame = CGRectMake(0, senderView.frame.size.height - bannerHeight, senderView.frame.size.width, bannerHeight);
-        [bannerContainerView addSubview:bannerView];
-        
-    }];
 }
 #pragma mark - Status Bar Appearance
 - (BOOL)prefersStatusBarHidden {

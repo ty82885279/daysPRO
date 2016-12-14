@@ -10,9 +10,6 @@ target 'Days Pro' do
   pod 'Answers'
   pod 'DZNEmptyDataSet'
   pod 'SVProgressHUD', :git => 'https://github.com/oliverkulpakko/SVProgressHUD.git', :branch => 'haptics'
-  pod 'Firebase/Core'
-  pod 'Firebase/AdMob'
-  pod 'Firebase/RemoteConfig'
   pod 'SnowFallingFramework'
   pod 'FXBlurView'
 end
