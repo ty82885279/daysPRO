@@ -58,7 +58,7 @@
     
     SnowFalling *snowFalling = [[SnowFalling alloc] initWithView:_bgImageView];
     snowFalling.numbersOfFlake = 30;
-    snowFalling.hidden = [[[ThemeManager alloc] init] isDecember];
+    snowFalling.hidden = ![[[ThemeManager alloc] init] isDecember];
     
     //Blurred status bar
     ESTBlurredStatusBar *blurredStatusBar = [[ESTBlurredStatusBar alloc] initWithStyle:UIBlurEffectStyleDark];
