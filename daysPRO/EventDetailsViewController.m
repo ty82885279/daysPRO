@@ -410,6 +410,7 @@
                                   handler:^(UIAlertAction *action)
                                   {
                                       picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                      picker.allowsEditing = false;
                                       [self presentViewController:picker animated:YES completion:nil];
                                   }];
     
@@ -423,6 +424,7 @@
                                          [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
                                          picker.topViewController.title = NSLocalizedString(@"Select a Picture", nil);
                                          picker.navigationBar.translucent = NO;
+                                         picker.allowsEditing = false;
                                          picker.navigationBar.barStyle = UIBarStyleDefault;
                                          [picker setNavigationBarHidden:NO animated:NO];
                                      }];
