@@ -64,7 +64,7 @@
     //Add dark overlay so the bg image is always visible
     _darkImageOverlay = [[UIView alloc] initWithFrame:self.view.frame];
     _darkImageOverlay.backgroundColor = [UIColor blackColor];
-    _darkImageOverlay.alpha = 0.33;
+    _darkImageOverlay.alpha = 0.5;
     [self.view insertSubview:_darkImageOverlay aboveSubview:_bgImageView];
 }
 - (void)askToDeleteEvent {
@@ -206,7 +206,7 @@
     }
 }
 - (void)addBackgroundImage:(UIImage *)image {
-    _bgImageView.image = [image blurredImageWithRadius:7.5 iterations:10 tintColor:[UIColor blackColor]];
+    _bgImageView.image = image;
     _bgImageView.contentMode = UIViewContentModeScaleAspectFill;
     _bgImageView.clipsToBounds = true;
     [self.view insertSubview:_bgImageView atIndex:0];

@@ -11,6 +11,7 @@
 @interface ProgressIndicator : UIView
 
 @property UIBezierPath *circlePath;
+@property BOOL blurAdded;
 
 @property (assign, nonatomic) CGFloat percentInnerCircle;
 @property (strong, nonatomic) UIColor *innerCircleBackgroundColor;

@@ -63,6 +63,28 @@ static NSString *kColorAnimationKey = @"strokeColor";
     _circlePath.lineWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kInnnerCircleLineWidthiPhone : kInnnerCircleLineWidthiPad;
     [self.innerCircleBackgroundColor setStroke];
     [_circlePath stroke];
+    
+    CGRect frame = _circlePath.bounds;
+    frame.size.height = frame.size.height - 20;
+    frame.size.width = frame.size.width - 20;
+    frame.origin.x = frame.origin.x + 10;
+    frame.origin.y = frame.origin.y + 10;
+    
+    UIVisualEffect *blurEffect;
+    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    
+    UIVisualEffectView *visualEffectView;
+    visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    
+    visualEffectView.frame = frame;
+    
+    visualEffectView.layer.cornerRadius = visualEffectView.frame.size.width / 2;
+    visualEffectView.clipsToBounds = YES;
+    
+    if (!_blurAdded) {
+        [self insertSubview:visualEffectView atIndex:0];
+        _blurAdded = true;
+    }
 }
 - (void)drawInnerCircleProgress:(CGFloat)percent inRect:(CGRect)rect {
     [NSTimer scheduledTimerWithTimeInterval: 0.90
