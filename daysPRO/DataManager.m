@@ -35,8 +35,8 @@ NSString *const kDeletedKey = @"deleted";
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 + (DataManager *)sharedManager {
-	static dispatch_once_t once;
-	static DataManager *sharedManager;
+    static dispatch_once_t once;
+    static DataManager *sharedManager;
     
     dispatch_once(&once, ^{
         sharedManager = [[DataManager alloc] init];
@@ -85,7 +85,7 @@ NSString *const kDeletedKey = @"deleted";
     if (_managedObjectModel) {
         return _managedObjectModel;
     }
-	
+    
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:kModelName withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     
@@ -119,7 +119,7 @@ NSString *const kDeletedKey = @"deleted";
              object:_persistentStoreCoordinator];
     
     [self addPersistentStoreToCoordinator];
-	
+    
     return _persistentStoreCoordinator;
 }
 #pragma mark - Adding persistent stores
@@ -159,7 +159,7 @@ NSString *const kDeletedKey = @"deleted";
 #pragma mark - Save Context
 - (void)saveTheContext:(NSManagedObjectContext *)theContext {
     if ([self.persistentStoreCoordinator.persistentStores count] != 0) {
-
+        
         NSError *error = nil;
         [theContext save:&error];
         if (error) {
@@ -268,12 +268,12 @@ NSString *const kDeletedKey = @"deleted";
                 NSDate *localEndDate = [NSDate dateWithTimeInterval:[[NSTimeZone systemTimeZone] secondsFromGMT] sinceDate:endDate];
                 
                 if (![[NSUserDefaults standardUserDefaults] valueForKey:uniqueServerEventID]) {
-                [self createEventWithName:name
-                                startDate:localStartDate
-                                  endDate:localEndDate
-                                  details:details
-                                    image:nil];
-                [self saveContext];
+                    [self createEventWithName:name
+                                    startDate:localStartDate
+                                      endDate:localEndDate
+                                      details:details
+                                        image:nil];
+                    [self saveContext];
                     [[NSUserDefaults standardUserDefaults] setBool:true forKey:uniqueServerEventID];
                 }
             }
@@ -377,7 +377,7 @@ NSString *const kDeletedKey = @"deleted";
     
     NSError *error = nil;
     NSArray *events = [self.managedObjectContext executeFetchRequest:allEvents error:&error];
-
+    
     for (NSManagedObject * event in events) {
         [self.managedObjectContext deleteObject:event];
     }
@@ -388,7 +388,7 @@ NSString *const kDeletedKey = @"deleted";
 #pragma mark - iCloud notifications
 - (void)persistentStoreDidImportUbiquitiousContentChanges:(NSNotification *)changeNotification {
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Syncing...", nil)];
-
+    
     NSManagedObjectContext *moc = [self managedObjectContext];
     [moc performBlock:^{
         [moc mergeChangesFromContextDidSaveNotification:changeNotification];

@@ -47,7 +47,7 @@
     [self.pushManager registerForModelUpdateNotifications];
 }
 - (void)setupDefaultEventsIfNeeded {
-    //[[DataManager sharedManager] addEventsFromServer];
+    [[DataManager sharedManager] addEventsFromServer];
     int currentYear = [[[ThemeManager alloc] init] getCurrentYear];
     //add new year event
     if (![[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"addedNewYearEventIn%i", currentYear]]) {
