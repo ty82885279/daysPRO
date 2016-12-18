@@ -220,11 +220,14 @@ NSString *const kDeletedKey = @"deleted";
         [data writeToFile:path atomically:YES];
     }
 }
-- (Event *)updateEvent:(Event *)event withName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details {
+- (Event *)updateEvent:(Event *)event withName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details image:(UIImage *)image {
     event.name = name;
     event.startDate = startDate;
     event.endDate = endDate;
     event.details = details;
+    if (image) {
+        [self saveImage:image event:event];
+    }
     return event;
 }
 - (void)deleteEvent:(Event *)event {

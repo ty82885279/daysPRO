@@ -87,7 +87,7 @@ static NSString *kColorAnimationKey = @"strokeColor";
     }
 }
 - (void)drawInnerCircleProgress:(CGFloat)percent inRect:(CGRect)rect {
-    [NSTimer scheduledTimerWithTimeInterval: 0.90
+    [NSTimer scheduledTimerWithTimeInterval: 0.75
                                                   target: self
                                                 selector:@selector(prepareTapticEngine)
                                                 userInfo: nil repeats:true];

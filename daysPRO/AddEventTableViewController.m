@@ -46,6 +46,7 @@ static NSInteger const kDatePickerCellHeight = 216;
     [super viewDidAppear:animated];
     [self.nameTextField becomeFirstResponder];
     [self setupDatePickers];
+    _image = [self loadImage];
 }
 - (void)setupColors {
     ThemeManager *themeManager = [[ThemeManager alloc] init];
@@ -195,6 +196,73 @@ static NSInteger const kDatePickerCellHeight = 216;
     }
     _endsDateLabel.text = [_dateFormatter stringFromDate:_endsDatePicker.date];
 }
+- (IBAction)camera:(id)sender {
+    UIImagePickerController *picker;
+    
+    picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = true;
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:NSLocalizedString(@"Add Image", nil)
+                                          message:nil
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *takePicture = [UIAlertAction
+                                  actionWithTitle:NSLocalizedString(@"Take a Picture", nil)
+                                  style:UIAlertActionStyleDefault
+                                  handler:^(UIAlertAction *action)
+                                  {
+                                      picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                      picker.allowsEditing = false;
+                                      [self presentViewController:picker animated:YES completion:nil];
+                                  }];
+    
+    UIAlertAction *cameraRoll = [UIAlertAction
+                                 actionWithTitle:NSLocalizedString(@"Select a Picture", nil)
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction *action)
+                                 {
+                                     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                                     [self presentViewController:picker animated:YES completion:^{
+                                         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+                                         picker.topViewController.title = NSLocalizedString(@"Select a Picture", nil);
+                                         picker.navigationBar.translucent = NO;
+                                         picker.allowsEditing = false;
+                                         picker.navigationBar.barStyle = UIBarStyleDefault;
+                                         [picker setNavigationBarHidden:NO animated:NO];
+                                     }];
+                                 }];
+    
+    UIAlertAction *removeImage = [UIAlertAction
+                                  actionWithTitle:NSLocalizedString(@"Remove Image", nil)
+                                  style:UIAlertActionStyleDefault
+                                  handler:^(UIAlertAction *action)
+                                  {
+                                      //remove the image
+                                      NSFileManager *fileManager = [NSFileManager defaultManager];
+                                      NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+                                      
+                                      NSString *filePath = [documentsPath stringByAppendingPathComponent:self.event.uuid];
+                                      NSError *error;
+                                      [fileManager removeItemAtPath:filePath error:&error];
+                                      _image = nil;
+                                  }];
+    
+    UIAlertAction *cancel = [UIAlertAction
+                             actionWithTitle:NSLocalizedString(@"Cancel", nil)
+                             style:UIAlertActionStyleCancel
+                             handler:nil];
+    [alertController addAction:takePicture];
+    [alertController addAction:cameraRoll];
+    
+    //Only show the remove button if there's an image
+    if ([self loadImage]) {
+        [alertController addAction:removeImage];
+    }
+    
+    [alertController addAction:cancel];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 #pragma mark - Show / Hide Save button
 - (IBAction)nameTextFieldEditingChaged:(UITextField *)sender {
     self.navigationItem.rightBarButtonItem.enabled = (sender.text.length == 0) ? NO : YES;
@@ -210,7 +278,7 @@ static NSInteger const kDatePickerCellHeight = 216;
         
         if (self.isEventEditMode) {
             [[DataManager sharedManager] updateEvent:_event withName:_nameTextField.text
-                                           startDate:_startsDatePicker.date endDate:_endsDatePicker.date details:_descriptionTextField.text];
+                                           startDate:_startsDatePicker.date endDate:_endsDatePicker.date details:_descriptionTextField.text image:_image];
             [[DataManager sharedManager] saveContext];
             
             [Answers logCustomEventWithName:@"Edit event" customAttributes:@{@"Name":_nameTextField.text}];
@@ -218,7 +286,7 @@ static NSInteger const kDatePickerCellHeight = 216;
             [SVProgressHUD showSuccessWithStatus:nil];
         } else {
             [[DataManager sharedManager] createEventWithName:_nameTextField.text
-                                                   startDate:_startsDatePicker.date endDate:_endsDatePicker.date details:_descriptionTextField.text image:nil];
+                                                   startDate:_startsDatePicker.date endDate:_endsDatePicker.date details:_descriptionTextField.text image:_image];
             
             [[DataManager sharedManager] saveContext];
             [Answers logCustomEventWithName:@"Add event" customAttributes:@{@"Name":_nameTextField.text}];
@@ -249,6 +317,35 @@ static NSInteger const kDatePickerCellHeight = 216;
 }
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - ImagePickerController Delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    [self saveImage:image];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)saveImage:(UIImage *)image {
+    if (image != nil) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *path = [documentsDirectory stringByAppendingPathComponent:self.event.uuid];
+        NSData *data = UIImagePNGRepresentation(image);
+        [data writeToFile:path atomically:YES];
+        _image = image;
+    }
+}
+
+- (UIImage *)loadImage {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:self.event.uuid];
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    return image;
 }
 
 @end

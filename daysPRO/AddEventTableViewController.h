@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "DataManager.h"
 
-@interface AddEventTableViewController : UITableViewController <UITextFieldDelegate>
+@interface AddEventTableViewController : UITableViewController <UITextFieldDelegate, UIImagePickerControllerDelegate>
 
+@property UIImage *image;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
 @property (weak, nonatomic) IBOutlet UILabel *startsDateLabel;
