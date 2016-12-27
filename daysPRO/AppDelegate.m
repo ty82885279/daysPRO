@@ -18,7 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setupAppearance];
     [self setupPushNotificationsManager];
-    [self setupDefaultEventsIfNeeded];
+    [[DataManager sharedManager] addEventsFromServer];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD setRingRadius:1];
     [SVProgressHUD setHapticsEnabled:true];
@@ -45,26 +45,6 @@
 - (void)setupPushNotificationsManager {
     self.pushManager = [[PushManager alloc] init];
     [self.pushManager registerForModelUpdateNotifications];
-}
-- (void)setupDefaultEventsIfNeeded {
-    [[DataManager sharedManager] addEventsFromServer];
-    int currentYear = [[[ThemeManager alloc] init] getCurrentYear];
-    //add new year event
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"addedNewYearEventIn%i", currentYear]]) {
-        [[NSUserDefaults standardUserDefaults] setBool:true forKey:[NSString stringWithFormat:@"addedNewYearEventIn%i", currentYear]];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        [[DataManager sharedManager] addNewYearEvent];
-        [[DataManager sharedManager] saveContext];
-    }
-    //add christmas events
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"addedChristmasEvents%i", currentYear]]) {
-        [[NSUserDefaults standardUserDefaults] setBool:true forKey:[NSString stringWithFormat:@"addedChristmasEvents%i", currentYear]];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        [[DataManager sharedManager] addChristmasEvents];
-        [[DataManager sharedManager] saveContext];
-    }
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -244,7 +244,7 @@ NSString *const kDeletedKey = @"deleted";
 }
 - (void)addEventsFromServer {
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading...", nil)];
-    NSURL *url = [NSURL URLWithString:@"https://eaststudios.fi/api/days/defaultEvents.json"];
+    NSURL *url = [NSURL URLWithString:@"https://eaststudios.fi/api/days/v1/defaultEvents.json"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (!connectionError) {
@@ -260,6 +260,7 @@ NSString *const kDeletedKey = @"deleted";
                 NSString *details = [record valueForKey:@"description"];
                 NSString *startDateString = [record valueForKey:@"startDate"];
                 NSString *endDateString = [record valueForKey:@"endDate"];
+                NSString *imageUrl = [record valueForKey:@"imageUrl"];
                 
                 NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:[startDateString intValue]];
                 NSDate *endDate = [NSDate dateWithTimeIntervalSince1970:[endDateString intValue]];
@@ -272,7 +273,7 @@ NSString *const kDeletedKey = @"deleted";
                                     startDate:localStartDate
                                       endDate:localEndDate
                                       details:details
-                                        image:nil];
+                                        image:[self getImageFromURL:imageUrl]];
                     [self saveContext];
                     [[NSUserDefaults standardUserDefaults] setBool:true forKey:uniqueServerEventID];
                 }
@@ -283,92 +284,18 @@ NSString *const kDeletedKey = @"deleted";
         }
     }];
 }
-- (void)addChristmasEvents {
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+-(UIImage *)getImageFromURL:(NSString *)fileURL {
+    UIImage *image;
     
-    //CHRISTMAS DAY
-    NSDateComponents *thisYearDayComponents = [[NSDateComponents alloc] init];
-    NSDateComponents *lastYearDayComponents = [[NSDateComponents alloc] init];
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
     
-    [thisYearDayComponents setYear:[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year]];
-    [thisYearDayComponents setMonth:12];
-    [thisYearDayComponents setDay:25];
-    [thisYearDayComponents setHour:9];
-    [thisYearDayComponents setMinute:0];
-    [thisYearDayComponents setSecond:0];
-    NSDate *thisYearsDay = [gregorianCalendar dateFromComponents:thisYearDayComponents];
+    if (data) {
+        image = [UIImage imageWithData:data];
+    } else {
+        image = [[UIImage alloc] init];
+    }
     
-    [lastYearDayComponents setYear:[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year] - 1 ];
-    [lastYearDayComponents setMonth:12];
-    [lastYearDayComponents setDay:25];
-    [lastYearDayComponents setHour:9];
-    [lastYearDayComponents setMinute:0];
-    [lastYearDayComponents setSecond:0];
-    NSDate *lastYearsDay = [gregorianCalendar dateFromComponents:lastYearDayComponents];
-    
-    [self createEventWithName:NSLocalizedString(@"Christmas Day", nil)
-                    startDate:lastYearsDay
-                      endDate:thisYearsDay
-                      details:nil
-                        image:[UIImage imageNamed:@"christmas.jpg"]];
-    
-    //CHRISTMAS EVE
-    NSDateComponents *thisYearEveComponents = [[NSDateComponents alloc] init];
-    NSDateComponents *lastYearEveComponents = [[NSDateComponents alloc] init];
-    
-    [thisYearEveComponents setYear:[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year]];
-    [thisYearEveComponents setMonth:12];
-    [thisYearEveComponents setDay:24];
-    [thisYearEveComponents setHour:9];
-    [thisYearEveComponents setMinute:0];
-    [thisYearEveComponents setSecond:0];
-    NSDate *thisYearsEve = [gregorianCalendar dateFromComponents:thisYearEveComponents];
-    
-    [lastYearEveComponents setYear:[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year] - 1 ];
-    [lastYearEveComponents setMonth:12];
-    [lastYearEveComponents setDay:24];
-    [lastYearEveComponents setHour:9];
-    [lastYearEveComponents setMinute:0];
-    [lastYearEveComponents setSecond:0];
-    NSDate *lastYearsEve = [gregorianCalendar dateFromComponents:lastYearEveComponents];
-    
-    [self createEventWithName:NSLocalizedString(@"Christmas Eve", nil)
-                    startDate:lastYearsEve
-                      endDate:thisYearsEve
-                      details:nil
-                        image:[UIImage imageNamed:@"christmas.jpg"]];
-    [self saveContext];
-    
-}
-- (void)addNewYearEvent {
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    
-    NSDateComponents *nextYearsLastDayComponents = [[NSDateComponents alloc] init];
-    NSDateComponents *nextYearsFirstDayComponents = [[NSDateComponents alloc] init];
-    
-    [nextYearsLastDayComponents setYear:[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year] + 2];
-    [nextYearsLastDayComponents setMonth:1];
-    [nextYearsLastDayComponents setDay:1];
-    [nextYearsLastDayComponents setHour:0];
-    [nextYearsLastDayComponents setMinute:0];
-    [nextYearsLastDayComponents setSecond:0];
-    NSDate *nextYearsLastDay = [gregorianCalendar dateFromComponents:nextYearsLastDayComponents];
-    
-    [nextYearsFirstDayComponents setYear:[[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year] + 1];
-    [nextYearsFirstDayComponents setMonth:1];
-    [nextYearsFirstDayComponents setDay:1];
-    [nextYearsFirstDayComponents setHour:0];
-    [nextYearsFirstDayComponents setMinute:0];
-    [nextYearsFirstDayComponents setSecond:0];
-    NSDate *nextYearsFirstDay = [gregorianCalendar dateFromComponents:nextYearsFirstDayComponents];
-    
-    [self createEventWithName:[NSString stringWithFormat:@"%ld", [self getNextYear]]
-                    startDate:nextYearsFirstDay
-                      endDate:nextYearsLastDay
-                      details:nil
-                        image:[UIImage imageNamed:@"newYear.jpg"]];
-    [self saveContext];
-    
+    return image;
 }
 - (void)deleteAllEvents {
     NSFetchRequest *allEvents = [[NSFetchRequest alloc] init];
