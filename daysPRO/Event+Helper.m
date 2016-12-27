@@ -66,13 +66,31 @@
         } else if ([self secondsLeftToDate:self.startDate] > 0) {
             progress = [@([self secondsLeftToDate:self.startDate]) stringValue];
             metaText = NSLocalizedString(@"SECS UNTIL", nil);
-        }
-        else {
+        } else {
             progress = [@(0) stringValue];
             metaText = NSLocalizedString(@"DONE", nil);
         }
     } else {
         // Start date is in the past
+        // Use labs() to convert -1 to 1
+        if ([self isOver]) {
+            if (labs([self daysLeftToDate:self.endDate]) > 2) {
+                progress = [@([self daysLeftToDate:self.endDate]) stringValue];
+                metaText = NSLocalizedString(@"DAYS SINCE", nil);
+            } else if (labs([self hoursLeftToDate:self.endDate]) > 2) {
+                progress = [@([self hoursLeftToDate:self.endDate]) stringValue];
+                metaText = NSLocalizedString(@"HOURS SINCE", nil);
+            } else if (labs([self minutesLeftToDate:self.endDate]) > 2) {
+                progress = [@([self minutesLeftToDate:self.endDate]) stringValue];
+                metaText = NSLocalizedString(@"MINS SINCE", nil);
+            } else if ([self secondsLeftToDate:self.endDate] < 0) {
+                progress = [@([self secondsLeftToDate:self.endDate]) stringValue];
+                metaText = NSLocalizedString(@"SECS SINCE", nil);
+            }
+            return @{@"number": progress,
+                     @"text" : metaText};
+        }
+        
         if ([self weeksLeftToDate:self.endDate] > 2) {
             if ([[NSUserDefaults standardUserDefaults] boolForKey:@"weeks"]) {
                 progress = [@([self weeksLeftToDate:self.endDate]) stringValue];
@@ -93,10 +111,6 @@
         } else if ([self secondsLeftToDate:self.endDate] > 0) {
             progress = [@([self secondsLeftToDate:self.endDate]) stringValue];
             metaText = NSLocalizedString(@"SECS LEFT", nil);
-        }
-        else {
-            progress = @"✓";
-            metaText = NSLocalizedString(@"DONE", nil);
         }
     }
     
