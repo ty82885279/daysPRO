@@ -86,6 +86,9 @@
             } else if ([self secondsLeftToDate:self.endDate] < 0) {
                 progress = [@([self secondsLeftToDate:self.endDate]) stringValue];
                 metaText = NSLocalizedString(@"SECS SINCE", nil);
+            } else {
+                progress = @"🤕"; //fallback, some unknown bug. Required because app crashes otherwise when deleting events.
+                metaText = @"CONTACT US";
             }
             return @{@"number": progress,
                      @"text" : metaText};
