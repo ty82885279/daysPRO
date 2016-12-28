@@ -191,7 +191,7 @@ NSString *const kDeletedKey = @"deleted";
     // Query on managedObjectContext With Generated fetchRequest
     NSArray *fetchedEvents = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
-    // Sort events in descending order
+    // Sort events in ascending order
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"endDate" ascending:YES];
     
     // Return Sorted Fetched Events
