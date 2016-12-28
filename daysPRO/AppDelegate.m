@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "DataManager.h"
 #import "ThemeManager.h"
+#import "EventDetailsViewController.h"
+#import "AddEventTableViewController.h"
 
 @interface AppDelegate ()
 @end
@@ -29,8 +31,23 @@
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
     }
-    
     return YES;
+}
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    
+    NSArray *allEvents = [[DataManager sharedManager] getAllEvents];
+    int index = shortcutItem.type.intValue;
+    if (index < allEvents.count) {
+        Event *tappedEvent = [allEvents objectAtIndex:index];
+        
+        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main-iPhone" bundle: nil];
+        EventDetailsViewController *controller = (EventDetailsViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"eventDetails"];
+        controller.event = tappedEvent;
+        [navigationController pushViewController:controller animated:YES];
+        
+        [Answers logCustomEventWithName:@"Open event using Force Touch" customAttributes:@{@"Name":tappedEvent.name}];
+    }
 }
 - (void)setupAppearance {
     [[[ThemeManager alloc] init] setTheme];

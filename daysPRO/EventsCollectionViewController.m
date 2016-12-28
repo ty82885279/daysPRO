@@ -147,6 +147,21 @@ static NSInteger kCellWeightHeightiPad = 242;
         offset.y = kCollectionViewContentOffsetiPhone;
         self.collectionView.contentOffset = offset;
     }
+    int index = 0;
+    
+    NSMutableArray *shortcutItems = [[NSMutableArray alloc] init];
+    NSArray *firstFour = [self.fetchedEventsArray subarrayWithRange:NSMakeRange(0, MIN(4, self.fetchedEventsArray.count))];
+
+    for (Event *event in firstFour) {
+        NSDictionary *options = [event bestNumberAndText];
+        NSString *number = [[options valueForKey:@"number"] stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        NSString *text = [options valueForKey:@"text"];
+        UIApplicationShortcutItem *eventItem = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d", index] localizedTitle:event.name localizedSubtitle:[NSString stringWithFormat:@"%@ %@", number, text] icon:nil userInfo:nil];
+        [shortcutItems addObject:eventItem];
+        index++;
+    }
+    
+    [UIApplication sharedApplication].shortcutItems = shortcutItems;
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];

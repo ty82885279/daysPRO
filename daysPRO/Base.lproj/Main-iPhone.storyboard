@@ -14,7 +14,7 @@
         <!--Event Details View Controller-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="EventDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="eventDetails" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2" customClass="EventDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2Yt-va-7E6"/>
                         <viewControllerLayoutGuide type="bottom" id="q7r-qM-Cvc"/>
@@ -260,7 +260,7 @@
         <!--New Event-->
         <scene sceneID="eMr-C3-BP5">
             <objects>
-                <tableViewController id="adP-6D-Xfp" customClass="AddEventTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="addEvent" id="adP-6D-Xfp" customClass="AddEventTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="DlF-fX-m4t">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -459,7 +459,7 @@
         <!--Navigation Controller-->
         <scene sceneID="0ZG-T9-0cf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7kO-RI-vHG" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="addEventNC" automaticallyAdjustsScrollViewInsets="NO" id="7kO-RI-vHG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="98O-YW-pXa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
