@@ -51,16 +51,17 @@
 }
 - (void)setTheme {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    [defaults setObject:@"202020" forKey:@"backgroundColor"];
-    
-    [defaults setObject:@"C59849" forKey:@"tintColor"];
-    [defaults setObject:@"C59849" forKey:@"textColor"];
-    
-    [defaults setObject:@"C73E1D" forKey:@"innerCircleProgressColor"];
-    [defaults setObject:@"522A27" forKey:@"innerCircleBackgroundColor"];
-    
-    [defaults setObject:@"522A27" forKey:@"cellBackgroundColor"];
+    if (![defaults boolForKey:@"disableThemeReload"]) {
+        [defaults setObject:@"202020" forKey:@"backgroundColor"];
+        
+        [defaults setObject:@"C59849" forKey:@"tintColor"];
+        [defaults setObject:@"C59849" forKey:@"textColor"];
+        
+        [defaults setObject:@"C73E1D" forKey:@"innerCircleProgressColor"];
+        [defaults setObject:@"522A27" forKey:@"innerCircleBackgroundColor"];
+        
+        [defaults setObject:@"522A27" forKey:@"cellBackgroundColor"];
+    }
 }
 - (int)getCurrentYear {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
