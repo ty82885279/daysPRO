@@ -83,12 +83,9 @@
             } else if (labs([self minutesLeftToDate:self.endDate]) > 2) {
                 progress = [@([self minutesLeftToDate:self.endDate]) stringValue];
                 metaText = NSLocalizedString(@"MINS SINCE", nil);
-            } else if ([self secondsLeftToDate:self.endDate] < 0) {
+            } else {
                 progress = [@([self secondsLeftToDate:self.endDate]) stringValue];
                 metaText = NSLocalizedString(@"SECS SINCE", nil);
-            } else {
-                progress = @"🤕"; //fallback, some unknown bug. Required because app crashes otherwise when deleting events.
-                metaText = @"CONTACT US";
             }
             return @{@"number": progress,
                      @"text" : metaText};
@@ -114,6 +111,9 @@
         } else if ([self secondsLeftToDate:self.endDate] > 0) {
             progress = [@([self secondsLeftToDate:self.endDate]) stringValue];
             metaText = NSLocalizedString(@"SECS LEFT", nil);
+        } else {
+            progress = [@(0) stringValue];
+            metaText = NSLocalizedString(@"DONE", nil);
         }
     }
     
