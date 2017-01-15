@@ -10,7 +10,6 @@
 #import "DataManager.h"
 #import "ThemeManager.h"
 #import "EventDetailsViewController.h"
-#import "AddEventTableViewController.h"
 
 @interface AppDelegate ()
 @end

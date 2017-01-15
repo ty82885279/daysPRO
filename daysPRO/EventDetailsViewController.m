@@ -8,7 +8,6 @@
 
 #import "EventDetailsViewController.h"
 #import "AppDelegate.h"
-#import "AddEventTableViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ESTBlurredStatusBar.h"
 

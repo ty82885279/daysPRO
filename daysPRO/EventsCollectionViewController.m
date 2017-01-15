@@ -10,7 +10,6 @@
 #import "EventCell.h"
 #import "EventDetailsViewController.h"
 #import "CustomCollectionViewFlowLayout.h"
-#import "AddEventTableViewController.h"
 #import "AppDelegate.h"
 #import "ESTBlurredStatusBar.h"
 
