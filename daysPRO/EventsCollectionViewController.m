@@ -75,10 +75,6 @@ static NSInteger kCellWeightHeightiPad = 242;
     group.motionEffects = @[xAxis, yAxis];
     [self.collectionView addMotionEffect:group];
     
-    // Set navigation bar font
-    UIFont *backButtonFont = [UIFont systemFontOfSize:17.0f];
-    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName : backButtonFont} forState:UIControlStateNormal];
-    
     // Long press gesture recognizer
     UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesture:)];
     longPressGestureRecognizer.minimumPressDuration = 0.5; //seconds
@@ -101,11 +97,6 @@ static NSInteger kCellWeightHeightiPad = 242;
     NSDictionary *colors = [themeManager getTheme];
     self.view.backgroundColor = [colors objectForKey:@"background"];
     self.collectionView.backgroundColor = [colors objectForKey:@"background"];
-    // Transparent nav bar
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     // Light status bar
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
@@ -273,13 +264,6 @@ static NSInteger kCellWeightHeightiPad = 242;
         EventDetailsViewController *eventDetailsViewController = segue.destinationViewController;
         eventDetailsViewController.event = [self.fetchedEventsArray objectAtIndex:indexPath.row];
         [Answers logCustomEventWithName:@"Open event" customAttributes:@{@"Name":eventDetailsViewController.event.name}];
-    } else if ([segue.identifier isEqualToString:@"showAddEventView"] && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        UIPopoverController *popover = [(UIStoryboardPopoverSegue *)segue popoverController];
-        ThemeManager *themeManager = [[ThemeManager alloc] init];
-        NSDictionary *colors = [themeManager getTheme];
-        popover.backgroundColor = [colors objectForKey:@"background"];
-        AddEventTableViewController *addEventController = (AddEventTableViewController *)((UINavigationController *)segue.destinationViewController).topViewController;
-        addEventController.popover = popover;
     }
 }
 - (void)showAddEventView {

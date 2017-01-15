@@ -10,6 +10,7 @@
 #import "ProgressIndicator.h"
 #import "Event.h"
 #import "Event+Helper.h"
+#import "EditViewController.h"
 
 @interface EventDetailsViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 

@@ -9,7 +9,6 @@
 #import "EventDetailsViewController.h"
 #import "AppDelegate.h"
 #import "AddEventTableViewController.h"
-#import <FXBlurView/FXBlurView.h>
 #import <QuartzCore/QuartzCore.h>
 #import "ESTBlurredStatusBar.h"
 
@@ -24,12 +23,9 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *rightBarButton;
 @property (weak, nonatomic) IBOutlet ProgressIndicator *progressView;
 @property (strong, nonatomic) NSTimer *timer;
-@property (assign, nonatomic) NSInteger tapCounter;
 @property (assign, nonatomic, getter = isShouldBeHidingStatusBar) BOOL shouldBeHidingStatusBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
-
-- (IBAction)tapGesture:(UITapGestureRecognizer *)sender;
 
 
 @end
@@ -51,7 +47,6 @@
     [self setupProgressLabels];
     [self setupNavigationButtons];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateProgressView) userInfo:nil repeats:YES];
-    self.tapCounter = 0;
     
     _bgImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
 
@@ -114,96 +109,16 @@
     self.progressView.metaLabel.textColor = [UIColor whiteColor];
 }
 - (void)setupLabels {
-    NSString *startsOn = NSLocalizedString(@"Starts on", nil);
-    NSString *endsOn = NSLocalizedString(@"Ends on", nil);
-    NSString *startedOn = NSLocalizedString(@"Started on", nil);
-    NSString *endedOn = NSLocalizedString(@"Ended on", nil);
-
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     
     self.nameLabel.text = self.event.name;
     self.nameLabel.alpha = 1.0;
     self.progressView.alpha = 1.0;
     self.descriptionLabel.alpha = 1.0;
     
-    if ([self.event progress] < 0) {
-        /*
-         * Event not yet started
-         * Cases:
-         * 1) Starts Date
-         * 2) Description (if available)
-         * 3) Ends Date
-         */
-        switch (self.tapCounter % 3) {
-            case 0:
-                self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", startsOn, [dateFormatter stringFromDate:self.event.startDate]];
-                break;
-            case 1:
-                if (self.event.details.length) {
-                    self.descriptionLabel.text = self.event.details;
-                    break;
-                } else {
-                    self.tapCounter++;
-                }
-            default:
-                self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", endsOn, [dateFormatter stringFromDate:self.event.endDate]];
-                break;
-        }
-        
-    } else if ([self.event progress] >= 0 && [self.event progress] <= 1.0) {
-        /*
-         * Event in-progress
-         * Cases:
-         * 1) Description (if available)
-         * 2) Ends Date
-         */
-        switch (self.tapCounter % 2) {
-            case 0:
-                if (self.event.details.length) {
-                    self.descriptionLabel.text = self.event.details;
-                    break;
-                } else {
-                    self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", endsOn, [dateFormatter stringFromDate:self.event.endDate]];
-                    break;
-                }
-            default:
-                if (self.event.details.length) {
-                    self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", endsOn, [dateFormatter stringFromDate:self.event.endDate]];
-                    break;
-                } else {
-                    self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", startedOn, [dateFormatter stringFromDate:self.event.startDate]];
-                    break;
-                }
-        }
-        
-    } else if ([self.event progress] > 1.0) {
-        /*
-         * Event done
-         * Cases:
-         * 1) Description (if available)
-         * 2) Ended Date
-         */
-        switch (self.tapCounter % 2) {
-            case 0:
-                if (self.event.details.length) {
-                    self.descriptionLabel.text = self.event.details;
-                    break;
-                } else {
-                    self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", endedOn, [dateFormatter stringFromDate:self.event.endDate]];
-                    break;
-                }
-            default:
-                if (self.event.details.length) {
-                    self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", endedOn, [dateFormatter stringFromDate:self.event.endDate]];
-                    break;
-                } else {
-                    self.descriptionLabel.text = [NSString stringWithFormat:@"%@ %@", startedOn, [dateFormatter stringFromDate:self.event.startDate]];
-                    break;
-                }
-        }
-    }
+    self.descriptionLabel.text = [dateFormatter stringFromDate:self.event.startDate];
 }
 - (void)addBackgroundImage:(UIImage *)image {
     _bgImageView.image = image;
@@ -269,6 +184,7 @@
     [super viewWillAppear:animated];
     [self setupLabels];
     [self updateProgressView];
+    [self addBackgroundImage:[self loadImage]];
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -288,10 +204,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-- (IBAction)tapGesture:(UITapGestureRecognizer *)sender {
-    self.tapCounter++;
-    [self setupLabels];
-}
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator {
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     
@@ -305,18 +217,9 @@
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showEditEventView"]) {
-        AddEventTableViewController *editEventViewController = (AddEventTableViewController *)((UINavigationController *)segue.destinationViewController).topViewController;
-        editEventViewController.eventEditMode = YES;
-        editEventViewController.event = _event;
-        
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-            UIPopoverController *popover = [(UIStoryboardPopoverSegue *)segue popoverController];
-            ThemeManager *themeManager = [[ThemeManager alloc] init];
-            NSDictionary *colors = [themeManager getTheme];
-            popover.backgroundColor = [colors objectForKey:@"background"];
-            
-            editEventViewController.popover = popover;
-        }
+        EditViewController *editController = (EditViewController *)((UINavigationController *)segue.destinationViewController).topViewController;
+        editController.isEditing = YES;
+        editController.event = self.event;
     }
 }
 #pragma mark - Sharing
@@ -501,6 +404,84 @@
 - (IBAction)editEvent:(id)sender {
     [self editButtonPressed];
 }
+- (UIImage *)fixOrientation:(UIImage *)image {
+    // http://stackoverflow.com/a/5427890
+    
+    // No-op if the orientation is already correct
+    if (image.imageOrientation == UIImageOrientationUp) return image;
+    
+    // We need to calculate the proper transformation to make the image upright.
+    // We do it in 2 steps: Rotate if Left/Right/Down, and then flip if Mirrored.
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    
+    switch (image.imageOrientation) {
+        case UIImageOrientationDown:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.width, image.size.height);
+            transform = CGAffineTransformRotate(transform, M_PI);
+            break;
+            
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.width, 0);
+            transform = CGAffineTransformRotate(transform, M_PI_2);
+            break;
+            
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, 0, image.size.height);
+            transform = CGAffineTransformRotate(transform, -M_PI_2);
+            break;
+        case UIImageOrientationUp:
+        case UIImageOrientationUpMirrored:
+            break;
+    }
+    
+    switch (image.imageOrientation) {
+        case UIImageOrientationUpMirrored:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.width, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+            
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.height, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+        case UIImageOrientationUp:
+        case UIImageOrientationDown:
+        case UIImageOrientationLeft:
+        case UIImageOrientationRight:
+            break;
+    }
+    
+    // Now we draw the underlying CGImage into a new context, applying the transform
+    // calculated above.
+    CGContextRef ctx = CGBitmapContextCreate(NULL, image.size.width, image.size.height,
+                                             CGImageGetBitsPerComponent(image.CGImage), 0,
+                                             CGImageGetColorSpace(image.CGImage),
+                                             CGImageGetBitmapInfo(image.CGImage));
+    CGContextConcatCTM(ctx, transform);
+    switch (image.imageOrientation) {
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            CGContextDrawImage(ctx, CGRectMake(0,0,image.size.height,image.size.width), image.CGImage);
+            break;
+        default:
+            CGContextDrawImage(ctx, CGRectMake(0,0,image.size.width,image.size.height), image.CGImage);
+            break;
+    }
+    // And now we just create a new UIImage from the drawing context
+    CGImageRef cgimg = CGBitmapContextCreateImage(ctx);
+    UIImage *img = [UIImage imageWithCGImage:cgimg];
+    CGContextRelease(ctx);
+    CGImageRelease(cgimg);
+    return img;
+}
+
 #pragma mark - ImagePickerController Delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
     [picker dismissViewControllerAnimated:YES completion:nil];
@@ -515,7 +496,7 @@
                                                              NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         NSString* path = [documentsDirectory stringByAppendingPathComponent:self.event.uuid];
-        NSData* data = UIImagePNGRepresentation(image);
+        NSData* data = UIImagePNGRepresentation([self fixOrientation:image]);
         [data writeToFile:path atomically:YES];
         [self addBackgroundImage:image];
     }

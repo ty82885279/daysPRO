@@ -36,6 +36,7 @@
 		D6723E241DBE409900D925A4 /* ProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E0A1DBE409900D925A4 /* ProgressIndicator.m */; };
 		D6723E251DBE409900D925A4 /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E0C1DBE409900D925A4 /* PushManager.m */; };
 		D6723E2D1DBE434D00D925A4 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E2C1DBE434D00D925A4 /* ThemeManager.m */; };
+		D6AEB64E1E2B51C100F5D553 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AEB64D1E2B51C100F5D553 /* EditViewController.m */; };
 		D6B5B7B41DBE95D300729A15 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6B5B7B31DBE95D300729A15 /* Settings.bundle */; };
 		D6E4B9EF1DD0D7A500442536 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6E4B9ED1DD0D7A500442536 /* Localizable.strings */; };
 		D6E8B8C71E0036D900ADF6FF /* ESTBlurredStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E8B8C61E0036D900ADF6FF /* ESTBlurredStatusBar.m */; };
@@ -93,6 +94,8 @@
 		D6723E0D1DBE409900D925A4 /* daysPRO.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = daysPRO.entitlements; sourceTree = "<group>"; };
 		D6723E2B1DBE434D00D925A4 /* ThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeManager.h; sourceTree = "<group>"; };
 		D6723E2C1DBE434D00D925A4 /* ThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeManager.m; sourceTree = "<group>"; };
+		D6AEB64C1E2B51C100F5D553 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		D6AEB64D1E2B51C100F5D553 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		D6B5B7B31DBE95D300729A15 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		D6E4B9EE1DD0D7A500442536 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D6E4B9F01DD0D7B500442536 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -197,6 +200,8 @@
 		D6723E281DBE40F000D925A4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D6AEB64C1E2B51C100F5D553 /* EditViewController.h */,
+				D6AEB64D1E2B51C100F5D553 /* EditViewController.m */,
 				D6723DF41DBE409900D925A4 /* AddEventTableViewController.h */,
 				D6723DF51DBE409900D925A4 /* AddEventTableViewController.m */,
 				D6723E051DBE409900D925A4 /* EventDetailsViewController.h */,
@@ -413,6 +418,7 @@
 				D6723E1E1DBE409900D925A4 /* Event.m in Sources */,
 				D6723E1F1DBE409900D925A4 /* EventCell.m in Sources */,
 				D6723E241DBE409900D925A4 /* ProgressIndicator.m in Sources */,
+				D6AEB64E1E2B51C100F5D553 /* EditViewController.m in Sources */,
 				D6723E221DBE409900D925A4 /* EventDetailsViewController.m in Sources */,
 				D6723E1C1DBE409900D925A4 /* DataManager.m in Sources */,
 				D6723E0F1DBE409900D925A4 /* AppModel.xcdatamodeld in Sources */,

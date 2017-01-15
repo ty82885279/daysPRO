@@ -55,9 +55,6 @@ static NSInteger const kDatePickerCellHeight = 216;
     self.tableView.backgroundColor = [colors objectForKey:@"background"];
     self.tableView.tintColor = [colors objectForKey:@"tint"];
     self.cellBackgroundColor = [colors objectForKey:@"cellBackground"];
-    // Nav bar
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [colors objectForKey:@"colorText"]};
-    self.navigationController.navigationBar.barTintColor = [colors objectForKey:@"background"];
     // Light status bar
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
