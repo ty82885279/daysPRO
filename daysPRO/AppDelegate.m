@@ -23,7 +23,13 @@
     [SVProgressHUD setRingRadius:1];
     [SVProgressHUD setHapticsEnabled:true];
     [SVProgressHUD setMinimumDismissTimeInterval:1];
-    [ThemeManager setTheme];
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"defaultThemeSet"]) {
+        [self setDefaultTheme];
+        [[NSUserDefaults standardUserDefaults] setBool:true forKey:@"defaultThemeSet"];
+    }
+    
+    [self.window setTintColor:[ThemeManager getThemeColor]];
     [Fabric with:@[[Answers class]]];
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
@@ -46,6 +52,12 @@
         
         [Answers logCustomEventWithName:@"Open event using Force Touch" customAttributes:@{@"Name":tappedEvent.name}];
     }
+}
+- (void)setDefaultTheme {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"202020" forKey:@"backgroundColor"];
+    [defaults setObject:@"FF9500" forKey:@"themeColor"];
+    [defaults setObject:@"522A27" forKey:@"circleBackgroundColor"];
 }
 - (void)setupPushNotificationsManager {
     self.pushManager = [[PushManager alloc] init];

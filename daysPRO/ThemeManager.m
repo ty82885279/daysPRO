@@ -27,13 +27,5 @@
     [scanner scanHexInt:&rgbValue];
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
 }
-+ (void)setTheme {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if (![defaults boolForKey:@"disableThemeReload"]) {
-        [defaults setObject:@"202020" forKey:@"backgroundColor"];
-        [defaults setObject:@"FF9500" forKey:@"themeColor"];
-        [defaults setObject:@"522A27" forKey:@"circleBackgroundColor"];
-    }
-}
 
 @end

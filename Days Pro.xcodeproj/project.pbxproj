@@ -35,6 +35,7 @@
 		D6723E241DBE409900D925A4 /* ProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E0A1DBE409900D925A4 /* ProgressIndicator.m */; };
 		D6723E251DBE409900D925A4 /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E0C1DBE409900D925A4 /* PushManager.m */; };
 		D6723E2D1DBE434D00D925A4 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E2C1DBE434D00D925A4 /* ThemeManager.m */; };
+		D68315A31E8AA2D2003881B5 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68315A21E8AA2D2003881B5 /* ThemeViewController.swift */; };
 		D6AEB64E1E2B51C100F5D553 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AEB64D1E2B51C100F5D553 /* EditViewController.m */; };
 		D6B5B7B41DBE95D300729A15 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6B5B7B31DBE95D300729A15 /* Settings.bundle */; };
 		D6E4B9EF1DD0D7A500442536 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6E4B9ED1DD0D7A500442536 /* Localizable.strings */; };
@@ -91,6 +92,8 @@
 		D6723E0D1DBE409900D925A4 /* daysPRO.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = daysPRO.entitlements; sourceTree = "<group>"; };
 		D6723E2B1DBE434D00D925A4 /* ThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeManager.h; sourceTree = "<group>"; };
 		D6723E2C1DBE434D00D925A4 /* ThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeManager.m; sourceTree = "<group>"; };
+		D68315A11E8AA2D1003881B5 /* Days Pro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Days Pro-Bridging-Header.h"; sourceTree = "<group>"; };
+		D68315A21E8AA2D2003881B5 /* ThemeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		D6AEB64C1E2B51C100F5D553 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		D6AEB64D1E2B51C100F5D553 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		D6B5B7B31DBE95D300729A15 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -182,6 +185,7 @@
 		D6723E271DBE40D000D925A4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D68315A11E8AA2D1003881B5 /* Days Pro-Bridging-Header.h */,
 				D6723DF31DBE409900D925A4 /* notification-sound.caf */,
 				D6723DF21DBE409900D925A4 /* Media.xcassets */,
 				D6723DE81DBE409900D925A4 /* Days Pro-Prefix.pch */,
@@ -203,6 +207,7 @@
 				D6723E061DBE409900D925A4 /* EventDetailsViewController.m */,
 				D6723E071DBE409900D925A4 /* EventsCollectionViewController.h */,
 				D6723E081DBE409900D925A4 /* EventsCollectionViewController.m */,
+				D68315A21E8AA2D2003881B5 /* ThemeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				TargetAttributes = {
 					A6693559179D31E200E5A40F = {
 						DevelopmentTeam = 74N5MDHHBK;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -413,6 +419,7 @@
 				D6723E1E1DBE409900D925A4 /* Event.m in Sources */,
 				D6723E1F1DBE409900D925A4 /* EventCell.m in Sources */,
 				D6723E241DBE409900D925A4 /* ProgressIndicator.m in Sources */,
+				D68315A31E8AA2D2003881B5 /* ThemeViewController.swift in Sources */,
 				D6AEB64E1E2B51C100F5D553 /* EditViewController.m in Sources */,
 				D6723E221DBE409900D925A4 /* EventDetailsViewController.m in Sources */,
 				D6723E1C1DBE409900D925A4 /* DataManager.m in Sources */,
@@ -549,6 +556,7 @@
 			baseConfigurationReference = 2409E8D516E4620574EA2CAE /* Pods-Days Pro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = daysPRO/daysPRO.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -562,10 +570,14 @@
 				GCC_PREFIX_HEADER = "daysPRO/Days Pro-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/daysPRO/daysPRO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eaststudios.dayspronew;
 				PRODUCT_NAME = "Days Pro";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "daysPRO/Days Pro-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -576,6 +588,7 @@
 			baseConfigurationReference = EF75AF4028A82E762B7FDEE4 /* Pods-Days Pro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = daysPRO/daysPRO.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -589,10 +602,13 @@
 				GCC_PREFIX_HEADER = "daysPRO/Days Pro-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/daysPRO/daysPRO-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eaststudios.dayspronew;
 				PRODUCT_NAME = "Days Pro";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "daysPRO/Days Pro-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

@@ -316,7 +316,7 @@
     [alertController addAction:cameraRoll];
     
     //Only show the remove button if there's an image
-    if (_bgImageView.image) {
+    if (self.bgImageView.image) {
         [alertController addAction:removeImage];
     }
     

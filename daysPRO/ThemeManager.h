@@ -13,6 +13,5 @@
 + (UIColor *)getBackgroundColor;
 + (UIColor *)getThemeColor;
 + (UIColor *)getCircleBackgroundColor;
-+ (void)setTheme;
 
 @end
