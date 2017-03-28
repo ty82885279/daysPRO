@@ -1,42 +1,66 @@
 
-/* Class = "UITextField"; placeholder = "Name"; ObjectID = "0mf-Ps-lEy"; */
-"0mf-Ps-lEy.placeholder" = "Name";
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "A48-2n-ZDd"; */
+"A48-2n-ZDd.title" = "Settings";
 
-/* Class = "UILabel"; text = "From"; ObjectID = "AmE-t6-rBN"; */
-"AmE-t6-rBN.text" = "From";
+/* Class = "UIButton"; normalTitle = "Yellow"; ObjectID = "ATB-fr-o5I"; */
+"ATB-fr-o5I.normalTitle" = "Yellow";
+
+/* Class = "UIButton"; normalTitle = "Red"; ObjectID = "CV9-eJ-oOm"; */
+"CV9-eJ-oOm.normalTitle" = "Red";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "DIu-rn-aMV"; */
 "DIu-rn-aMV.text" = "Label";
 
+/* Class = "UIButton"; normalTitle = "Select Image"; ObjectID = "Dkn-WV-i6R"; */
+"Dkn-WV-i6R.normalTitle" = "Select Image";
+
 /* Class = "UILabel"; text = "Name"; ObjectID = "FBd-in-lbD"; */
 "FBd-in-lbD.text" = "Name";
-
-/* Class = "UILabel"; text = "Start Date"; ObjectID = "Kff-TB-o0M"; */
-"Kff-TB-o0M.text" = "Start Date";
-
-/* Class = "UILabel"; text = "End Date"; ObjectID = "L5k-kb-7WP"; */
-"L5k-kb-7WP.text" = "End Date";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "N2d-bw-v8d"; */
 "N2d-bw-v8d.text" = "0";
 
+/* Class = "UIButton"; normalTitle = "Green"; ObjectID = "P1p-pt-4hV"; */
+"P1p-pt-4hV.normalTitle" = "Green";
+
 /* Class = "UILabel"; text = "✓"; ObjectID = "PXR-uD-2Xa"; */
 "PXR-uD-2Xa.text" = "✓";
 
-/* Class = "UITextField"; placeholder = "Description (optional)"; ObjectID = "bti-mX-A7f"; */
-"bti-mX-A7f.placeholder" = "Description (optional)";
+/* Class = "UIButton"; normalTitle = "Pink"; ObjectID = "W63-9M-HcP"; */
+"W63-9M-HcP.normalTitle" = "Pink";
+
+/* Class = "UITextField"; placeholder = "Event's name"; ObjectID = "WsA-gO-bnk"; */
+"WsA-gO-bnk.placeholder" = "Event's name";
+
+/* Class = "UIButton"; normalTitle = "Purple"; ObjectID = "aUE-BH-mQs"; */
+"aUE-BH-mQs.normalTitle" = "Purple";
+
+/* Class = "UIButton"; normalTitle = "Light Blue"; ObjectID = "bW8-ah-4J6"; */
+"bW8-ah-4J6.normalTitle" = "Light Blue";
 
 /* Class = "UILabel"; text = "TIME LEFT"; ObjectID = "cxX-Zb-cip"; */
 "cxX-Zb-cip.text" = "TIME LEFT";
 
+/* Class = "UILabel"; text = "Theme Color"; ObjectID = "fRw-L3-WFo"; */
+"fRw-L3-WFo.text" = "Theme Color";
+
+/* Class = "UIButton"; normalTitle = "Blue"; ObjectID = "hKF-li-Dan"; */
+"hKF-li-Dan.normalTitle" = "Blue";
+
+/* Class = "UIButton"; normalTitle = "Orange"; ObjectID = "i2M-Ns-Tyj"; */
+"i2M-Ns-Tyj.normalTitle" = "Orange";
+
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "ir8-Dg-EjH"; */
 "ir8-Dg-EjH.title" = "Item";
 
-/* Class = "UINavigationItem"; title = "New Event"; ObjectID = "lLo-ay-ZAI"; */
-"lLo-ay-ZAI.title" = "New Event";
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "sXG-RJ-9lL"; */
+"sXG-RJ-9lL.title" = "Settings";
 
-/* Class = "UILabel"; text = "To"; ObjectID = "qDb-WS-s1W"; */
-"qDb-WS-s1W.text" = "To";
+/* Class = "UINavigationItem"; title = "Event"; ObjectID = "sw6-tD-udB"; */
+"sw6-tD-udB.title" = "Event";
+
+/* Class = "UILabel"; text = "Please relaunch the app to apply changes."; ObjectID = "tdt-nm-kew"; */
+"tdt-nm-kew.text" = "Please relaunch the app to apply changes.";
 
 /* Class = "UILabel"; text = "TIME LEFT"; ObjectID = "zco-C8-snh"; */
 "zco-C8-snh.text" = "TIME LEFT";

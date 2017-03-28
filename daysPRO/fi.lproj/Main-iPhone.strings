@@ -1,42 +1,66 @@
 
-/* Class = "UITextField"; placeholder = "Name"; ObjectID = "0mf-Ps-lEy"; */
-"0mf-Ps-lEy.placeholder" = "Nimi";
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "A48-2n-ZDd"; */
+"A48-2n-ZDd.title" = "Asetukset";
 
-/* Class = "UILabel"; text = "From"; ObjectID = "AmE-t6-rBN"; */
-"AmE-t6-rBN.text" = "Alkaa";
+/* Class = "UIButton"; normalTitle = "Yellow"; ObjectID = "ATB-fr-o5I"; */
+"ATB-fr-o5I.normalTitle" = "Keltainen";
+
+/* Class = "UIButton"; normalTitle = "Red"; ObjectID = "CV9-eJ-oOm"; */
+"CV9-eJ-oOm.normalTitle" = "Punainen";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "DIu-rn-aMV"; */
 "DIu-rn-aMV.text" = "Label";
 
+/* Class = "UIButton"; normalTitle = "Select Image"; ObjectID = "Dkn-WV-i6R"; */
+"Dkn-WV-i6R.normalTitle" = "Valitse kuva";
+
 /* Class = "UILabel"; text = "Name"; ObjectID = "FBd-in-lbD"; */
 "FBd-in-lbD.text" = "Nimi";
-
-/* Class = "UILabel"; text = "Start Date"; ObjectID = "Kff-TB-o0M"; */
-"Kff-TB-o0M.text" = "Aloituspäivä";
-
-/* Class = "UILabel"; text = "End Date"; ObjectID = "L5k-kb-7WP"; */
-"L5k-kb-7WP.text" = "Päättymispäivä";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "N2d-bw-v8d"; */
 "N2d-bw-v8d.text" = "0";
 
+/* Class = "UIButton"; normalTitle = "Green"; ObjectID = "P1p-pt-4hV"; */
+"P1p-pt-4hV.normalTitle" = "Vihreä";
+
 /* Class = "UILabel"; text = "✓"; ObjectID = "PXR-uD-2Xa"; */
 "PXR-uD-2Xa.text" = "✓";
 
-/* Class = "UITextField"; placeholder = "Description (optional)"; ObjectID = "bti-mX-A7f"; */
-"bti-mX-A7f.placeholder" = "Kuvaus (valinnainen)";
+/* Class = "UIButton"; normalTitle = "Pink"; ObjectID = "W63-9M-HcP"; */
+"W63-9M-HcP.normalTitle" = "Pinkki";
+
+/* Class = "UITextField"; placeholder = "Event's name"; ObjectID = "WsA-gO-bnk"; */
+"WsA-gO-bnk.placeholder" = "Tapahtuman nimi";
+
+/* Class = "UIButton"; normalTitle = "Purple"; ObjectID = "aUE-BH-mQs"; */
+"aUE-BH-mQs.normalTitle" = "Purppura";
+
+/* Class = "UIButton"; normalTitle = "Light Blue"; ObjectID = "bW8-ah-4J6"; */
+"bW8-ah-4J6.normalTitle" = "Vaaleansininen";
 
 /* Class = "UILabel"; text = "TIME LEFT"; ObjectID = "cxX-Zb-cip"; */
 "cxX-Zb-cip.text" = "AIKAA JÄLJELLÄ";
 
+/* Class = "UILabel"; text = "Theme Color"; ObjectID = "fRw-L3-WFo"; */
+"fRw-L3-WFo.text" = "Teemaväri";
+
+/* Class = "UIButton"; normalTitle = "Blue"; ObjectID = "hKF-li-Dan"; */
+"hKF-li-Dan.normalTitle" = "Sininen";
+
+/* Class = "UIButton"; normalTitle = "Orange"; ObjectID = "i2M-Ns-Tyj"; */
+"i2M-Ns-Tyj.normalTitle" = "Oranssi";
+
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "ir8-Dg-EjH"; */
 "ir8-Dg-EjH.title" = "Item";
 
-/* Class = "UINavigationItem"; title = "New Event"; ObjectID = "lLo-ay-ZAI"; */
-"lLo-ay-ZAI.title" = "Uusi tapahtuma";
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "sXG-RJ-9lL"; */
+"sXG-RJ-9lL.title" = "Asetukset";
 
-/* Class = "UILabel"; text = "To"; ObjectID = "qDb-WS-s1W"; */
-"qDb-WS-s1W.text" = "Päättyy";
+/* Class = "UINavigationItem"; title = "Event"; ObjectID = "sw6-tD-udB"; */
+"sw6-tD-udB.title" = "Tapahtuma";
+
+/* Class = "UILabel"; text = "Please relaunch the app to apply changes."; ObjectID = "tdt-nm-kew"; */
+"tdt-nm-kew.text" = "Avaa ohjelma uudelleen ottaaksesi muutokset käyttöön.";
 
 /* Class = "UILabel"; text = "TIME LEFT"; ObjectID = "zco-C8-snh"; */
 "zco-C8-snh.text" = "AIKAA JÄLJELLÄ";

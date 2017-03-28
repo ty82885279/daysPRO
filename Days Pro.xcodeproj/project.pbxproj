@@ -53,10 +53,10 @@
 		A669355F179D31E200E5A40F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6693561179D31E200E5A40F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A6A3E8A7188F931700A3E4FB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D64386A71E8AB4780013FC37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Main-iPhone.strings"; sourceTree = "<group>"; };
+		D64386A91E8AB47B0013FC37 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = "fi.lproj/Main-iPhone.strings"; sourceTree = "<group>"; };
 		D65B1A261DE9887200542EAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPad.storyboard"; sourceTree = "<group>"; };
 		D65B1A271DE9887200542EAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPhone.storyboard"; sourceTree = "<group>"; };
-		D65B1A281DE9887C00542EAE /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = "fi.lproj/Main-iPhone.strings"; sourceTree = "<group>"; };
-		D65B1A2A1DE9887F00542EAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Main-iPhone.strings"; sourceTree = "<group>"; };
 		D65B1A2B1DE9888800542EAE /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = "fi.lproj/Main-iPad.strings"; sourceTree = "<group>"; };
 		D65B1A2D1DE9888A00542EAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Main-iPad.strings"; sourceTree = "<group>"; };
 		D6723DE61DBE409900D925A4 /* AppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppModel.xcdatamodel; sourceTree = "<group>"; };
@@ -454,8 +454,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D65B1A271DE9887200542EAE /* Base */,
-				D65B1A281DE9887C00542EAE /* fi */,
-				D65B1A2A1DE9887F00542EAE /* en */,
+				D64386A71E8AB4780013FC37 /* en */,
+				D64386A91E8AB47B0013FC37 /* fi */,
 			);
 			name = "Main-iPhone.storyboard";
 			sourceTree = "<group>";
