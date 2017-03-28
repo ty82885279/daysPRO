@@ -37,10 +37,9 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     [self setupColors];
     [self setupProgressLabels];
-    [self setupNavigationButtons];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateProgressView) userInfo:nil repeats:YES];
     
-    _bgImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
+    self.bgImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
 
     //Blurred status bar
     ESTBlurredStatusBar *blurredStatusBar = [[ESTBlurredStatusBar alloc] initWithStyle:UIBlurEffectStyleDark];
@@ -93,10 +92,6 @@
     ThemeManager *themeManager = [[ThemeManager alloc] init];
     NSDictionary *colors = [themeManager getTheme];
     self.view.backgroundColor = [colors objectForKey:@"background"];
-    // Transparent nav bar
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.navigationController.navigationBar.translucent = YES;
     self.progressView.progressLabel.textColor = [UIColor whiteColor];
     self.progressView.metaLabel.textColor = [UIColor whiteColor];
 }
@@ -125,31 +120,6 @@
     NSString *path = [documentsDirectory stringByAppendingPathComponent:self.event.uuid];
     UIImage *image = [UIImage imageWithContentsOfFile:path];
     return image;
-}
-- (void)setupNavigationButtons {
-    ThemeManager *themeManager = [[ThemeManager alloc] init];
-    NSDictionary *colors = [themeManager getTheme];
-    
-    CGSize barButtonSize = CGSizeMake(40.0f, 40.0f);
-    
-    // Back button
-    UIImage *backButtonImage = [UIImage imageNamed:@"back-icon"];
-    
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
-
-    backButton.backgroundColor = [UIColor clearColor];
-    backButton.frame = CGRectMake(-2, 0, barButtonSize.width, barButtonSize.height);
-    [backButton setImage:backButtonImage forState:UIControlStateNormal];
-    backButton.tintColor = [colors objectForKey:@"tintColor"];
-    backButton.autoresizesSubviews = YES;
-    backButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin;
-    [backButton addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    self.navigationItem.leftBarButtonItem = leftBarButton;
-    
-    self.navigationController.navigationBar.backIndicatorImage = backButtonImage;
-    self.navigationController.navigationBar.backIndicatorTransitionMaskImage = backButtonImage;
 }
 - (void)setupProgressLabels {
     // Set percent for progress indicator

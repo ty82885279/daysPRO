@@ -53,16 +53,16 @@ static NSString *kColorAnimationKey = @"strokeColor";
 }
 #pragma mark - Draw Circles
 - (void)drawInnerCircleBackgroundIn:(CGRect)rect {
-    _circlePath = [UIBezierPath bezierPath];
-    [_circlePath addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2)
+    self.circlePath = [UIBezierPath bezierPath];
+    [self.circlePath addArcWithCenter:CGPointMake(rect.size.width / 2, rect.size.height / 2)
                           radius:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kInnerCircleRadiusiPhone : kInnerCircleRadiusiPad
                       startAngle:0
                         endAngle:M_PI * 2
                        clockwise:YES];
     
-    _circlePath.lineWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kInnnerCircleLineWidthiPhone : kInnnerCircleLineWidthiPad;
+    self.circlePath.lineWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kInnnerCircleLineWidthiPhone : kInnnerCircleLineWidthiPad;
     [self.innerCircleBackgroundColor setStroke];
-    [_circlePath stroke];
+    [self.circlePath stroke];
     
     CGRect frame = _circlePath.bounds;
     frame.size.height = frame.size.height - 20;

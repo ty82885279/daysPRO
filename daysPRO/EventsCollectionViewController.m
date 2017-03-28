@@ -38,16 +38,10 @@ static NSInteger kCellWeightHeightiPad = 242;
 
 @implementation EventsCollectionViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-    }
-    return self;
-}
 #pragma mark - Configure View
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = NSLocalizedString(@"Events", nil);
     [self setupColors];
     [self registerForNotifications];
     self.collectionView.emptyDataSetSource = self;

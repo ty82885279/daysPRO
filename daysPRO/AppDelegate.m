@@ -17,7 +17,6 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self setupAppearance];
     [self setupPushNotificationsManager];
     [[DataManager sharedManager] addEventsFromServer];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
@@ -47,16 +46,6 @@
         
         [Answers logCustomEventWithName:@"Open event using Force Touch" customAttributes:@{@"Name":tappedEvent.name}];
     }
-}
-- (void)setupAppearance {
-    [[[ThemeManager alloc] init] setTheme];
-    [[UIView appearance] setTintColor:[[[ThemeManager alloc] init] getTintColor]];
-    
-    // Remove the 1pt underline under the navbar
-    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init]
-                                      forBarPosition:UIBarPositionAny
-                                          barMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
 }
 - (void)setupPushNotificationsManager {
     self.pushManager = [[PushManager alloc] init];

@@ -147,7 +147,7 @@ NSString *const kDeletedKey = @"deleted";
     // the only difference in this call that makes the store an iCloud enabled store
     // is the NSPersistentStoreUbiquitousContentNameKey in options.
     
-    [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+    [self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                               configuration:nil
                                                         URL:storeURL
                                                     options:options
