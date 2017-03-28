@@ -17,12 +17,12 @@
 @property UIView *darkImageOverlay;
 @property BOOL shownDeleteEventAlert;
 @property UIImageView *bgImageView;
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *rightBarButton;
 @property (weak, nonatomic) IBOutlet ProgressIndicator *progressView;
 @property (strong, nonatomic) NSTimer *timer;
-@property (assign, nonatomic, getter = isShouldBeHidingStatusBar) BOOL shouldBeHidingStatusBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionButton;
 
@@ -31,13 +31,6 @@
 
 @implementation EventDetailsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-    }
-    return self;
-}
 #pragma mark - Setup View
 - (void)viewDidLoad {
     [super viewDidLoad];
