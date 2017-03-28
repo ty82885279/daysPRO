@@ -137,7 +137,7 @@
         <scene sceneID="6wM-dL-zns">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="cjh-Jl-h0H" customClass="EventsCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="3ZP-2q-OY7">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="3ZP-2q-OY7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <gestureRecognizers/>
@@ -259,13 +259,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sZH-Nm-c8k">
-                                <rect key="frame" x="68" y="28" width="240" height="284"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sZH-Nm-c8k">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="312"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dkn-WV-i6R">
-                                <rect key="frame" x="68" y="28" width="240" height="284"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="248"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="248" id="neV-pV-Edo"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="Select Image">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -275,18 +278,15 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ore-9g-DAQ">
-                                <rect key="frame" x="0.0" y="379" width="375" height="216"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="kRv-nC-V8C"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="358" width="375" height="309"/>
                                 <date key="date" timeIntervalSinceReferenceDate="506157399.221843">
                                     <!--2017-01-15 07:16:39 +0000-->
                                 </date>
                             </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Event's name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WsA-gO-bnk">
-                                <rect key="frame" x="67" y="320" width="240" height="30"/>
+                                <rect key="frame" x="68" y="320" width="239" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="EPL-bC-Khh"/>
+                                    <constraint firstAttribute="height" constant="30" id="yPL-x1-ZLm"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -295,20 +295,20 @@
                         </subviews>
                         <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Dkn-WV-i6R" firstAttribute="centerX" secondItem="Ore-9g-DAQ" secondAttribute="centerX" id="0Gn-bm-tpP"/>
-                            <constraint firstItem="sZH-Nm-c8k" firstAttribute="leading" secondItem="BVk-3l-vDJ" secondAttribute="leadingMargin" constant="52" id="8tJ-eS-cfk"/>
-                            <constraint firstItem="KBH-DQ-v2G" firstAttribute="top" secondItem="Ore-9g-DAQ" secondAttribute="bottom" constant="72" id="BEl-aC-A5W"/>
-                            <constraint firstItem="WsA-gO-bnk" firstAttribute="top" secondItem="sZH-Nm-c8k" secondAttribute="bottom" constant="8" symbolic="YES" id="Nkx-kH-7fp"/>
-                            <constraint firstItem="sZH-Nm-c8k" firstAttribute="leading" secondItem="Dkn-WV-i6R" secondAttribute="leading" id="UcE-e5-47i"/>
-                            <constraint firstItem="WsA-gO-bnk" firstAttribute="leading" secondItem="BVk-3l-vDJ" secondAttribute="leadingMargin" constant="51" id="Xg4-ID-tY4"/>
-                            <constraint firstItem="Dkn-WV-i6R" firstAttribute="top" secondItem="sZH-Nm-c8k" secondAttribute="top" id="equ-0z-Nfp"/>
-                            <constraint firstItem="WsA-gO-bnk" firstAttribute="top" secondItem="Dkn-WV-i6R" secondAttribute="bottom" constant="8" symbolic="YES" id="g72-cG-qPx"/>
-                            <constraint firstItem="Ore-9g-DAQ" firstAttribute="top" secondItem="WsA-gO-bnk" secondAttribute="bottom" constant="29" id="py5-JL-9iK"/>
-                            <constraint firstItem="Ore-9g-DAQ" firstAttribute="leading" secondItem="BVk-3l-vDJ" secondAttribute="leading" id="rPT-us-4J6"/>
-                            <constraint firstItem="WsA-gO-bnk" firstAttribute="centerX" secondItem="Ore-9g-DAQ" secondAttribute="centerX" id="rlT-2H-7sv"/>
-                            <constraint firstAttribute="trailing" secondItem="Ore-9g-DAQ" secondAttribute="trailing" id="zRp-ww-h8c"/>
-                            <constraint firstItem="Dkn-WV-i6R" firstAttribute="top" secondItem="UU7-2U-2k2" secondAttribute="bottom" constant="8" symbolic="YES" id="zZc-9R-NfG"/>
-                            <constraint firstItem="sZH-Nm-c8k" firstAttribute="trailing" secondItem="Dkn-WV-i6R" secondAttribute="trailing" id="zoF-ti-5cd"/>
+                            <constraint firstItem="sZH-Nm-c8k" firstAttribute="top" secondItem="BVk-3l-vDJ" secondAttribute="top" id="5aB-HG-I8C"/>
+                            <constraint firstItem="WsA-gO-bnk" firstAttribute="top" secondItem="Dkn-WV-i6R" secondAttribute="bottom" constant="8" symbolic="YES" id="9sj-pT-Kbr"/>
+                            <constraint firstItem="WsA-gO-bnk" firstAttribute="top" secondItem="sZH-Nm-c8k" secondAttribute="bottom" constant="8" symbolic="YES" id="DLy-xl-fi7"/>
+                            <constraint firstItem="Ore-9g-DAQ" firstAttribute="top" secondItem="WsA-gO-bnk" secondAttribute="bottom" constant="8" symbolic="YES" id="FYv-AD-XLo"/>
+                            <constraint firstItem="Ore-9g-DAQ" firstAttribute="bottom" secondItem="KBH-DQ-v2G" secondAttribute="top" id="Fv3-iN-Qgn"/>
+                            <constraint firstItem="sZH-Nm-c8k" firstAttribute="trailing" secondItem="Dkn-WV-i6R" secondAttribute="trailing" id="LuB-Po-GFE"/>
+                            <constraint firstItem="sZH-Nm-c8k" firstAttribute="leading" secondItem="BVk-3l-vDJ" secondAttribute="leading" id="M1H-P6-kOy"/>
+                            <constraint firstItem="Dkn-WV-i6R" firstAttribute="leading" secondItem="Ore-9g-DAQ" secondAttribute="leading" id="Qgw-CZ-fg9"/>
+                            <constraint firstItem="WsA-gO-bnk" firstAttribute="leading" secondItem="BVk-3l-vDJ" secondAttribute="leadingMargin" constant="52" id="SzS-Vj-qWl"/>
+                            <constraint firstAttribute="trailing" secondItem="sZH-Nm-c8k" secondAttribute="trailing" id="TRT-dn-SCB"/>
+                            <constraint firstItem="Dkn-WV-i6R" firstAttribute="top" secondItem="UU7-2U-2k2" secondAttribute="bottom" id="e0f-16-r44"/>
+                            <constraint firstItem="sZH-Nm-c8k" firstAttribute="leading" secondItem="Dkn-WV-i6R" secondAttribute="leading" id="gpd-m9-NAf"/>
+                            <constraint firstItem="Dkn-WV-i6R" firstAttribute="trailing" secondItem="Ore-9g-DAQ" secondAttribute="trailing" id="jcU-O5-TwF"/>
+                            <constraint firstItem="Dkn-WV-i6R" firstAttribute="centerX" secondItem="WsA-gO-bnk" secondAttribute="centerX" id="yr3-Jl-Foa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Event" id="sw6-tD-udB">
