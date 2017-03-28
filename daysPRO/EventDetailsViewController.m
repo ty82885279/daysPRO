@@ -89,11 +89,9 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 - (void)setupColors {
-    ThemeManager *themeManager = [[ThemeManager alloc] init];
-    NSDictionary *colors = [themeManager getTheme];
-    self.view.backgroundColor = [colors objectForKey:@"background"];
-    self.progressView.progressLabel.textColor = [UIColor whiteColor];
-    self.progressView.metaLabel.textColor = [UIColor whiteColor];
+    self.view.backgroundColor = [ThemeManager getBackgroundColor];
+    self.progressView.progressLabel.textColor = [ThemeManager getThemeColor];
+    self.progressView.metaLabel.textColor = [ThemeManager getThemeColor];
 }
 - (void)setupLabels {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];

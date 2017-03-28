@@ -10,10 +10,9 @@
 
 @interface ThemeManager : NSObject
 
-- (NSDictionary *)getTheme;
-- (UIColor *)getTintColor;
-- (UIColor *)getTextColor;
-- (void)setTheme;
-- (int)getCurrentYear;
++ (UIColor *)getBackgroundColor;
++ (UIColor *)getThemeColor;
++ (UIColor *)getCircleBackgroundColor;
++ (void)setTheme;
 
 @end

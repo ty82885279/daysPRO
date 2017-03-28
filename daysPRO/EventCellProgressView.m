@@ -32,13 +32,11 @@ static CGFloat kSymbolFontSize = 45.0;
     [self setupColors];
 }
 - (void)setupColors {
-    ThemeManager *themeManager = [[ThemeManager alloc] init];
-    NSDictionary *colors = [themeManager getTheme];
-    self.backgroundColor = [colors objectForKey:@"background"];
-    self.circleBackgroundColor = [colors objectForKey:@"innerCircleBackground"];
-    self.circleProgressColor = [colors objectForKey:@"innerCircleProgress"];
-    self.progressLabel.textColor = [colors objectForKey:@"colorText"];
-    self.metaLabel.textColor = [colors objectForKey:@"colorText"];
+    self.backgroundColor = [ThemeManager getBackgroundColor];
+    self.circleBackgroundColor = [ThemeManager getCircleBackgroundColor];
+    self.circleProgressColor = [ThemeManager getThemeColor];
+    self.progressLabel.textColor = [ThemeManager getThemeColor];
+    self.metaLabel.textColor = [ThemeManager getThemeColor];
 }
 - (void)drawRect:(CGRect)rect {
     CGFloat startAngle = M_PI * 1.5;

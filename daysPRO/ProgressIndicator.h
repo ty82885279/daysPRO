@@ -14,8 +14,8 @@
 @property BOOL blurAdded;
 
 @property (assign, nonatomic) CGFloat percentInnerCircle;
-@property (strong, nonatomic) UIColor *innerCircleBackgroundColor;
-@property (strong, nonatomic) UIColor *innerCircleProgressColor;
+@property (strong, nonatomic) UIColor *circleBackgroundColor;
+@property (strong, nonatomic) UIColor *themeColor;
 @property (strong, nonatomic) UIColor *textInsideCircleColor;
 
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;

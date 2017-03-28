@@ -28,10 +28,8 @@
     [self setupColors];
 }
 - (void)setupColors {
-    ThemeManager *themeManager = [[ThemeManager alloc] init];
-    NSDictionary *colors = [themeManager getTheme];
-    self.backgroundColor = [colors objectForKey:@"background"];
-    self.name.textColor = [colors objectForKey:@"tint"];
+    self.backgroundColor = [ThemeManager getBackgroundColor];
+    self.name.textColor = [ThemeManager getThemeColor];
 }
 - (void)startQuivering {
     if (!self.quiveringAnimation) {

@@ -35,7 +35,7 @@
     self.eventImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.eventImageView.clipsToBounds = true;
     
-    [self.datePicker setValue:[UIColor whiteColor] forKey:@"textColor"];
+    [self.datePicker setValue:[UIColor whiteColor] forKey:@"themeColor"];
     [self setupTextField:self.nameTextField];
 }
 

@@ -36,13 +36,10 @@ static NSString *kColorAnimationKey = @"strokeColor";
     [taptic prepare];
 }
 - (void)setupColors {
-    ThemeManager *themeManager = [[ThemeManager alloc] init];
-    NSDictionary *colors = [themeManager getTheme];
-    
     self.backgroundColor = [UIColor clearColor];
-    self.innerCircleBackgroundColor = [colors objectForKey:@"innerCircleBackground"];
-    self.innerCircleProgressColor = [colors objectForKey:@"innerCircleProgress"];
-    self.textInsideCircleColor = [colors objectForKey:@"tint"];
+    self.circleBackgroundColor = [ThemeManager getCircleBackgroundColor];
+    self.themeColor = [ThemeManager getThemeColor];
+    self.textInsideCircleColor = [ThemeManager getThemeColor];
     self.progressLabel.textColor = self.textInsideCircleColor;
     self.metaLabel.textColor = self.textInsideCircleColor;
 }
@@ -61,7 +58,7 @@ static NSString *kColorAnimationKey = @"strokeColor";
                        clockwise:YES];
     
     self.circlePath.lineWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kInnnerCircleLineWidthiPhone : kInnnerCircleLineWidthiPad;
-    [self.innerCircleBackgroundColor setStroke];
+    [self.circleBackgroundColor setStroke];
     [self.circlePath stroke];
     
     CGRect frame = _circlePath.bounds;
@@ -110,7 +107,7 @@ static NSString *kColorAnimationKey = @"strokeColor";
                        clockwise:YES];
     
     bezierPath.lineWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kInnnerCircleLineWidthiPhone : kInnnerCircleLineWidthiPad;
-    [self.innerCircleProgressColor setStroke];
+    [self.themeColor setStroke];
     [bezierPath stroke];
 }
 - (void)prepareTapticEngine {

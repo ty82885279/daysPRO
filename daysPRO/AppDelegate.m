@@ -23,7 +23,7 @@
     [SVProgressHUD setRingRadius:1];
     [SVProgressHUD setHapticsEnabled:true];
     [SVProgressHUD setMinimumDismissTimeInterval:1];
-    
+    [ThemeManager setTheme];
     [Fabric with:@[[Answers class]]];
     
     if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){

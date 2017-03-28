@@ -391,5 +391,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="V9j-Qu-WEb"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+    <color key="tintColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

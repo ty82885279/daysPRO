@@ -86,10 +86,8 @@ static NSInteger kCellWeightHeightiPad = 242;
     [self.view insertSubview:blurredStatusBar atIndex:10];
 }
 - (void)setupColors {
-    ThemeManager *themeManager = [[ThemeManager alloc] init];
-    NSDictionary *colors = [themeManager getTheme];
-    self.view.backgroundColor = [colors objectForKey:@"background"];
-    self.collectionView.backgroundColor = [colors objectForKey:@"background"];
+    self.view.backgroundColor = [ThemeManager getBackgroundColor];
+    self.collectionView.backgroundColor = [ThemeManager getBackgroundColor];
     // Light status bar
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
@@ -343,7 +341,7 @@ static NSInteger kCellWeightHeightiPad = 242;
 }
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f],
-                                 NSForegroundColorAttributeName: [[[ThemeManager alloc] init] getTextColor]};
+                                 NSForegroundColorAttributeName: [ThemeManager getThemeColor]};
     
     return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"New Event", nil) attributes:attributes];
 }
