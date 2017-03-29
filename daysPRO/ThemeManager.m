@@ -19,6 +19,9 @@
 + (UIColor *)getCircleBackgroundColor {
     return [self getColorForColor:@"circleBackgroundColor"];
 }
++ (BOOL)darkMode {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"darkMode"];
+}
 + (UIColor *)getColorForColor:(NSString *)colorName {
     unsigned rgbValue = 0;
     NSString *savedColor = [[NSUserDefaults standardUserDefaults] stringForKey:colorName];

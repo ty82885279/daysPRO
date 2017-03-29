@@ -68,7 +68,11 @@ static NSString *kColorAnimationKey = @"strokeColor";
     frame.origin.y = frame.origin.y + 10;
     
     UIVisualEffect *blurEffect;
-    blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    if ([ThemeManager darkMode]) {
+        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    } else {
+        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+    }
     
     UIVisualEffectView *visualEffectView;
     visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];

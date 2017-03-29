@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Event.h"
 #import "DataManager.h"
+#import "ThemeManager.h"
+
 @interface EditViewController : UIViewController <UIImagePickerControllerDelegate>
 
 @property BOOL *isEditing;

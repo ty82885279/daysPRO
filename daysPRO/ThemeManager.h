@@ -13,5 +13,6 @@
 + (UIColor *)getBackgroundColor;
 + (UIColor *)getThemeColor;
 + (UIColor *)getCircleBackgroundColor;
++ (BOOL)darkMode;
 
 @end

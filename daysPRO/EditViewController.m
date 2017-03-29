@@ -36,6 +36,20 @@
     self.eventImageView.clipsToBounds = true;
 
     [self setupTextField:self.nameTextField];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:
+    @{NSForegroundColorAttributeName:[ThemeManager getThemeColor]}];
+    
+    if ([ThemeManager darkMode]) {
+        self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+        self.nameTextField.keyboardAppearance = UIKeyboardAppearanceDark;
+        self.nameTextField.textColor = UIColor.lightTextColor;
+    } else {
+        self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+        self.nameTextField.keyboardAppearance = UIKeyboardAppearanceLight;
+        self.nameTextField.textColor = UIColor.darkTextColor;
+    }
+    self.view.backgroundColor = [ThemeManager getBackgroundColor];
 }
 
 - (void)setupTextField:(UITextField *)textField {

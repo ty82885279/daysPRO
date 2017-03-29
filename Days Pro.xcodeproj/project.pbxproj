@@ -38,6 +38,7 @@
 		D68315A31E8AA2D2003881B5 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68315A21E8AA2D2003881B5 /* ThemeViewController.swift */; };
 		D6AEB64E1E2B51C100F5D553 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AEB64D1E2B51C100F5D553 /* EditViewController.m */; };
 		D6B5B7B41DBE95D300729A15 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D6B5B7B31DBE95D300729A15 /* Settings.bundle */; };
+		D6C4AAE51E8BECA400B1BF63 /* LightAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D6C4AAE41E8BECA400B1BF63 /* LightAppIcon.png */; };
 		D6E4B9EF1DD0D7A500442536 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6E4B9ED1DD0D7A500442536 /* Localizable.strings */; };
 		D6E8B8C71E0036D900ADF6FF /* ESTBlurredStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E8B8C61E0036D900ADF6FF /* ESTBlurredStatusBar.m */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		D6AEB64C1E2B51C100F5D553 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		D6AEB64D1E2B51C100F5D553 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		D6B5B7B31DBE95D300729A15 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		D6C4AAE41E8BECA400B1BF63 /* LightAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightAppIcon.png; sourceTree = "<group>"; };
 		D6E4B9EE1DD0D7A500442536 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D6E4B9F01DD0D7B500442536 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D6E4B9F11DD0D7B600442536 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		D6723E271DBE40D000D925A4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D6C4AAE41E8BECA400B1BF63 /* LightAppIcon.png */,
 				D68315A11E8AA2D1003881B5 /* Days Pro-Bridging-Header.h */,
 				D6723DF31DBE409900D925A4 /* notification-sound.caf */,
 				D6723DF21DBE409900D925A4 /* Media.xcassets */,
@@ -333,6 +336,7 @@
 				D6723E141DBE409900D925A4 /* Main-iPhone.storyboard in Resources */,
 				D6723E171DBE409900D925A4 /* Media.xcassets in Resources */,
 				D6E4B9EF1DD0D7A500442536 /* Localizable.strings in Resources */,
+				D6C4AAE51E8BECA400B1BF63 /* LightAppIcon.png in Resources */,
 				D6723E181DBE409900D925A4 /* notification-sound.caf in Resources */,
 				D6723E121DBE409900D925A4 /* InfoPlist.strings in Resources */,
 				D6723E131DBE409900D925A4 /* Main-iPad.storyboard in Resources */,

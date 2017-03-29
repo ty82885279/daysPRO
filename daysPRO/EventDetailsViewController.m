@@ -40,11 +40,6 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateProgressView) userInfo:nil repeats:YES];
     
     self.bgImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
-
-    //Blurred status bar
-    ESTBlurredStatusBar *blurredStatusBar = [[ESTBlurredStatusBar alloc] initWithStyle:UIBlurEffectStyleDark];
-    [self.view insertSubview:blurredStatusBar aboveSubview:_bgImageView];
-    
     [self addBackgroundImage:[self loadImage]];
     
     //Add dark overlay so the bg image is always visible

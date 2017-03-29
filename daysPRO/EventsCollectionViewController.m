@@ -80,16 +80,15 @@ static NSInteger kCellWeightHeightiPad = 242;
     tapGestureRecognizer.delegate = self;
     tapGestureRecognizer.delaysTouchesBegan = YES;
     [self.collectionView addGestureRecognizer:tapGestureRecognizer];
-    
-    //Blurred status bar
-    ESTBlurredStatusBar *blurredStatusBar = [[ESTBlurredStatusBar alloc] initWithStyle:UIBlurEffectStyleDark];
-    [self.view insertSubview:blurredStatusBar atIndex:10];
 }
 - (void)setupColors {
     self.view.backgroundColor = [ThemeManager getBackgroundColor];
     self.collectionView.backgroundColor = [ThemeManager getBackgroundColor];
-    // Light status bar
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    if ([ThemeManager darkMode]) {
+        self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    } else {
+        self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    }
 }
 #pragma mark Notifications
 - (void)registerForNotifications {
