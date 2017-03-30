@@ -1,4 +1,4 @@
-![daysPRO](https://eaststudios.net/daysPRO/github/Icon.png) 
+<img src="https://eaststudios.net/img/icon/daysPro.png" width="120">
 
 Days Pro -- Event Countdown
 ========
@@ -12,9 +12,5 @@ FEATURES:
 - Modern UI
 - Push notifications
 - Unlimited events
-
-![daysPRO](https://eaststudios.net/daysPRO/github/screenshot1.png) 
-
-![daysPRO](https://eaststudios.net/daysPRO/github/screenshot2.png)
 
 [eaststudios.net/daysPRO](https://eaststudios.net/daysPRO)
