@@ -10,6 +10,14 @@
 
 @implementation Event (Helper)
 
+- (UIImage *)image {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:self.uuid];
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    return image;
+}
 - (CGFloat)progress {
     if (self.startDate && self.endDate) {
         NSTimeInterval intervalSinceStart = [self.endDate timeIntervalSinceDate:self.startDate];

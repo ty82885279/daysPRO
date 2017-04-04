@@ -18,22 +18,24 @@ class ThemeViewController: UIViewController {
     @IBOutlet weak var purpleButton: UIButton!
     @IBOutlet weak var pinkButton: UIButton!
     @IBOutlet weak var restartNoticeLabel: UILabel!
-    @IBOutlet weak var lightModeButton: UIButton!
-    @IBOutlet weak var darkModeButton: UIButton!
     @IBOutlet weak var themeColorLabel: UILabel!
+    @IBOutlet weak var darkModeLabel: UILabel!
+    @IBOutlet weak var darkModeSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.view.backgroundColor = hexStringToUIColor(hex: UserDefaults.standard.string(forKey: "backgroundColor")!)
-        
+        darkModeSwitch.isOn = UserDefaults.standard.bool(forKey: "darkMode")
         if UserDefaults.standard.bool(forKey: "darkMode") {
             themeColorLabel.textColor = UIColor.lightText
             restartNoticeLabel.textColor = UIColor.lightText
+            darkModeLabel.textColor = UIColor.lightText
         } else {
             themeColorLabel.textColor = UIColor.darkText
             restartNoticeLabel.textColor = UIColor.darkText
+            darkModeLabel.textColor = UIColor.darkText
         }
     }
 
@@ -58,7 +60,6 @@ class ThemeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     @IBAction func changeColor(_ sender: Any) {
         switch sender as! UIButton {
@@ -78,20 +79,6 @@ class ThemeViewController: UIViewController {
             UserDefaults.standard.set("5856D6", forKey: "themeColor")
         case pinkButton:
             UserDefaults.standard.set("FF2D55", forKey: "themeColor")
-        case lightModeButton:
-            UserDefaults.standard.set("EBEBF1", forKey: "backgroundColor")
-            UserDefaults.standard.set("BDC3C7", forKey: "circleBackgroundColor")
-            UserDefaults.standard.set(false, forKey: "darkMode")
-            if #available(iOS 10.3, *) {
-                UIApplication.shared.setAlternateIconName("light")
-            }
-        case darkModeButton:
-            UserDefaults.standard.set("202020", forKey: "backgroundColor")
-            UserDefaults.standard.set("522A27", forKey: "circleBackgroundColor")
-            UserDefaults.standard.set(true, forKey: "darkMode")
-            if #available(iOS 10.3, *) {
-                UIApplication.shared.setAlternateIconName(nil)
-            }
         default:
             UserDefaults.standard.set("FF9500", forKey: "themeColor")
         }
@@ -103,5 +90,23 @@ class ThemeViewController: UIViewController {
         }
         alertController.addAction(cancel)
         self.present(alertController, animated: true)
+    }
+    
+    @IBAction func darkModeSwitched(_ sender: Any) {
+        if (sender as! UISwitch).isOn {
+            UserDefaults.standard.set("202020", forKey: "backgroundColor")
+            UserDefaults.standard.set("522A27", forKey: "circleBackgroundColor")
+            UserDefaults.standard.set(true, forKey: "darkMode")
+            if #available(iOS 10.3, *) {
+                UIApplication.shared.setAlternateIconName(nil)
+            }
+        } else {
+            UserDefaults.standard.set("EBEBF1", forKey: "backgroundColor")
+            UserDefaults.standard.set("BDC3C7", forKey: "circleBackgroundColor")
+            UserDefaults.standard.set(false, forKey: "darkMode")
+            if #available(iOS 10.3, *) {
+                UIApplication.shared.setAlternateIconName("light")
+            }
+        }
     }
 }

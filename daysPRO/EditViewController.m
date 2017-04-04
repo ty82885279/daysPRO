@@ -21,45 +21,21 @@
         self.title = self.event.name;
         self.datePicker.date = self.event.startDate;
         self.nameTextField.text = self.event.name;
+    } else {
+        self.datePicker.minimumDate = [NSDate date];
     }
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboards)];
     [self.view addGestureRecognizer:tap];
     
-    UIView *imageOverlay = [[UIView alloc] initWithFrame:self.eventImageButton.frame];
-    imageOverlay.backgroundColor = [UIColor blackColor];
-    imageOverlay.alpha = 0.33;
-    [self.view insertSubview:imageOverlay aboveSubview:self.eventImageView];
-    
-    self.eventImageView.image = [self loadEventImage];
+    self.eventImageView.image = self.event.image;
     self.eventImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.eventImageView.clipsToBounds = true;
 
-    [self setupTextField:self.nameTextField];
-    
     [self.navigationController.navigationBar setTitleTextAttributes:
     @{NSForegroundColorAttributeName:[ThemeManager getThemeColor]}];
-    
-    if ([ThemeManager darkMode]) {
-        self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-        self.nameTextField.keyboardAppearance = UIKeyboardAppearanceDark;
-        self.nameTextField.textColor = UIColor.lightTextColor;
-    } else {
-        self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-        self.nameTextField.keyboardAppearance = UIKeyboardAppearanceLight;
-        self.nameTextField.textColor = UIColor.darkTextColor;
-    }
-    self.view.backgroundColor = [ThemeManager getBackgroundColor];
 }
 
-- (void)setupTextField:(UITextField *)textField {
-    [textField setBorderStyle:UITextBorderStyleLine];
-    [textField.layer setBorderColor:[UIColor darkGrayColor].CGColor];
-    textField.layer.borderWidth = 0.8;
-    textField.layer.cornerRadius = 5;
-    textField.clipsToBounds = YES;
-    textField.textColor = [UIColor whiteColor];
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -67,15 +43,6 @@
 
 - (void)dismissKeyboards {
     [self.nameTextField resignFirstResponder];
-}
-
-- (UIImage *)loadEventImage {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                         NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *path = [documentsDirectory stringByAppendingPathComponent:self.event.uuid];
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
-    return image;
 }
 
 - (IBAction)saveEvent:(id)sender {

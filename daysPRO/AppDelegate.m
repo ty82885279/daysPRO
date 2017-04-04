@@ -59,6 +59,7 @@
     [defaults setObject:@"FF9500" forKey:@"themeColor"];
     [defaults setObject:@"522A27" forKey:@"circleBackgroundColor"];
     [defaults setBool:true forKey:@"darkMode"];
+    
 }
 - (void)setupPushNotificationsManager {
     self.pushManager = [[PushManager alloc] init];

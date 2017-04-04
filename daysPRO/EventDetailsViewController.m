@@ -40,7 +40,7 @@
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateProgressView) userInfo:nil repeats:YES];
     
     self.bgImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
-    [self addBackgroundImage:[self loadImage]];
+    [self addBackgroundImage:self.event.image];
     
     //Add dark overlay so the bg image is always visible
     _darkImageOverlay = [[UIView alloc] initWithFrame:self.view.frame];
@@ -106,14 +106,6 @@
     _bgImageView.clipsToBounds = true;
     [self.view insertSubview:_bgImageView atIndex:0];
 }
-- (UIImage *)loadImage {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                         NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *path = [documentsDirectory stringByAppendingPathComponent:self.event.uuid];
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
-    return image;
-}
 - (void)setupProgressLabels {
     // Set percent for progress indicator
     self.progressView.percentInnerCircle = [self.event progress] * 100;
@@ -139,7 +131,7 @@
     [super viewWillAppear:animated];
     [self setupLabels];
     [self updateProgressView];
-    [self addBackgroundImage:[self loadImage]];
+    [self addBackgroundImage:self.event.image];
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -173,7 +165,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showEditEventView"]) {
         EditViewController *editController = (EditViewController *)((UINavigationController *)segue.destinationViewController).topViewController;
-        editController.isEditing = YES;
+        editController.isEditing = true;
         editController.event = self.event;
     }
 }

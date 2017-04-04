@@ -177,8 +177,8 @@
 		D6723E261DBE40C300D925A4 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				D6723DEC1DBE409900D925A4 /* Main-iPad.storyboard */,
 				D6723DEE1DBE409900D925A4 /* Main-iPhone.storyboard */,
+				D6723DEC1DBE409900D925A4 /* Main-iPad.storyboard */,
 				D6723DF01DBE409900D925A4 /* Launch Screen.storyboard */,
 			);
 			name = Storyboards;
@@ -290,7 +290,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = SK;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Salavat Khanov";
 				TargetAttributes = {
 					A6693559179D31E200E5A40F = {
@@ -550,6 +550,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

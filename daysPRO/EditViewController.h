@@ -13,7 +13,7 @@
 
 @interface EditViewController : UIViewController <UIImagePickerControllerDelegate>
 
-@property BOOL *isEditing;
+@property BOOL isEditing;
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;

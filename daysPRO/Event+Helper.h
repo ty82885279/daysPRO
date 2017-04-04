@@ -22,6 +22,7 @@
 
 @interface Event (Helper) <EventMethods>
 
+- (UIImage *)image;
 - (CGFloat)progress;
 - (NSString *)description;
 - (BOOL)isOver;
