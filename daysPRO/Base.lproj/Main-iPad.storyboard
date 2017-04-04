@@ -32,42 +32,66 @@
                                     <rect key="frame" x="0.0" y="0.0" width="242" height="242"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZv-za-iFQ" userLabel="Event Name">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZv-za-iFQ" userLabel="Event Name">
                                             <rect key="frame" x="58" y="210" width="127" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="36U-f7-mt0" userLabel="Progress View" customClass="EventCellProgressView">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36U-f7-mt0" userLabel="Progress View" customClass="EventCellProgressView">
                                             <rect key="frame" x="39" y="38" width="165" height="165"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKr-sh-ENd" userLabel="Progress Label">
-                                                    <rect key="frame" x="27" y="49" width="111" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="50"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="33" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKr-sh-ENd" userLabel="Progress Label">
+                                                    <rect key="frame" x="27" y="42" width="111" height="48"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIME LEFT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rv8-hZ-WeB" userLabel="Meta Label">
-                                                    <rect key="frame" x="27" y="96" width="111" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="12"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME LEFT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rv8-hZ-WeB" userLabel="Meta Label">
+                                                    <rect key="frame" x="27" y="95" width="111" height="14"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="14" id="7Xt-KU-1qg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NnJ-BE-XJi" userLabel="Meta Label">
+                                                    <rect key="frame" x="27" y="109" width="111" height="14"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="14" id="B1c-n7-8kJ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <gestureRecognizers/>
+                                            <constraints>
+                                                <constraint firstItem="SKr-sh-ENd" firstAttribute="leading" secondItem="36U-f7-mt0" secondAttribute="leading" constant="27" id="3pF-z6-C7y"/>
+                                                <constraint firstItem="SKr-sh-ENd" firstAttribute="trailing" secondItem="rv8-hZ-WeB" secondAttribute="trailing" id="6ig-f6-6lf"/>
+                                                <constraint firstItem="SKr-sh-ENd" firstAttribute="centerX" secondItem="36U-f7-mt0" secondAttribute="centerX" id="GuP-cJ-kGc"/>
+                                                <constraint firstItem="rv8-hZ-WeB" firstAttribute="trailing" secondItem="NnJ-BE-XJi" secondAttribute="trailing" id="Jjt-TB-Vc0"/>
+                                                <constraint firstItem="SKr-sh-ENd" firstAttribute="top" secondItem="36U-f7-mt0" secondAttribute="top" constant="42" id="NUL-Zc-mNZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="NnJ-BE-XJi" secondAttribute="bottom" constant="42" id="c8A-e0-Mn5"/>
+                                                <constraint firstItem="NnJ-BE-XJi" firstAttribute="top" secondItem="rv8-hZ-WeB" secondAttribute="bottom" id="lbo-1M-Fyf"/>
+                                                <constraint firstItem="SKr-sh-ENd" firstAttribute="leading" secondItem="rv8-hZ-WeB" secondAttribute="leading" id="ozV-Kv-yT7"/>
+                                                <constraint firstItem="rv8-hZ-WeB" firstAttribute="leading" secondItem="NnJ-BE-XJi" secondAttribute="leading" id="sfZ-Jf-1pT"/>
+                                                <constraint firstItem="rv8-hZ-WeB" firstAttribute="top" secondItem="SKr-sh-ENd" secondAttribute="bottom" constant="5" id="zKp-Mu-hVL"/>
+                                            </constraints>
                                             <connections>
+                                                <outlet property="dateLabel" destination="NnJ-BE-XJi" id="mGi-ac-nNd"/>
                                                 <outlet property="metaLabel" destination="rv8-hZ-WeB" id="wtO-1o-XBF"/>
                                                 <outlet property="progressLabel" destination="SKr-sh-ENd" id="hwL-Dp-jqL"/>
                                             </connections>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kP7-HB-arm" userLabel="Delete Button">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kP7-HB-arm" userLabel="Delete Button">
                                             <rect key="frame" x="32" y="31" width="30" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="IyD-9k-szi"/>
+                                                <constraint firstAttribute="height" constant="30" id="bZX-vd-Yww"/>
+                                            </constraints>
                                             <state key="normal" image="delete-icon"/>
                                             <connections>
                                                 <action selector="deleteButton:" destination="bN2-52-heh" eventType="touchUpInside" id="vNm-TB-vhk"/>
@@ -77,6 +101,18 @@
                                 </view>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="bottomMargin" secondItem="IZv-za-iFQ" secondAttribute="bottom" constant="3" id="Ig5-i6-LAt"/>
+                                    <constraint firstItem="36U-f7-mt0" firstAttribute="centerX" secondItem="IZv-za-iFQ" secondAttribute="centerX" id="Jhf-zE-q8Y"/>
+                                    <constraint firstItem="IZv-za-iFQ" firstAttribute="leading" secondItem="QYc-My-u1M" secondAttribute="leadingMargin" constant="50" id="QFh-CL-bcD"/>
+                                    <constraint firstItem="36U-f7-mt0" firstAttribute="top" secondItem="QYc-My-u1M" secondAttribute="topMargin" constant="30" id="UCa-wX-W77"/>
+                                    <constraint firstItem="36U-f7-mt0" firstAttribute="centerX" secondItem="QYc-My-u1M" secondAttribute="centerX" id="Uvb-1m-NeL"/>
+                                    <constraint firstItem="kP7-HB-arm" firstAttribute="leading" secondItem="QYc-My-u1M" secondAttribute="leadingMargin" constant="24" id="dd0-6a-hS1"/>
+                                    <constraint firstItem="36U-f7-mt0" firstAttribute="centerY" secondItem="QYc-My-u1M" secondAttribute="centerY" id="ds9-Dx-v73"/>
+                                    <constraint firstItem="36U-f7-mt0" firstAttribute="leading" secondItem="QYc-My-u1M" secondAttribute="leadingMargin" constant="31" id="hNC-ob-DWJ"/>
+                                    <constraint firstItem="IZv-za-iFQ" firstAttribute="top" secondItem="36U-f7-mt0" secondAttribute="bottom" constant="7" id="j5Q-OB-ERM"/>
+                                    <constraint firstItem="kP7-HB-arm" firstAttribute="top" secondItem="QYc-My-u1M" secondAttribute="topMargin" constant="23" id="tOC-PQ-RIM"/>
+                                </constraints>
                                 <size key="customSize" width="242" height="242"/>
                                 <connections>
                                     <outlet property="deleteButton" destination="kP7-HB-arm" id="b7K-Pf-teq"/>
@@ -553,6 +589,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="QPR-9U-c7j"/>
+        <segue reference="zTT-vk-bp7"/>
     </inferredMetricsTieBreakers>
 </document>

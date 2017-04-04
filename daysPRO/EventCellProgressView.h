@@ -17,9 +17,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *metaLabel;
-
-- (void)useSmallerFont;
-- (void)useDefaultFont;
-- (void)useFontForSymbol;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @end

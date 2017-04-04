@@ -209,16 +209,14 @@ static NSInteger kCellWeightHeightiPad = 242;
     self.isEditing ? [cell startQuivering] : [cell stopQuivering];
     
     NSDictionary *options = [event bestNumberAndText];
-    //Remove -
-    NSString *number = [options valueForKey:@"number"];
-    cell.progressView.progressLabel.text = [number stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    cell.progressView.progressLabel.text = [options valueForKey:@"number"];
     cell.progressView.metaLabel.text = [options valueForKey:@"text"];
     
-    // for events that have finished, use special font to display symbol
-    [event progress] > 1.0 ? [cell.progressView useFontForSymbol] : [cell.progressView useDefaultFont];
-    // for events that haven't yet started, use smaller text
-    [event progress] < 0 ? [cell.progressView useSmallerFont] : [cell.progressView useDefaultFont];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
     
+    cell.progressView.dateLabel.text = [formatter stringFromDate:event.endDate];
+
     [cell.progressView setNeedsDisplay];
     
     return cell;

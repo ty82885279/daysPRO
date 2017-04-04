@@ -13,20 +13,8 @@ static NSInteger kCircleRadiusiPhone = 54;
 static NSInteger kCircleRadiusiPad = 80;
 static NSInteger kCircleLineWidth = 3;
 
-static CGFloat kNumberInsideCircleFontSizeiPhone = 35.0;
-static CGFloat kNumberInsideCircleFontSizeiPad = 50.0;
-static NSString *kSymbolFontName = @"AppleSDGothicNeo-Regular";
-static CGFloat kSymbolFontSize = 45.0;
-
 @implementation EventCellProgressView
 
-- (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        
-    }
-    return self;
-}
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self setupColors];
@@ -37,6 +25,7 @@ static CGFloat kSymbolFontSize = 45.0;
     self.circleProgressColor = [ThemeManager getThemeColor];
     self.progressLabel.textColor = [ThemeManager getThemeColor];
     self.metaLabel.textColor = [ThemeManager getThemeColor];
+    self.dateLabel.textColor = [ThemeManager getThemeColor];
 }
 - (void)drawRect:(CGRect)rect {
     CGFloat startAngle = M_PI * 1.5;
@@ -65,23 +54,6 @@ static CGFloat kSymbolFontSize = 45.0;
         [self.circleProgressColor setStroke];
         [progressBezierPath stroke];
     }
-}
-- (void)useSmallerFont {
-    self.progressLabel.font = [UIFont systemFontOfSize:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kNumberInsideCircleFontSizeiPhone : kNumberInsideCircleFontSizeiPad];
-    
-    self.metaLabel.numberOfLines = 1;
-    self.metaLabel.minimumScaleFactor = 8./self.metaLabel.font.pointSize;
-    self.metaLabel.adjustsFontSizeToFitWidth = YES;
-}
-- (void)useFontForSymbol {
-    self.progressLabel.font = [UIFont fontWithName:kSymbolFontName size:kSymbolFontSize];
-}
-- (void)useDefaultFont {
-    self.progressLabel.font = [UIFont systemFontOfSize:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kNumberInsideCircleFontSizeiPhone : kNumberInsideCircleFontSizeiPad];
-
-    self.metaLabel.numberOfLines = 1;
-    self.metaLabel.minimumScaleFactor = 8./self.metaLabel.font.pointSize;
-    self.metaLabel.adjustsFontSizeToFitWidth = YES;
 }
 
 @end
