@@ -98,14 +98,18 @@ class ThemeViewController: UIViewController {
             UserDefaults.standard.set("522A27", forKey: "circleBackgroundColor")
             UserDefaults.standard.set(true, forKey: "darkMode")
             if #available(iOS 10.3, *) {
-                UIApplication.shared.setAlternateIconName(nil)
+                if UIApplication.shared.supportsAlternateIcons {
+                    UIApplication.shared.setAlternateIconName(nil)
+                }
             }
         } else {
             UserDefaults.standard.set("EBEBF1", forKey: "backgroundColor")
             UserDefaults.standard.set("BDC3C7", forKey: "circleBackgroundColor")
             UserDefaults.standard.set(false, forKey: "darkMode")
             if #available(iOS 10.3, *) {
-                UIApplication.shared.setAlternateIconName("light")
+                if UIApplication.shared.supportsAlternateIcons {
+                    UIApplication.shared.setAlternateIconName("light")
+                }
             }
         }
     }

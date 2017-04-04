@@ -19,6 +19,13 @@
 + (UIColor *)getCircleBackgroundColor {
     return [self getColorForColor:@"circleBackgroundColor"];
 }
++ (UIColor *)getTextColor {
+    if (self.darkMode) {
+        return [UIColor lightTextColor];
+    } else {
+        return [UIColor darkTextColor];
+    }
+}
 + (BOOL)darkMode {
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"darkMode"];
 }

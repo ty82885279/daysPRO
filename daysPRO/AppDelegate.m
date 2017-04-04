@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "DataManager.h"
 #import "ThemeManager.h"
-#import "EventDetailsViewController.h"
+#import "Days_Pro-Swift.h"
 
 @interface AppDelegate ()
 @end
@@ -46,7 +46,7 @@
         
         UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main-iPhone" bundle: nil];
-        EventDetailsViewController *controller = (EventDetailsViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"eventDetails"];
+        EventViewController *controller = (EventViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"eventDetails"];
         controller.event = tappedEvent;
         [navigationController pushViewController:controller animated:YES];
         

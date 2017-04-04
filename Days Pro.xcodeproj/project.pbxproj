@@ -15,6 +15,7 @@
 		A6693562179D31E200E5A40F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6693561179D31E200E5A40F /* CoreGraphics.framework */; };
 		A6A3E8A8188F931700A3E4FB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A3E8A7188F931700A3E4FB /* QuartzCore.framework */; };
 		AF2FE2148929C9C7AF912EB4 /* Pods_Days_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7716506E8CB7504A3A5C63F6 /* Pods_Days_Pro.framework */; };
+		D605388A1E93DB6D006F9086 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60538891E93DB6D006F9086 /* EventViewController.swift */; };
 		D6723E0F1DBE409900D925A4 /* AppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D6723DE51DBE409900D925A4 /* AppModel.xcdatamodeld */; };
 		D6723E121DBE409900D925A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6723DEA1DBE409900D925A4 /* InfoPlist.strings */; };
 		D6723E131DBE409900D925A4 /* Main-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6723DEC1DBE409900D925A4 /* Main-iPad.storyboard */; };
@@ -30,7 +31,6 @@
 		D6723E1E1DBE409900D925A4 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723DFF1DBE409900D925A4 /* Event.m */; };
 		D6723E1F1DBE409900D925A4 /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E011DBE409900D925A4 /* EventCell.m */; };
 		D6723E201DBE409900D925A4 /* EventCellProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E031DBE409900D925A4 /* EventCellProgressView.m */; };
-		D6723E221DBE409900D925A4 /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E061DBE409900D925A4 /* EventDetailsViewController.m */; };
 		D6723E231DBE409900D925A4 /* EventsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E081DBE409900D925A4 /* EventsCollectionViewController.m */; };
 		D6723E241DBE409900D925A4 /* ProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E0A1DBE409900D925A4 /* ProgressIndicator.m */; };
 		D6723E251DBE409900D925A4 /* PushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6723E0C1DBE409900D925A4 /* PushManager.m */; };
@@ -54,6 +54,7 @@
 		A669355F179D31E200E5A40F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A6693561179D31E200E5A40F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A6A3E8A7188F931700A3E4FB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D60538891E93DB6D006F9086 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		D64386A71E8AB4780013FC37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/Main-iPhone.strings"; sourceTree = "<group>"; };
 		D64386A91E8AB47B0013FC37 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = "fi.lproj/Main-iPhone.strings"; sourceTree = "<group>"; };
 		D65B1A261DE9887200542EAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPad.storyboard"; sourceTree = "<group>"; };
@@ -82,8 +83,6 @@
 		D6723E011DBE409900D925A4 /* EventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
 		D6723E021DBE409900D925A4 /* EventCellProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCellProgressView.h; sourceTree = "<group>"; };
 		D6723E031DBE409900D925A4 /* EventCellProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCellProgressView.m; sourceTree = "<group>"; };
-		D6723E051DBE409900D925A4 /* EventDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
-		D6723E061DBE409900D925A4 /* EventDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
 		D6723E071DBE409900D925A4 /* EventsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsCollectionViewController.h; sourceTree = "<group>"; };
 		D6723E081DBE409900D925A4 /* EventsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsCollectionViewController.m; sourceTree = "<group>"; };
 		D6723E091DBE409900D925A4 /* ProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressIndicator.h; sourceTree = "<group>"; };
@@ -206,8 +205,7 @@
 			children = (
 				D6AEB64C1E2B51C100F5D553 /* EditViewController.h */,
 				D6AEB64D1E2B51C100F5D553 /* EditViewController.m */,
-				D6723E051DBE409900D925A4 /* EventDetailsViewController.h */,
-				D6723E061DBE409900D925A4 /* EventDetailsViewController.m */,
+				D60538891E93DB6D006F9086 /* EventViewController.swift */,
 				D6723E071DBE409900D925A4 /* EventsCollectionViewController.h */,
 				D6723E081DBE409900D925A4 /* EventsCollectionViewController.m */,
 				D68315A21E8AA2D2003881B5 /* ThemeViewController.swift */,
@@ -417,6 +415,7 @@
 				D6723E2D1DBE434D00D925A4 /* ThemeManager.m in Sources */,
 				D6723E1B1DBE409900D925A4 /* CustomCollectionViewFlowLayout.m in Sources */,
 				D6723E1A1DBE409900D925A4 /* AppDelegate.m in Sources */,
+				D605388A1E93DB6D006F9086 /* EventViewController.swift in Sources */,
 				D6E8B8C71E0036D900ADF6FF /* ESTBlurredStatusBar.m in Sources */,
 				D6723E161DBE409900D925A4 /* main.m in Sources */,
 				D6723E251DBE409900D925A4 /* PushManager.m in Sources */,
@@ -425,7 +424,6 @@
 				D6723E241DBE409900D925A4 /* ProgressIndicator.m in Sources */,
 				D68315A31E8AA2D2003881B5 /* ThemeViewController.swift in Sources */,
 				D6AEB64E1E2B51C100F5D553 /* EditViewController.m in Sources */,
-				D6723E221DBE409900D925A4 /* EventDetailsViewController.m in Sources */,
 				D6723E1C1DBE409900D925A4 /* DataManager.m in Sources */,
 				D6723E0F1DBE409900D925A4 /* AppModel.xcdatamodeld in Sources */,
 				D6723E231DBE409900D925A4 /* EventsCollectionViewController.m in Sources */,
@@ -565,6 +563,7 @@
 				CODE_SIGN_ENTITLEMENTS = daysPRO/daysPRO.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 74N5MDHHBK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -597,6 +596,7 @@
 				CODE_SIGN_ENTITLEMENTS = daysPRO/daysPRO.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 74N5MDHHBK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

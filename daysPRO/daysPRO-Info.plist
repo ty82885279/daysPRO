@@ -6,6 +6,28 @@
 	<string>en</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundleAlternateIcons</key>
+		<dict>
+			<key>light</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>LightAppIcon</string>
+				</array>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+			</dict>
+		</dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>AppIcon</string>
+			</array>
+		</dict>
+	</dict>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -46,28 +68,6 @@
 	<string>Main-iPhone</string>
 	<key>UIMainStoryboardFile~ipad</key>
 	<string>Main-iPad</string>
-	<key>CFBundleIcons</key>
-	<dict>
-		<key>CFBundleAlternateIcons</key>
-		<dict>
-			<key>light</key>
-			<dict>
-				<key>CFBundleIconFiles</key>
-				<array>
-					<string>LightAppIcon</string>
-				</array>
-				<key>UIPrerenderedIcon</key>
-				<false/>
-			</dict>
-		</dict>
-		<key>CFBundlePrimaryIcon</key>
-		<dict>
-			<key>CFBundleIconFiles</key>
-			<array>
-				<string>AppIcon</string>
-			</array>
-		</dict>
-	</dict>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -87,9 +87,6 @@
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>

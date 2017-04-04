@@ -8,10 +8,10 @@
 
 #import "EventsCollectionViewController.h"
 #import "EventCell.h"
-#import "EventDetailsViewController.h"
 #import "CustomCollectionViewFlowLayout.h"
 #import "AppDelegate.h"
 #import "ESTBlurredStatusBar.h"
+#import "Days_Pro-Swift.h"
 
 static NSInteger kMarginTopBottomiPhone = 12;
 static NSInteger kMarginTopBottomiPad = 30;
@@ -251,9 +251,9 @@ static NSInteger kCellWeightHeightiPad = 242;
     // Pass the selected event to the details view controller.
     if ([segue.identifier isEqualToString:@"showEventDetailsView"]) {
         NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
-        EventDetailsViewController *eventDetailsViewController = segue.destinationViewController;
-        eventDetailsViewController.event = [self.fetchedEventsArray objectAtIndex:indexPath.row];
-        [Answers logCustomEventWithName:@"Open event" customAttributes:@{@"Name":eventDetailsViewController.event.name}];
+        EventViewController *eventViewController = segue.destinationViewController;
+        eventViewController.event = [self.fetchedEventsArray objectAtIndex:indexPath.row];
+        [Answers logCustomEventWithName:@"Open event" customAttributes:@{@"Name":eventViewController.event.name}];
     }
 }
 - (void)showAddEventView {
