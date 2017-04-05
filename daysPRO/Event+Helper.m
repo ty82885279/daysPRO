@@ -18,6 +18,7 @@
     UIImage *image = [UIImage imageWithContentsOfFile:path];
     return image;
 }
+
 - (CGFloat)progress {
     if (self.startDate && self.endDate) {
         NSTimeInterval intervalSinceStart = [self.endDate timeIntervalSinceDate:self.startDate];
@@ -27,27 +28,35 @@
         return 0;
     }
 }
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"name '%@', startDate '%@', endDate '%@', desc '%@', created '%@'", self.name, self.startDate, self.endDate, self.details, self.createdDate];
 }
+
 - (BOOL)isOver {
     return self.progress > 1;
 }
+
 - (NSInteger)weeksLeftToDate:(NSDate *)date {
     return lroundf([self daysLeftToDate:date] / 7.0);
 }
+
 - (NSInteger)daysLeftToDate:(NSDate *)date {
     return lroundf([self hoursLeftToDate:date] / 24.0);
 }
+
 - (NSInteger)hoursLeftToDate:(NSDate *)date {
     return lroundf([self minutesLeftToDate:date] / 60.0);
 }
+
 - (NSInteger)minutesLeftToDate:(NSDate *)date {
     return lroundf([self secondsLeftToDate:date] / 60.0);
 }
+
 - (NSInteger)secondsLeftToDate:(NSDate *)date {
     return lroundf([date timeIntervalSinceDate:[NSDate date]]);
 }
+
 - (NSDictionary *)bestNumberAndText {
     NSInteger progress;
     NSString *metaText;

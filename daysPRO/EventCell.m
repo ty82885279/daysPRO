@@ -21,17 +21,20 @@
     }
     return self;
 }
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.deleteButton.hidden = YES;
     self.quiveringAnimation = nil;
     [self setupColors];
 }
+
 - (void)setupColors {
     self.backgroundColor = [ThemeManager getBackgroundColor];
     self.name.textColor = [ThemeManager getThemeColor];
     self.deleteButton.tintColor = [ThemeManager getThemeColor];
 }
+
 - (void)startQuivering {
     if (!self.quiveringAnimation) {
         self.deleteButton.hidden = NO;
@@ -51,6 +54,7 @@
     }
     [self.layer addAnimation:self.quiveringAnimation forKey:@"quivering"];
 }
+
 - (void)stopQuivering {
     if (self.quiveringAnimation) {
         self.quiveringAnimation = nil;

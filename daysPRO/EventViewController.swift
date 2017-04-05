@@ -20,6 +20,7 @@ import UIKit
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var deleteButton: UIBarButtonItem!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         

@@ -44,6 +44,7 @@ NSString *const kDeletedKey = @"deleted";
     
     return sharedManager;
 }
+
 #pragma mark - Core Data stack
 /**
  Returns the managed object context for the application.
@@ -122,6 +123,7 @@ NSString *const kDeletedKey = @"deleted";
     
     return _persistentStoreCoordinator;
 }
+
 #pragma mark - Adding persistent stores
 - (void)addPersistentStoreToCoordinator {
     NSMutableDictionary *options = [NSMutableDictionary dictionary];
@@ -156,6 +158,7 @@ NSString *const kDeletedKey = @"deleted";
         [SVProgressHUD showErrorWithStatus:error.localizedDescription];
     }
 }
+
 #pragma mark - Save Context
 - (void)saveTheContext:(NSManagedObjectContext *)theContext {
     if ([self.persistentStoreCoordinator.persistentStores count] != 0) {
@@ -174,9 +177,11 @@ NSString *const kDeletedKey = @"deleted";
         }
     }
 }
+
 - (void)saveContext {
     [self saveTheContext:self.managedObjectContext];
 }
+
 #pragma mark - Events
 - (NSArray *)getAllEvents {
     // initializing NSFetchRequest
@@ -197,6 +202,7 @@ NSString *const kDeletedKey = @"deleted";
     // Return Sorted Fetched Events
     return [fetchedEvents sortedArrayUsingDescriptors:@[sortDescriptor]];
 }
+
 - (Event *)createEventWithName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details image:(UIImage *)image {
     Event *newEvent = (Event *)[NSEntityDescription insertNewObjectForEntityForName:kEventEntityName inManagedObjectContext:self.managedObjectContext];
     newEvent.name = name;
@@ -210,6 +216,7 @@ NSString *const kDeletedKey = @"deleted";
     }
     return newEvent;
 }
+
 - (void)saveImage:(UIImage *)image event:(Event *)event {
     if (image != nil) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
@@ -220,6 +227,7 @@ NSString *const kDeletedKey = @"deleted";
         [data writeToFile:path atomically:YES];
     }
 }
+
 - (Event *)updateEvent:(Event *)event withName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details image:(UIImage *)image {
     event.name = name;
     event.startDate = startDate;
@@ -230,6 +238,7 @@ NSString *const kDeletedKey = @"deleted";
     }
     return event;
 }
+
 - (UIImage *)fixOrientation:(UIImage *)image {
     // http://stackoverflow.com/a/5427890
     
@@ -307,6 +316,7 @@ NSString *const kDeletedKey = @"deleted";
     CGImageRelease(cgimg);
     return img;
 }
+
 - (void)deleteEvent:(Event *)event {
     [Answers logCustomEventWithName:@"Delete event" customAttributes:@{@"Name":event.name}];
     //remove the image
@@ -319,16 +329,19 @@ NSString *const kDeletedKey = @"deleted";
     
     [self.managedObjectContext deleteObject:event];
 }
+
 - (void)addEventsFromServer {
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading...", nil)];
-    NSURL *url = [NSURL URLWithString:@"https://eaststudios.fi/api/days/v1/defaultEvents.json"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        if (!connectionError) {
-            NSError *error;
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:[NSURL URLWithString:@"https://eaststudios.net/api/days/v1/defaultEvents.json"]
+            completionHandler:^(NSData *data,
+                                NSURLResponse *response,
+                                NSError *error) {
+        if (!error) {
+            NSError *jsonError;
             NSArray *json = [NSJSONSerialization JSONObjectWithData:data
                                                             options:kNilOptions
-                                                              error:&error];
+                                                              error:&jsonError];
             
             for (Event *record in json) {
                 
@@ -357,23 +370,20 @@ NSString *const kDeletedKey = @"deleted";
             }
             [SVProgressHUD dismiss];
         } else {
-            [SVProgressHUD showErrorWithStatus:connectionError.localizedDescription];
+            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
         }
-    }];
+    }] resume];
 }
--(UIImage *)getImageFromURL:(NSString *)fileURL {
-    UIImage *image;
-    
+
+- (UIImage *)getImageFromURL:(NSString *)fileURL {
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
     
     if (data) {
-        image = [UIImage imageWithData:data];
-    } else {
-        image = [[UIImage alloc] init];
+        return [UIImage imageWithData:data];
     }
-    
-    return image;
+    return nil;
 }
+
 - (void)deleteAllEvents {
     NSFetchRequest *allEvents = [[NSFetchRequest alloc] init];
     [allEvents setEntity:[NSEntityDescription entityForName:kEventEntityName inManagedObjectContext:self.managedObjectContext]];
@@ -386,9 +396,11 @@ NSString *const kDeletedKey = @"deleted";
         [self.managedObjectContext deleteObject:event];
     }
 }
+
 - (long)getNextYear {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:[NSDate date]] year] + 1;
 }
+
 #pragma mark - iCloud notifications
 - (void)persistentStoreDidImportUbiquitiousContentChanges:(NSNotification *)changeNotification {
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Syncing...", nil)];
@@ -400,6 +412,7 @@ NSString *const kDeletedKey = @"deleted";
         [SVProgressHUD showSuccessWithStatus:nil];
     }];
 }
+
 - (void)storesWillChange:(NSNotification *)n {
     NSManagedObjectContext *moc = [self managedObjectContext];
     [moc performBlockAndWait:^{
@@ -411,8 +424,10 @@ NSString *const kDeletedKey = @"deleted";
         [moc reset];
     }];
 }
+
 - (void)storesDidChange:(NSNotification *)n {
 }
+
 #pragma mark - Model notifications
 - (void)objectContextDidSave:(NSNotification *)notification {
     // Event inserted
@@ -441,6 +456,7 @@ NSString *const kDeletedKey = @"deleted";
     }
     
 }
+
 - (void)objectContextDidSaveFromiCloud:(NSNotification *)notification {
     // Event inserted
     NSDictionary *insertedObjectIDs = [[notification userInfo] objectForKey:NSInsertedObjectsKey];

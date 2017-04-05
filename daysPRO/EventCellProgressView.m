@@ -19,6 +19,7 @@ static NSInteger kCircleLineWidth = 3;
     [super awakeFromNib];
     [self setupColors];
 }
+
 - (void)setupColors {
     self.backgroundColor = [ThemeManager getBackgroundColor];
     self.circleBackgroundColor = [ThemeManager getCircleBackgroundColor];
@@ -27,6 +28,7 @@ static NSInteger kCircleLineWidth = 3;
     self.metaLabel.textColor = [ThemeManager getThemeColor];
     self.dateLabel.textColor = [ThemeManager getThemeColor];
 }
+
 - (void)drawRect:(CGRect)rect {
     CGFloat startAngle = M_PI * 1.5;
     CGFloat endAngle = startAngle + (M_PI * 2.0);

@@ -24,6 +24,7 @@
     
     return self;
 }
+
 - (void)rotated:(NSNotification *)notification {
     int number = [[notification.userInfo objectForKey:UIApplicationStatusBarOrientationUserInfoKey] intValue];
     if (number == UIInterfaceOrientationPortrait || number == UIInterfaceOrientationPortraitUpsideDown){
@@ -36,6 +37,7 @@
         }];
     }
 }
+
 - (void)changedFrame:(NSNotification *)notification {
     NSValue *value = [notification.userInfo objectForKey:UIApplicationStatusBarFrameUserInfoKey];
     CGRect newRect = [value CGRectValue];

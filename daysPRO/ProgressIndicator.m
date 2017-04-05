@@ -29,12 +29,14 @@ static NSString *kColorAnimationKey = @"strokeColor";
     }
     return self;
 }
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self setupColors];
     UIImpactFeedbackGenerator *taptic = [[UIImpactFeedbackGenerator alloc] init];
     [taptic prepare];
 }
+
 - (void)setupColors {
     self.backgroundColor = [UIColor clearColor];
     self.circleBackgroundColor = [ThemeManager getCircleBackgroundColor];
@@ -43,11 +45,13 @@ static NSString *kColorAnimationKey = @"strokeColor";
     self.progressLabel.textColor = self.textInsideCircleColor;
     self.metaLabel.textColor = self.textInsideCircleColor;
 }
+
 - (void)drawRect:(CGRect)rect {
     // Draw circles
     [self drawInnerCircleBackgroundIn:rect];
     [self drawInnerCircleProgress:self.percentInnerCircle inRect:rect];
 }
+
 #pragma mark - Draw Circles
 - (void)drawInnerCircleBackgroundIn:(CGRect)rect {
     self.circlePath = [UIBezierPath bezierPath];
@@ -87,6 +91,7 @@ static NSString *kColorAnimationKey = @"strokeColor";
         _blurAdded = true;
     }
 }
+
 - (void)drawInnerCircleProgress:(CGFloat)percent inRect:(CGRect)rect {
     [NSTimer scheduledTimerWithTimeInterval: 0.75
                                                   target: self
@@ -114,10 +119,12 @@ static NSString *kColorAnimationKey = @"strokeColor";
     [self.themeColor setStroke];
     [bezierPath stroke];
 }
+
 - (void)prepareTapticEngine {
     UISelectionFeedbackGenerator *taptic = [[UISelectionFeedbackGenerator alloc] init];
     [taptic prepare];
 }
+
 - (UIBezierPath *)getCircleBezierPath {
     return _circlePath;
 }

@@ -53,6 +53,7 @@
         [self.cachedSupplementaryAttributesByKind setObject:cachedAttribByPath forKey:kind];
     }];
 }
+
 - (NSArray*)layoutAttributesForElementsInRect:(CGRect)rect {
     NSArray * attributes = [super layoutAttributesForElementsInRect:rect];
     
@@ -79,6 +80,7 @@
     
     return attributes;
 }
+
 - (void)prepareForCollectionViewUpdates:(NSArray *)updateItems {
     [super prepareForCollectionViewUpdates:updateItems];
     
@@ -154,6 +156,7 @@
     
     return attributes;
 }
+
 - (void)finalizeCollectionViewUpdates {
     [super finalizeCollectionViewUpdates];
     

@@ -81,6 +81,7 @@ static NSInteger kCellWeightHeightiPad = 242;
     tapGestureRecognizer.delaysTouchesBegan = YES;
     [self.collectionView addGestureRecognizer:tapGestureRecognizer];
 }
+
 - (void)setupColors {
     self.view.backgroundColor = [ThemeManager getBackgroundColor];
     self.collectionView.backgroundColor = [ThemeManager getBackgroundColor];
@@ -90,6 +91,7 @@ static NSInteger kCellWeightHeightiPad = 242;
         self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     }
 }
+
 #pragma mark Notifications
 - (void)registerForNotifications {
     // Model Changed Notification: event added
@@ -104,6 +106,7 @@ static NSInteger kCellWeightHeightiPad = 242;
                                                  name:UIApplicationWillResignActiveNotification
                                                object:nil];
 }
+
 - (void)eventAdded:(NSNotification *)addedNotification {
     if ([[addedNotification.userInfo allKeys][0] isEqual:@"added"]) {
         Event *eventToAdd = [addedNotification.userInfo objectForKey:@"added"];
@@ -112,9 +115,11 @@ static NSInteger kCellWeightHeightiPad = 242;
         [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:index inSection:0]]];
     }
 }
+
 - (void)applicationWillResign {
     [self doneEditing];
 }
+
 #pragma mark Update View
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -144,38 +149,47 @@ static NSInteger kCellWeightHeightiPad = 242;
     
     [UIApplication sharedApplication].shortcutItems = shortcutItems;
 }
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 }
+
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self stopTimer];
 }
+
 - (void)startTimer {
     if ([self.fetchedEventsArray count] && self.timer == nil) {
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateView) userInfo:nil repeats:YES];
     }
 }
+
 - (void)stopTimer {
     if (self.timer) {
         [self.timer invalidate];
         self.timer = nil;
     }
 }
+
 - (void)updateView {
     self.fetchedEventsArray = [NSMutableArray arrayWithArray:[[DataManager sharedManager] getAllEvents]];
     [self.collectionView reloadData];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
 #pragma mark - Status Bar Appearance
 - (BOOL)prefersStatusBarHidden {
     return self.shouldBeHidingStatusBar;
 }
+
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
     return UIStatusBarAnimationSlide;
 }
+
 - (void)hideStatusBar {
     if (self.shouldBeHidingStatusBar == NO) {
         self.shouldBeHidingStatusBar = YES;
@@ -184,6 +198,7 @@ static NSInteger kCellWeightHeightiPad = 242;
         }];
     }
 }
+
 - (void)showStatusBar {
     if (self.shouldBeHidingStatusBar) {
         self.shouldBeHidingStatusBar = NO;
@@ -192,13 +207,16 @@ static NSInteger kCellWeightHeightiPad = 242;
         }];
     }
 }
+
 #pragma mark - UICollectionView Datasource
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     return [self.fetchedEventsArray count];
 }
+
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
     return 1;
 }
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     EventCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"EventCell" forIndexPath:indexPath];
     
@@ -221,6 +239,7 @@ static NSInteger kCellWeightHeightiPad = 242;
     
     return cell;
 }
+
 #pragma mark – UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
@@ -230,6 +249,7 @@ static NSInteger kCellWeightHeightiPad = 242;
     }
     
 }
+
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         return UIEdgeInsetsMake(kMarginTopBottomiPhone, kMarginLeftRightiPhone, kMarginTopBottomiPhone, kMarginLeftRightiPhone);
@@ -237,6 +257,7 @@ static NSInteger kCellWeightHeightiPad = 242;
         return UIEdgeInsetsMake(kMarginTopBottomiPad, kMarginLeftRightiPad, kMarginTopBottomiPad, kMarginLeftRightiPad);
     }
 }
+
 #pragma mark - Navigation
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if ([identifier isEqualToString:@"showEventDetailsView"] && self.editing) {
@@ -245,6 +266,7 @@ static NSInteger kCellWeightHeightiPad = 242;
     
     return YES;
 }
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Pass the selected event to the details view controller.
     if ([segue.identifier isEqualToString:@"showEventDetailsView"]) {
@@ -254,9 +276,11 @@ static NSInteger kCellWeightHeightiPad = 242;
         [Answers logCustomEventWithName:@"Open event" customAttributes:@{@"Name":eventViewController.event.name}];
     }
 }
+
 - (void)showAddEventView {
     [self performSegueWithIdentifier:@"showAddEventView" sender:nil];
 }
+
 #pragma mark - Edit mode
 - (void)longPressGesture:(UIGestureRecognizer *)recognizer {
     if ([recognizer state] == UIGestureRecognizerStateBegan) {
@@ -278,6 +302,7 @@ static NSInteger kCellWeightHeightiPad = 242;
         }
     }
 }
+
 - (void)tapGesture:(UITapGestureRecognizer *)recognizer {
     if ([recognizer state] == UIGestureRecognizerStateEnded) {
         
@@ -289,6 +314,7 @@ static NSInteger kCellWeightHeightiPad = 242;
         }
     }
 }
+
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     if ([gestureRecognizer class] == [UITapGestureRecognizer class] && ![self collectionViewCellForTapAtPoint:[touch locationInView:self.collectionView]]) {
         return YES;
@@ -300,10 +326,12 @@ static NSInteger kCellWeightHeightiPad = 242;
     
     return NO;
 }
+
 - (UICollectionViewCell *)collectionViewCellForTapAtPoint:(CGPoint)tapPoint {
     NSIndexPath *indexPathForTapPoint = [self.collectionView indexPathForItemAtPoint:tapPoint];
     return [self.collectionView cellForItemAtIndexPath:indexPathForTapPoint];
 }
+
 - (IBAction)deleteButton:(UIButton *)sender {
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:(EventCell *)sender.superview.superview];
     [[DataManager sharedManager] deleteEvent:self.fetchedEventsArray[indexPath.row]];
@@ -311,6 +339,7 @@ static NSInteger kCellWeightHeightiPad = 242;
     self.fetchedEventsArray = [NSMutableArray arrayWithArray:[[DataManager sharedManager] getAllEvents]];
     [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
 }
+
 - (void)doneEditing {
     if (self.isEditing) {
         // Replace Add button to Done
@@ -321,13 +350,16 @@ static NSInteger kCellWeightHeightiPad = 242;
         [self updateView];
     }
 }
+
 - (IBAction)add:(id)sender {
     [self showAddEventView];
 }
+
 #pragma mark - Empty
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
     return [UIImage imageNamed:@"placeholder"];
 }
+
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView {
     NSString *text = NSLocalizedString(@"No Events", nil);
     
@@ -336,15 +368,18 @@ static NSInteger kCellWeightHeightiPad = 242;
     
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
+
 - (NSAttributedString *)buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state {
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:17.0f],
                                  NSForegroundColorAttributeName: [ThemeManager getThemeColor]};
     
     return [[NSAttributedString alloc] initWithString:NSLocalizedString(@"New Event", nil) attributes:attributes];
 }
+
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapButton:(UIButton *)button {
     [self showAddEventView];
 }
+
 - (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView {
     return kCollectionViewContentOffsetiPhone;
 }

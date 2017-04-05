@@ -72,6 +72,7 @@
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 - (IBAction)changeImage:(id)sender {
     UIImagePickerController *picker;
     
@@ -100,7 +101,6 @@
                                  {
                                      picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
                                      [self presentViewController:picker animated:YES completion:^{
-                                         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
                                          picker.topViewController.title = NSLocalizedString(@"Select a Picture", nil);
                                          picker.navigationBar.translucent = NO;
                                          picker.allowsEditing = false;
@@ -156,6 +156,7 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     self.eventImageView.image = image;
 }
+
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
