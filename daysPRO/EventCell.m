@@ -30,6 +30,7 @@
 - (void)setupColors {
     self.backgroundColor = [ThemeManager getBackgroundColor];
     self.name.textColor = [ThemeManager getThemeColor];
+    self.deleteButton.tintColor = [ThemeManager getThemeColor];
 }
 - (void)startQuivering {
     if (!self.quiveringAnimation) {

@@ -86,7 +86,7 @@
                                                 <outlet property="progressLabel" destination="SKr-sh-ENd" id="hwL-Dp-jqL"/>
                                             </connections>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kP7-HB-arm" userLabel="Delete Button">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kP7-HB-arm" userLabel="Delete Button">
                                             <rect key="frame" x="32" y="31" width="30" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="IyD-9k-szi"/>
