@@ -21,6 +21,7 @@ class ThemeViewController: UIViewController {
     @IBOutlet weak var themeColorLabel: UILabel!
     @IBOutlet weak var darkModeLabel: UILabel!
     @IBOutlet weak var darkModeSwitch: UISwitch!
+    var themeChanged = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,7 @@ class ThemeViewController: UIViewController {
     }
 
     @IBAction func changeColor(_ sender: Any) {
+        themeChanged = true
         switch sender as! UIButton {
         case redButton:
             UserDefaults.standard.set("FF3B30", forKey: "themeColor")
@@ -82,17 +84,10 @@ class ThemeViewController: UIViewController {
         default:
             UserDefaults.standard.set("FF9500", forKey: "themeColor")
         }
-        
-        let alertController = UIAlertController(title: restartNoticeLabel.text, message: "", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: NSLocalizedString("Relaunch", comment: ""), style: .cancel) { action in
-            UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
-            exit(0)
-        }
-        alertController.addAction(cancel)
-        self.present(alertController, animated: true)
     }
     
     @IBAction func darkModeSwitched(_ sender: Any) {
+        themeChanged = true
         if (sender as! UISwitch).isOn {
             UserDefaults.standard.set("202020", forKey: "backgroundColor")
             UserDefaults.standard.set("522A27", forKey: "circleBackgroundColor")
@@ -111,6 +106,19 @@ class ThemeViewController: UIViewController {
                     UIApplication.shared.setAlternateIconName("light")
                 }
             }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        if themeChanged {
+            let alertController = UIAlertController(title: restartNoticeLabel.text, message: "", preferredStyle: .alert)
+            let relaunchAction = UIAlertAction(title: NSLocalizedString("Relaunch", comment: ""), style: .cancel) { action in
+                UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+                exit(0)
+            }
+            alertController.addAction(relaunchAction)
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true)
         }
     }
 }
