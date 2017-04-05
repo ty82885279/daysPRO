@@ -84,6 +84,7 @@ class ThemeViewController: UIViewController {
         default:
             UserDefaults.standard.set("FF9500", forKey: "themeColor")
         }
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func darkModeSwitched(_ sender: Any) {

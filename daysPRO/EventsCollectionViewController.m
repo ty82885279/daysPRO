@@ -139,7 +139,7 @@ static NSInteger kCellWeightHeightiPad = 242;
 
     for (Event *event in firstFour) {
         NSDictionary *options = [event bestNumberAndText];
-        NSString *number = [[options valueForKey:@"number"] stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        NSString *number = [options valueForKey:@"number"];
         NSString *text = [options valueForKey:@"text"];
         UIApplicationShortcutItem *eventItem = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d", index] localizedTitle:event.name localizedSubtitle:[NSString stringWithFormat:@"%@ %@", number, text] icon:nil userInfo:nil];
         [shortcutItems addObject:eventItem];

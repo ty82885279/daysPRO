@@ -11,7 +11,7 @@
 #import "DataManager.h"
 #import "ThemeManager.h"
 
-@interface EditViewController : UIViewController <UIImagePickerControllerDelegate>
+@interface EditViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property BOOL isEditing;
 
