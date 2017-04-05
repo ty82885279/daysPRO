@@ -10,7 +10,6 @@
 #import "EventCell.h"
 #import "CustomCollectionViewFlowLayout.h"
 #import "AppDelegate.h"
-#import "ESTBlurredStatusBar.h"
 #import "Days_Pro-Swift.h"
 
 static NSInteger kMarginTopBottomiPhone = 12;
