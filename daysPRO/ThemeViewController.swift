@@ -27,9 +27,9 @@ class ThemeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = hexStringToUIColor(hex: UserDefaults.standard.string(forKey: "backgroundColor")!)
-        darkModeSwitch.isOn = UserDefaults.standard.bool(forKey: "darkMode")
-        if UserDefaults.standard.bool(forKey: "darkMode") {
+        self.view.backgroundColor = ThemeManager.getBackgroundColor()
+        darkModeSwitch.isOn = ThemeManager.darkMode()
+        if ThemeManager.darkMode() {
             themeColorLabel.textColor = UIColor.lightText
             restartNoticeLabel.textColor = UIColor.lightText
             darkModeLabel.textColor = UIColor.lightText
@@ -38,23 +38,6 @@ class ThemeViewController: UIViewController {
             restartNoticeLabel.textColor = UIColor.darkText
             darkModeLabel.textColor = UIColor.darkText
         }
-    }
-
-    func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        if ((cString.characters.count) != 6) {
-            return UIColor.gray
-        }
-        
-        var rgbValue:UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
-        
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
     }
     
     override func didReceiveMemoryWarning() {
