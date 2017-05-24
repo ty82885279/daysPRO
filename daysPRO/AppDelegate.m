@@ -21,7 +21,6 @@
     [[DataManager sharedManager] addEventsFromServer];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD setRingRadius:1];
-    [SVProgressHUD setHapticsEnabled:true];
     [SVProgressHUD setMinimumDismissTimeInterval:1];
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"defaultThemeSet"]) {

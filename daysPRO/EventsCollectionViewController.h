@@ -11,7 +11,6 @@
 #import "Event+Helper.h"
 #import "DataManager.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-#import "EditViewController.h"
 
 @interface EventsCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, UIGestureRecognizerDelegate, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 

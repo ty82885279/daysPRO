@@ -7,4 +7,4 @@
 #import "Event+Helper.h"
 #import "ThemeManager.h"
 #import "DataManager.h"
-#import "EditViewController.h"
+#import <SVProgressHUD/SVProgressHUD.h>

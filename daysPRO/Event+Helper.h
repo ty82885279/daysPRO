@@ -11,6 +11,8 @@
 @protocol EventMethods <NSObject>
 
 @required
+- (NSDate *)date;
+- (void)setDate:(NSDate *)date;
 - (CGFloat)progress;
 - (NSInteger)daysLeftToDate:(NSDate *)date;
 - (NSInteger)hoursLeftToDate:(NSDate *)date;
@@ -22,6 +24,8 @@
 
 @interface Event (Helper) <EventMethods>
 
+- (NSDate *)date;
+- (void)setDate:(NSDate *)date;
 - (UIImage *)image;
 - (CGFloat)progress;
 - (NSString *)description;

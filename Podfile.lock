@@ -3,30 +3,23 @@ PODS:
     - Fabric (~> 1.6.3)
   - DZNEmptyDataSet (1.8.1)
   - Fabric (1.6.11)
-  - SVProgressHUD (2.0.3)
+  - ImagePicker (2.1.1)
+  - SVProgressHUD (2.1.2)
 
 DEPENDENCIES:
   - Answers
   - DZNEmptyDataSet
   - Fabric
-  - SVProgressHUD (from `https://github.com/oliverkulpakko/SVProgressHUD.git`, branch `haptics`)
-
-EXTERNAL SOURCES:
-  SVProgressHUD:
-    :branch: haptics
-    :git: https://github.com/oliverkulpakko/SVProgressHUD.git
-
-CHECKOUT OPTIONS:
-  SVProgressHUD:
-    :commit: 1451e0b15cf3de1af9c0a128fc94edffcabcc20a
-    :git: https://github.com/oliverkulpakko/SVProgressHUD.git
+  - ImagePicker
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
   Answers: 6a4d22973d8550808630a55f526055c9eb6d39a2
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  ImagePicker: fe4c699abb56ff03994fa98d8b02e3883ee118be
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: f9098d09659ef7636fcd7937d3cf43a4ee35201a
+PODFILE CHECKSUM: bcefc2ffa2f6e5b456cd5b7225bdc6ddf117378b
 
 COCOAPODS: 1.1.1

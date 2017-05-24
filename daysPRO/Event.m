@@ -14,7 +14,6 @@
 @dynamic name;
 @dynamic details;
 @dynamic startDate;
-@dynamic endDate;
 @dynamic createdDate;
 
 @end

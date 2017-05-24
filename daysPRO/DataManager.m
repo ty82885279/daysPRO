@@ -203,12 +203,11 @@ NSString *const kDeletedKey = @"deleted";
     return [fetchedEvents sortedArrayUsingDescriptors:@[sortDescriptor]];
 }
 
-- (Event *)createEventWithName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details image:(UIImage *)image {
+- (Event *)createEventWithName:(NSString *)name date:(NSDate *)date details:(NSString *)details image:(UIImage *)image {
     Event *newEvent = (Event *)[NSEntityDescription insertNewObjectForEntityForName:kEventEntityName inManagedObjectContext:self.managedObjectContext];
     newEvent.name = name;
     newEvent.details = details;
-    newEvent.startDate = startDate;
-    newEvent.endDate = endDate;
+    newEvent.date = date;
     newEvent.createdDate = [NSDate date];
     newEvent.uuid = [[NSUUID UUID] UUIDString];
     if (image) {
@@ -228,10 +227,9 @@ NSString *const kDeletedKey = @"deleted";
     }
 }
 
-- (Event *)updateEvent:(Event *)event withName:(NSString *)name startDate:(NSDate *)startDate endDate:(NSDate *)endDate details:(NSString *)details image:(UIImage *)image {
+- (Event *)updateEvent:(Event *)event withName:(NSString *)name date:(NSDate *)date details:(NSString *)details image:(UIImage *)image {
     event.name = name;
-    event.startDate = startDate;
-    event.endDate = endDate;
+    event.date = date;
     event.details = details;
     if (image) {
         [self saveImage:image event:event];
@@ -348,20 +346,14 @@ NSString *const kDeletedKey = @"deleted";
                 NSString *uniqueServerEventID = [record valueForKey:@"useID"];
                 NSString *name = [record valueForKey:@"name"];
                 NSString *details = [record valueForKey:@"description"];
-                NSString *startDateString = [record valueForKey:@"startDate"];
-                NSString *endDateString = [record valueForKey:@"endDate"];
+                NSString *dateString = [record valueForKey:@"startDate"];
                 NSString *imageUrl = [record valueForKey:@"imageUrl"];
                 
-                NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:[startDateString intValue]];
-                NSDate *endDate = [NSDate dateWithTimeIntervalSince1970:[endDateString intValue]];
-                
-                NSDate *localStartDate = [NSDate dateWithTimeInterval:[[NSTimeZone systemTimeZone] secondsFromGMT] sinceDate:startDate];
-                NSDate *localEndDate = [NSDate dateWithTimeInterval:[[NSTimeZone systemTimeZone] secondsFromGMT] sinceDate:endDate];
-                
+                NSDate *date = [NSDate dateWithTimeIntervalSince1970:[dateString intValue]];
+                NSDate *localStartDate = [NSDate dateWithTimeInterval:[[NSTimeZone systemTimeZone] secondsFromGMT] sinceDate:date];
                 if (![[NSUserDefaults standardUserDefaults] valueForKey:uniqueServerEventID]) {
                     [self createEventWithName:name
-                                    startDate:localStartDate
-                                      endDate:localEndDate
+                                    date:localStartDate
                                       details:details
                                         image:[self getImageFromURL:imageUrl]];
                     [self saveContext];

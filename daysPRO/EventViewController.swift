@@ -40,8 +40,8 @@ import UIKit
             if let dateLabel = self.dateLabel {
                 let formatter = DateFormatter()
                 formatter.dateStyle = .medium
-                formatter.timeStyle = .none
-                dateLabel.text = formatter.string(from: currentEvent.endDate)
+                formatter.timeStyle = .short
+                dateLabel.text = formatter.string(from: currentEvent.date())
                 dateLabel.textColor = UIColor.white
             }
         }

@@ -11,11 +11,10 @@
 
 @interface Event : NSManagedObject
 
-@property (nonatomic, retain) NSString * uuid;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * details;
-@property (nonatomic, retain) NSDate * startDate;
-@property (nonatomic, retain) NSDate * endDate;
-@property (nonatomic, retain) NSDate * createdDate;
+@property (nonatomic, retain) NSString *uuid;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *details;
+@property (nonatomic, retain) NSDate *startDate;
+@property (nonatomic, retain) NSDate *createdDate;
 
 @end

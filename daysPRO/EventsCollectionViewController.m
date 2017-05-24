@@ -232,7 +232,7 @@ static NSInteger kCellWeightHeightiPad = 242;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterShortStyle];
     
-    cell.progressView.dateLabel.text = [formatter stringFromDate:event.endDate];
+    cell.progressView.dateLabel.text = [formatter stringFromDate:event.date];
 
     [cell.progressView setNeedsDisplay];
     
