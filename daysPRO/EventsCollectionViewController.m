@@ -221,7 +221,7 @@ static NSInteger kCellWeightHeightiPad = 242;
     
     Event *event = self.fetchedEventsArray[indexPath.row];
     cell.name.text = event.name;
-    cell.progressView.percentCircle = [event progress] * 100;
+    cell.progressView.percentCircle = event.progress * 100;
     
     self.isEditing ? [cell startQuivering] : [cell stopQuivering];
     

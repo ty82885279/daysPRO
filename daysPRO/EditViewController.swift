@@ -48,7 +48,7 @@ class EditViewController: UIViewController, ImagePickerDelegate {
     }
     
     @IBAction func save(_ sender: Any) {
-        if self.nameTextField.text == nil {
+        if self.nameTextField.text == "" {
             SVProgressHUD.showError(withStatus: NSLocalizedString("No Name", comment: ""))
             return
         }

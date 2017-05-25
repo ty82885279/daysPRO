@@ -25,7 +25,7 @@ import UIKit
         super.viewWillAppear(true)
         
         if let currentEvent = event {
-            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(setProgress), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 1 / 60, target: self, selector: #selector(setProgress), userInfo: nil, repeats: true)
             
             setProgress()
             self.view.backgroundColor = ThemeManager.getBackgroundColor()

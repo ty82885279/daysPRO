@@ -28,10 +28,17 @@
 }
 
 - (CGFloat)progress {
-    if (self.date && self.date) {
-        NSTimeInterval intervalSinceStart = [self.date timeIntervalSinceDate:self.date];
-        NSTimeInterval intervalSinceNow = [[NSDate date] timeIntervalSinceDate:self.date];
-        return intervalSinceNow / intervalSinceStart;
+    if (self.date && self.createdDate) {
+        NSTimeInterval total = [self.date timeIntervalSince1970] -
+        [self.createdDate timeIntervalSince1970];
+        NSTimeInterval current = [[NSDate date] timeIntervalSince1970] -
+        [self.createdDate timeIntervalSince1970];
+
+        CGFloat progress = (current / total);
+        if (progress < 0) {
+            return 1;
+        }
+        return (current / total);
     } else {
         return 0;
     }
@@ -42,7 +49,7 @@
 }
 
 - (BOOL)isOver {
-    return self.progress > 1;
+    return self.progress == 1;
 }
 
 - (NSInteger)weeksLeftToDate:(NSDate *)date {

@@ -33,8 +33,6 @@ static NSString *kColorAnimationKey = @"strokeColor";
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self setupColors];
-    UIImpactFeedbackGenerator *taptic = [[UIImpactFeedbackGenerator alloc] init];
-    [taptic prepare];
 }
 
 - (void)setupColors {
@@ -93,19 +91,11 @@ static NSString *kColorAnimationKey = @"strokeColor";
 }
 
 - (void)drawInnerCircleProgress:(CGFloat)percent inRect:(CGRect)rect {
-    [NSTimer scheduledTimerWithTimeInterval: 0.75
-                                                  target: self
-                                                selector:@selector(prepareTapticEngine)
-                                                userInfo: nil repeats:true];
-    UISelectionFeedbackGenerator *taptic = [[UISelectionFeedbackGenerator alloc] init];
-    
     CGFloat startAngle = M_PI * 1.5;
     CGFloat endAngle = startAngle + (M_PI * 2);
     
     if (percent > 100) {
         percent = 100;
-    } else {
-        [taptic selectionChanged];
     }
     
     UIBezierPath *bezierPath = [UIBezierPath bezierPath];
@@ -118,11 +108,6 @@ static NSString *kColorAnimationKey = @"strokeColor";
     bezierPath.lineWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) ? kInnnerCircleLineWidthiPhone : kInnnerCircleLineWidthiPad;
     [self.themeColor setStroke];
     [bezierPath stroke];
-}
-
-- (void)prepareTapticEngine {
-    UISelectionFeedbackGenerator *taptic = [[UISelectionFeedbackGenerator alloc] init];
-    [taptic prepare];
 }
 
 - (UIBezierPath *)getCircleBezierPath {
