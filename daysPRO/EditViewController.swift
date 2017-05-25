@@ -54,11 +54,10 @@ class EditViewController: UIViewController, ImagePickerDelegate {
         }
         if (self.event != nil) {
             DataManager.shared().update(event, withName: nameTextField.text, date: self.combinedDate(), details: self.descriptionTextField.text, image: self.imageView.image)
-            DataManager.shared().saveContext()
         } else {
             DataManager.shared().createEvent(withName: nameTextField.text, date: self.combinedDate(), details: self.descriptionTextField.text, image: self.imageView.image)
-            DataManager.shared().saveContext()
         }
+        DataManager.shared().saveContext()
         self.cancel(sender)
     }
     

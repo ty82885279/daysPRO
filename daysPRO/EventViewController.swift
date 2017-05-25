@@ -25,9 +25,9 @@ import UIKit
         super.viewWillAppear(true)
         
         if let currentEvent = event {
-            timer = Timer.scheduledTimer(timeInterval: 1 / 60, target: self, selector: #selector(setProgress), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: 1 / 60, target: self, selector: #selector(self.setProgress), userInfo: nil, repeats: true)
             
-            setProgress()
+            self.setProgress()
             self.view.backgroundColor = ThemeManager.getBackgroundColor()
             
             if let imageView = self.imageView {
@@ -77,7 +77,7 @@ import UIKit
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
-        timer?.invalidate()
+        self.timer?.invalidate()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -25,28 +25,21 @@ class ThemeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         self.view.backgroundColor = ThemeManager.getBackgroundColor()
-        darkModeSwitch.isOn = ThemeManager.darkMode()
+        self.darkModeSwitch.isOn = ThemeManager.darkMode()
         if ThemeManager.darkMode() {
-            themeColorLabel.textColor = UIColor.lightText
-            restartNoticeLabel.textColor = UIColor.lightText
-            darkModeLabel.textColor = UIColor.lightText
+            self.themeColorLabel.textColor = UIColor.lightText
+            self.restartNoticeLabel.textColor = UIColor.lightText
+            self.darkModeLabel.textColor = UIColor.lightText
         } else {
-            themeColorLabel.textColor = UIColor.darkText
-            restartNoticeLabel.textColor = UIColor.darkText
-            darkModeLabel.textColor = UIColor.darkText
+            self.themeColorLabel.textColor = UIColor.darkText
+            self.restartNoticeLabel.textColor = UIColor.darkText
+            self.darkModeLabel.textColor = UIColor.darkText
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @IBAction func changeColor(_ sender: Any) {
-        themeChanged = true
+        self.themeChanged = true
         switch sender as! UIButton {
         case redButton:
             UserDefaults.standard.set("FF3B30", forKey: "themeColor")
@@ -71,7 +64,7 @@ class ThemeViewController: UIViewController {
     }
     
     @IBAction func darkModeSwitched(_ sender: Any) {
-        themeChanged = true
+        self.themeChanged = true
         if (sender as! UISwitch).isOn {
             UserDefaults.standard.set("202020", forKey: "backgroundColor")
             UserDefaults.standard.set("522A27", forKey: "circleBackgroundColor")
@@ -95,7 +88,7 @@ class ThemeViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        if themeChanged {
+        if self.themeChanged {
             let alertController = UIAlertController(title: restartNoticeLabel.text, message: "", preferredStyle: .alert)
             let relaunchAction = UIAlertAction(title: NSLocalizedString("Relaunch", comment: ""), style: .cancel) { action in
                 UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
