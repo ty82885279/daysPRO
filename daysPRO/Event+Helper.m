@@ -73,7 +73,7 @@
 }
 
 - (NSDictionary *)bestNumberAndText {
-    NSInteger progress;
+    NSInteger progress = 0;
     NSString *metaText;
     
     if ([self.date compare:[NSDate date]] == NSOrderedDescending) {
@@ -105,7 +105,7 @@
     } else {
         // Start date is in the past
         // Use labs() to convert -1 to 1
-        if ([self isOver]) {
+        if (self.isOver) {
             if (labs([self daysLeftToDate:self.date]) > 2) {
                 progress = [self daysLeftToDate:self.date];
                 metaText = NSLocalizedString(@"DAYS SINCE", nil);
@@ -119,33 +119,6 @@
                 progress = [self secondsLeftToDate:self.date];
                 metaText = NSLocalizedString(@"SECS SINCE", nil);
             }
-            return @{@"number": [NSString stringWithFormat:@"%li", (long)labs(progress)],
-                     @"text" : metaText};
-        }
-        
-        if ([self weeksLeftToDate:self.date] > 2) {
-            if ([[NSUserDefaults standardUserDefaults] boolForKey:@"weeks"]) {
-                progress = [self weeksLeftToDate:self.date];
-                metaText = NSLocalizedString(@"WKS LEFT", nil);
-            } else {
-                progress = [self daysLeftToDate:self.date];
-                metaText = NSLocalizedString(@"DAYS LEFT", nil);
-            }
-        } else if ([self daysLeftToDate:self.date] > 2) {
-            progress = [self daysLeftToDate:self.date];
-            metaText = NSLocalizedString(@"DAYS LEFT", nil);
-        } else if ([self hoursLeftToDate:self.date] > 2) {
-            progress = [self hoursLeftToDate:self.date];
-            metaText = NSLocalizedString(@"HOURS LEFT", nil);
-        } else if ([self minutesLeftToDate:self.date] > 2) {
-            progress = [self minutesLeftToDate:self.date];
-            metaText = NSLocalizedString(@"MINS LEFT", nil);
-        } else if ([self secondsLeftToDate:self.date] > 0) {
-            progress = [self secondsLeftToDate:self.date];
-            metaText = NSLocalizedString(@"SECS LEFT", nil);
-        } else {
-            progress = 0;
-            metaText = NSLocalizedString(@"DONE", nil);
         }
     }
     
