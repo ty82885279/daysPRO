@@ -7,14 +7,14 @@
 //
 
 import UIKit
-
+import KDCircularProgress
 @objc class EventViewController: UIViewController {
     var event: Event?
     var timer: Timer?
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var progressView: ProgressIndicator!
+    @IBOutlet weak var progressView: KDCircularProgress!
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -29,6 +29,8 @@ import UIKit
             
             self.setProgress()
             self.view.backgroundColor = ThemeManager.getBackgroundColor()
+            self.progressView.trackColor = ThemeManager.getThemeColor()
+            self.progressView.progressColors = [ThemeManager.getCircleBackgroundColor()]
             
             if let imageView = self.imageView {
                 imageView.image = currentEvent.image()
@@ -50,11 +52,7 @@ import UIKit
     func setProgress() {
         if let event = self.event {
             if let progressView = self.progressView {
-                progressView.percentInnerCircle = event.progress() * 100
-                let options = event.bestNumberAndText() as! [String:String]
-                progressView.progressLabel.text = options["number"]
-                progressView.metaLabel.text = options["text"]
-                progressView.setNeedsDisplay()
+                progressView.angle = Double(event.progress() * 360)
             }
         }
     }

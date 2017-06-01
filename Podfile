@@ -5,4 +5,5 @@ target 'Days Pro' do
   pod 'DZNEmptyDataSet'
   pod 'SVProgressHUD'
   pod 'ImagePicker'
+  pod 'KDCircularProgress'
 end

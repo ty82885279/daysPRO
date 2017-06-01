@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,46 +26,10 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pPW-6d-daP">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NtW-n1-HOL" customClass="ProgressIndicator">
-                                <rect key="frame" x="20" y="236" width="335" height="280"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2d-bw-v8d" userLabel="Progress Label">
-                                        <rect key="frame" x="20" y="91" width="295" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="Hx3-tp-BqP"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="70"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zco-C8-snh" userLabel="Meta Label">
-                                        <rect key="frame" x="20" y="155" width="295" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="5wA-9R-zVA"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="N2d-bw-v8d" firstAttribute="top" secondItem="NtW-n1-HOL" secondAttribute="top" constant="91" id="JQq-cb-rPq"/>
-                                    <constraint firstItem="N2d-bw-v8d" firstAttribute="leading" secondItem="zco-C8-snh" secondAttribute="leading" id="Lff-oj-oUg"/>
-                                    <constraint firstItem="N2d-bw-v8d" firstAttribute="leading" secondItem="NtW-n1-HOL" secondAttribute="leading" constant="20" id="aFB-Go-acO"/>
-                                    <constraint firstAttribute="bottom" secondItem="zco-C8-snh" secondAttribute="bottom" constant="104" id="ass-5J-ght"/>
-                                    <constraint firstItem="N2d-bw-v8d" firstAttribute="centerX" secondItem="NtW-n1-HOL" secondAttribute="centerX" id="d3N-bX-SXE"/>
-                                    <constraint firstItem="N2d-bw-v8d" firstAttribute="trailing" secondItem="zco-C8-snh" secondAttribute="trailing" id="n1q-JR-e5L"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="metaLabel" destination="zco-C8-snh" id="RB1-Tz-cOp"/>
-                                    <outlet property="progressLabel" destination="N2d-bw-v8d" id="ROz-hS-s5r"/>
-                                </connections>
-                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="FBd-in-lbD">
-                                <rect key="frame" x="31" y="75" width="313" height="143"/>
+                                <rect key="frame" x="16" y="75" width="339" height="143"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="143" id="AHL-ss-KKE"/>
+                                    <constraint firstAttribute="height" constant="143" id="d8Y-f2-AmG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,24 +41,52 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0n-sX-T37" customClass="KDCircularProgress" customModule="KDCircularProgress">
+                                <rect key="frame" x="35" y="215" width="300" height="300"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="W0n-sX-T37" secondAttribute="height" multiplier="1:1" id="PB5-7u-omL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="-90"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressThickness">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="trackThickness">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="trackColor">
+                                        <color key="value" red="0.29803921570000003" green="0.29803921570000003" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="glowAmount">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundedCorners" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="IBColor1">
+                                        <color key="value" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="NtW-n1-HOL" firstAttribute="trailing" secondItem="DIu-rn-aMV" secondAttribute="trailing" id="3YC-7V-gbe"/>
-                            <constraint firstItem="FBd-in-lbD" firstAttribute="top" secondItem="2Yt-va-7E6" secondAttribute="bottom" constant="11" id="AS0-sy-nCB"/>
-                            <constraint firstItem="pPW-6d-daP" firstAttribute="top" secondItem="3" secondAttribute="top" id="Dh0-ZD-jqF"/>
-                            <constraint firstItem="FBd-in-lbD" firstAttribute="leading" secondItem="3" secondAttribute="leadingMargin" constant="15" id="FB7-R8-snf"/>
-                            <constraint firstItem="pPW-6d-daP" firstAttribute="bottom" secondItem="q7r-qM-Cvc" secondAttribute="top" id="Gac-Ig-Xes"/>
-                            <constraint firstAttribute="bottom" secondItem="NtW-n1-HOL" secondAttribute="bottom" constant="151" id="OvH-NM-Dlx"/>
-                            <constraint firstItem="FBd-in-lbD" firstAttribute="centerX" secondItem="NtW-n1-HOL" secondAttribute="centerX" id="Rxv-ps-su9"/>
-                            <constraint firstAttribute="trailing" secondItem="pPW-6d-daP" secondAttribute="trailing" id="avb-IT-9s6"/>
-                            <constraint firstItem="NtW-n1-HOL" firstAttribute="leading" secondItem="3" secondAttribute="leadingMargin" constant="4" id="c0D-UX-Ebn"/>
-                            <constraint firstItem="pPW-6d-daP" firstAttribute="centerX" secondItem="FBd-in-lbD" secondAttribute="centerX" id="d7X-Um-grM"/>
-                            <constraint firstItem="NtW-n1-HOL" firstAttribute="leading" secondItem="DIu-rn-aMV" secondAttribute="leading" id="gfI-Uh-p6r"/>
-                            <constraint firstAttribute="bottom" secondItem="DIu-rn-aMV" secondAttribute="bottom" constant="20" symbolic="YES" id="hNW-fg-WSN"/>
-                            <constraint firstItem="NtW-n1-HOL" firstAttribute="top" secondItem="FBd-in-lbD" secondAttribute="bottom" constant="18" id="jFw-Nm-SHx"/>
-                            <constraint firstItem="pPW-6d-daP" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="rW1-85-eYL"/>
+                            <constraint firstItem="DIu-rn-aMV" firstAttribute="leading" secondItem="3" secondAttribute="leadingMargin" constant="4" id="59D-u6-rNJ"/>
+                            <constraint firstAttribute="bottom" secondItem="W0n-sX-T37" secondAttribute="bottom" constant="152" id="KB1-DU-S8q"/>
+                            <constraint firstItem="pPW-6d-daP" firstAttribute="top" secondItem="3" secondAttribute="top" id="KXk-cF-TDj"/>
+                            <constraint firstItem="W0n-sX-T37" firstAttribute="leading" secondItem="3" secondAttribute="leadingMargin" constant="19" id="NYr-eZ-RFL"/>
+                            <constraint firstItem="FBd-in-lbD" firstAttribute="leading" secondItem="3" secondAttribute="leadingMargin" id="bPi-dC-cfs"/>
+                            <constraint firstItem="pPW-6d-daP" firstAttribute="bottom" secondItem="q7r-qM-Cvc" secondAttribute="top" id="fRE-7J-iy6"/>
+                            <constraint firstAttribute="trailing" secondItem="pPW-6d-daP" secondAttribute="trailing" id="l87-Qy-QNU"/>
+                            <constraint firstAttribute="bottom" secondItem="DIu-rn-aMV" secondAttribute="bottom" constant="20" symbolic="YES" id="o4U-xT-Pbd"/>
+                            <constraint firstItem="pPW-6d-daP" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="oLW-Pc-A80"/>
+                            <constraint firstItem="FBd-in-lbD" firstAttribute="centerX" secondItem="W0n-sX-T37" secondAttribute="centerX" id="p1k-iQ-2BM"/>
+                            <constraint firstItem="FBd-in-lbD" firstAttribute="trailing" secondItem="DIu-rn-aMV" secondAttribute="trailing" id="u6D-3T-ezv"/>
+                            <constraint firstItem="FBd-in-lbD" firstAttribute="top" secondItem="2Yt-va-7E6" secondAttribute="bottom" constant="11" id="vfq-DL-Ovh"/>
+                            <constraint firstItem="pPW-6d-daP" firstAttribute="centerX" secondItem="DIu-rn-aMV" secondAttribute="centerX" id="w07-pq-Lm1"/>
+                            <constraint firstItem="W0n-sX-T37" firstAttribute="top" secondItem="2Yt-va-7E6" secondAttribute="bottom" constant="151" id="zAa-YQ-6U9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7Oo-Cp-SgA">
@@ -115,14 +108,13 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="dateLabel" destination="DIu-rn-aMV" id="Abq-PN-Rzw"/>
                         <outlet property="deleteButton" destination="b7K-DA-Hq9" id="tGQ-gl-2M8"/>
                         <outlet property="editButton" destination="9Kx-76-gvq" id="egX-Mx-IUI"/>
                         <outlet property="imageView" destination="pPW-6d-daP" id="cW2-pl-QQz"/>
                         <outlet property="nameLabel" destination="FBd-in-lbD" id="lbK-DA-f1X"/>
-                        <outlet property="progressView" destination="NtW-n1-HOL" id="MX5-nB-UXa"/>
+                        <outlet property="progressView" destination="W0n-sX-T37" id="CtS-Tf-te7"/>
                         <outlet property="shareButton" destination="4wa-Ij-2LZ" id="Mmd-9M-KFy"/>
                     </connections>
                 </viewController>
@@ -135,7 +127,7 @@
         <scene sceneID="6wM-dL-zns">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="cjh-Jl-h0H" customClass="EventsCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="3ZP-2q-OY7">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" indicatorStyle="white" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="3ZP-2q-OY7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <gestureRecognizers/>
@@ -604,7 +596,7 @@
             <objects>
                 <navigationController storyboardIdentifier="addEventNC" automaticallyAdjustsScrollViewInsets="NO" id="7kO-RI-vHG" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="98O-YW-pXa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="98O-YW-pXa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">

@@ -4,6 +4,7 @@ PODS:
   - DZNEmptyDataSet (1.8.1)
   - Fabric (1.6.11)
   - ImagePicker (2.1.1)
+  - KDCircularProgress (1.5.2)
   - SVProgressHUD (2.1.2)
 
 DEPENDENCIES:
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - Fabric
   - ImagePicker
+  - KDCircularProgress
   - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -18,8 +20,9 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   ImagePicker: fe4c699abb56ff03994fa98d8b02e3883ee118be
+  KDCircularProgress: 12f677b2deb02409ab48c6cae1898d146b8ad549
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: bcefc2ffa2f6e5b456cd5b7225bdc6ddf117378b
+PODFILE CHECKSUM: 5d910348c39c40438d5bc8d4cf9197e45bce3b81
 
 COCOAPODS: 1.1.1
