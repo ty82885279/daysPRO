@@ -27,8 +27,8 @@ class EditViewController: UIViewController, ImagePickerDelegate {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         if let currentEvent = self.event {
-            self.datePicker.date = currentEvent.date()
-            self.timePicker.date = self.time(date: currentEvent.date())
+            self.datePicker.date = currentEvent.startDate
+            self.timePicker.date = self.time(date: currentEvent.startDate)
             
             self.nameTextField.text = currentEvent.name
             self.descriptionTextField.text = currentEvent.details

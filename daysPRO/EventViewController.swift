@@ -43,7 +43,7 @@ import KDCircularProgress
                 let formatter = DateFormatter()
                 formatter.dateStyle = .medium
                 formatter.timeStyle = .short
-                dateLabel.text = formatter.string(from: currentEvent.date())
+                dateLabel.text = formatter.string(from: currentEvent.startDate)
                 dateLabel.textColor = UIColor.white
             }
         }

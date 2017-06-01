@@ -94,9 +94,9 @@
 - (UILocalNotification *)createNotificationForEvent:(Event *)event {
     NSString *notificationTitle = NSLocalizedString(@"is happening today", nil);
     // Create notification only for event that are going to end in the future
-    if ([event.date compare:[NSDate date]] == NSOrderedDescending) {
+    if ([event.startDate compare:[NSDate date]] == NSOrderedDescending) {
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = event.date;
+        localNotification.fireDate = event.startDate;
         localNotification.alertBody = [NSString stringWithFormat:@"%@ %@.", event.name, notificationTitle];
         localNotification.timeZone = [NSTimeZone systemTimeZone];
         localNotification.alertAction = NSLocalizedString(@"check", nil);

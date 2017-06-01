@@ -8,24 +8,8 @@
 
 #import "Event.h"
 
-@protocol EventMethods <NSObject>
+@interface Event (Helper)
 
-@required
-- (NSDate *)date;
-- (void)setDate:(NSDate *)date;
-- (CGFloat)progress;
-- (NSInteger)daysLeftToDate:(NSDate *)date;
-- (NSInteger)hoursLeftToDate:(NSDate *)date;
-- (NSInteger)minutesLeftToDate:(NSDate *)date;
-- (NSInteger)secondsLeftToDate:(NSDate *)date;
-- (NSDictionary *)bestNumberAndText;
-@end
-
-
-@interface Event (Helper) <EventMethods>
-
-- (NSDate *)date;
-- (void)setDate:(NSDate *)date;
 - (UIImage *)image;
 - (CGFloat)progress;
 - (NSString *)description;

@@ -9,7 +9,7 @@
 #import "DataManager.h"
 
 static NSString *kModelName = @"AppModel";
-static NSString *kSQLName = @"TimeLeft.sqlite";
+static NSString *kSQLName = @"DAYS.sqlite";
 static NSString *kEventEntityName = @"Event";
 
 NSString *const kEventAddedNotificationName = @"EventAdded";
@@ -133,7 +133,7 @@ NSString *const kDeletedKey = @"deleted";
     NSURL *iCloud = [[NSFileManager defaultManager] URLForUbiquityContainerIdentifier: nil];
     
     if (iCloud) {
-        [options setObject:@"iCloud.com.eaststudios.dayspronew" forKey:NSPersistentStoreUbiquitousContentNameKey];
+        [options setObject:@"iCloud.com.eaststudios.daysproapp" forKey:NSPersistentStoreUbiquitousContentNameKey];
     }
     
     NSURL *documentsDirectory = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory
@@ -198,7 +198,7 @@ NSString *const kDeletedKey = @"deleted";
     
     // Sort events in ascending order
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"endDate" ascending:YES];
-    
+
     // Return Sorted Fetched Events
     return [fetchedEvents sortedArrayUsingDescriptors:@[sortDescriptor]];
 }
@@ -207,7 +207,8 @@ NSString *const kDeletedKey = @"deleted";
     Event *newEvent = (Event *)[NSEntityDescription insertNewObjectForEntityForName:kEventEntityName inManagedObjectContext:self.managedObjectContext];
     newEvent.name = name;
     newEvent.details = details;
-    newEvent.date = date;
+    newEvent.startDate = date;
+    newEvent.endDate = date;
     newEvent.createdDate = [NSDate date];
     newEvent.uuid = [[NSUUID UUID] UUIDString];
     if (image) {
@@ -229,7 +230,8 @@ NSString *const kDeletedKey = @"deleted";
 
 - (Event *)updateEvent:(Event *)event withName:(NSString *)name date:(NSDate *)date details:(NSString *)details image:(UIImage *)image {
     event.name = name;
-    event.date = date;
+    event.startDate = date;
+    event.endDate = date;
     event.details = details;
     if (image) {
         [self saveImage:image event:event];
