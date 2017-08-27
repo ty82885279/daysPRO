@@ -9,7 +9,7 @@
 #import "DataManager.h"
 
 static NSString *kModelName = @"AppModel";
-static NSString *kSQLName = @"DAYS.sqlite";
+static NSString *kSQLName = @"TimeLeft.sqlite";
 static NSString *kEventEntityName = @"Event";
 
 NSString *const kEventAddedNotificationName = @"EventAdded";
