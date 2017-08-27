@@ -149,30 +149,6 @@ static NSInteger kCellWeightHeightiPad = 242;
     [UIApplication sharedApplication].shortcutItems = shortcutItems;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    //Check if older version of the app was installed
-    NSString *documentsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    
-    NSString *oldFile = [documentsPath stringByAppendingPathComponent:@"TimeLeft.sqlite"];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:oldFile]) {
-        UIAlertController *alertController = [UIAlertController
-                                              alertControllerWithTitle:@"Broken Database"
-                                              message:@"Last update (4.0) broke the app's database and it had to be reset. All your events were deleted. Sorry for the inconvenience."
-                                              preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *ok = [UIAlertAction
-                             actionWithTitle:NSLocalizedString(@"OK", nil)
-                             style:UIAlertActionStyleDefault
-                             handler:^(UIAlertAction *action) {
-                                 [[NSFileManager defaultManager] removeItemAtPath:oldFile error:nil];
-                             }];
-        
-        [alertController addAction:ok];
-        
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
-}
-
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self stopTimer];
